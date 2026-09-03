@@ -1,0 +1,326 @@
+{
+  "system": {
+    "name": "Status Radar",
+    "tagline": "Real-time multi-cloud & AI infrastructure reliability radar",
+    "company": "Status Radar",
+    "url": "https://status.example.com",
+    "supportUrl": "https://help.example.com",
+    "status": "operational",
+    "statusMessage": "All Core Systems Operational",
+    "lastUpdated": "2026-09-04T02:40:00Z",
+    "refreshIntervalSeconds": 30,
+    "currentMetrics": {
+      "overallUptime30d": "99.98%",
+      "averageLatencyMs": 142,
+      "activeIncidentsCount": 0,
+      "upcomingMaintenanceCount": 1
+    }
+  },
+  "providers": [
+    { "id": "all", "name": "Unified Overview", "icon": "layers" },
+    { "id": "gemini", "name": "Google Gemini", "url": "https://status.gemini.com", "icon": "gemini", "status": "operational" },
+    { "id": "openai", "name": "OpenAI", "url": "https://status.openai.com", "icon": "cpu", "status": "operational" },
+    { "id": "claude", "name": "Anthropic Claude", "url": "https://status.claude.com", "icon": "sparkles", "status": "operational" },
+    { "id": "github", "name": "GitHub", "url": "https://www.githubstatus.com", "icon": "github", "status": "operational" },
+    { "id": "hetzner", "name": "Hetzner Cloud", "url": "https://status.hetzner.com", "icon": "server", "status": "operational" },
+    { "id": "core", "name": "Core Platform", "url": "#", "icon": "shield", "status": "operational" }
+  ],
+  "categories": [
+    {
+      "id": "ai-models",
+      "name": "Generative AI & Inference Engines",
+      "description": "Large language models, multimodal inference endpoints, and reasoning APIs",
+      "services": [
+        {
+          "id": "gemini-api",
+          "providerId": "gemini",
+          "name": "Google Gemini API & Studio",
+          "description": "Gemini 1.5 Pro, Flash, multimodal token generation and Google AI Studio",
+          "status": "operational",
+          "uptime90d": 99.98,
+          "currentLatencyMs": 128,
+          "components": [
+            { "id": "gemini-15-pro", "name": "Gemini 1.5 Pro (Inference)", "status": "operational" },
+            { "id": "gemini-15-flash", "name": "Gemini 1.5 Flash (Low-Latency)", "status": "operational" },
+            { "id": "gemini-embed", "name": "Text & Multimodal Embeddings", "status": "operational" },
+            { "id": "ai-studio", "name": "Google AI Studio Developer Portal", "status": "operational" }
+          ]
+        },
+        {
+          "id": "openai-api",
+          "providerId": "openai",
+          "name": "OpenAI API Platform",
+          "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
+          "status": "operational",
+          "uptime90d": 99.95,
+          "currentLatencyMs": 154,
+          "components": [
+            { "id": "gpt-4o", "name": "GPT-4o / GPT-4o-mini Inference", "status": "operational" },
+            { "id": "o1-reasoning", "name": "o1 Series Reasoning Engine", "status": "operational" },
+            { "id": "openai-realtime", "name": "Realtime Audio & Speech API", "status": "operational" },
+            { "id": "chatgpt-web", "name": "ChatGPT Web & Mobile Interface", "status": "operational" }
+          ]
+        },
+        {
+          "id": "claude-api",
+          "providerId": "claude",
+          "name": "Anthropic Claude Platform",
+          "description": "Claude 3.5 Sonnet, Claude 3.5 Haiku, Artifacts & Anthropic Console",
+          "status": "operational",
+          "uptime90d": 99.97,
+          "currentLatencyMs": 139,
+          "components": [
+            { "id": "claude-sonnet", "name": "Claude 3.5 Sonnet API", "status": "operational" },
+            { "id": "claude-haiku", "name": "Claude 3.5 Haiku API", "status": "operational" },
+            { "id": "claude-artifacts", "name": "Claude.ai Web App & Artifacts", "status": "operational" },
+            { "id": "anthropic-console", "name": "Anthropic Console & Billing", "status": "operational" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "developer-tools",
+      "name": "Developer Ecosystem & Code Services",
+      "description": "Version control, CI/CD pipelines, package registries and copilot coding assistants",
+      "services": [
+        {
+          "id": "github-core",
+          "providerId": "github",
+          "name": "GitHub Core Services",
+          "description": "Git repository operations, Pull Requests, Webhooks and REST/GraphQL APIs",
+          "status": "operational",
+          "uptime90d": 99.99,
+          "currentLatencyMs": 85,
+          "components": [
+            { "id": "git-ops", "name": "Git SSH & HTTPS Operations", "status": "operational" },
+            { "id": "github-api", "name": "GitHub REST & GraphQL API", "status": "operational" },
+            { "id": "github-webhooks", "name": "Webhook Deliveries & Events", "status": "operational" },
+            { "id": "github-issues", "name": "Issues, Projects & Pull Requests", "status": "operational" }
+          ]
+        },
+        {
+          "id": "github-compute",
+          "providerId": "github",
+          "name": "GitHub Compute & Automation",
+          "description": "GitHub Actions runners, Codespaces, and GitHub Copilot completions",
+          "status": "operational",
+          "uptime90d": 99.92,
+          "currentLatencyMs": 112,
+          "components": [
+            { "id": "gh-actions", "name": "GitHub Actions Workflow Runners", "status": "operational" },
+            { "id": "gh-copilot", "name": "GitHub Copilot Completion & Chat", "status": "operational" },
+            { "id": "gh-codespaces", "name": "GitHub Codespaces Cloud Environments", "status": "operational" },
+            { "id": "gh-packages", "name": "GitHub Packages & Container Registry", "status": "operational" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cloud-infrastructure",
+      "name": "Cloud Compute & Datacenter Fabric",
+      "description": "Bare-metal servers, cloud compute nodes, software-defined networking and block storage",
+      "services": [
+        {
+          "id": "hetzner-cloud",
+          "providerId": "hetzner",
+          "name": "Hetzner Cloud & Compute Nodes",
+          "description": "CX/CPX/CAX virtual machines, volume storage, snapshots, and load balancers",
+          "status": "operational",
+          "uptime90d": 99.99,
+          "currentLatencyMs": 42,
+          "components": [
+            { "id": "hz-falkenstein", "name": "Datacenter Park FSN1 (Falkenstein, DE)", "status": "operational" },
+            { "id": "hz-nuremberg", "name": "Datacenter Park NBG1 (Nuremberg, DE)", "status": "operational" },
+            { "id": "hz-helsinki", "name": "Datacenter Park HEL1 (Helsinki, FI)", "status": "operational" },
+            { "id": "hz-ashburn", "name": "Datacenter Park ASH (Ashburn, US)", "status": "operational" },
+            { "id": "hz-network", "name": "Core AS24940 Backbone Network", "status": "operational" }
+          ]
+        },
+        {
+          "id": "core-edge",
+          "providerId": "core",
+          "name": "Global Edge Network & DNS",
+          "description": "Anycast DNS routing, DDoS shield, TLS termination and static asset CDN",
+          "status": "operational",
+          "uptime90d": 100.0,
+          "currentLatencyMs": 24,
+          "components": [
+            { "id": "edge-na", "name": "North America Edge Gateways (US-East / US-West)", "status": "operational" },
+            { "id": "edge-eu", "name": "Europe Edge Gateways (Frankfurt / London)", "status": "operational" },
+            { "id": "edge-apac", "name": "Asia-Pacific Edge Gateways (Tokyo / Singapore)", "status": "operational" },
+            { "id": "anycast-dns", "name": "Global Anycast Authoritative DNS", "status": "operational" }
+          ]
+        }
+      ]
+    }
+  ],
+  "incidents": {
+    "active": [],
+    "past": [
+      {
+        "id": "inc-2026-08-28-1",
+        "title": "Elevated latency on Gemini 1.5 Pro Europe regional endpoint",
+        "providerId": "gemini",
+        "severity": "minor",
+        "status": "resolved",
+        "affectedServices": ["Google Gemini API & Studio", "Gemini 1.5 Pro (Inference)"],
+        "createdAt": "2026-08-28T14:15:00Z",
+        "resolvedAt": "2026-08-28T15:42:00Z",
+        "updates": [
+          {
+            "stage": "resolved",
+            "timestamp": "2026-08-28T15:42:00Z",
+            "message": "Traffic rebalancing has completed across European accelerator clusters. All latency percentiles have normalized to standard operational targets."
+          },
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-08-28T15:05:00Z",
+            "message": "Mitigation applied: Traffic was rerouted to secondary cluster capacity. Error rates have returned to 0.01%. Continuing to monitor peak throughput."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-08-28T14:32:00Z",
+            "message": "The root cause was identified as a localized node pool scheduler desynchronization following a routine TPU firmware roll-out."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-08-28T14:15:00Z",
+            "message": "We are investigating reports of elevated p99 latency affecting Gemini 1.5 Pro requests routed to the europe-west4 region."
+          }
+        ]
+      },
+      {
+        "id": "inc-2026-08-19-1",
+        "title": "GitHub Actions queue delays in US-East runners",
+        "providerId": "github",
+        "severity": "minor",
+        "status": "resolved",
+        "affectedServices": ["GitHub Compute & Automation", "GitHub Actions Workflow Runners"],
+        "createdAt": "2026-08-19T09:20:00Z",
+        "resolvedAt": "2026-08-19T10:15:00Z",
+        "updates": [
+          {
+            "stage": "resolved",
+            "timestamp": "2026-08-19T10:15:00Z",
+            "message": "Queued jobs have cleared and standard runner dispatch times are fully restored."
+          },
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-08-19T09:50:00Z",
+            "message": "Additional runner capacity provisioned in US-East. Backlog is rapidly draining."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-08-19T09:35:00Z",
+            "message": "A transient hypervisor provisioning bottleneck in our hosted runner pool resulted in elevated queue wait times."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-08-19T09:20:00Z",
+            "message": "We are actively investigating intermittent queuing delays for GitHub Actions workflows targeting Ubuntu-latest runners."
+          }
+        ]
+      },
+      {
+        "id": "inc-2026-08-05-1",
+        "title": "Anthropic Claude API rate limiting anomalies",
+        "providerId": "claude",
+        "severity": "minor",
+        "status": "resolved",
+        "affectedServices": ["Anthropic Claude Platform", "Claude 3.5 Sonnet API"],
+        "createdAt": "2026-08-05T18:00:00Z",
+        "resolvedAt": "2026-08-05T18:45:00Z",
+        "updates": [
+          {
+            "stage": "resolved",
+            "timestamp": "2026-08-05T18:45:00Z",
+            "message": "The rate-limiter token bucket sync configuration was rolled back. All tier allowances are properly enforced without false-positive 429s."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-08-05T18:00:00Z",
+            "message": "Some API consumers on Tier 4 and Tier 5 organizations may have experienced sporadic HTTP 429 responses below expected quota limits."
+          }
+        ]
+      }
+    ]
+  },
+  "maintenances": [
+    {
+      "id": "maint-2026-09-12-1",
+      "title": "Scheduled Backbone Network Maintenance - Hetzner Falkenstein",
+      "providerId": "hetzner",
+      "status": "scheduled",
+      "affectedServices": ["Hetzner Cloud & Compute Nodes", "Datacenter Park FSN1 (Falkenstein, DE)"],
+      "scheduledStart": "2026-09-12T01:00:00Z",
+      "scheduledEnd": "2026-09-12T04:00:00Z",
+      "description": "Routine core router optical transceiver upgrades in datacenter FSN1. Redundant secondary routes will carry live production traffic; minimal packet loss (< 30ms) may occur during BGP route convergence."
+    }
+  ],
+  "metrics": {
+    "latency": {
+      "unit": "ms",
+      "current": 142,
+      "p50": 118,
+      "p95": 210,
+      "p99": 345,
+      "series24h": [
+        { "time": "03:00", "value": 138 },
+        { "time": "05:00", "value": 132 },
+        { "time": "07:00", "value": 140 },
+        { "time": "09:00", "value": 156 },
+        { "time": "11:00", "value": 164 },
+        { "time": "13:00", "value": 158 },
+        { "time": "15:00", "value": 152 },
+        { "time": "17:00", "value": 148 },
+        { "time": "19:00", "value": 144 },
+        { "time": "21:00", "value": 139 },
+        { "time": "23:00", "value": 141 },
+        { "time": "01:00", "value": 142 }
+      ],
+      "series7d": [
+        { "time": "Aug 29", "value": 148 },
+        { "time": "Aug 30", "value": 142 },
+        { "time": "Aug 31", "value": 139 },
+        { "time": "Sep 01", "value": 144 },
+        { "time": "Sep 02", "value": 141 },
+        { "time": "Sep 03", "value": 140 },
+        { "time": "Sep 04", "value": 142 }
+      ],
+      "series30d": [
+        { "time": "Week 1", "value": 146 },
+        { "time": "Week 2", "value": 149 },
+        { "time": "Week 3", "value": 143 },
+        { "time": "Week 4", "value": 142 }
+      ]
+    },
+    "uptime": {
+      "unit": "%",
+      "current": 99.98,
+      "series24h": [
+        { "time": "03:00", "value": 100 },
+        { "time": "07:00", "value": 100 },
+        { "time": "11:00", "value": 99.97 },
+        { "time": "15:00", "value": 100 },
+        { "time": "19:00", "value": 100 },
+        { "time": "23:00", "value": 100 },
+        { "time": "01:00", "value": 100 }
+      ],
+      "series7d": [
+        { "time": "Aug 29", "value": 99.98 },
+        { "time": "Aug 30", "value": 100 },
+        { "time": "Aug 31", "value": 100 },
+        { "time": "Sep 01", "value": 99.99 },
+        { "time": "Sep 02", "value": 100 },
+        { "time": "Sep 03", "value": 100 },
+        { "time": "Sep 04", "value": 100 }
+      ],
+      "series30d": [
+        { "time": "Week 1", "value": 99.94 },
+        { "time": "Week 2", "value": 99.98 },
+        { "time": "Week 3", "value": 99.99 },
+        { "time": "Week 4", "value": 100.0 }
+      ]
+    }
+  }
+}

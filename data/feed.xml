@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cloud &amp; AI Status Radar - Incident Feed</title>
+    <link>https://status.example.com</link>
+    <description>Live incident reports, maintenance windows, and reliability notices across AI platforms and cloud services</description>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 04 Sep 2026 02:40:00 +0000</lastBuildDate>
+    <atom:link href="https://status.example.com/data/feed.xml" rel="self" type="application/rss+xml" />
+
+    <item>
+      <title>[Resolved] Elevated latency on Gemini 1.5 Pro Europe regional endpoint</title>
+      <link>https://status.example.com#inc-2026-08-28-1</link>
+      <guid isPermaLink="false">inc-2026-08-28-1</guid>
+      <pubDate>Fri, 28 Aug 2026 15:42:00 +0000</pubDate>
+      <description>Traffic rebalancing has completed across European accelerator clusters. All latency percentiles have normalized to standard operational targets.</description>
+    </item>
+
+    <item>
+      <title>[Resolved] GitHub Actions queue delays in US-East runners</title>
+      <link>https://status.example.com#inc-2026-08-19-1</link>
+      <guid isPermaLink="false">inc-2026-08-19-1</guid>
+      <pubDate>Wed, 19 Aug 2026 10:15:00 +0000</pubDate>
+      <description>Queued jobs have cleared and standard runner dispatch times are fully restored.</description>
+    </item>
+
+    <item>
+      <title>[Resolved] Anthropic Claude API rate limiting anomalies</title>
+      <link>https://status.example.com#inc-2026-08-05-1</link>
+      <guid isPermaLink="false">inc-2026-08-05-1</guid>
+      <pubDate>Wed, 05 Aug 2026 18:45:00 +0000</pubDate>
+      <description>The rate-limiter token bucket sync configuration was rolled back. All tier allowances are properly enforced without false-positive 429s.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Status Radar - Real-Time AI & Cloud Infrastructure Reliability</title>
+
+  <meta name="description" content="Unified live reliability monitoring across Gemini, OpenAI, Claude, GitHub, Hetzner, and core infrastructure with 90-day uptime history and incident tracking." />
+  <meta name="theme-color" content="#2563eb" />
+
+  <!-- OpenGraph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Status Radar - Real-Time AI & Cloud Infrastructure Reliability" />
+  <meta property="og:description" content="Unified live reliability monitoring across Gemini, OpenAI, Claude, GitHub, Hetzner, and core cloud infrastructure." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="alternate" type="application/rss+xml" title="Status Radar Incident Feed" href="./data/feed.xml" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="stylesheet" href="./css/components.css" />
+  <link rel="stylesheet" href="./css/animations.css" />
+</head>
+<body>
+  <!-- Header & Hero Mount -->
+  <div id="header-mount"></div>
+
+  <!-- Main Content Wrap -->
+  <main class="main-content" id="main-content">
+    <!-- Key Reliability Summary Cards -->
+    <div id="metrics-summary-mount"></div>
+
+    <!-- Active Scheduled Maintenances -->
+    <div id="maintenance-mount"></div>
+
+    <!-- Performance & Latency Charts -->
+    <div id="metrics-chart-mount"></div>
+
+    <!-- Services & 90-Day Uptime Strips -->
+    <div id="services-mount"></div>
+
+    <!-- Active & Past Incident Timelines -->
+    <div id="incidents-mount"></div>
+  </main>
+
+  <!-- Modals & Simulator Drawers -->
+  <div id="modal-mount"></div>
+  <div id="simulator-mount"></div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <p style="font-weight: 600; color: var(--text-primary);">Status Radar</p>
+        <p style="font-size: 0.8rem; margin-top: 2px;">Real-time multi-provider reliability and availability monitoring.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="./data/status.json" target="_blank" rel="noopener">Raw JSON API</a>
+        <a href="./data/feed.xml" target="_blank" rel="noopener">RSS Feed</a>
+        <a href="https://status.gemini.com" target="_blank" rel="noopener">Gemini</a>
+        <a href="https://status.openai.com" target="_blank" rel="noopener">OpenAI</a>
+        <a href="https://status.claude.com" target="_blank" rel="noopener">Claude</a>
+        <a href="https://www.githubstatus.com" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://status.hetzner.com" target="_blank" rel="noopener">Hetzner</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Module Entrypoint -->
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

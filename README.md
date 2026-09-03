@@ -149,7 +149,24 @@ statuses/
 
 ## 🚢 Deployment Options
 
+- **usectl / Docker / PaaS (with PostgreSQL)**:
+  1. Add a PostgreSQL instance in your `usectl` project.
+  2. Deploy this repository using the included [`Dockerfile`](file:///Users/giorginizharadze/Documents/Projects/statuses/Dockerfile).
+  3. Inject the database connection variable:
+     ```bash
+     DATABASE_URL=postgresql://user:password@postgres-host:5432/dbname
+     ```
+  4. The container automatically:
+     - Connects to PostgreSQL.
+     - Auto-creates the `subscribers` table if it doesn't already exist.
+     - Persists all email and webhook subscriptions straight to Postgres.
+     - Starts the background status polling worker every 5 minutes to keep Gemini, OpenAI, Claude, GitHub, and Hetzner statuses up to date!
+
 - **GitHub Pages**: Push this repository to GitHub, go to *Settings ➔ Pages ➔ Source: GitHub Actions*. The included `.github/workflows/status-sync.yml` handles everything automatically.
 - **Cloudflare Pages**: Connect your Git repo or run `npx wrangler pages deploy .`.
 - **Vercel / Netlify**: Deploy as a static site with build command left empty and output directory set to `.`.
+- **Docker Compose (Local Testing)**:
+  ```bash
+  docker-compose up -d
+  ```
 - **Hetzner / Linux VPS / Nginx**: Place files in `/var/www/status/` and configure Nginx to serve static files.

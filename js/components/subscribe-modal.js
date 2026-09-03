@@ -67,6 +67,19 @@ async function persistSubscription(sub) {
   }
 }
 
+async function removeSubscriptionRemote(target) {
+  removeLocalSubscription(target);
+  try {
+    await fetch("/api/unsubscribe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ target })
+    });
+  } catch (err) {
+    console.log("[Status Radar] Unsubscribed locally:", target);
+  }
+}
+
 export function initSubscribeModal() {
   let modalMount = document.getElementById("modal-mount");
   if (!modalMount) {
@@ -111,9 +124,9 @@ export function initSubscribeModal() {
     `;
 
     mount.querySelectorAll(".remove-sub-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
+      btn.addEventListener("click", async () => {
         const target = btn.getAttribute("data-target");
-        removeLocalSubscription(target);
+        await removeSubscriptionRemote(target);
         renderSavedList();
         showToast(`Unsubscribed ${target}`);
       });

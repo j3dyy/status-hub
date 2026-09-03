@@ -122,16 +122,16 @@ export function renderHeader(store) {
       <nav class="provider-nav-wrap" aria-label="Provider selection">
         <div class="provider-tabs">
           ${providers.map(p => {
-            const isActive = store.selectedProviderId === p.id;
-            const iconSvg = icons[p.icon] ? icons[p.icon](16) : icons.layers(16);
-            return `
+    const isActive = store.selectedProviderId === p.id;
+    const iconSvg = icons[p.icon] ? icons[p.icon](16) : icons.layers(16);
+    return `
               <button class="provider-tab ${isActive ? "active" : ""}" data-provider-id="${p.id}">
                 ${iconSvg}
                 <span>${p.name}</span>
                 ${p.status && p.status !== "operational" ? `<span class="tab-badge" style="background: var(--status-major); color: white;">!</span>` : ""}
               </button>
             `;
-          }).join("")}
+  }).join("")}
         </div>
       </nav>
 
@@ -150,15 +150,8 @@ export function renderHeader(store) {
         </div>
 
         <div class="status-hero-meta">
-          <div class="live-badge">
-            <span class="live-dot" title="Live status active"></span>
-            <span>Live Radar</span>
-          </div>
+        
 
-          <div class="refresh-chip" id="manual-refresh-trigger" title="Click to refresh immediately">
-            <span id="refresh-icon-wrap">${icons.refresh(14)}</span>
-            <span>Next check in <strong id="refresh-countdown">${store.pollSecondsRemaining}s</strong></span>
-          </div>
         </div>
 
         <!-- ===================================================================

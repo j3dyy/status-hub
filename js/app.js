@@ -10,7 +10,6 @@ import { renderMetricsChart } from "./components/metrics-chart.js?v=20260904-2";
 import { renderIncidents } from "./components/incident-timeline.js?v=20260904-2";
 import { renderMaintenance } from "./components/maintenance.js?v=20260904-2";
 import { initSubscribeModal } from "./components/subscribe-modal.js?v=20260904-2";
-import { initAdminSimulator } from "./components/admin-simulator.js?v=20260904-2";
 
 function updateFavicon(status) {
   let favicon = document.querySelector("link[rel='icon']");
@@ -56,9 +55,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Subscribe UI renderer to reactive store changes
   store.subscribe(renderAll);
 
-  // Initialize modals and simulator
+  // Initialize modals
   initSubscribeModal();
-  initAdminSimulator(store);
 
   // Boot application
   await store.init();

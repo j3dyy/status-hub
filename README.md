@@ -23,7 +23,6 @@ Answers the million-dollar question: **"Is it down?"** with the simplest and mos
 - **Scheduled Maintenance with Calendar Export**: Displays upcoming maintenance windows in the user's local timezone with one-click **Add to Calendar (.ics)** downloads.
 - **Live Auto-Refresh Engine**: Continuous client-side polling with live countdown badge, pause/play toggling, and manual instant refresh.
 - **Dark & Light Mode**: Seamless theme switcher with OS system preference detection (`prefers-color-scheme`).
-- **Interactive Live Simulator & Planner**: In-browser floating control drawer (`⚡ Simulator & Plan`) allowing you to simulate outages, test degraded states, and export updated `status.json` with a single click.
 - **Multi-Channel Subscriptions**: Ready-to-wire modals for Email, Slack webhook, Discord webhook, and standard RSS/Atom syndication (`data/feed.xml`).
 
 ---
@@ -49,7 +48,6 @@ flowchart LR
     A[Public Status APIs / Cron Worker\nOpenAI / Claude / GitHub / Hetzner] -->|sync.py every 5 mins| B[(data/status.json)]
     B -->|Static HTTP GET| C[Static Status Frontend]
     C -->|Auto-Poll Every 30s| C
-    D[Live Admin Simulator] -->|In-Memory Overrides| C
 ```
 
 1. **Client-Side Live Polling**:
@@ -73,16 +71,9 @@ flowchart LR
 
 ---
 
-## 🛠️ How to Plan & Customize for Your Own Infrastructure
+## 🛠️ How to Customize for Your Own Infrastructure
 
-### Option 1: Use the In-Browser Live Simulator
-1. Open the page and click **"⚡ Simulator & Plan"** in the bottom-right corner.
-2. Select a preset scenario (e.g. *Gemini Outage*, *OpenAI Degraded*) or inject your own custom incident.
-3. Click **"Download JSON"** or **"Copy status.json"**.
-4. Replace `data/status.json` with your exported file!
-
-### Option 2: Edit `data/status.json` Directly
-The file structure is clean and validated by `data/schema.json`:
+Edit `data/status.json` directly. The file structure is clean and validated by `data/schema.json`:
 
 ```json
 {
@@ -135,8 +126,7 @@ statuses/
 │       ├── metrics-chart.js    # Interactive SVG response time & error rate charts
 │       ├── incident-timeline.js# Active incidents & past post-mortem archive
 │       ├── maintenance.js      # Scheduled windows & ICS calendar export
-│       ├── subscribe-modal.js  # Email, Slack, Discord, RSS subscribe modal
-│       └── admin-simulator.js  # Live status simulation drawer & JSON exporter
+│       └── subscribe-modal.js  # Email, Slack, Discord, RSS subscribe modal
 ├── data/
 │   ├── status.json             # Core status dataset
 │   ├── schema.json             # JSON Schema for CI validation

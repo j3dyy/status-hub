@@ -42,17 +42,33 @@ SYNC_INTERVAL_SECONDS = int(os.environ.get("SYNC_INTERVAL_SECONDS", 300))
 if DATABASE_URL and DATABASE_URL.startswith("postgres://"):
     DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
-# PostgreSQL Connection Pool
+# PostgreSQL Connection Pool and Status Tracker
 db_pool = None
+db_status = {
+    "configured": bool(DATABASE_URL),
+    "connected": False,
+    "engine": "postgresql" if DATABASE_URL else "json",
+    "table_ready": False,
+    "subscribers_count": 0,
+    "error": None,
+    "last_check": None
+}
 
 def init_db():
-    global db_pool
+    global db_pool, db_status
+    db_status["last_check"] = datetime.now(timezone.utc).isoformat()
+
     if not DATABASE_URL:
         print("[INFO] No DATABASE_URL provided. Operating with local JSON subscriber storage.")
+        db_status["configured"] = False
+        db_status["engine"] = "json"
         return
 
     if not psycopg2:
-        print("[WARN] DATABASE_URL provided, but psycopg2 is not installed. Fallback to local JSON.")
+        err_msg = "DATABASE_URL provided, but psycopg2 is not installed. Fallback to local JSON."
+        print(f"[WARN] {err_msg}")
+        db_status["error"] = err_msg
+        db_status["engine"] = "json_fallback"
         return
 
     try:
@@ -71,10 +87,50 @@ def init_db():
             """)
             conn.commit()
         db_pool.putconn(conn)
-        print("[SUCCESS] Connected to PostgreSQL! Subscribers table initialized.")
+        db_status["connected"] = True
+        db_status["engine"] = "postgresql"
+        db_status["table_ready"] = True
+        db_status["error"] = None
+        print("[SUCCESS] Connected to PostgreSQL! Subscribers table initialized and migrated.")
     except Exception as err:
-        print(f"[ERROR] Failed to connect to PostgreSQL: {err}. Fallback to JSON.", file=sys.stderr)
+        err_msg = str(err)
+        print(f"[ERROR] Failed to connect to PostgreSQL: {err_msg}. Fallback to JSON.", file=sys.stderr)
         db_pool = None
+        db_status["connected"] = False
+        db_status["engine"] = "json_fallback"
+        db_status["error"] = err_msg
+
+def get_db_diagnostics():
+    diag = dict(db_status)
+    diag["last_check"] = datetime.now(timezone.utc).isoformat()
+    if db_pool:
+        try:
+            conn = db_pool.getconn()
+            with conn.cursor() as cur:
+                cur.execute("SELECT count(*) FROM subscribers;")
+                diag["subscribers_count"] = cur.fetchone()[0]
+                cur.execute("""
+                    SELECT column_name, data_type 
+                    FROM information_schema.columns 
+                    WHERE table_name = 'subscribers'
+                    ORDER BY ordinal_position;
+                """)
+                diag["schema"] = [{"column": row[0], "type": row[1]} for row in cur.fetchall()]
+            db_pool.putconn(conn)
+            diag["connected"] = True
+            diag["table_ready"] = True
+            diag["error"] = None
+        except Exception as e:
+            diag["connected"] = False
+            diag["error"] = str(e)
+    else:
+        if os.path.exists(SUBSCRIBERS_FILE):
+            try:
+                with open(SUBSCRIBERS_FILE, "r", encoding="utf-8") as f:
+                    diag["subscribers_count"] = len(json.load(f).get("subscribers", []))
+            except Exception:
+                diag["subscribers_count"] = 0
+    return diag
 
 def save_subscriber_postgres(sub_type, target):
     if not db_pool:
@@ -251,7 +307,26 @@ class StatusRadarHandler(SimpleHTTPRequestHandler):
         super().do_GET()
 
     def do_GET(self):
-        if self.path == "/api/subscribers":
+        clean_path = self.path.split("?")[0]
+
+        if clean_path in ("/health", "/api/health", "/api/db-status"):
+            diag = get_db_diagnostics()
+            is_healthy = diag["connected"] or not DATABASE_URL
+            status_code = 200 if is_healthy else 503
+            self._json_response(status_code, {
+                "status": "healthy" if is_healthy else "degraded",
+                "app": "isdown",
+                "timestamp": datetime.now(timezone.utc).isoformat(),
+                "database": diag,
+                "environment": {
+                    "database_url_configured": bool(DATABASE_URL),
+                    "background_sync": ENABLE_BACKGROUND_SYNC,
+                    "port": PORT
+                }
+            })
+            return
+
+        if clean_path == "/api/subscribers":
             subs = None
             if db_pool:
                 subs = list_subscribers_postgres()
@@ -278,9 +353,12 @@ class StatusRadarHandler(SimpleHTTPRequestHandler):
         self.wfile.write(json.dumps(data).encode("utf-8"))
 
     def end_headers(self):
-        # Disable caching for live data so polling updates instantly
-        if self.path.endswith(".json") or self.path.endswith(".xml"):
-            self.send_header("Cache-Control", "no-cache, no-store, must-revalidate")
+        # Disable caching for HTML, JS, CSS, JSON, and XML so deployments update instantly
+        clean_path = self.path.split("?")[0]
+        if (clean_path.endswith(".html") or clean_path.endswith("/") or clean_path == "" or
+            clean_path.endswith(".js") or clean_path.endswith(".css") or 
+            clean_path.endswith(".json") or clean_path.endswith(".xml")):
+            self.send_header("Cache-Control", "no-cache, no-store, must-revalidate, max-age=0")
             self.send_header("Pragma", "no-cache")
             self.send_header("Expires", "0")
         self.send_header("Access-Control-Allow-Origin", "*")

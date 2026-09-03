@@ -295,6 +295,10 @@ class StatusRadarHandler(SimpleHTTPRequestHandler):
             return "application/xml"
         if path.endswith(".svg"):
             return "image/svg+xml"
+        if path.endswith(".png"):
+            return "image/png"
+        if path.endswith(".webmanifest"):
+            return "application/manifest+json"
         return super().guess_type(path)
 
 def run():

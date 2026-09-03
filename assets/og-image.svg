@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080c14" />
+      <stop offset="50%" stop-color="#0e1522" />
+      <stop offset="100%" stop-color="#141e30" />
+    </linearGradient>
+
+    <radialGradient id="radarGlow" cx="80%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#2563eb" stop-opacity="0.35" />
+      <stop offset="60%" stop-color="#1d4ed8" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#080c14" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="logoSweep" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#3b82f6" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#1d4ed8" stop-opacity="0.0" />
+    </linearGradient>
+
+    <filter id="badgeShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.5" />
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1200" height="630" fill="url(#bgGrad)" />
+  <rect width="1200" height="630" fill="url(#radarGlow)" />
+
+  <!-- Subtle Tech Grid -->
+  <g stroke="#1e293b" stroke-width="0.8" opacity="0.4">
+    <line x1="0" y1="126" x2="1200" y2="126" />
+    <line x1="0" y1="252" x2="1200" y2="252" />
+    <line x1="0" y1="378" x2="1200" y2="378" />
+    <line x1="0" y1="504" x2="1200" y2="504" />
+    <line x1="240" y1="0" x2="240" y2="630" />
+    <line x1="480" y1="0" x2="480" y2="630" />
+    <line x1="720" y1="0" x2="720" y2="630" />
+    <line x1="960" y1="0" x2="960" y2="630" />
+  </g>
+
+  <!-- Big Decorative Background Radar Circles (Right Side) -->
+  <g transform="translate(920, 315)">
+    <circle cx="0" cy="0" r="380" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.25" />
+    <circle cx="0" cy="0" r="280" stroke="#3b82f6" stroke-width="1.5" opacity="0.35" />
+    <circle cx="0" cy="0" r="180" stroke="#60a5fa" stroke-width="1.8" opacity="0.5" />
+    <circle cx="0" cy="0" r="80" stroke="#60a5fa" stroke-width="2" opacity="0.7" />
+    
+    <line x1="-400" y1="0" x2="400" y2="0" stroke="#3b82f6" stroke-width="1" opacity="0.3" />
+    <line x1="0" y1="-400" x2="0" y2="400" stroke="#3b82f6" stroke-width="1" opacity="0.3" />
+    
+    <!-- Sweep wedge -->
+    <path d="M 0 0 L 198 -198 A 280 280 0 0 1 280 0 Z" fill="url(#logoSweep)" opacity="0.8" />
+    
+    <!-- Radar blips -->
+    <circle cx="160" cy="-110" r="8" fill="#10b981" />
+    <circle cx="160" cy="-110" r="18" stroke="#10b981" stroke-width="1.5" opacity="0.4" />
+
+    <circle cx="-120" cy="140" r="6" fill="#38bdf8" />
+    <circle cx="210" cy="90" r="7" fill="#10b981" />
+  </g>
+
+  <!-- Left Content Area -->
+  <g transform="translate(80, 80)">
+    <!-- Brand Pill / Live Badge -->
+    <g transform="translate(0, 0)">
+      <rect width="210" height="42" rx="21" fill="#1e293b" stroke="#334155" stroke-width="1.2" />
+      <circle cx="22" cy="21" r="5" fill="#10b981" />
+      <text x="36" y="26" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" letter-spacing="1">LIVE RADAR 24/7</text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="0" y="130" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="78" font-weight="900" letter-spacing="-2">isdown</text>
+    
+    <!-- Tagline & Question -->
+    <text x="0" y="185" fill="#60a5fa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="700">
+      Is ChatGPT, Claude, Gemini, or GitHub Down?
+    </text>
+    <text x="0" y="225" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="400">
+      Instant real-time multi-cloud outage detector &amp; API latency radar.
+    </text>
+
+    <!-- Providers Badges Row -->
+    <g transform="translate(0, 280)">
+      <!-- Gemini Badge -->
+      <g transform="translate(0, 0)" filter="url(#badgeShadow)">
+        <rect width="180" height="52" rx="12" fill="#131b26" stroke="#243042" stroke-width="1.2" />
+        <circle cx="24" cy="26" r="5" fill="#10b981" />
+        <text x="38" y="32" fill="#f1f5f9" font-family="-apple-system, sans-serif" font-size="16" font-weight="600">Google Gemini</text>
+      </g>
+
+      <!-- OpenAI Badge -->
+      <g transform="translate(195, 0)" filter="url(#badgeShadow)">
+        <rect width="150" height="52" rx="12" fill="#131b26" stroke="#243042" stroke-width="1.2" />
+        <circle cx="24" cy="26" r="5" fill="#10b981" />
+        <text x="38" y="32" fill="#f1f5f9" font-family="-apple-system, sans-serif" font-size="16" font-weight="600">OpenAI</text>
+      </g>
+
+      <!-- Claude Badge -->
+      <g transform="translate(360, 0)" filter="url(#badgeShadow)">
+        <rect width="150" height="52" rx="12" fill="#131b26" stroke="#243042" stroke-width="1.2" />
+        <circle cx="24" cy="26" r="5" fill="#10b981" />
+        <text x="38" y="32" fill="#f1f5f9" font-family="-apple-system, sans-serif" font-size="16" font-weight="600">Claude</text>
+      </g>
+
+      <!-- GitHub Badge -->
+      <g transform="translate(525, 0)" filter="url(#badgeShadow)">
+        <rect width="145" height="52" rx="12" fill="#131b26" stroke="#243042" stroke-width="1.2" />
+        <circle cx="24" cy="26" r="5" fill="#10b981" />
+        <text x="38" y="32" fill="#f1f5f9" font-family="-apple-system, sans-serif" font-size="16" font-weight="600">GitHub</text>
+      </g>
+
+      <!-- Hetzner Badge -->
+      <g transform="translate(685, 0)" filter="url(#badgeShadow)">
+        <rect width="150" height="52" rx="12" fill="#131b26" stroke="#243042" stroke-width="1.2" />
+        <circle cx="24" cy="26" r="5" fill="#10b981" />
+        <text x="38" y="32" fill="#f1f5f9" font-family="-apple-system, sans-serif" font-size="16" font-weight="600">Hetzner</text>
+      </g>
+    </g>
+
+    <!-- Bottom URL Bar -->
+    <g transform="translate(0, 395)">
+      <text x="0" y="24" fill="#64748b" font-family="-apple-system, sans-serif" font-size="18" font-weight="500">
+        Free, live updatable radar hosted on
+      </text>
+      <text x="315" y="24" fill="#38bdf8" font-family="-apple-system, sans-serif" font-size="20" font-weight="700">
+        isdown.usectl.com
+      </text>
+    </g>
+  </g>
+</svg>

@@ -150,6 +150,7 @@ export function renderHeader(store) {
             </div>
           </div>
 
+          
           <div class="status-hero-meta">
             <div class="live-badge">
               <span class="live-dot" title="Live status active"></span>

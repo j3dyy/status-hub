@@ -95,12 +95,12 @@ export function renderHeader(store) {
     <header class="site-header">
       <div class="container site-header-inner">
         <div class="brand-group">
-          <div class="brand-logo-wrap" title="Status Radar" style="display: flex; align-items: center; justify-content: center;">
+          <div class="brand-logo-wrap" title="isdown" style="display: flex; align-items: center; justify-content: center;">
             ${RADAR_LOGO_SVG}
           </div>
           <div class="brand-text">
-            <span class="brand-title" style="font-size: 1.22rem; letter-spacing: -0.025em; font-weight: 800;">Status Radar</span>
-            <span class="brand-subtitle">AI Models &amp; Cloud Infrastructure</span>
+            <span class="brand-title" style="font-size: 1.35rem; letter-spacing: -0.035em; font-weight: 850;">isdown</span>
+            <span class="brand-subtitle">Real-time AI &amp; Cloud Status</span>
           </div>
         </div>
 
@@ -186,7 +186,7 @@ export function renderHeader(store) {
           ` : `
             <div class="above-fold-glance">
               <div class="glance-left">
-                <span class="glance-label">RADAR GLANCE:</span>
+                <span class="glance-label">ISDOWN RADAR:</span>
                 <div class="glance-pills-row">
                   ${providers.filter(p => p.id !== "all").map(p => `
                     <button class="glance-pill" data-jump-provider="${p.id}" title="Filter by ${p.name}">

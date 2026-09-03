@@ -1,9 +1,9 @@
 {
   "system": {
-    "name": "Status Radar",
-    "tagline": "Real-time multi-cloud & AI infrastructure reliability radar",
-    "company": "Status Radar",
-    "url": "https://status.example.com",
+    "name": "isdown",
+    "tagline": "Real-time AI models & cloud infrastructure outage tracker",
+    "company": "isdown.usectl.com",
+    "url": "https://isdown.usectl.com",
     "supportUrl": "https://help.example.com",
     "status": "operational",
     "statusMessage": "All Core Systems Operational",

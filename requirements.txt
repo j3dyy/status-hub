@@ -1,2 +1,2 @@
-# Status Radar - Python Dependencies
+# isdown - Python Dependencies
 psycopg2-binary>=2.9.9

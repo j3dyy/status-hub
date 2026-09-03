@@ -1,13 +1,15 @@
-# Status Radar 🛰️
+# isdown ⚡
 
-A static, modern, informative, and live-updatable status page frontend inspired by the best status dashboards across the industry:
+A static, modern, real-time outage & uptime radar for AI models and cloud infrastructure. Hosted at **[isdown.usectl.com](https://isdown.usectl.com/)**.
+
+Inspired by the best status dashboards across the industry:
 - **[status.gemini.com](https://status.gemini.com/)** (Google Gemini & AI Studio)
 - **[status.openai.com](https://status.openai.com/)** (OpenAI, ChatGPT, APIs & o1 models)
 - **[status.claude.com](https://status.claude.com/)** (Anthropic Claude Platform)
 - **[githubstatus.com](https://www.githubstatus.com/)** (GitHub 90-Day Uptime Strips & Components)
 - **[status.hetzner.com](https://status.hetzner.com/)** (Hetzner Cloud & Datacenter Fabric)
 
-Designed with the simplest and most intuitive UX so anyone can **plan, test, and launch** a production status page in minutes.
+Answers the million-dollar question: **"Is it down?"** with the simplest and most intuitive UX so users instantly know what's happening without even scrolling.
 
 ---
 
@@ -40,7 +42,7 @@ Open [http://localhost:8080](http://localhost:8080) in your browser.
 
 ## 🔄 How Polling & Live Updates Work
 
-Status Radar uses the **Decoupled Static Aggregator Architecture**:
+**isdown** uses the **Decoupled Static Aggregator Architecture**:
 
 ```mermaid
 flowchart LR

@@ -139,7 +139,7 @@ export function initSubscribeModal() {
         <div class="modal-header">
           <div style="display: flex; align-items: center; gap: 8px;">
             ${icons.bell(18, "text-primary")}
-            <h3 id="subscribe-modal-title">Subscribe to Status Radar</h3>
+            <h3 id="subscribe-modal-title">Subscribe to isdown Alerts</h3>
           </div>
           <button class="icon-btn" id="close-subscribe-modal-btn" aria-label="Close modal">
             ${icons.x(16)}

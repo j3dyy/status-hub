@@ -1,4 +1,4 @@
-# Status Radar - Production Container Image
+# isdown - Production Container Image
 FROM python:3.11-slim
 
 # Set environment variables

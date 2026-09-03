@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Status Radar - Server & Subscriber Engine
+isdown - Real-Time AI & Cloud Outage Radar Server
 Supports:
   1. Static asset serving with cache-busting headers for data/status.json
   2. PostgreSQL persistence when DATABASE_URL is injected (for usectl / container platforms)
@@ -308,7 +308,7 @@ def run():
     server_address = ("", PORT)
     httpd = HTTPServer(server_address, StatusRadarHandler)
     print("=" * 60)
-    print(f"🚀 Status Radar running on port {PORT}")
+    print(f"🚀 isdown server running on port {PORT}")
     print(f"👉 http://localhost:{PORT}")
     print(f"📁 Serving: {DIRECTORY}")
     if DATABASE_URL and db_pool:

@@ -89,9 +89,18 @@ def update_status_dataset(dry_run=False):
         for cat in data.get("categories", []):
             for s in cat.get("services", []):
                 if s.get("providerId") == provider_id:
-                    s["status"] = mapped_status
+                    # Check if the service itself is directly a remote component (e.g. claude.ai, Claude Console)
+                    matched_status = None
+                    for rc_name, rc in remote_components.items():
+                        if s["name"].lower() in rc_name.lower() or rc_name.lower() in s["name"].lower():
+                            rc_stat = rc.get("status", "operational")
+                            matched_status = STATUSPAGE_MAP.get(rc_stat, rc_stat)
+                            break
+
+                    s["status"] = matched_status or mapped_status
+
                     for comp in s.get("components", []):
-                        # Match component name substring if possible
+                        # Match subcomponent name substring
                         for rc_name, rc in remote_components.items():
                             if comp["name"].lower() in rc_name.lower() or rc_name.lower() in comp["name"].lower():
                                 comp_status = rc.get("status", "operational")

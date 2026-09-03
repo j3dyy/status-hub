@@ -62,18 +62,87 @@
           ]
         },
         {
+          "id": "claude-ai",
+          "providerId": "claude",
+          "name": "claude.ai",
+          "description": "Web & mobile interface, Claude Pro/Team, Projects and interactive Artifacts",
+          "status": "operational",
+          "uptime90d": 99.4,
+          "currentLatencyMs": 118,
+          "components": [
+            { "id": "claude-ai-chat", "name": "Chat & Conversation Interface", "status": "operational" },
+            { "id": "claude-ai-artifacts", "name": "Interactive Artifacts Rendering", "status": "operational" },
+            { "id": "claude-ai-projects", "name": "Projects & Custom Instructions", "status": "operational" },
+            { "id": "claude-ai-apps", "name": "iOS and Android Mobile Apps", "status": "operational" }
+          ]
+        },
+        {
+          "id": "claude-console",
+          "providerId": "claude",
+          "name": "Claude Console (platform.claude.com)",
+          "description": "Developer platform, prompt engineering workbench, API keys and billing management",
+          "status": "operational",
+          "uptime90d": 99.93,
+          "currentLatencyMs": 84,
+          "components": [
+            { "id": "console-workbench", "name": "Prompt Workbench & Evaluation", "status": "operational" },
+            { "id": "console-keys", "name": "API Key Provisioning & Permissions", "status": "operational" },
+            { "id": "console-billing", "name": "Usage Invoicing & Credits", "status": "operational" }
+          ]
+        },
+        {
           "id": "claude-api",
           "providerId": "claude",
-          "name": "Anthropic Claude Platform",
-          "description": "Claude 3.5 Sonnet, Claude 3.5 Haiku, Artifacts & Anthropic Console",
+          "name": "Claude API (api.anthropic.com)",
+          "description": "Direct inference endpoints for Claude 3.5 Sonnet, Claude 3.5 Haiku, and Claude 3 Opus",
           "status": "operational",
-          "uptime90d": 99.97,
-          "currentLatencyMs": 139,
+          "uptime90d": 99.5,
+          "currentLatencyMs": 142,
           "components": [
-            { "id": "claude-sonnet", "name": "Claude 3.5 Sonnet API", "status": "operational" },
-            { "id": "claude-haiku", "name": "Claude 3.5 Haiku API", "status": "operational" },
-            { "id": "claude-artifacts", "name": "Claude.ai Web App & Artifacts", "status": "operational" },
-            { "id": "anthropic-console", "name": "Anthropic Console & Billing", "status": "operational" }
+            { "id": "claude-35-sonnet", "name": "Claude 3.5 Sonnet (Inference)", "status": "operational" },
+            { "id": "claude-35-haiku", "name": "Claude 3.5 Haiku (Inference)", "status": "operational" },
+            { "id": "claude-streaming", "name": "Server-Sent Events (Streaming)", "status": "operational" },
+            { "id": "claude-batch", "name": "Message Batches API", "status": "operational" }
+          ]
+        },
+        {
+          "id": "claude-code",
+          "providerId": "claude",
+          "name": "Claude Code",
+          "description": "Agentic command-line developer assistant and IDE tool integration",
+          "status": "operational",
+          "uptime90d": 99.44,
+          "currentLatencyMs": 105,
+          "components": [
+            { "id": "code-cli-auth", "name": "CLI Session & OAuth Token Exchange", "status": "operational" },
+            { "id": "code-context", "name": "Repository Semantic Indexing Engine", "status": "operational" },
+            { "id": "code-synthesis", "name": "Agentic Code Synthesis & Refactor Engine", "status": "operational" }
+          ]
+        },
+        {
+          "id": "claude-cowork",
+          "providerId": "claude",
+          "name": "Claude Cowork",
+          "description": "Real-time collaborative workspaces, multi-user sessions, and team memory",
+          "status": "operational",
+          "uptime90d": 99.43,
+          "currentLatencyMs": 115,
+          "components": [
+            { "id": "cowork-presence", "name": "Live Team Presence & Sync", "status": "operational" },
+            { "id": "cowork-sharing", "name": "Workspace Access & Sharing Controls", "status": "operational" }
+          ]
+        },
+        {
+          "id": "claude-government",
+          "providerId": "claude",
+          "name": "Claude for Government",
+          "description": "FedRAMP High / DoD IL5 compliant isolated federal cloud enclave",
+          "status": "operational",
+          "uptime90d": 100.0,
+          "currentLatencyMs": 95,
+          "components": [
+            { "id": "gov-enclave", "name": "GovCloud Isolated Tenant Enclave", "status": "operational" },
+            { "id": "gov-audit", "name": "Federal Compliance & Audit Logging", "status": "operational" }
           ]
         }
       ]

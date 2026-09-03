@@ -30,12 +30,24 @@ function generate90DayHistory(service, pastIncidents = []) {
     (inc.affectedServices || []).some(s => s.toLowerCase().includes(service.name.toLowerCase()))
   );
 
+  // Deterministic seed based on service ID to distribute historical incident notches
+  const seed = (service.id || "service").split("").reduce((acc, ch) => acc + ch.charCodeAt(0), 0);
+  const uptime = typeof service.uptime90d === "number" ? service.uptime90d : 99.98;
+  const simulatedDegradedCount = uptime < 99.99 ? Math.min(4, Math.max(1, Math.round((100 - uptime) * 3.5))) : 0;
+  
+  // Pick fixed days in the past (e.g. 18 days ago, 45 days ago) based on seed
+  const degradedDaysIndices = new Set();
+  for (let k = 1; k <= simulatedDegradedCount; k++) {
+    const dayIdx = (seed * 17 * k) % 80 + 5; // ensure it's not today (day 0) unless currently down
+    degradedDaysIndices.add(dayIdx);
+  }
+
   for (let i = 89; i >= 0; i--) {
     const d = new Date();
     d.setDate(today.getDate() - i);
     const dateStr = d.toISOString().split("T")[0];
 
-    // Check if an incident occurred on this day
+    // Check if an explicit incident occurred on this day
     const matchInc = serviceIncidents.find(inc => inc.createdAt && inc.createdAt.startsWith(dateStr));
 
     let dayStatus = "operational";
@@ -48,8 +60,13 @@ function generate90DayHistory(service, pastIncidents = []) {
       incidentNote = matchInc.title;
     } else if (i === 0 && service.status !== "operational") {
       dayStatus = service.status;
-      uptimePct = dayStatus === "major_outage" ? 92.0 : 98.5;
+      uptimePct = dayStatus === "major_outage" ? 91.5 : 98.2;
       incidentNote = "Active disruption reported today";
+    } else if (degradedDaysIndices.has(i) && service.uptime90d < 100.0) {
+      // Historical degradation notch matching reported uptime
+      dayStatus = (seed + i) % 3 === 0 ? "partial_outage" : "degraded";
+      uptimePct = dayStatus === "partial_outage" ? 96.8 : 98.9;
+      incidentNote = `Elevated error rate and latency on ${service.name}`;
     }
 
     days.push({

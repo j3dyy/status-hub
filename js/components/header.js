@@ -137,21 +137,30 @@ export function renderHeader(store) {
 
       <!-- Global Status Hero Banner -->
       <section class="status-hero ${statusMeta.class}">
-        <div class="status-hero-main">
-          <div class="status-indicator-huge" aria-hidden="true">
-            ${icons[statusMeta.icon](28)}
+        <div class="status-hero-top-row">
+          <div class="status-hero-main">
+            <div class="status-indicator-huge" aria-hidden="true">
+              ${icons[statusMeta.icon](28)}
+            </div>
+            <div class="status-hero-text">
+              <h1>${system.statusMessage || statusMeta.label}</h1>
+              <p>
+                ${statusMeta.description} &bull; Last verified ${formatDateTime(system.lastUpdated)}
+              </p>
+            </div>
           </div>
-          <div class="status-hero-text">
-            <h1>${system.statusMessage || statusMeta.label}</h1>
-            <p>
-              ${statusMeta.description} &bull; Last verified ${formatDateTime(system.lastUpdated)}
-            </p>
+
+          <div class="status-hero-meta">
+            <div class="live-badge">
+              <span class="live-dot" title="Live status active"></span>
+              <span>Live Radar</span>
+            </div>
+
+            <div class="refresh-chip" id="manual-refresh-trigger" title="Click to refresh immediately">
+              <span id="refresh-icon-wrap">${icons.refresh(14)}</span>
+              <span>Next check in <strong id="refresh-countdown">${store.pollSecondsRemaining}s</strong></span>
+            </div>
           </div>
-        </div>
-
-        <div class="status-hero-meta">
-        
-
         </div>
 
         <!-- ===================================================================
@@ -176,18 +185,21 @@ export function renderHeader(store) {
             </div>
           ` : `
             <div class="above-fold-glance">
-              <span class="glance-label">Radar Glance:</span>
-              <div class="glance-pills-row">
-                ${providers.filter(p => p.id !== "all").map(p => `
-                  <button class="glance-pill" data-jump-provider="${p.id}" title="Filter by ${p.name}">
-                    <span class="glance-dot operational"></span>
-                    <span>${p.name}</span>
-                  </button>
-                `).join("")}
+              <div class="glance-left">
+                <span class="glance-label">RADAR GLANCE:</span>
+                <div class="glance-pills-row">
+                  ${providers.filter(p => p.id !== "all").map(p => `
+                    <button class="glance-pill" data-jump-provider="${p.id}" title="Filter by ${p.name}">
+                      <span class="glance-dot operational"></span>
+                      <span>${p.name}</span>
+                    </button>
+                  `).join("")}
+                </div>
               </div>
-              <span style="font-size: 0.76rem; color: var(--status-operational); font-weight: 600; margin-left: auto;">
-                ✓ All 6 Providers Operational
-              </span>
+              <div class="glance-status-tag">
+                ${icons.checkCircle(14, "status-operational")}
+                <span>All ${providers.filter(p => p.id !== "all").length} Providers Operational</span>
+              </div>
             </div>
           `}
         </div>

@@ -67,9 +67,9 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 24px;
+  padding: 24px 26px;
   border-radius: var(--radius-lg);
-  margin-bottom: 24px;
+  margin-bottom: 32px;
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
   box-shadow: var(--shadow-md);
@@ -78,10 +78,22 @@
 
 @media (min-width: 640px) {
   .status-hero {
+    padding: 28px 32px;
+  }
+}
+
+.status-hero-top-row {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .status-hero-top-row {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 26px 30px;
   }
 }
 
@@ -286,35 +298,54 @@
 /* Above-The-Fold All-Operational Quick Glance */
 .above-fold-glance {
   display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .above-fold-glance {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.glance-left {
+  display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
-  font-size: 0.8rem;
+  gap: 12px 14px;
 }
 
 .glance-label {
   font-size: 0.76rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .glance-pills-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  align-items: center;
+  gap: 8px 10px;
 }
 
 .glance-pill {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 4px 10px;
+  gap: 7px;
+  padding: 6px 12px;
   border-radius: var(--radius-full);
   background-color: var(--bg-card-subtle);
   border: 1px solid var(--border-color);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
+  font-weight: 500;
   color: var(--text-secondary);
   cursor: pointer;
   transition: all var(--transition-fast);
@@ -324,11 +355,12 @@
   background-color: var(--bg-card);
   color: var(--text-primary);
   border-color: var(--border-focus);
+  transform: translateY(-1px);
 }
 
 .glance-dot {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background-color: var(--status-operational);
 }
@@ -338,6 +370,20 @@
 }
 .glance-dot.major_outage {
   background-color: var(--status-major);
+}
+
+.glance-status-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: var(--status-operational);
+  font-weight: 600;
+  padding: 5px 12px;
+  background-color: var(--status-operational-bg);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--status-operational-border);
+  white-space: nowrap;
 }
 
 /* Highlight flash animation when jumped to */

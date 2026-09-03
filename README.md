@@ -165,8 +165,4 @@ statuses/
 - **GitHub Pages**: Push this repository to GitHub, go to *Settings ➔ Pages ➔ Source: GitHub Actions*. The included `.github/workflows/status-sync.yml` handles everything automatically.
 - **Cloudflare Pages**: Connect your Git repo or run `npx wrangler pages deploy .`.
 - **Vercel / Netlify**: Deploy as a static site with build command left empty and output directory set to `.`.
-- **Docker Compose (Local Testing)**:
-  ```bash
-  docker-compose up -d
-  ```
 - **Hetzner / Linux VPS / Nginx**: Place files in `/var/www/status/` and configure Nginx to serve static files.

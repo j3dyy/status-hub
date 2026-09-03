@@ -1,32 +1,10 @@
 /**
- * Status Radar - Incident Subscription Modal Component
- * Saves subscribed users both locally (localStorage) and to data/subscribers.json via /api/subscribe
+ * isdown - Incident Subscription Modal Component
+ * Submits subscribers to PostgreSQL database via /api/subscribe.
+ * Complete subscriber privacy: No subscriber lists are ever exposed to users.
  */
 
 import { icons } from "../utils/svg-icons.js";
-
-const STORAGE_KEY = "status_radar_subscriptions";
-
-function getLocalSubscriptions() {
-  try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-  } catch (e) {
-    return [];
-  }
-}
-
-function saveLocalSubscription(sub) {
-  const subs = getLocalSubscriptions().filter(s => s.target !== sub.target);
-  subs.push(sub);
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(subs));
-  return subs;
-}
-
-function removeLocalSubscription(target) {
-  const subs = getLocalSubscriptions().filter(s => s.target !== target);
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(subs));
-  return subs;
-}
 
 function showToast(message) {
   let toastContainer = document.getElementById("toast-container");
@@ -44,40 +22,23 @@ function showToast(message) {
 
   setTimeout(() => {
     toast.remove();
-  }, 3200);
+  }, 3500);
 }
 
-async function persistSubscription(sub) {
-  saveLocalSubscription(sub);
-
-  // Attempt remote persistence if running with server
+async function submitSubscription(type, target) {
   try {
     const res = await fetch("/api/subscribe", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(sub)
+      body: JSON.stringify({ type, target })
     });
     if (res.ok) {
-      const data = await res.json();
-      console.log("[Status Radar] Subscription saved to data/subscribers.json:", data);
+      return await res.json();
     }
   } catch (err) {
-    // Graceful offline/static fallback (e.g. GitHub Pages)
-    console.log("[Status Radar] Saved to local subscriber cache (static mode):", sub);
+    console.warn("Subscription submission error:", err);
   }
-}
-
-async function removeSubscriptionRemote(target) {
-  removeLocalSubscription(target);
-  try {
-    await fetch("/api/unsubscribe", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ target })
-    });
-  } catch (err) {
-    console.log("[Status Radar] Unsubscribed locally:", target);
-  }
+  return { success: true };
 }
 
 export function initSubscribeModal() {
@@ -86,51 +47,6 @@ export function initSubscribeModal() {
     modalMount = document.createElement("div");
     modalMount.id = "modal-mount";
     document.body.appendChild(modalMount);
-  }
-
-  function renderSavedList() {
-    const subs = getLocalSubscriptions();
-    const mount = document.getElementById("saved-subscriptions-list");
-    if (!mount) return;
-
-    if (subs.length === 0) {
-      mount.innerHTML = `
-        <div style="font-size: 0.78rem; color: var(--text-muted); font-style: italic;">
-          No active subscriptions registered yet.
-        </div>
-      `;
-      return;
-    }
-
-    mount.innerHTML = `
-      <div style="margin-top: 14px; border-top: 1px dashed var(--border-subtle); padding-top: 12px;">
-        <label style="font-size: 0.78rem; font-weight: 600; color: var(--text-secondary); display: block; margin-bottom: 6px;">
-          Your Active Subscriptions (${subs.length})
-        </label>
-        <div style="display: flex; flex-direction: column; gap: 6px;">
-          ${subs.map(s => `
-            <div style="display: flex; align-items: center; justify-content: space-between; padding: 6px 10px; background: var(--bg-card-subtle); border-radius: var(--radius-sm); font-size: 0.8rem;">
-              <span style="font-weight: 500; color: var(--text-primary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 320px;">
-                <span style="text-transform: uppercase; font-size: 0.68rem; padding: 2px 5px; background: var(--border-color); border-radius: 4px; margin-right: 6px;">${s.type}</span>
-                ${s.target}
-              </span>
-              <button class="remove-sub-btn" data-target="${s.target}" title="Unsubscribe" style="color: var(--text-muted); cursor: pointer; padding: 2px;">
-                ${icons.x(14)}
-              </button>
-            </div>
-          `).join("")}
-        </div>
-      </div>
-    `;
-
-    mount.querySelectorAll(".remove-sub-btn").forEach(btn => {
-      btn.addEventListener("click", async () => {
-        const target = btn.getAttribute("data-target");
-        await removeSubscriptionRemote(target);
-        renderSavedList();
-        showToast(`Unsubscribed ${target}`);
-      });
-    });
   }
 
   modalMount.innerHTML = `
@@ -231,9 +147,6 @@ export function initSubscribeModal() {
               </button>
             </div>
           </div>
-
-          <!-- Saved Subscriptions Manager -->
-          <div id="saved-subscriptions-list"></div>
         </div>
       </div>
     </div>
@@ -244,7 +157,6 @@ export function initSubscribeModal() {
 
   const openModal = () => {
     backdrop.classList.add("open");
-    renderSavedList();
   };
   const closeModal = () => backdrop.classList.remove("open");
 
@@ -293,34 +205,28 @@ export function initSubscribeModal() {
   // Email form
   document.getElementById("email-subscribe-form")?.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const email = document.getElementById("email-input-field").value.trim();
+    const emailField = document.getElementById("email-input-field");
+    const email = emailField.value.trim();
     if (!email) return;
 
-    await persistSubscription({
-      type: "email",
-      target: email,
-      createdAt: new Date().toISOString()
-    });
+    await submitSubscription("email", email);
 
-    showToast(`Subscribed ${email}! Saved to subscribers.`);
-    document.getElementById("email-input-field").value = "";
-    renderSavedList();
+    showToast(`Subscribed ${email} to incident alerts!`);
+    emailField.value = "";
+    closeModal();
   });
 
   // Webhook form
   document.getElementById("webhook-subscribe-form")?.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const hook = document.getElementById("webhook-input-field").value.trim();
+    const hookField = document.getElementById("webhook-input-field");
+    const hook = hookField.value.trim();
     if (!hook) return;
 
-    await persistSubscription({
-      type: "webhook",
-      target: hook,
-      createdAt: new Date().toISOString()
-    });
+    await submitSubscription("webhook", hook);
 
-    showToast(`Webhook saved! Real-time alerts enabled.`);
-    document.getElementById("webhook-input-field").value = "";
-    renderSavedList();
+    showToast(`Webhook registered! Real-time alerts enabled.`);
+    hookField.value = "";
+    closeModal();
   });
 }

@@ -371,20 +371,8 @@ class StatusRadarHandler(SimpleHTTPRequestHandler):
             return
 
         if clean_path == "/api/subscribers":
-            subs = None
-            if db_pool:
-                subs = list_subscribers_postgres()
-            if subs is None:
-                if os.path.exists(SUBSCRIBERS_FILE):
-                    try:
-                        with open(SUBSCRIBERS_FILE, "r", encoding="utf-8") as f:
-                            subs = json.load(f).get("subscribers", [])
-                    except Exception:
-                        subs = []
-                else:
-                    subs = []
-
-            self._json_response(200, {"subscribers": subs})
+            # For subscriber privacy, public listing is disabled
+            self._json_response(403, {"error": "Subscriber listing is private and disabled"})
             return
 
         super().do_GET()

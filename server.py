@@ -34,18 +34,46 @@ except ImportError:
 PORT = int(os.environ.get("PORT", sys.argv[1] if len(sys.argv) > 1 else 8080))
 DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 SUBSCRIBERS_FILE = os.path.join(DIRECTORY, "data", "subscribers.json")
-DATABASE_URL = os.environ.get("DATABASE_URL")
-ENABLE_BACKGROUND_SYNC = os.environ.get("ENABLE_BACKGROUND_SYNC", "true").lower() in ("true", "1", "yes")
-SYNC_INTERVAL_SECONDS = int(os.environ.get("SYNC_INTERVAL_SECONDS", 300))
+def resolve_database_url():
+    candidates = [
+        "DATABASE_URL",
+        "POSTGRES_URL",
+        "POSTGRESQL_URL",
+        "DB_URL",
+        "PG_URL",
+        "DATABASE_CONNECTION_STRING",
+        "POSTGRES_CONNECTION_STRING",
+        "USECTL_DATABASE_URL",
+        "USECTL_POSTGRES_URL"
+    ]
+    for key in candidates:
+        val = os.environ.get(key)
+        if val and val.strip():
+            url = val.strip()
+            if url.startswith("postgres://"):
+                url = url.replace("postgres://", "postgresql://", 1)
+            return url, key
 
-# Normalize DATABASE_URL (some providers use postgres:// instead of postgresql://)
-if DATABASE_URL and DATABASE_URL.startswith("postgres://"):
-    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
+    user = os.environ.get("POSTGRES_USER") or os.environ.get("PGUSER")
+    password = os.environ.get("POSTGRES_PASSWORD") or os.environ.get("PGPASSWORD")
+    host = os.environ.get("POSTGRES_HOST") or os.environ.get("PGHOST")
+    port = os.environ.get("POSTGRES_PORT") or os.environ.get("PGPORT", "5432")
+    dbname = os.environ.get("POSTGRES_DB") or os.environ.get("PGDATABASE")
+
+    if host and dbname:
+        auth = f"{user}:{password}@" if user and password else (f"{user}@" if user else "")
+        url = f"postgresql://{auth}{host}:{port}/{dbname}"
+        return url, "composed_discrete_vars"
+
+    return None, None
+
+DATABASE_URL, DATABASE_SOURCE_VAR = resolve_database_url()
 
 # PostgreSQL Connection Pool and Status Tracker
 db_pool = None
 db_status = {
     "configured": bool(DATABASE_URL),
+    "source_variable": DATABASE_SOURCE_VAR,
     "connected": False,
     "engine": "postgresql" if DATABASE_URL else "json",
     "table_ready": False,
@@ -55,11 +83,16 @@ db_status = {
 }
 
 def init_db():
-    global db_pool, db_status
+    global db_pool, db_status, DATABASE_URL, DATABASE_SOURCE_VAR
+    if not DATABASE_URL:
+        DATABASE_URL, DATABASE_SOURCE_VAR = resolve_database_url()
+
     db_status["last_check"] = datetime.now(timezone.utc).isoformat()
+    db_status["configured"] = bool(DATABASE_URL)
+    db_status["source_variable"] = DATABASE_SOURCE_VAR
 
     if not DATABASE_URL:
-        print("[INFO] No DATABASE_URL provided. Operating with local JSON subscriber storage.")
+        print("[INFO] No DATABASE_URL or PostgreSQL env vars found. Operating with local JSON subscriber storage.")
         db_status["configured"] = False
         db_status["engine"] = "json"
         return
@@ -101,6 +134,11 @@ def init_db():
         db_status["error"] = err_msg
 
 def get_db_diagnostics():
+    global db_pool, DATABASE_URL, DATABASE_SOURCE_VAR
+    # If not yet connected, re-attempt resolution in case env vars were set
+    if not db_pool:
+        init_db()
+
     diag = dict(db_status)
     diag["last_check"] = datetime.now(timezone.utc).isoformat()
     if db_pool:
@@ -313,6 +351,7 @@ class StatusRadarHandler(SimpleHTTPRequestHandler):
             diag = get_db_diagnostics()
             is_healthy = diag["connected"] or not DATABASE_URL
             status_code = 200 if is_healthy else 503
+            detected_keys = [k for k in os.environ.keys() if any(w in k.upper() for w in ("POSTGRES", "DATABASE", "DB", "PG"))]
             self._json_response(status_code, {
                 "status": "healthy" if is_healthy else "degraded",
                 "app": "isdown",
@@ -320,6 +359,8 @@ class StatusRadarHandler(SimpleHTTPRequestHandler):
                 "database": diag,
                 "environment": {
                     "database_url_configured": bool(DATABASE_URL),
+                    "database_source_var": DATABASE_SOURCE_VAR,
+                    "detected_db_env_keys": detected_keys,
                     "background_sync": ENABLE_BACKGROUND_SYNC,
                     "port": PORT
                 }

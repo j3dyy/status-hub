@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "operational",
     "statusMessage": "All Core Systems Operational",
-    "lastUpdated": "2026-09-04T02:40:00Z",
+    "lastUpdated": "2026-09-03T23:25:40Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -17,13 +17,53 @@
     }
   },
   "providers": [
-    { "id": "all", "name": "Unified Overview", "icon": "layers" },
-    { "id": "gemini", "name": "Google Gemini", "url": "https://status.gemini.com", "icon": "gemini", "status": "operational" },
-    { "id": "openai", "name": "OpenAI", "url": "https://status.openai.com", "icon": "cpu", "status": "operational" },
-    { "id": "claude", "name": "Anthropic Claude", "url": "https://status.claude.com", "icon": "sparkles", "status": "operational" },
-    { "id": "github", "name": "GitHub", "url": "https://www.githubstatus.com", "icon": "github", "status": "operational" },
-    { "id": "hetzner", "name": "Hetzner Cloud", "url": "https://status.hetzner.com", "icon": "server", "status": "operational" },
-    { "id": "core", "name": "Core Platform", "url": "#", "icon": "shield", "status": "operational" }
+    {
+      "id": "all",
+      "name": "Unified Overview",
+      "icon": "layers"
+    },
+    {
+      "id": "gemini",
+      "name": "Google Gemini",
+      "url": "https://status.gemini.com",
+      "icon": "gemini",
+      "status": "operational"
+    },
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "url": "https://status.openai.com",
+      "icon": "cpu",
+      "status": "operational"
+    },
+    {
+      "id": "claude",
+      "name": "Anthropic Claude",
+      "url": "https://status.claude.com",
+      "icon": "sparkles",
+      "status": "operational"
+    },
+    {
+      "id": "github",
+      "name": "GitHub",
+      "url": "https://www.githubstatus.com",
+      "icon": "github",
+      "status": "operational"
+    },
+    {
+      "id": "hetzner",
+      "name": "Hetzner Cloud",
+      "url": "https://status.hetzner.com",
+      "icon": "server",
+      "status": "operational"
+    },
+    {
+      "id": "core",
+      "name": "Core Platform",
+      "url": "#",
+      "icon": "shield",
+      "status": "operational"
+    }
   ],
   "categories": [
     {
@@ -40,10 +80,26 @@
           "uptime90d": 99.98,
           "currentLatencyMs": 128,
           "components": [
-            { "id": "gemini-15-pro", "name": "Gemini 1.5 Pro (Inference)", "status": "operational" },
-            { "id": "gemini-15-flash", "name": "Gemini 1.5 Flash (Low-Latency)", "status": "operational" },
-            { "id": "gemini-embed", "name": "Text & Multimodal Embeddings", "status": "operational" },
-            { "id": "ai-studio", "name": "Google AI Studio Developer Portal", "status": "operational" }
+            {
+              "id": "gemini-15-pro",
+              "name": "Gemini 1.5 Pro (Inference)",
+              "status": "operational"
+            },
+            {
+              "id": "gemini-15-flash",
+              "name": "Gemini 1.5 Flash (Low-Latency)",
+              "status": "operational"
+            },
+            {
+              "id": "gemini-embed",
+              "name": "Text & Multimodal Embeddings",
+              "status": "operational"
+            },
+            {
+              "id": "ai-studio",
+              "name": "Google AI Studio Developer Portal",
+              "status": "operational"
+            }
           ]
         },
         {
@@ -55,10 +111,26 @@
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
-            { "id": "gpt-4o", "name": "GPT-4o / GPT-4o-mini Inference", "status": "operational" },
-            { "id": "o1-reasoning", "name": "o1 Series Reasoning Engine", "status": "operational" },
-            { "id": "openai-realtime", "name": "Realtime Audio & Speech API", "status": "operational" },
-            { "id": "chatgpt-web", "name": "ChatGPT Web & Mobile Interface", "status": "operational" }
+            {
+              "id": "gpt-4o",
+              "name": "GPT-4o / GPT-4o-mini Inference",
+              "status": "operational"
+            },
+            {
+              "id": "o1-reasoning",
+              "name": "o1 Series Reasoning Engine",
+              "status": "operational"
+            },
+            {
+              "id": "openai-realtime",
+              "name": "Realtime Audio & Speech API",
+              "status": "operational"
+            },
+            {
+              "id": "chatgpt-web",
+              "name": "ChatGPT Web & Mobile Interface",
+              "status": "operational"
+            }
           ]
         },
         {
@@ -70,10 +142,26 @@
           "uptime90d": 99.4,
           "currentLatencyMs": 118,
           "components": [
-            { "id": "claude-ai-chat", "name": "Chat & Conversation Interface", "status": "operational" },
-            { "id": "claude-ai-artifacts", "name": "Interactive Artifacts Rendering", "status": "operational" },
-            { "id": "claude-ai-projects", "name": "Projects & Custom Instructions", "status": "operational" },
-            { "id": "claude-ai-apps", "name": "iOS and Android Mobile Apps", "status": "operational" }
+            {
+              "id": "claude-ai-chat",
+              "name": "Chat & Conversation Interface",
+              "status": "operational"
+            },
+            {
+              "id": "claude-ai-artifacts",
+              "name": "Interactive Artifacts Rendering",
+              "status": "operational"
+            },
+            {
+              "id": "claude-ai-projects",
+              "name": "Projects & Custom Instructions",
+              "status": "operational"
+            },
+            {
+              "id": "claude-ai-apps",
+              "name": "iOS and Android Mobile Apps",
+              "status": "operational"
+            }
           ]
         },
         {
@@ -85,9 +173,21 @@
           "uptime90d": 99.93,
           "currentLatencyMs": 84,
           "components": [
-            { "id": "console-workbench", "name": "Prompt Workbench & Evaluation", "status": "operational" },
-            { "id": "console-keys", "name": "API Key Provisioning & Permissions", "status": "operational" },
-            { "id": "console-billing", "name": "Usage Invoicing & Credits", "status": "operational" }
+            {
+              "id": "console-workbench",
+              "name": "Prompt Workbench & Evaluation",
+              "status": "operational"
+            },
+            {
+              "id": "console-keys",
+              "name": "API Key Provisioning & Permissions",
+              "status": "operational"
+            },
+            {
+              "id": "console-billing",
+              "name": "Usage Invoicing & Credits",
+              "status": "operational"
+            }
           ]
         },
         {
@@ -99,10 +199,26 @@
           "uptime90d": 99.5,
           "currentLatencyMs": 142,
           "components": [
-            { "id": "claude-35-sonnet", "name": "Claude 3.5 Sonnet (Inference)", "status": "operational" },
-            { "id": "claude-35-haiku", "name": "Claude 3.5 Haiku (Inference)", "status": "operational" },
-            { "id": "claude-streaming", "name": "Server-Sent Events (Streaming)", "status": "operational" },
-            { "id": "claude-batch", "name": "Message Batches API", "status": "operational" }
+            {
+              "id": "claude-35-sonnet",
+              "name": "Claude 3.5 Sonnet (Inference)",
+              "status": "operational"
+            },
+            {
+              "id": "claude-35-haiku",
+              "name": "Claude 3.5 Haiku (Inference)",
+              "status": "operational"
+            },
+            {
+              "id": "claude-streaming",
+              "name": "Server-Sent Events (Streaming)",
+              "status": "operational"
+            },
+            {
+              "id": "claude-batch",
+              "name": "Message Batches API",
+              "status": "operational"
+            }
           ]
         },
         {
@@ -114,9 +230,21 @@
           "uptime90d": 99.44,
           "currentLatencyMs": 105,
           "components": [
-            { "id": "code-cli-auth", "name": "CLI Session & OAuth Token Exchange", "status": "operational" },
-            { "id": "code-context", "name": "Repository Semantic Indexing Engine", "status": "operational" },
-            { "id": "code-synthesis", "name": "Agentic Code Synthesis & Refactor Engine", "status": "operational" }
+            {
+              "id": "code-cli-auth",
+              "name": "CLI Session & OAuth Token Exchange",
+              "status": "operational"
+            },
+            {
+              "id": "code-context",
+              "name": "Repository Semantic Indexing Engine",
+              "status": "operational"
+            },
+            {
+              "id": "code-synthesis",
+              "name": "Agentic Code Synthesis & Refactor Engine",
+              "status": "operational"
+            }
           ]
         },
         {
@@ -128,8 +256,16 @@
           "uptime90d": 99.43,
           "currentLatencyMs": 115,
           "components": [
-            { "id": "cowork-presence", "name": "Live Team Presence & Sync", "status": "operational" },
-            { "id": "cowork-sharing", "name": "Workspace Access & Sharing Controls", "status": "operational" }
+            {
+              "id": "cowork-presence",
+              "name": "Live Team Presence & Sync",
+              "status": "operational"
+            },
+            {
+              "id": "cowork-sharing",
+              "name": "Workspace Access & Sharing Controls",
+              "status": "operational"
+            }
           ]
         },
         {
@@ -141,8 +277,16 @@
           "uptime90d": 100.0,
           "currentLatencyMs": 95,
           "components": [
-            { "id": "gov-enclave", "name": "GovCloud Isolated Tenant Enclave", "status": "operational" },
-            { "id": "gov-audit", "name": "Federal Compliance & Audit Logging", "status": "operational" }
+            {
+              "id": "gov-enclave",
+              "name": "GovCloud Isolated Tenant Enclave",
+              "status": "operational"
+            },
+            {
+              "id": "gov-audit",
+              "name": "Federal Compliance & Audit Logging",
+              "status": "operational"
+            }
           ]
         }
       ]
@@ -161,10 +305,26 @@
           "uptime90d": 99.99,
           "currentLatencyMs": 85,
           "components": [
-            { "id": "git-ops", "name": "Git SSH & HTTPS Operations", "status": "operational" },
-            { "id": "github-api", "name": "GitHub REST & GraphQL API", "status": "operational" },
-            { "id": "github-webhooks", "name": "Webhook Deliveries & Events", "status": "operational" },
-            { "id": "github-issues", "name": "Issues, Projects & Pull Requests", "status": "operational" }
+            {
+              "id": "git-ops",
+              "name": "Git SSH & HTTPS Operations",
+              "status": "operational"
+            },
+            {
+              "id": "github-api",
+              "name": "GitHub REST & GraphQL API",
+              "status": "operational"
+            },
+            {
+              "id": "github-webhooks",
+              "name": "Webhook Deliveries & Events",
+              "status": "operational"
+            },
+            {
+              "id": "github-issues",
+              "name": "Issues, Projects & Pull Requests",
+              "status": "operational"
+            }
           ]
         },
         {
@@ -176,10 +336,26 @@
           "uptime90d": 99.92,
           "currentLatencyMs": 112,
           "components": [
-            { "id": "gh-actions", "name": "GitHub Actions Workflow Runners", "status": "operational" },
-            { "id": "gh-copilot", "name": "GitHub Copilot Completion & Chat", "status": "operational" },
-            { "id": "gh-codespaces", "name": "GitHub Codespaces Cloud Environments", "status": "operational" },
-            { "id": "gh-packages", "name": "GitHub Packages & Container Registry", "status": "operational" }
+            {
+              "id": "gh-actions",
+              "name": "GitHub Actions Workflow Runners",
+              "status": "operational"
+            },
+            {
+              "id": "gh-copilot",
+              "name": "GitHub Copilot Completion & Chat",
+              "status": "operational"
+            },
+            {
+              "id": "gh-codespaces",
+              "name": "GitHub Codespaces Cloud Environments",
+              "status": "operational"
+            },
+            {
+              "id": "gh-packages",
+              "name": "GitHub Packages & Container Registry",
+              "status": "operational"
+            }
           ]
         }
       ]
@@ -198,11 +374,31 @@
           "uptime90d": 99.99,
           "currentLatencyMs": 42,
           "components": [
-            { "id": "hz-falkenstein", "name": "Datacenter Park FSN1 (Falkenstein, DE)", "status": "operational" },
-            { "id": "hz-nuremberg", "name": "Datacenter Park NBG1 (Nuremberg, DE)", "status": "operational" },
-            { "id": "hz-helsinki", "name": "Datacenter Park HEL1 (Helsinki, FI)", "status": "operational" },
-            { "id": "hz-ashburn", "name": "Datacenter Park ASH (Ashburn, US)", "status": "operational" },
-            { "id": "hz-network", "name": "Core AS24940 Backbone Network", "status": "operational" }
+            {
+              "id": "hz-falkenstein",
+              "name": "Datacenter Park FSN1 (Falkenstein, DE)",
+              "status": "operational"
+            },
+            {
+              "id": "hz-nuremberg",
+              "name": "Datacenter Park NBG1 (Nuremberg, DE)",
+              "status": "operational"
+            },
+            {
+              "id": "hz-helsinki",
+              "name": "Datacenter Park HEL1 (Helsinki, FI)",
+              "status": "operational"
+            },
+            {
+              "id": "hz-ashburn",
+              "name": "Datacenter Park ASH (Ashburn, US)",
+              "status": "operational"
+            },
+            {
+              "id": "hz-network",
+              "name": "Core AS24940 Backbone Network",
+              "status": "operational"
+            }
           ]
         },
         {
@@ -214,10 +410,26 @@
           "uptime90d": 100.0,
           "currentLatencyMs": 24,
           "components": [
-            { "id": "edge-na", "name": "North America Edge Gateways (US-East / US-West)", "status": "operational" },
-            { "id": "edge-eu", "name": "Europe Edge Gateways (Frankfurt / London)", "status": "operational" },
-            { "id": "edge-apac", "name": "Asia-Pacific Edge Gateways (Tokyo / Singapore)", "status": "operational" },
-            { "id": "anycast-dns", "name": "Global Anycast Authoritative DNS", "status": "operational" }
+            {
+              "id": "edge-na",
+              "name": "North America Edge Gateways (US-East / US-West)",
+              "status": "operational"
+            },
+            {
+              "id": "edge-eu",
+              "name": "Europe Edge Gateways (Frankfurt / London)",
+              "status": "operational"
+            },
+            {
+              "id": "edge-apac",
+              "name": "Asia-Pacific Edge Gateways (Tokyo / Singapore)",
+              "status": "operational"
+            },
+            {
+              "id": "anycast-dns",
+              "name": "Global Anycast Authoritative DNS",
+              "status": "operational"
+            }
           ]
         }
       ]
@@ -232,7 +444,10 @@
         "providerId": "gemini",
         "severity": "minor",
         "status": "resolved",
-        "affectedServices": ["Google Gemini API & Studio", "Gemini 1.5 Pro (Inference)"],
+        "affectedServices": [
+          "Google Gemini API & Studio",
+          "Gemini 1.5 Pro (Inference)"
+        ],
         "createdAt": "2026-08-28T14:15:00Z",
         "resolvedAt": "2026-08-28T15:42:00Z",
         "updates": [
@@ -264,7 +479,10 @@
         "providerId": "github",
         "severity": "minor",
         "status": "resolved",
-        "affectedServices": ["GitHub Compute & Automation", "GitHub Actions Workflow Runners"],
+        "affectedServices": [
+          "GitHub Compute & Automation",
+          "GitHub Actions Workflow Runners"
+        ],
         "createdAt": "2026-08-19T09:20:00Z",
         "resolvedAt": "2026-08-19T10:15:00Z",
         "updates": [
@@ -296,7 +514,10 @@
         "providerId": "claude",
         "severity": "minor",
         "status": "resolved",
-        "affectedServices": ["Anthropic Claude Platform", "Claude 3.5 Sonnet API"],
+        "affectedServices": [
+          "Anthropic Claude Platform",
+          "Claude 3.5 Sonnet API"
+        ],
         "createdAt": "2026-08-05T18:00:00Z",
         "resolvedAt": "2026-08-05T18:45:00Z",
         "updates": [
@@ -320,7 +541,10 @@
       "title": "Scheduled Backbone Network Maintenance - Hetzner Falkenstein",
       "providerId": "hetzner",
       "status": "scheduled",
-      "affectedServices": ["Hetzner Cloud & Compute Nodes", "Datacenter Park FSN1 (Falkenstein, DE)"],
+      "affectedServices": [
+        "Hetzner Cloud & Compute Nodes",
+        "Datacenter Park FSN1 (Falkenstein, DE)"
+      ],
       "scheduledStart": "2026-09-12T01:00:00Z",
       "scheduledEnd": "2026-09-12T04:00:00Z",
       "description": "Routine core router optical transceiver upgrades in datacenter FSN1. Redundant secondary routes will carry live production traffic; minimal packet loss (< 30ms) may occur during BGP route convergence."
@@ -334,61 +558,184 @@
       "p95": 210,
       "p99": 345,
       "series24h": [
-        { "time": "03:00", "value": 138 },
-        { "time": "05:00", "value": 132 },
-        { "time": "07:00", "value": 140 },
-        { "time": "09:00", "value": 156 },
-        { "time": "11:00", "value": 164 },
-        { "time": "13:00", "value": 158 },
-        { "time": "15:00", "value": 152 },
-        { "time": "17:00", "value": 148 },
-        { "time": "19:00", "value": 144 },
-        { "time": "21:00", "value": 139 },
-        { "time": "23:00", "value": 141 },
-        { "time": "01:00", "value": 142 }
+        {
+          "time": "03:00",
+          "value": 138
+        },
+        {
+          "time": "05:00",
+          "value": 132
+        },
+        {
+          "time": "07:00",
+          "value": 140
+        },
+        {
+          "time": "09:00",
+          "value": 156
+        },
+        {
+          "time": "11:00",
+          "value": 164
+        },
+        {
+          "time": "13:00",
+          "value": 158
+        },
+        {
+          "time": "15:00",
+          "value": 152
+        },
+        {
+          "time": "17:00",
+          "value": 148
+        },
+        {
+          "time": "19:00",
+          "value": 144
+        },
+        {
+          "time": "21:00",
+          "value": 139
+        },
+        {
+          "time": "23:00",
+          "value": 141
+        },
+        {
+          "time": "01:00",
+          "value": 142
+        }
       ],
       "series7d": [
-        { "time": "Aug 29", "value": 148 },
-        { "time": "Aug 30", "value": 142 },
-        { "time": "Aug 31", "value": 139 },
-        { "time": "Sep 01", "value": 144 },
-        { "time": "Sep 02", "value": 141 },
-        { "time": "Sep 03", "value": 140 },
-        { "time": "Sep 04", "value": 142 }
+        {
+          "time": "Aug 29",
+          "value": 148
+        },
+        {
+          "time": "Aug 30",
+          "value": 142
+        },
+        {
+          "time": "Aug 31",
+          "value": 139
+        },
+        {
+          "time": "Sep 01",
+          "value": 144
+        },
+        {
+          "time": "Sep 02",
+          "value": 141
+        },
+        {
+          "time": "Sep 03",
+          "value": 140
+        },
+        {
+          "time": "Sep 04",
+          "value": 142
+        }
       ],
       "series30d": [
-        { "time": "Week 1", "value": 146 },
-        { "time": "Week 2", "value": 149 },
-        { "time": "Week 3", "value": 143 },
-        { "time": "Week 4", "value": 142 }
+        {
+          "time": "Week 1",
+          "value": 146
+        },
+        {
+          "time": "Week 2",
+          "value": 149
+        },
+        {
+          "time": "Week 3",
+          "value": 143
+        },
+        {
+          "time": "Week 4",
+          "value": 142
+        }
       ]
     },
     "uptime": {
       "unit": "%",
       "current": 99.98,
       "series24h": [
-        { "time": "03:00", "value": 100 },
-        { "time": "07:00", "value": 100 },
-        { "time": "11:00", "value": 99.97 },
-        { "time": "15:00", "value": 100 },
-        { "time": "19:00", "value": 100 },
-        { "time": "23:00", "value": 100 },
-        { "time": "01:00", "value": 100 }
+        {
+          "time": "03:00",
+          "value": 100
+        },
+        {
+          "time": "07:00",
+          "value": 100
+        },
+        {
+          "time": "11:00",
+          "value": 99.97
+        },
+        {
+          "time": "15:00",
+          "value": 100
+        },
+        {
+          "time": "19:00",
+          "value": 100
+        },
+        {
+          "time": "23:00",
+          "value": 100
+        },
+        {
+          "time": "01:00",
+          "value": 100
+        }
       ],
       "series7d": [
-        { "time": "Aug 29", "value": 99.98 },
-        { "time": "Aug 30", "value": 100 },
-        { "time": "Aug 31", "value": 100 },
-        { "time": "Sep 01", "value": 99.99 },
-        { "time": "Sep 02", "value": 100 },
-        { "time": "Sep 03", "value": 100 },
-        { "time": "Sep 04", "value": 100 }
+        {
+          "time": "Aug 29",
+          "value": 99.98
+        },
+        {
+          "time": "Aug 30",
+          "value": 100
+        },
+        {
+          "time": "Aug 31",
+          "value": 100
+        },
+        {
+          "time": "Sep 01",
+          "value": 99.99
+        },
+        {
+          "time": "Sep 02",
+          "value": 100
+        },
+        {
+          "time": "Sep 03",
+          "value": 100
+        },
+        {
+          "time": "Sep 04",
+          "value": 100
+        }
       ],
       "series30d": [
-        { "time": "Week 1", "value": 99.94 },
-        { "time": "Week 2", "value": 99.98 },
-        { "time": "Week 3", "value": 99.99 },
-        { "time": "Week 4", "value": 100.0 }
+        {
+          "time": "Week 1",
+          "value": 99.94
+        },
+        {
+          "time": "Week 2",
+          "value": 99.98
+        },
+        {
+          "time": "Week 3",
+          "value": 99.99
+        },
+        {
+          "time": "Week 4",
+          "value": 100.0
+        }
       ]
     }
   }

@@ -34,6 +34,9 @@ except ImportError:
 PORT = int(os.environ.get("PORT", sys.argv[1] if len(sys.argv) > 1 else 8080))
 DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 SUBSCRIBERS_FILE = os.path.join(DIRECTORY, "data", "subscribers.json")
+ENABLE_BACKGROUND_SYNC = os.environ.get("ENABLE_BACKGROUND_SYNC", "true").lower() in ("true", "1", "yes")
+SYNC_INTERVAL_SECONDS = int(os.environ.get("SYNC_INTERVAL_SECONDS", 300))
+
 def resolve_database_url():
     candidates = [
         "DATABASE_URL",

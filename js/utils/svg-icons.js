@@ -140,5 +140,15 @@ export const icons = {
     <svg class="${className}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <line x1="18" y1="6" x2="6" y2="18"></line>
       <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>`,
+
+  gitlab: (size = 16, className = "") => `
+    <svg class="${className}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="currentColor">
+      <path d="m22.65 14.39-2.43-7.49a.43.43 0 0 0-.82 0l-2.44 7.49H7.04L4.6 6.9a.43.43 0 0 0-.82 0L1.35 14.39a.84.84 0 0 0 .3.94l10.35 7.52 10.35-7.52a.84.84 0 0 0 .3-.94z"/>
+    </svg>`,
+
+  bitbucket: (size = 16, className = "") => `
+    <svg class="${className}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M2.66 3h18.68a.66.66 0 0 1 .66.74L19.88 20.3a1.32 1.32 0 0 1-1.31 1.13H5.43a1.32 1.32 0 0 1-1.31-1.13L1.99 3.74A.66.66 0 0 1 2.66 3zm11.75 12.17h-4.82L8.5 9.42h7z"/>
     </svg>`
 };

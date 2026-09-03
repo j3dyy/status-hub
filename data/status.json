@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "operational",
     "statusMessage": "All Core Systems Operational",
-    "lastUpdated": "2026-09-03T23:35:43Z",
+    "lastUpdated": "2026-09-03T23:53:52Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -48,6 +48,20 @@
       "name": "GitHub",
       "url": "https://www.githubstatus.com",
       "icon": "github",
+      "status": "operational"
+    },
+    {
+      "id": "gitlab",
+      "name": "GitLab",
+      "url": "https://status.gitlab.com",
+      "icon": "gitlab",
+      "status": "operational"
+    },
+    {
+      "id": "bitbucket",
+      "name": "Bitbucket",
+      "url": "https://bitbucket.status.atlassian.com",
+      "icon": "bitbucket",
       "status": "operational"
     },
     {
@@ -354,6 +368,119 @@
             {
               "id": "gh-packages",
               "name": "GitHub Packages & Container Registry",
+              "status": "operational"
+            }
+          ]
+        },
+        {
+          "id": "gitlab-core",
+          "providerId": "gitlab",
+          "name": "GitLab SaaS & Web Platform",
+          "description": "GitLab.com web application, REST/GraphQL API, Git SSH & HTTPS operations, and GitLab Pages",
+          "status": "operational",
+          "uptime90d": 99.96,
+          "currentLatencyMs": 94,
+          "components": [
+            {
+              "id": "gitlab-web",
+              "name": "Website",
+              "status": "operational"
+            },
+            {
+              "id": "gitlab-api",
+              "name": "API",
+              "status": "operational"
+            },
+            {
+              "id": "gitlab-git",
+              "name": "Git Operations",
+              "status": "operational"
+            },
+            {
+              "id": "gitlab-pages",
+              "name": "GitLab Pages",
+              "status": "operational"
+            }
+          ]
+        },
+        {
+          "id": "gitlab-cicd",
+          "providerId": "gitlab",
+          "name": "GitLab CI/CD & Cloud Runners",
+          "description": "Hosted Linux, Windows, macOS runners, container registry, and GitLab Duo AI",
+          "status": "operational",
+          "uptime90d": 99.93,
+          "currentLatencyMs": 108,
+          "components": [
+            {
+              "id": "gitlab-ci-linux",
+              "name": "CI/CD - Hosted runners on Linux",
+              "status": "operational"
+            },
+            {
+              "id": "gitlab-ci-windows",
+              "name": "CI/CD - Hosted runners on Windows",
+              "status": "operational"
+            },
+            {
+              "id": "gitlab-ci-mac",
+              "name": "CI/CD - Hosted runners on macOS",
+              "status": "operational"
+            },
+            {
+              "id": "gitlab-registry",
+              "name": "Container & Package Registry",
+              "status": "operational"
+            },
+            {
+              "id": "gitlab-duo",
+              "name": "GitLab Duo (AI Code Assistance)",
+              "status": "operational"
+            }
+          ]
+        },
+        {
+          "id": "bitbucket-cloud",
+          "providerId": "bitbucket",
+          "name": "Atlassian Bitbucket Cloud",
+          "description": "Git repository hosting, Bitbucket Pipelines CI/CD, Pull Requests and REST API",
+          "status": "operational",
+          "uptime90d": 99.94,
+          "currentLatencyMs": 98,
+          "components": [
+            {
+              "id": "bb-web",
+              "name": "Website",
+              "status": "operational"
+            },
+            {
+              "id": "bb-api",
+              "name": "API",
+              "status": "operational"
+            },
+            {
+              "id": "bb-ssh",
+              "name": "Git via SSH",
+              "status": "operational"
+            },
+            {
+              "id": "bb-https",
+              "name": "Git via HTTPS",
+              "status": "operational"
+            },
+            {
+              "id": "bb-pipelines",
+              "name": "Bitbucket Pipelines (CI/CD)",
+              "status": "operational"
+            },
+            {
+              "id": "bb-webhooks",
+              "name": "Webhooks",
+              "status": "operational"
+            },
+            {
+              "id": "bb-auth",
+              "name": "Authentication and user management",
               "status": "operational"
             }
           ]

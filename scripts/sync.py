@@ -32,7 +32,8 @@ STATUSPAGE_MAP = {
 SOURCES = {
     "openai": "https://status.openai.com/api/v2/summary.json",
     "github": "https://www.githubstatus.com/api/v2/summary.json",
-    "claude": "https://status.anthropic.com/api/v2/summary.json"
+    "claude": "https://status.anthropic.com/api/v2/summary.json",
+    "bitbucket": "https://bitbucket.status.atlassian.com/api/v2/summary.json"
 }
 
 def fetch_json(url, timeout=10):
@@ -129,6 +130,37 @@ def update_status_dataset(dry_run=False):
                             for u in inc.get("incident_updates", [])
                         ]
                     })
+
+    # Sync GitLab via Status.io API
+    print("[INFO] Syncing provider: gitlab from https://api.status.io/1.0/status/5b36dc6502d06804c08349f7...")
+    gitlab_data = fetch_json("https://api.status.io/1.0/status/5b36dc6502d06804c08349f7")
+    if gitlab_data and "result" in gitlab_data:
+        res = gitlab_data["result"]
+        overall = res.get("status_overall", {}).get("status", "Operational").lower()
+        gl_map = {
+            "operational": "operational",
+            "degraded performance": "degraded",
+            "partial service disruption": "partial_outage",
+            "service disruption": "major_outage",
+            "security event": "major_outage"
+        }
+        mapped_gl_status = gl_map.get(overall, "operational")
+        for p in data.get("providers", []):
+            if p["id"] == "gitlab":
+                p["status"] = mapped_gl_status
+                updated_providers.add("gitlab")
+
+        gl_comps = {c["name"].lower(): c.get("status", "Operational") for c in res.get("status", [])}
+        for cat in data.get("categories", []):
+            for s in cat.get("services", []):
+                if s.get("providerId") == "gitlab":
+                    s["status"] = mapped_gl_status
+                    for comp in s.get("components", []):
+                        comp_name = comp["name"].lower()
+                        for gl_name, gl_stat in gl_comps.items():
+                            if gl_name in comp_name or comp_name in gl_name:
+                                comp["status"] = gl_map.get(gl_stat.lower(), "operational")
+                                break
 
     # Recalculate system-wide status
     all_statuses = [p.get("status") for p in data.get("providers", []) if p["id"] != "all"]

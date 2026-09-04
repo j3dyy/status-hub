@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "degraded",
     "statusMessage": "Some Services Experiencing Degraded Performance",
-    "lastUpdated": "2026-09-04T17:39:22Z",
+    "lastUpdated": "2026-09-04T19:53:20Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 2,
+      "activeIncidentsCount": 3,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -90,7 +90,7 @@
       "name": "Vercel",
       "url": "https://www.vercel-status.com",
       "icon": "vercel",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "docker",
@@ -659,7 +659,7 @@
           "providerId": "vercel",
           "name": "Vercel Edge Platform & Deployments",
           "description": "Global Edge Network CDN, Serverless/Edge Functions, Deployments pipeline and Vercel Storage",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.99,
           "currentLatencyMs": 48,
           "components": [
@@ -1072,6 +1072,31 @@
             "stage": "investigating",
             "timestamp": "2026-08-27T18:46:19.105Z",
             "message": "Cloudflare is investigating issues with Cloudflare WARP and Cloudflare Zero Trust users being incorrectly geolocated by some third party services."
+          }
+        ]
+      },
+      {
+        "id": "vercel-b6s5qz7tj35w",
+        "title": "Elevated latency in VCR, Blob, and Sandbox API",
+        "providerId": "vercel",
+        "severity": "minor",
+        "status": "identified",
+        "createdAt": "2026-09-04T19:11:44.850Z",
+        "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-04T19:33:18.205Z",
+            "message": "We are continuing to work on a fix for this issue."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-04T19:33:06.264Z",
+            "message": "The issue has been identified and a fix is being implemented."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-04T19:11:44.922Z",
+            "message": "We've identified an issue where some customers may experience increased latency for API requests to VCR, Blob, and Sandbox. We are currently investigating this issue. We will provide additional updates as they become available."
           }
         ]
       },

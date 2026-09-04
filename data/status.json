@@ -5,14 +5,14 @@
     "company": "isdown.usectl.com",
     "url": "https://isdown.usectl.com",
     "supportUrl": "https://help.example.com",
-    "status": "operational",
-    "statusMessage": "All Core Systems Operational",
-    "lastUpdated": "2026-09-03T23:53:52Z",
+    "status": "degraded",
+    "statusMessage": "Some Services Experiencing Degraded Performance",
+    "lastUpdated": "2026-09-04T00:01:44Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 0,
+      "activeIncidentsCount": 3,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -21,13 +21,6 @@
       "id": "all",
       "name": "Unified Overview",
       "icon": "layers"
-    },
-    {
-      "id": "gemini",
-      "name": "Google Gemini",
-      "url": "https://status.gemini.com",
-      "icon": "gemini",
-      "status": "operational"
     },
     {
       "id": "openai",
@@ -41,6 +34,34 @@
       "name": "Anthropic Claude",
       "url": "https://status.claude.com",
       "icon": "sparkles",
+      "status": "operational"
+    },
+    {
+      "id": "gemini",
+      "name": "Google Gemini",
+      "url": "https://status.gemini.com",
+      "icon": "gemini",
+      "status": "operational"
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity AI",
+      "url": "https://status.perplexity.com",
+      "icon": "perplexity",
+      "status": "operational"
+    },
+    {
+      "id": "huggingface",
+      "name": "Hugging Face",
+      "url": "https://status.huggingface.co",
+      "icon": "huggingface",
+      "status": "operational"
+    },
+    {
+      "id": "midjourney",
+      "name": "Midjourney",
+      "url": "https://status.midjourney.com",
+      "icon": "midjourney",
       "status": "operational"
     },
     {
@@ -65,10 +86,80 @@
       "status": "operational"
     },
     {
+      "id": "vercel",
+      "name": "Vercel",
+      "url": "https://www.vercel-status.com",
+      "icon": "vercel",
+      "status": "operational"
+    },
+    {
+      "id": "docker",
+      "name": "Docker",
+      "url": "https://status.docker.com",
+      "icon": "docker",
+      "status": "operational"
+    },
+    {
+      "id": "npmjs",
+      "name": "npm",
+      "url": "https://status.npmjs.org",
+      "icon": "npmjs",
+      "status": "operational"
+    },
+    {
+      "id": "sentry",
+      "name": "Sentry",
+      "url": "https://status.sentry.io",
+      "icon": "sentry",
+      "status": "operational"
+    },
+    {
+      "id": "aws",
+      "name": "AWS",
+      "url": "https://health.aws.amazon.com",
+      "icon": "aws",
+      "status": "operational"
+    },
+    {
+      "id": "gcp",
+      "name": "Google Cloud",
+      "url": "https://status.cloud.google.com",
+      "icon": "gcp",
+      "status": "operational"
+    },
+    {
+      "id": "azure",
+      "name": "Microsoft Azure",
+      "url": "https://azure.status.microsoft",
+      "icon": "azure",
+      "status": "operational"
+    },
+    {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "url": "https://www.cloudflarestatus.com",
+      "icon": "cloudflare",
+      "status": "degraded"
+    },
+    {
       "id": "hetzner",
       "name": "Hetzner Cloud",
       "url": "https://status.hetzner.com",
       "icon": "server",
+      "status": "operational"
+    },
+    {
+      "id": "mongodb",
+      "name": "MongoDB Atlas",
+      "url": "https://status.cloud.mongodb.com",
+      "icon": "mongodb",
+      "status": "degraded"
+    },
+    {
+      "id": "stripe",
+      "name": "Stripe",
+      "url": "https://status.stripe.com",
+      "icon": "stripe",
       "status": "operational"
     },
     {
@@ -302,6 +393,84 @@
               "status": "operational"
             }
           ]
+        },
+        {
+          "id": "perplexity-api",
+          "providerId": "perplexity",
+          "name": "Perplexity Search & Sonar API",
+          "description": "Perplexity.ai web search, Pro search, Sonar reasoning models and API endpoints",
+          "status": "operational",
+          "uptime90d": 99.94,
+          "currentLatencyMs": 132,
+          "components": [
+            {
+              "id": "perp-web",
+              "name": "Perplexity Web & Mobile Interface",
+              "status": "operational"
+            },
+            {
+              "id": "perp-sonar",
+              "name": "Sonar & Sonar-Pro Inference API",
+              "status": "operational"
+            },
+            {
+              "id": "perp-search",
+              "name": "Pro Search & Citations Engine",
+              "status": "operational"
+            }
+          ]
+        },
+        {
+          "id": "huggingface-hub",
+          "providerId": "huggingface",
+          "name": "Hugging Face Hub & Cloud Platform",
+          "description": "Model Hub repository, Spaces hosting, Inference Endpoints and Datasets",
+          "status": "operational",
+          "uptime90d": 99.95,
+          "currentLatencyMs": 110,
+          "components": [
+            {
+              "id": "hf-hub",
+              "name": "Hugging Face Hub (Models & Code)",
+              "status": "operational"
+            },
+            {
+              "id": "hf-spaces",
+              "name": "Hugging Face Spaces (Gradio & Streamlit)",
+              "status": "operational"
+            },
+            {
+              "id": "hf-inference",
+              "name": "Serverless Inference API & Endpoints",
+              "status": "operational"
+            }
+          ]
+        },
+        {
+          "id": "midjourney-engine",
+          "providerId": "midjourney",
+          "name": "Midjourney Generation Engine",
+          "description": "Diffusion image synthesis, Discord bot queue, web alpha generator and upscaler cluster",
+          "status": "operational",
+          "uptime90d": 99.91,
+          "currentLatencyMs": 185,
+          "components": [
+            {
+              "id": "mj-grid",
+              "name": "Image Generation Grid & Upscalers",
+              "status": "operational"
+            },
+            {
+              "id": "mj-bot",
+              "name": "Discord Bot Interaction Cluster",
+              "status": "operational"
+            },
+            {
+              "id": "mj-web",
+              "name": "Midjourney Web Creation Alpha",
+              "status": "operational"
+            }
+          ]
         }
       ]
     },
@@ -484,6 +653,110 @@
               "status": "operational"
             }
           ]
+        },
+        {
+          "id": "vercel-platform",
+          "providerId": "vercel",
+          "name": "Vercel Edge Platform & Deployments",
+          "description": "Global Edge Network CDN, Serverless/Edge Functions, Deployments pipeline and Vercel Storage",
+          "status": "operational",
+          "uptime90d": 99.99,
+          "currentLatencyMs": 48,
+          "components": [
+            {
+              "id": "vercel-edge",
+              "name": "Edge Network (CDN & Anycast)",
+              "status": "operational"
+            },
+            {
+              "id": "vercel-builds",
+              "name": "Deployments & Build Pipeline",
+              "status": "operational"
+            },
+            {
+              "id": "vercel-functions",
+              "name": "Serverless & Edge Functions",
+              "status": "operational"
+            }
+          ]
+        },
+        {
+          "id": "docker-hub",
+          "providerId": "docker",
+          "name": "Docker Hub & Container Infrastructure",
+          "description": "Docker Hub container registry, authentication token service, and Docker Build Cloud",
+          "status": "operational",
+          "uptime90d": 99.95,
+          "currentLatencyMs": 88,
+          "components": [
+            {
+              "id": "docker-registry",
+              "name": "Docker Hub Registry & Storage",
+              "status": "operational"
+            },
+            {
+              "id": "docker-auth",
+              "name": "Authentication & Token Service",
+              "status": "operational"
+            },
+            {
+              "id": "docker-build",
+              "name": "Docker Build Cloud & Scouts",
+              "status": "operational"
+            }
+          ]
+        },
+        {
+          "id": "npmjs-registry",
+          "providerId": "npmjs",
+          "name": "npm Public Registry & Packaging",
+          "description": "npm package registry, tarball downloads, CLI publishing, and search",
+          "status": "operational",
+          "uptime90d": 99.97,
+          "currentLatencyMs": 64,
+          "components": [
+            {
+              "id": "npm-reg",
+              "name": "Registry (registry.npmjs.org)",
+              "status": "operational"
+            },
+            {
+              "id": "npm-web",
+              "name": "Website & Search (npmjs.com)",
+              "status": "operational"
+            },
+            {
+              "id": "npm-publish",
+              "name": "Package Publishing & Webhooks",
+              "status": "operational"
+            }
+          ]
+        },
+        {
+          "id": "sentry-telemetry",
+          "providerId": "sentry",
+          "name": "Sentry Error Tracking & Ingestion",
+          "description": "Real-time issue ingestion, performance tracing, session replay, and alert routing",
+          "status": "operational",
+          "uptime90d": 99.98,
+          "currentLatencyMs": 75,
+          "components": [
+            {
+              "id": "sentry-ingest",
+              "name": "Event & Issue Ingestion (Relay)",
+              "status": "operational"
+            },
+            {
+              "id": "sentry-web",
+              "name": "Web Application & Dashboards",
+              "status": "operational"
+            },
+            {
+              "id": "sentry-alerts",
+              "name": "Alert Deliveries & Integrations",
+              "status": "operational"
+            }
+          ]
         }
       ]
     },
@@ -492,6 +765,130 @@
       "name": "Cloud Compute & Datacenter Fabric",
       "description": "Bare-metal servers, cloud compute nodes, software-defined networking and block storage",
       "services": [
+        {
+          "id": "aws-cloud",
+          "providerId": "aws",
+          "name": "Amazon Web Services (AWS Global Fabric)",
+          "description": "Amazon EC2, S3 Object Storage, AWS Lambda, DynamoDB, CloudFront and Amazon Bedrock",
+          "status": "operational",
+          "uptime90d": 99.99,
+          "currentLatencyMs": 38,
+          "components": [
+            {
+              "id": "aws-ec2",
+              "name": "Amazon Elastic Compute Cloud (EC2)",
+              "status": "operational"
+            },
+            {
+              "id": "aws-s3",
+              "name": "Amazon Simple Storage Service (S3)",
+              "status": "operational"
+            },
+            {
+              "id": "aws-lambda",
+              "name": "AWS Lambda Serverless Compute",
+              "status": "operational"
+            },
+            {
+              "id": "aws-bedrock",
+              "name": "Amazon Bedrock (GenAI Foundation Models)",
+              "status": "operational"
+            }
+          ]
+        },
+        {
+          "id": "gcp-cloud",
+          "providerId": "gcp",
+          "name": "Google Cloud Platform (GCP Infrastructure)",
+          "description": "Google Compute Engine, GKE Kubernetes, Cloud Storage, Cloud Run, and Vertex AI",
+          "status": "operational",
+          "uptime90d": 99.99,
+          "currentLatencyMs": 41,
+          "components": [
+            {
+              "id": "gcp-gce",
+              "name": "Google Compute Engine (GCE)",
+              "status": "operational"
+            },
+            {
+              "id": "gcp-gke",
+              "name": "Google Kubernetes Engine (GKE)",
+              "status": "operational"
+            },
+            {
+              "id": "gcp-gcs",
+              "name": "Google Cloud Storage (GCS)",
+              "status": "operational"
+            },
+            {
+              "id": "gcp-vertex",
+              "name": "Vertex AI Model Garden & Prediction",
+              "status": "operational"
+            }
+          ]
+        },
+        {
+          "id": "azure-cloud",
+          "providerId": "azure",
+          "name": "Microsoft Azure Cloud Fabric",
+          "description": "Azure Virtual Machines, Azure OpenAI Service, Blob Storage, AKS and Azure Functions",
+          "status": "operational",
+          "uptime90d": 99.98,
+          "currentLatencyMs": 44,
+          "components": [
+            {
+              "id": "azure-vm",
+              "name": "Azure Virtual Machines & Compute",
+              "status": "operational"
+            },
+            {
+              "id": "azure-openai",
+              "name": "Azure OpenAI & Cognitive Services",
+              "status": "operational"
+            },
+            {
+              "id": "azure-storage",
+              "name": "Azure Blob Storage & Cosmos DB",
+              "status": "operational"
+            },
+            {
+              "id": "azure-aks",
+              "name": "Azure Kubernetes Service (AKS)",
+              "status": "operational"
+            }
+          ]
+        },
+        {
+          "id": "cloudflare-network",
+          "providerId": "cloudflare",
+          "name": "Cloudflare Global Network & Edge",
+          "description": "Global Edge Network, Cloudflare DNS, Workers & Pages, WAF, and Zero Trust",
+          "status": "operational",
+          "uptime90d": 99.99,
+          "currentLatencyMs": 24,
+          "components": [
+            {
+              "id": "cf-dns",
+              "name": "Authoritative DNS & Anycast Edge",
+              "status": "operational"
+            },
+            {
+              "id": "cf-workers",
+              "name": "Cloudflare Workers & Pages",
+              "status": "operational"
+            },
+            {
+              "id": "cf-cdn",
+              "name": "CDN Caching & HTTP Proxy",
+              "status": "operational"
+            },
+            {
+              "id": "cf-waf",
+              "name": "Web Application Firewall (WAF)",
+              "status": "operational"
+            }
+          ]
+        },
         {
           "id": "hetzner-cloud",
           "providerId": "hetzner",
@@ -560,10 +957,165 @@
           ]
         }
       ]
+    },
+    {
+      "id": "data-payments",
+      "name": "Data Platforms & Payment Infrastructure",
+      "description": "Managed multi-cloud databases, billing infrastructure and transaction processing engines",
+      "services": [
+        {
+          "id": "mongodb-atlas",
+          "providerId": "mongodb",
+          "name": "MongoDB Atlas Cloud Database",
+          "description": "Managed multi-cloud document database, Atlas Vector Search, Data API, and App Services",
+          "status": "degraded",
+          "uptime90d": 99.98,
+          "currentLatencyMs": 62,
+          "components": [
+            {
+              "id": "mongo-clusters",
+              "name": "Atlas Cluster Operations & Sharding",
+              "status": "operational"
+            },
+            {
+              "id": "mongo-search",
+              "name": "Atlas Vector Search & Indexing",
+              "status": "operational"
+            },
+            {
+              "id": "mongo-api",
+              "name": "Atlas Data API & Stream Processing",
+              "status": "operational"
+            }
+          ]
+        },
+        {
+          "id": "stripe-network",
+          "providerId": "stripe",
+          "name": "Stripe Payments & Billing Network",
+          "description": "Global payment processing, Stripe API, Checkout, Webhook delivery, and Dashboard",
+          "status": "operational",
+          "uptime90d": 99.99,
+          "currentLatencyMs": 52,
+          "components": [
+            {
+              "id": "stripe-api",
+              "name": "Stripe Core API (api.stripe.com)",
+              "status": "operational"
+            },
+            {
+              "id": "stripe-checkout",
+              "name": "Stripe Checkout & Elements (Stripe.js)",
+              "status": "operational"
+            },
+            {
+              "id": "stripe-hooks",
+              "name": "Webhook Event Deliveries",
+              "status": "operational"
+            },
+            {
+              "id": "stripe-dash",
+              "name": "Stripe Merchant Dashboard",
+              "status": "operational"
+            }
+          ]
+        }
+      ]
     }
   ],
   "incidents": {
-    "active": [],
+    "active": [
+      {
+        "id": "cloudflare-48wc4y9p1vym",
+        "title": "Workers Builds elevated queue times",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "identified",
+        "createdAt": "2026-09-03T23:35:48.000Z",
+        "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-03T23:43:20.837Z",
+            "message": "The issue has been identified and a fix is being implemented."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-03T23:35:48.182Z",
+            "message": "Cloudflare is aware of and investigating an issue with delays running Cloudflare Workers builds which potentially impacts multiple customers."
+          }
+        ]
+      },
+      {
+        "id": "cloudflare-9g65dxfbcjln",
+        "title": "Incorrect geo location for some Cloudflare WARP users",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "identified",
+        "createdAt": "2026-08-27T18:46:19.000Z",
+        "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-01T08:29:56.950Z",
+            "message": "We are continuing to work on a fix for this issue."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-08-31T15:15:03.346Z",
+            "message": "We are continuing to work on a fix for this issue."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-08-30T15:51:03.453Z",
+            "message": "We are continuing to work on a fix for this issue."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-08-29T15:31:17.830Z",
+            "message": "We are continuing to work on a fix for this issue."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-08-28T11:30:28.324Z",
+            "message": "We are continuing to work on a fix for this issue."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-08-28T00:55:12.489Z",
+            "message": "We are continuing to work on a fix for this issue."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-08-27T18:56:11.313Z",
+            "message": "The issue has been identified and we are working with third party providers to fix it."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-08-27T18:46:19.105Z",
+            "message": "Cloudflare is investigating issues with Cloudflare WARP and Cloudflare Zero Trust users being incorrectly geolocated by some third party services."
+          }
+        ]
+      },
+      {
+        "id": "mongodb-yhvvsfvwyf1h",
+        "title": "Impaired Cluster operations in AWS me-central-1 and AWS me-south-1",
+        "providerId": "mongodb",
+        "severity": "major",
+        "status": "monitoring",
+        "createdAt": "2026-09-03T16:44:43.835Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-03T16:47:21.740Z",
+            "message": "We are continuing to monitor for any further issues."
+          },
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-03T16:44:43.899Z",
+            "message": "Please follow <a href=\"https://status.mongodb.com/incidents/7g5qmxgkc2y4\">the original status post</a> for updates on AWS me-central-1 and AWS me-south-1 issues."
+          }
+        ]
+      }
+    ],
     "past": [
       {
         "id": "inc-2026-08-28-1",

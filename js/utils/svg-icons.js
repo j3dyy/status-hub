@@ -150,5 +150,77 @@ export const icons = {
   bitbucket: (size = 16, className = "") => `
     <svg class="${className}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="currentColor">
       <path d="M2.66 3h18.68a.66.66 0 0 1 .66.74L19.88 20.3a1.32 1.32 0 0 1-1.31 1.13H5.43a1.32 1.32 0 0 1-1.31-1.13L1.99 3.74A.66.66 0 0 1 2.66 3zm11.75 12.17h-4.82L8.5 9.42h7z"/>
+    </svg>`,
+
+  perplexity: (size = 16, className = "") => `
+    <svg class="${className}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="2" x2="12" y2="22"></line>
+      <line x1="2" y1="12" x2="22" y2="12"></line>
+      <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line>
+      <line x1="19.07" y1="4.93" x2="4.93" y2="19.07"></line>
+    </svg>`,
+
+  huggingface: (size = 16, className = "") => `
+    <svg class="${className}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-3.5 7a1.5 1.5 0 1 1-1.5 1.5A1.5 1.5 0 0 1 8.5 9zm7 0a1.5 1.5 0 1 1-1.5 1.5 1.5 1.5 0 0 1 1.5-1.5zm-3.5 9.5a5.5 5.5 0 0 1-4.9-3 1 1 0 0 1 1.74-1A3.5 3.5 0 0 0 12 16a3.5 3.5 0 0 0 3.16-1.5 1 1 0 1 1 1.74 1 5.5 5.5 0 0 1-4.9 3z"/>
+    </svg>`,
+
+  midjourney: (size = 16, className = "") => `
+    <svg class="${className}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 19.5c5-2 15-2 20 0"></path>
+      <path d="M4 14c4-1 12-1 16 0"></path>
+      <path d="M12 2v14"></path>
+      <path d="M12 2c3 4 5 7 5 11"></path>
+    </svg>`,
+
+  aws: (size = 16, className = "") => `
+    <svg class="${className}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18.8 14.9c-2.3 1.7-5.5 2.6-8.4 2.6-4 0-7.7-1.5-10.4-4-.2-.2 0-.5.2-.4 3 1.6 6.6 2.5 10.3 2.5 2.5 0 5.3-.6 7.8-1.9.4-.2.7.2.5.2zm1.6-1.1c-.3-.4-1.9-.2-2.9-.1-.3 0-.4-.2-.1-.4 1.7-1.2 4.4-.9 4.7-.5.3.4-.1 3.1-1.7 4.5-.2.2-.4.1-.3-.2.3-.9.6-2.9.3-3.3z"/>
+      <path d="M11.9 6.2c-1.3 0-2.4.5-3.1 1.4-.2.2-.1.5.2.5l1.2-.2c.2 0 .4-.1.5-.3.4-.5 1-1 1.7-1 1.1 0 1.7.6 1.7 1.6v.5c-.8 0-1.8.1-2.7.4-1.7.5-2.5 1.5-2.5 2.8 0 1.5 1 2.4 2.4 2.4 1.1 0 2-.5 2.5-1.3v1.1c0 .2.2.3.4.3h1.2c.2 0 .4-.1.4-.4V9c0-1.9-1.2-2.8-3.4-2.8zm.5 5.8c-.4.5-1.1.8-1.7.8-.8 0-1.3-.4-1.3-1.1 0-.9.6-1.4 1.8-1.5.4 0 .8 0 1.2.1v1.7z"/>
+    </svg>`,
+
+  cloudflare: (size = 16, className = "") => `
+    <svg class="${className}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18.3 10.1a5.6 5.6 0 0 0-10.7-1.6A4.5 4.5 0 0 0 3 13a4.5 4.5 0 0 0 4.5 4.5h11A4.5 4.5 0 0 0 23 13a4.4 4.4 0 0 0-4.7-2.9z"/>
+    </svg>`,
+
+  gcp: (size = 16, className = "") => `
+    <svg class="${className}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/>
+    </svg>`,
+
+  azure: (size = 16, className = "") => `
+    <svg class="${className}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M13.05 2.25 4.2 17.55h5.4L15.3 6.9zM8.55 19.8 13.95 9l5.85 10.8H8.55z"/>
+    </svg>`,
+
+  vercel: (size = 16, className = "") => `
+    <svg class="${className}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="currentColor">
+      <polygon points="12 2 2 22 22 22"></polygon>
+    </svg>`,
+
+  docker: (size = 16, className = "") => `
+    <svg class="${className}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M13 3h3v3h-3zm-4 0h3v3H9zm-4 4h3v3H5zm4 0h3v3H9zm4 0h3v3h-3zm4 0h3v3h-3zm-12 4h3v3H5zm4 0h3v3H9zm4 0h3v3h-3zm4 0h3v3h-3zm4 0h3v3h-3zM2.5 15C3 18.5 6 21 11 21c7 0 10.5-4 11-7H2.5z"/>
+    </svg>`,
+
+  npmjs: (size = 16, className = "") => `
+    <svg class="${className}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M1.5 1.5v21h21V1.5H1.5zm16.5 16.5h-3V7.5h-3V18h-6V6h12v12z"/>
+    </svg>`,
+
+  mongodb: (size = 16, className = "") => `
+    <svg class="${className}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 1.5c-.4 1.6-4.5 6-4.5 11 0 4.2 2.6 7.4 4.5 9 1.9-1.6 4.5-4.8 4.5-9 0-5-4.1-9.4-4.5-11zm0 17.5v-15c.3 1.2 3.5 4.8 3.5 8.5 0 3.2-1.9 5.6-3.5 6.5z"/>
+    </svg>`,
+
+  sentry: (size = 16, className = "") => `
+    <svg class="${className}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M13.2 2.2a1 1 0 0 0-1.4 0L9.4 4.6a1 1 0 0 0 0 1.4l1.3 1.3A8 8 0 1 0 18 14h2.5A10.5 10.5 0 1 1 12 1.5l1.2.7z"/>
+    </svg>`,
+
+  stripe: (size = 16, className = "") => `
+    <svg class="${className}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C17.767.807 15.42 0 12.543 0 7.234 0 3.344 2.81 3.344 7.604c0 4.961 4.234 6.789 7.822 8.043 2.184.782 2.912 1.488 2.912 2.455 0 .978-.85 1.545-2.274 1.545-2.35 0-5.321-1.12-7.14-2.173L3.75 23.05c2.196 1.053 5.097 1.677 8.167 1.677 5.753 0 9.774-2.738 9.774-7.653 0-5.023-4.234-6.848-7.715-7.924z"/>
     </svg>`
 };

@@ -33,7 +33,14 @@ SOURCES = {
     "openai": "https://status.openai.com/api/v2/summary.json",
     "github": "https://www.githubstatus.com/api/v2/summary.json",
     "claude": "https://status.anthropic.com/api/v2/summary.json",
-    "bitbucket": "https://bitbucket.status.atlassian.com/api/v2/summary.json"
+    "bitbucket": "https://bitbucket.status.atlassian.com/api/v2/summary.json",
+    "perplexity": "https://status.perplexity.com/api/v2/summary.json",
+    "cloudflare": "https://www.cloudflarestatus.com/api/v2/summary.json",
+    "vercel": "https://www.vercel-status.com/api/v2/summary.json",
+    "docker": "https://www.dockerstatus.com/api/v2/summary.json",
+    "npmjs": "https://status.npmjs.org/api/v2/summary.json",
+    "mongodb": "https://status.cloud.mongodb.com/api/v2/summary.json",
+    "sentry": "https://status.sentry.io/api/v2/summary.json"
 }
 
 def fetch_json(url, timeout=10):
@@ -161,6 +168,38 @@ def update_status_dataset(dry_run=False):
                             if gl_name in comp_name or comp_name in gl_name:
                                 comp["status"] = gl_map.get(gl_stat.lower(), "operational")
                                 break
+
+    # Sync Stripe via status.stripe.com/current
+    print("[INFO] Syncing provider: stripe from https://status.stripe.com/current...")
+    stripe_data = fetch_json("https://status.stripe.com/current")
+    if stripe_data and "statuses" in stripe_data:
+        statuses = stripe_data["statuses"]
+        all_up = all(v == "up" for v in statuses.values())
+        any_down = any(v in ("down", "outage") for v in statuses.values())
+        mapped_stripe_status = "operational" if all_up else ("major_outage" if any_down else "degraded")
+        for p in data.get("providers", []):
+            if p["id"] == "stripe":
+                p["status"] = mapped_stripe_status
+                updated_providers.add("stripe")
+        for cat in data.get("categories", []):
+            for s in cat.get("services", []):
+                if s.get("providerId") == "stripe":
+                    s["status"] = mapped_stripe_status
+
+    # Sync GCP via status.cloud.google.com/incidents.json
+    print("[INFO] Syncing provider: gcp from https://status.cloud.google.com/incidents.json...")
+    gcp_incidents = fetch_json("https://status.cloud.google.com/incidents.json")
+    if gcp_incidents is not None and isinstance(gcp_incidents, list):
+        active_gcp = [inc for inc in gcp_incidents if not inc.get("end")]
+        gcp_status = "operational" if not active_gcp else ("major_outage" if any(inc.get("severity") == "high" for inc in active_gcp) else "degraded")
+        for p in data.get("providers", []):
+            if p["id"] == "gcp":
+                p["status"] = gcp_status
+                updated_providers.add("gcp")
+        for cat in data.get("categories", []):
+            for s in cat.get("services", []):
+                if s.get("providerId") == "gcp":
+                    s["status"] = gcp_status
 
     # Recalculate system-wide status
     all_statuses = [p.get("status") for p in data.get("providers", []) if p["id"] != "all"]

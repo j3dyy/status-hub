@@ -122,51 +122,6 @@ export function renderHeader(store) {
   ]);
   const operationalCount = nonAllProviders.length - impactedProviderIds.size;
 
-  // Render or preserve static site-header
-  let headerElem = container.querySelector(".site-header");
-  let heroWrap = container.querySelector(".hero-container-wrap");
-
-  if (!headerElem) {
-    container.innerHTML = `
-      <!-- Top Site Nav -->
-      <header class="site-header">
-        <div class="container site-header-inner">
-          <div class="brand-group">
-            <div class="brand-logo-wrap" title="isdown" style="display: flex; align-items: center; justify-content: center;">
-              ${RADAR_LOGO_SVG}
-            </div>
-            <div class="brand-text">
-              <span class="brand-title" style="font-size: 1.35rem; letter-spacing: -0.035em; font-weight: 850;">isdown</span>
-              <span class="brand-subtitle">Real-time AI &amp; Cloud Status</span>
-            </div>
-          </div>
-
-          <div class="header-actions">
-            <button class="action-btn" id="open-subscribe-modal" title="Subscribe to incident alerts">
-              ${icons.bell(16)}
-              <span>Subscribe</span>
-            </button>
-            <button class="icon-btn" id="theme-toggle-btn" title="Toggle Light/Dark Theme" aria-label="Toggle theme">
-              ${isDark ? icons.sun(18) : icons.moon(18)}
-            </button>
-          </div>
-        </div>
-      </header>
-
-      <!-- Hero Status Section & Provider Switcher Mount Point -->
-      <div class="container hero-container-wrap" style="padding-top: 24px;"></div>
-    `;
-
-    document.getElementById("theme-toggle-btn")?.addEventListener("click", () => {
-      store.toggleTheme();
-    });
-
-    heroWrap = container.querySelector(".hero-container-wrap");
-  } else {
-    const themeBtn = document.getElementById("theme-toggle-btn");
-    if (themeBtn) themeBtn.innerHTML = isDark ? icons.sun(18) : icons.moon(18);
-  }
-
   // Sort providers: "all" first, then any degrading providers with badges, then healthy providers
   const sortedProviders = [...providers].sort((a, b) => {
     if (a.id === "all") return -1;
@@ -186,9 +141,34 @@ export function renderHeader(store) {
     return 0;
   });
 
-  // Update Hero & Provider Tabs
-  if (heroWrap) {
-    heroWrap.innerHTML = `
+  container.innerHTML = `
+    <!-- Top Site Nav -->
+    <header class="site-header">
+      <div class="container site-header-inner">
+        <div class="brand-group">
+          <div class="brand-logo-wrap" title="isdown" style="display: flex; align-items: center; justify-content: center;">
+            ${RADAR_LOGO_SVG}
+          </div>
+          <div class="brand-text">
+            <span class="brand-title" style="font-size: 1.35rem; letter-spacing: -0.035em; font-weight: 850;">isdown</span>
+            <span class="brand-subtitle">Real-time AI &amp; Cloud Status</span>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <button class="action-btn" id="open-subscribe-modal" title="Subscribe to incident alerts">
+            ${icons.bell(16)}
+            <span>Subscribe</span>
+          </button>
+          <button class="icon-btn" id="theme-toggle-btn" title="Toggle Light/Dark Theme" aria-label="Toggle theme">
+            ${isDark ? icons.sun(18) : icons.moon(18)}
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Status Section & Provider Switcher Mount Point -->
+    <div class="container hero-container-wrap" style="padding-top: 24px;">
       <!-- Provider Tabs Bar -->
       <nav class="provider-nav-wrap" aria-label="Provider selection">
         <div class="provider-tabs">
@@ -289,93 +269,106 @@ export function renderHeader(store) {
           </div>
         </div>
       </section>
-    `;
+    </div>
+  `;
 
-    // Attach Provider Switcher & Glance Listeners
-    heroWrap.querySelectorAll(".provider-tab, .glance-pill").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const pId = btn.getAttribute("data-provider-id") || btn.getAttribute("data-jump-provider");
-        if (!pId) return;
+  // Attach theme toggle listener
+  document.getElementById("theme-toggle-btn")?.addEventListener("click", () => {
+    store.toggleTheme();
+  });
 
-        // 1. Set the active provider in state (which re-filters the service matrix)
-        store.setProvider(pId);
+  // Attach Provider Switcher & Glance Listeners
+  container.querySelectorAll(".provider-tab, .glance-pill").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const pId = btn.getAttribute("data-provider-id") || btn.getAttribute("data-jump-provider");
+      if (!pId) return;
 
-        // 2. Scroll the corresponding provider tab horizontally into view in the navigation bar
-        const matchingTab = heroWrap.querySelector(`.provider-tab[data-provider-id="${pId}"]`);
-        if (matchingTab) {
-          matchingTab.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
-        }
+      // 1. Set the active provider in state (which re-filters the service matrix)
+      store.setProvider(pId);
 
-        // 3. Smoothly scroll down to that clicked service in the services matrix
-        setTimeout(() => {
-          if (pId === "all") {
-            const servicesMount = document.getElementById("services-mount");
-            servicesMount?.scrollIntoView({ behavior: "smooth", block: "start" });
-          } else {
-            const serviceCard = document.querySelector(`.service-card[data-service-id*="${pId}"]`) ||
-                                document.querySelector(`.service-card`) ||
-                                document.getElementById("services-mount");
-            if (serviceCard) {
-              if (serviceCard.classList.contains("service-card")) {
-                serviceCard.classList.add("expanded");
-              }
-              serviceCard.scrollIntoView({ behavior: "smooth", block: "center" });
-              serviceCard.classList.remove("card-highlight-pulse");
-              void serviceCard.offsetWidth;
-              serviceCard.classList.add("card-highlight-pulse");
-            }
-          }
-        }, 80);
-      });
-    });
+      // 2. Scroll the corresponding provider tab horizontally into view in the navigation bar
+      const matchingTab = container.querySelector(`.provider-tab[data-provider-id="${pId}"]`);
+      if (matchingTab) {
+        matchingTab.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+      }
 
-    // Attach Manual Refresh
-    document.getElementById("manual-refresh-trigger")?.addEventListener("click", async () => {
-      const iconWrap = document.getElementById("refresh-icon-wrap");
-      if (iconWrap) iconWrap.classList.add("spinning");
-      await store.fetchLatestData(true);
+      // 3. Smoothly scroll down to that clicked service in the services matrix
       setTimeout(() => {
-        if (iconWrap) iconWrap.classList.remove("spinning");
-      }, 600);
-    });
-
-    // Attach Jump Handlers for Disruption Pills
-    heroWrap.querySelectorAll("[data-jump-target]").forEach(pill => {
-      pill.addEventListener("click", () => {
-        const targetId = pill.getAttribute("data-jump-target");
-        // Check for incident card by ID
-        let targetElem = document.getElementById(targetId);
-        // Or check for service card by data-service-id
-        if (!targetElem) {
-          targetElem = document.querySelector(`[data-service-id="${targetId}"]`);
-        }
-
-        // If filtered out, reset provider to "all" to expose element
-        if (!targetElem && store.selectedProviderId !== "all") {
-          store.setProvider("all");
-          setTimeout(() => {
-            const freshTarget = document.getElementById(targetId) || document.querySelector(`[data-service-id="${targetId}"]`);
-            if (freshTarget) {
-              if (freshTarget.classList.contains("service-card")) freshTarget.classList.add("expanded");
-              freshTarget.scrollIntoView({ behavior: "smooth", block: "center" });
-              freshTarget.classList.remove("card-highlight-pulse");
-              void freshTarget.offsetWidth;
-              freshTarget.classList.add("card-highlight-pulse");
+        if (pId === "all") {
+          const servicesMount = document.getElementById("services-mount");
+          servicesMount?.scrollIntoView({ behavior: "smooth", block: "start" });
+        } else {
+          const serviceCard = document.querySelector(`.service-card[data-service-id*="${pId}"]`) ||
+                              document.querySelector(`.service-card`) ||
+                              document.getElementById("services-mount");
+          if (serviceCard) {
+            if (serviceCard.classList.contains("service-card")) {
+              serviceCard.classList.add("expanded");
             }
-          }, 100);
-          return;
-        }
-
-        if (targetElem) {
-          if (targetElem.classList.contains("service-card")) {
-            targetElem.classList.add("expanded");
+            serviceCard.scrollIntoView({ behavior: "smooth", block: "center" });
+            serviceCard.classList.remove("card-highlight-pulse");
+            void serviceCard.offsetWidth;
+            serviceCard.classList.add("card-highlight-pulse");
           }
-          targetElem.scrollIntoView({ behavior: "smooth", block: "center" });
-          targetElem.classList.remove("card-highlight-pulse");
-          void targetElem.offsetWidth;
-          targetElem.classList.add("card-highlight-pulse");
         }
-      });
+      }, 80);
     });
+  });
+
+  // Keep active provider tab scrolled into view if filtered
+  if (store.selectedProviderId && store.selectedProviderId !== "all") {
+    const activeTab = container.querySelector(`.provider-tab.active`);
+    if (activeTab) {
+      activeTab.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+    }
   }
+
+  // Attach Manual Refresh
+  document.getElementById("manual-refresh-trigger")?.addEventListener("click", async () => {
+    const iconWrap = document.getElementById("refresh-icon-wrap");
+    if (iconWrap) iconWrap.classList.add("spinning");
+    await store.fetchLatestData(true);
+    setTimeout(() => {
+      if (iconWrap) iconWrap.classList.remove("spinning");
+    }, 600);
+  });
+
+  // Attach Jump Handlers for Disruption Pills
+  container.querySelectorAll("[data-jump-target]").forEach(pill => {
+    pill.addEventListener("click", () => {
+      const targetId = pill.getAttribute("data-jump-target");
+      // Check for incident card by ID
+      let targetElem = document.getElementById(targetId);
+      // Or check for service card by data-service-id
+      if (!targetElem) {
+        targetElem = document.querySelector(`[data-service-id="${targetId}"]`);
+      }
+
+      // If filtered out, reset provider to "all" to expose element
+      if (!targetElem && store.selectedProviderId !== "all") {
+        store.setProvider("all");
+        setTimeout(() => {
+          const freshTarget = document.getElementById(targetId) || document.querySelector(`[data-service-id="${targetId}"]`);
+          if (freshTarget) {
+            if (freshTarget.classList.contains("service-card")) freshTarget.classList.add("expanded");
+            freshTarget.scrollIntoView({ behavior: "smooth", block: "center" });
+            freshTarget.classList.remove("card-highlight-pulse");
+            void freshTarget.offsetWidth;
+            freshTarget.classList.add("card-highlight-pulse");
+          }
+        }, 100);
+        return;
+      }
+
+      if (targetElem) {
+        if (targetElem.classList.contains("service-card")) {
+          targetElem.classList.add("expanded");
+        }
+        targetElem.scrollIntoView({ behavior: "smooth", block: "center" });
+        targetElem.classList.remove("card-highlight-pulse");
+        void targetElem.offsetWidth;
+        targetElem.classList.add("card-highlight-pulse");
+      }
+    });
+  });
 }

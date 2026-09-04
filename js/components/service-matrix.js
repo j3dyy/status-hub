@@ -287,29 +287,67 @@ export function renderServiceMatrix(store) {
     });
   });
 
-  // Attach Tooltip events to 90-day bars
+  // Helper to position and display tooltip safely
+  function showBarTooltip(bar) {
+    const date = bar.getAttribute("data-date");
+    const status = bar.getAttribute("data-status");
+    const uptime = bar.getAttribute("data-uptime");
+    const incident = bar.getAttribute("data-incident");
+
+    let html = `<strong>${date}</strong><br/>Uptime: ${uptime} &bull; ${status.replace("_", " ")}`;
+    if (incident) {
+      html += `<br/><span style="color: #f87171;">Disruption: ${incident}</span>`;
+    }
+
+    tooltip.innerHTML = html;
+    tooltip.style.display = "block";
+
+    const rect = bar.getBoundingClientRect();
+    const rawX = rect.left + rect.width / 2;
+    // Keep tooltip inside screen boundaries on mobile
+    const tooltipWidth = tooltip.offsetWidth || 160;
+    const halfWidth = tooltipWidth / 2 + 10;
+    const clampedX = Math.max(halfWidth, Math.min(window.innerWidth - halfWidth, rawX));
+
+    tooltip.style.left = `${clampedX}px`;
+    tooltip.style.top = `${rect.top}px`;
+  }
+
+  function hideBarTooltip() {
+    tooltip.style.display = "none";
+    container.querySelectorAll(".uptime-day-bar.active-touch").forEach(b => b.classList.remove("active-touch"));
+  }
+
+  // Attach Mouse Tooltip events
   container.querySelectorAll(".uptime-day-bar").forEach(bar => {
-    bar.addEventListener("mouseenter", (e) => {
-      const date = bar.getAttribute("data-date");
-      const status = bar.getAttribute("data-status");
-      const uptime = bar.getAttribute("data-uptime");
-      const incident = bar.getAttribute("data-incident");
+    bar.addEventListener("mouseenter", () => showBarTooltip(bar));
+    bar.addEventListener("mouseleave", hideBarTooltip);
+  });
 
-      let html = `<strong>${date}</strong><br/>Uptime: ${uptime} &bull; ${status.replace("_", " ")}`;
-      if (incident) {
-        html += `<br/><span style="color: #f87171;">Disruption: ${incident}</span>`;
+  // Attach Touch events for mobile scrubbing
+  let touchDismissTimer = null;
+  container.querySelectorAll(".uptime-bars-wrapper").forEach(wrapper => {
+    const handleTouch = (e) => {
+      if (touchDismissTimer) clearTimeout(touchDismissTimer);
+      const touch = e.touches[0];
+      if (!touch) return;
+
+      const target = document.elementFromPoint(touch.clientX, touch.clientY);
+      const bar = target?.closest(".uptime-day-bar");
+      if (bar && wrapper.contains(bar)) {
+        wrapper.querySelectorAll(".uptime-day-bar.active-touch").forEach(b => {
+          if (b !== bar) b.classList.remove("active-touch");
+        });
+        bar.classList.add("active-touch");
+        showBarTooltip(bar);
       }
+    };
 
-      tooltip.innerHTML = html;
-      tooltip.style.display = "block";
-
-      const rect = bar.getBoundingClientRect();
-      tooltip.style.left = `${rect.left + rect.width / 2}px`;
-      tooltip.style.top = `${rect.top}px`;
+    wrapper.addEventListener("touchstart", handleTouch, { passive: true });
+    wrapper.addEventListener("touchmove", handleTouch, { passive: true });
+    wrapper.addEventListener("touchend", () => {
+      touchDismissTimer = setTimeout(hideBarTooltip, 1800);
     });
-
-    bar.addEventListener("mouseleave", () => {
-      tooltip.style.display = "none";
-    });
+    wrapper.addEventListener("touchcancel", hideBarTooltip);
   });
 }

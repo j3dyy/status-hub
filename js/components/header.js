@@ -156,9 +156,9 @@ export function renderHeader(store) {
         </div>
 
         <div class="header-actions">
-          <button class="action-btn" id="open-subscribe-modal" title="Subscribe to incident alerts">
+          <button class="action-btn" id="open-subscribe-modal" title="Subscribe to incident alerts" aria-label="Subscribe to incident alerts">
             ${icons.bell(16)}
-            <span>Subscribe</span>
+            <span class="action-btn-text">Subscribe</span>
           </button>
           <button class="icon-btn" id="theme-toggle-btn" title="Toggle Light/Dark Theme" aria-label="Toggle theme">
             ${isDark ? icons.sun(18) : icons.moon(18)}
@@ -168,7 +168,7 @@ export function renderHeader(store) {
     </header>
 
     <!-- Hero Status Section & Provider Switcher Mount Point -->
-    <div class="container hero-container-wrap" style="padding-top: 24px;">
+    <div class="container hero-container-wrap">
       <!-- Provider Tabs Bar -->
       <nav class="provider-nav-wrap" aria-label="Provider selection">
         <div class="provider-tabs">

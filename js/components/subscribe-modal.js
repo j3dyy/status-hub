@@ -177,6 +177,15 @@ export function initSubscribeModal() {
     }
   });
 
+  if (window.location.hash === "#subscribe") {
+    setTimeout(openModal, 150);
+  }
+  window.addEventListener("hashchange", () => {
+    if (window.location.hash === "#subscribe") {
+      openModal();
+    }
+  });
+
   // Tab switching
   modalMount.querySelectorAll(".subscribe-tab").forEach(tab => {
     tab.addEventListener("click", () => {

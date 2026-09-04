@@ -3,6 +3,106 @@
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
+   Header Center Search / Filter Box
+   -------------------------------------------------------------------------- */
+.header-search-container {
+  flex: 1;
+  max-width: 440px;
+  margin: 0 16px;
+  min-width: 0;
+}
+
+@media (max-width: 680px) {
+  .header-search-container {
+    max-width: 190px;
+    margin: 0 6px;
+  }
+}
+
+.header-search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: var(--bg-card-subtle);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  padding: 0 12px;
+  height: 38px;
+  transition: all var(--transition-fast);
+}
+
+.header-search-box:focus-within {
+  background-color: var(--bg-card);
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.header-search-icon {
+  display: flex;
+  align-items: center;
+  color: var(--text-muted);
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.topbar-search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-family: inherit;
+  outline: none;
+  width: 100%;
+  padding: 0;
+  min-width: 0;
+}
+
+.topbar-search-input::placeholder {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+.header-search-clear {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  transition: color var(--transition-fast);
+  margin-left: 6px;
+}
+
+.header-search-clear:hover {
+  color: var(--text-primary);
+}
+
+.header-search-shortcut {
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 1px 6px;
+  line-height: 1.2;
+  user-select: none;
+  margin-left: 6px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 680px) {
+  .header-search-shortcut {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
    Provider Navigation Tabs (Inspired by Hetzner & Multi-Cloud Dashboards)
    -------------------------------------------------------------------------- */
 .provider-nav-wrap {
@@ -372,6 +472,40 @@
   background-color: var(--status-major);
 }
 
+.above-fold-glance.has-disruptions {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border-color);
+}
+
+.glance-pill.impacted {
+  border-color: var(--status-major-border);
+  background-color: var(--status-major-bg);
+  color: var(--status-major);
+}
+
+.glance-pill.selected {
+  border-color: var(--brand-primary);
+  background-color: var(--bg-card);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25);
+  color: var(--text-primary);
+}
+
+.glance-alert-indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--status-major);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  margin-left: 2px;
+  line-height: 1;
+}
+
 .glance-status-tag {
   display: inline-flex;
   align-items: center;
@@ -384,6 +518,12 @@
   border-radius: var(--radius-full);
   border: 1px solid var(--status-operational-border);
   white-space: nowrap;
+}
+
+.glance-status-tag.warning {
+  color: var(--status-major);
+  background-color: var(--status-major-bg);
+  border-color: var(--status-major-border);
 }
 
 /* Highlight flash animation when jumped to */
@@ -435,6 +575,37 @@
 .metric-card:hover {
   border-color: var(--border-focus);
   transform: translateY(-1px);
+}
+
+.metric-card-interactive {
+  cursor: pointer;
+  user-select: none;
+}
+
+.metric-card-interactive:hover {
+  border-color: var(--border-focus);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.metric-card-interactive:active {
+  transform: translateY(0);
+}
+
+.metric-card-interactive:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 2px;
+}
+
+.metric-card-interactive.has-active-incidents {
+  border-color: var(--status-major-border);
+  background: linear-gradient(135deg, var(--bg-card) 70%, var(--status-major-bg) 100%);
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.08);
+}
+
+.metric-card-interactive.has-active-incidents:hover {
+  border-color: var(--status-major);
+  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.22);
 }
 
 .metric-card-label {

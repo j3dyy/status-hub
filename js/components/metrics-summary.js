@@ -39,7 +39,13 @@ export function renderMetricsSummary(store) {
           <div class="metric-card-sub">Global CDN & Edge p50</div>
         </div>
 
-        <div class="metric-card">
+        <div
+          class="metric-card metric-card-interactive ${activeCount > 0 ? "has-active-incidents" : ""}"
+          id="metric-card-active-incidents"
+          role="button"
+          tabindex="0"
+          title="${activeCount > 0 ? `Click to jump down to all ${activeCount} active incidents` : 'All monitored platforms operating normally'}"
+        >
           <div class="metric-card-label">
             <span>Active Incidents</span>
             ${icons.alertTriangle(16, activeCount > 0 ? "status-major" : "text-muted")}
@@ -47,7 +53,9 @@ export function renderMetricsSummary(store) {
           <div class="metric-card-val" style="${activeCount > 0 ? "color: var(--status-major)" : ""}">
             ${activeCount === 0 ? "None" : activeCount}
           </div>
-          <div class="metric-card-sub">${activeCount === 0 ? "All services healthy" : "Requires attention"}</div>
+          <div class="metric-card-sub" style="${activeCount > 0 ? "color: var(--status-major); font-weight: 600;" : ""}">
+            ${activeCount === 0 ? "All services healthy" : `Requires attention (${activeCount}) &bull; View ↓`}
+          </div>
         </div>
 
         <div class="metric-card">
@@ -61,4 +69,34 @@ export function renderMetricsSummary(store) {
       </div>
     </div>
   `;
+
+  // Attach Click & Keyboard Event Handlers for Active Incidents
+  const incidentsCard = container.querySelector("#metric-card-active-incidents");
+  const handleIncidentCardJump = () => {
+    if (activeCount > 0) {
+      if (store.selectedProviderId !== "all") {
+        store.setProvider("all");
+      }
+
+      setTimeout(() => {
+        const incidentsMount = document.getElementById("incidents-mount") || document.querySelector(".incidents-section");
+        if (incidentsMount) {
+          incidentsMount.scrollIntoView({ behavior: "smooth", block: "start" });
+          document.querySelectorAll(".incident-card.active-outage").forEach(c => {
+            c.classList.remove("card-highlight-pulse");
+            void c.offsetWidth;
+            c.classList.add("card-highlight-pulse");
+          });
+        }
+      }, 100);
+    }
+  };
+
+  incidentsCard?.addEventListener("click", handleIncidentCardJump);
+  incidentsCard?.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleIncidentCardJump();
+    }
+  });
 }

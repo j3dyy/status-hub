@@ -172,6 +172,7 @@ input, select {
   align-items: center;
   justify-content: space-between;
   height: var(--header-height);
+  gap: 16px;
 }
 
 .brand-group {

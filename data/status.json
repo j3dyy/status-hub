@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "degraded",
     "statusMessage": "Some Services Experiencing Degraded Performance",
-    "lastUpdated": "2026-09-04T00:01:44Z",
+    "lastUpdated": "2026-09-04T00:10:33Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -863,7 +863,7 @@
           "providerId": "cloudflare",
           "name": "Cloudflare Global Network & Edge",
           "description": "Global Edge Network, Cloudflare DNS, Workers & Pages, WAF, and Zero Trust",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.99,
           "currentLatencyMs": 24,
           "components": [
@@ -975,7 +975,7 @@
             {
               "id": "mongo-clusters",
               "name": "Atlas Cluster Operations & Sharding",
-              "status": "operational"
+              "status": "partial_outage"
             },
             {
               "id": "mongo-search",

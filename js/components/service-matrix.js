@@ -126,13 +126,16 @@ export function renderServiceMatrix(store) {
 
         return true;
       });
-
       return {
         ...cat,
         services: filteredServices
       };
     })
     .filter(cat => cat.services.length > 0);
+
+  const activeId = document.activeElement ? document.activeElement.id : null;
+  const selStart = document.activeElement?.selectionStart;
+  const selEnd = document.activeElement?.selectionEnd;
 
   container.innerHTML = `
     <div class="container">
@@ -269,6 +272,13 @@ export function renderServiceMatrix(store) {
   searchInput?.addEventListener("input", (e) => {
     store.setSearchQuery(e.target.value);
   });
+
+  if (activeId === "service-search-input" && searchInput) {
+    searchInput.focus();
+    if (typeof selStart === "number" && typeof selEnd === "number") {
+      try { searchInput.setSelectionRange(selStart, selEnd); } catch (_) {}
+    }
+  }
 
   const filterSelect = document.getElementById("service-status-filter");
   filterSelect?.addEventListener("change", (e) => {

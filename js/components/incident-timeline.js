@@ -68,6 +68,7 @@ export function renderIncidents(store) {
                   <div class="incident-title-wrap">
                     <h3>${inc.title}</h3>
                     <div class="incident-affected-tags">
+                      ${inc.providerId ? `<span class="affected-tag" style="font-weight: 600; background: var(--bg-card-subtle);">${inc.providerId.toUpperCase()}</span>` : ""}
                       ${(inc.affectedServices || []).map(s => `<span class="affected-tag">${s}</span>`).join("")}
                       <span class="affected-tag" style="background: var(--status-major-bg); color: var(--status-major); font-weight: 600; text-transform: uppercase;">
                         ${inc.severity}

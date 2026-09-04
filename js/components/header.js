@@ -37,6 +37,8 @@ const RADAR_LOGO_SVG = `
   </svg>
 `;
 
+let isGlobalKeydownBound = false;
+
 export function renderHeader(store) {
   const container = document.getElementById("header-mount");
   if (!container) return;
@@ -52,14 +54,38 @@ export function renderHeader(store) {
   const statusMeta = getStatusMeta(system.status);
   const isDark = store.theme === "dark";
 
-  // Scan for any impacted services or subcomponents (ABOVE THE FOLD VISIBILITY)
+  // Scan for active incidents & disruptions (ABOVE THE FOLD ZERO-SCROLL VISIBILITY)
   const impactedItems = [];
+  const activeIncidents = data.incidents?.active || [];
+
+  // First priority: Active incidents (specific & actionable)
+  for (const inc of activeIncidents) {
+    const providerObj = providers.find(p => p.id === inc.providerId);
+    const providerName = providerObj ? providerObj.name : inc.providerId;
+    const severityStatus = (inc.severity === "critical" || inc.severity === "major")
+      ? "major_outage"
+      : "degraded";
+
+    impactedItems.push({
+      id: inc.id,
+      name: inc.title,
+      providerName,
+      providerId: inc.providerId,
+      status: severityStatus,
+      statusLabel: inc.severity ? inc.severity : "disruption",
+      type: "incident"
+    });
+  }
+
+  // Second priority: Non-operational services without an explicit active incident
   for (const cat of data.categories || []) {
     for (const s of cat.services || []) {
       const providerObj = providers.find(p => p.id === s.providerId);
       const providerName = providerObj ? providerObj.name : "";
 
-      if (s.status !== "operational") {
+      const hasActiveIncident = activeIncidents.some(i => i.providerId === s.providerId);
+
+      if (s.status !== "operational" && !hasActiveIncident) {
         const sMeta = getStatusMeta(s.status);
         impactedItems.push({
           id: s.id,
@@ -74,7 +100,7 @@ export function renderHeader(store) {
 
       // Check subcomponents
       for (const comp of s.components || []) {
-        if (comp.status !== "operational" && s.status === "operational") {
+        if (comp.status !== "operational" && s.status === "operational" && !hasActiveIncident) {
           const cMeta = getStatusMeta(comp.status);
           impactedItems.push({
             id: s.id,
@@ -90,48 +116,149 @@ export function renderHeader(store) {
     }
   }
 
-  container.innerHTML = `
-    <!-- Top Site Nav -->
-    <header class="site-header">
-      <div class="container site-header-inner">
-        <div class="brand-group">
-          <div class="brand-logo-wrap" title="isdown" style="display: flex; align-items: center; justify-content: center;">
-            ${RADAR_LOGO_SVG}
+  // Count operational vs impacted providers
+  const nonAllProviders = providers.filter(p => p.id !== "all");
+  const impactedProviderIds = new Set([
+    ...impactedItems.map(item => item.providerId),
+    ...nonAllProviders.filter(p => p.status && p.status !== "operational").map(p => p.id)
+  ]);
+  const operationalCount = nonAllProviders.length - impactedProviderIds.size;
+
+  // Render or preserve static site-header to maintain input focus & cursor position
+  let searchInputElem = container.querySelector("#topbar-search-input");
+  let heroWrap = container.querySelector(".hero-container-wrap");
+
+  if (!searchInputElem) {
+    container.innerHTML = `
+      <!-- Top Site Nav with Center Search Filter -->
+      <header class="site-header">
+        <div class="container site-header-inner">
+          <div class="brand-group">
+            <div class="brand-logo-wrap" title="isdown" style="display: flex; align-items: center; justify-content: center;">
+              ${RADAR_LOGO_SVG}
+            </div>
+            <div class="brand-text">
+              <span class="brand-title" style="font-size: 1.35rem; letter-spacing: -0.035em; font-weight: 850;">isdown</span>
+              <span class="brand-subtitle">Real-time AI &amp; Cloud Status</span>
+            </div>
           </div>
-          <div class="brand-text">
-            <span class="brand-title" style="font-size: 1.35rem; letter-spacing: -0.035em; font-weight: 850;">isdown</span>
-            <span class="brand-subtitle">Real-time AI &amp; Cloud Status</span>
+
+          <!-- Topbar Quick Filter Search Input -->
+          <div class="header-search-container">
+            <div class="header-search-box">
+              <span class="header-search-icon">${icons.search(15)}</span>
+              <input
+                type="search"
+                id="topbar-search-input"
+                class="topbar-search-input"
+                placeholder="Filter services &amp; cloud status... (Press /)"
+                value="${store.searchQuery || ""}"
+                aria-label="Filter services &amp; cloud status"
+                autocomplete="off"
+                spellcheck="false"
+              />
+              <button class="header-search-clear" id="topbar-search-clear" title="Clear filter" style="display: ${store.searchQuery ? "flex" : "none"};">
+                ${icons.x(14)}
+              </button>
+              <kbd class="header-search-shortcut" id="topbar-search-shortcut" style="display: ${store.searchQuery ? "none" : "inline-block"};">/</kbd>
+            </div>
+          </div>
+
+          <div class="header-actions">
+            <button class="action-btn" id="open-subscribe-modal" title="Subscribe to incident alerts">
+              ${icons.bell(16)}
+              <span>Subscribe</span>
+            </button>
+            <button class="icon-btn" id="theme-toggle-btn" title="Toggle Light/Dark Theme" aria-label="Toggle theme">
+              ${isDark ? icons.sun(18) : icons.moon(18)}
+            </button>
           </div>
         </div>
+      </header>
 
-        <div class="header-actions">
-          <button class="action-btn" id="open-subscribe-modal" title="Subscribe to incident alerts">
-            ${icons.bell(16)}
-            <span>Subscribe</span>
-          </button>
-          <button class="icon-btn" id="theme-toggle-btn" title="Toggle Light/Dark Theme" aria-label="Toggle theme">
-            ${isDark ? icons.sun(18) : icons.moon(18)}
-          </button>
-        </div>
-      </div>
-    </header>
+      <!-- Hero Status Section & Provider Switcher Mount Point -->
+      <div class="container hero-container-wrap" style="padding-top: 24px;"></div>
+    `;
 
-    <!-- Hero Status Section & Provider Switcher -->
-    <div class="container" style="padding-top: 24px;">
+    // Attach Topbar Search Event Listeners
+    const topbarInput = document.getElementById("topbar-search-input");
+    const clearBtn = document.getElementById("topbar-search-clear");
+    const shortcutKbd = document.getElementById("topbar-search-shortcut");
+
+    topbarInput?.addEventListener("input", (e) => {
+      const val = e.target.value;
+      if (clearBtn) clearBtn.style.display = val ? "flex" : "none";
+      if (shortcutKbd) shortcutKbd.style.display = val ? "none" : "inline-block";
+      store.setSearchQuery(val);
+    });
+
+    clearBtn?.addEventListener("click", () => {
+      if (topbarInput) {
+        topbarInput.value = "";
+        topbarInput.focus();
+      }
+      if (clearBtn) clearBtn.style.display = "none";
+      if (shortcutKbd) shortcutKbd.style.display = "inline-block";
+      store.setSearchQuery("");
+    });
+
+    // Global keyboard shortcut
+    if (!isGlobalKeydownBound) {
+      window.addEventListener("keydown", (e) => {
+        const input = document.getElementById("topbar-search-input");
+        if (
+          (e.key === "/" && document.activeElement !== input && !["INPUT", "TEXTAREA"].includes(document.activeElement?.tagName)) ||
+          ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k")
+        ) {
+          e.preventDefault();
+          input?.focus();
+          input?.select();
+        }
+        if (e.key === "Escape" && document.activeElement === input) {
+          input?.blur();
+        }
+      });
+      isGlobalKeydownBound = true;
+    }
+
+    document.getElementById("theme-toggle-btn")?.addEventListener("click", () => {
+      store.toggleTheme();
+    });
+
+    heroWrap = container.querySelector(".hero-container-wrap");
+  } else {
+    // Keep topbar input value and theme button synced without destroying DOM
+    const topbarInput = document.getElementById("topbar-search-input");
+    const clearBtn = document.getElementById("topbar-search-clear");
+    const shortcutKbd = document.getElementById("topbar-search-shortcut");
+    const themeBtn = document.getElementById("theme-toggle-btn");
+
+    if (topbarInput && topbarInput !== document.activeElement && topbarInput.value !== store.searchQuery) {
+      topbarInput.value = store.searchQuery || "";
+    }
+    if (clearBtn) clearBtn.style.display = store.searchQuery ? "flex" : "none";
+    if (shortcutKbd) shortcutKbd.style.display = store.searchQuery ? "none" : "inline-block";
+    if (themeBtn) themeBtn.innerHTML = isDark ? icons.sun(18) : icons.moon(18);
+  }
+
+  // Update Hero & Provider Tabs
+  if (heroWrap) {
+    heroWrap.innerHTML = `
       <!-- Provider Tabs Bar -->
       <nav class="provider-nav-wrap" aria-label="Provider selection">
         <div class="provider-tabs">
           ${providers.map(p => {
-    const isActive = store.selectedProviderId === p.id;
-    const iconSvg = icons[p.icon] ? icons[p.icon](16) : icons.layers(16);
-    return `
+            const isActive = store.selectedProviderId === p.id;
+            const iconSvg = icons[p.icon] ? icons[p.icon](16) : icons.layers(16);
+            const isImpacted = impactedProviderIds.has(p.id);
+            return `
               <button class="provider-tab ${isActive ? "active" : ""}" data-provider-id="${p.id}">
                 ${iconSvg}
                 <span>${p.name}</span>
-                ${p.status && p.status !== "operational" ? `<span class="tab-badge" style="background: var(--status-major); color: white;">!</span>` : ""}
+                ${isImpacted ? `<span class="tab-badge" style="background: var(--status-major); color: white;">!</span>` : ""}
               </button>
             `;
-  }).join("")}
+          }).join("")}
         </div>
       </nav>
 
@@ -150,7 +277,6 @@ export function renderHeader(store) {
             </div>
           </div>
 
-          
           <div class="status-hero-meta">
             <div class="live-badge">
               <span class="live-dot" title="Live status active"></span>
@@ -165,10 +291,11 @@ export function renderHeader(store) {
         </div>
 
         <!-- ===================================================================
-             ZERO-SCROLL RADAR: Instantly see what is down before scrolling!
+             ZERO-SCROLL RADAR: Both Active Disruptions & All-Platform Health
              =================================================================== -->
         <div class="above-fold-radar">
           ${impactedItems.length > 0 ? `
+            <!-- Active Disruptions Row (Top Priority) -->
             <div class="above-fold-disruptions">
               <div class="disruption-alert-heading">
                 <span>⚠️</span>
@@ -176,7 +303,7 @@ export function renderHeader(store) {
               </div>
               <div class="disruption-chips-row">
                 ${impactedItems.map(item => `
-                  <button class="disruption-pill ${item.status}" data-jump-service="${item.id}" title="Click to scroll down to ${item.name}">
+                  <button class="disruption-pill ${item.status}" data-jump-target="${item.id}" title="Click to jump directly to ${item.name}">
                     <span class="pill-dot"></span>
                     <span><strong>${item.providerName ? item.providerName + ": " : ""}${item.name}</strong> &bull; ${item.statusLabel}</span>
                     <span class="jump-arrow">↓</span>
@@ -184,67 +311,96 @@ export function renderHeader(store) {
                 `).join("")}
               </div>
             </div>
-          ` : `
-            <div class="above-fold-glance">
-              <div class="glance-left">
-                <span class="glance-label">ISDOWN RADAR:</span>
-                <div class="glance-pills-row">
-                  ${providers.filter(p => p.id !== "all").map(p => `
-                    <button class="glance-pill" data-jump-provider="${p.id}" title="Filter by ${p.name}">
-                      <span class="glance-dot operational"></span>
+          ` : ""}
+
+          <!-- Multi-Cloud & AI Infrastructure At-A-Glance (Always Visible) -->
+          <div class="above-fold-glance ${impactedItems.length > 0 ? "has-disruptions" : ""}">
+            <div class="glance-left">
+              <span class="glance-label">
+                ${icons.layers ? icons.layers(14) : "🌐"} ALL PLATFORMS:
+              </span>
+              <div class="glance-pills-row">
+                ${nonAllProviders.map(p => {
+                  const isImpacted = impactedProviderIds.has(p.id);
+                  const isTabActive = store.selectedProviderId === p.id;
+                  const dotClass = isImpacted ? (p.status === "major_outage" ? "major_outage" : "degraded") : "operational";
+                  return `
+                    <button class="glance-pill ${isImpacted ? "impacted" : ""} ${isTabActive ? "selected" : ""}" data-jump-provider="${p.id}" title="Filter to ${p.name} (${isImpacted ? "Disruptions reported" : "Operational"})">
+                      <span class="glance-dot ${dotClass}"></span>
                       <span>${p.name}</span>
+                      ${isImpacted ? `<span class="glance-alert-indicator">!</span>` : ""}
                     </button>
-                  `).join("")}
-                </div>
-              </div>
-              <div class="glance-status-tag">
-                ${icons.checkCircle(14, "status-operational")}
-                <span>All ${providers.filter(p => p.id !== "all").length} Providers Operational</span>
+                  `;
+                }).join("")}
               </div>
             </div>
-          `}
+
+            <div class="glance-status-tag ${impactedItems.length > 0 ? "warning" : "ok"}">
+              ${impactedItems.length > 0
+                ? `${icons.alertTriangle(14, "status-major")} <span>${impactedItems.length} active disruptions &bull; ${operationalCount} platforms healthy</span>`
+                : `${icons.checkCircle(14, "status-operational")} <span>All ${nonAllProviders.length} Providers Operational</span>`
+              }
+            </div>
+          </div>
         </div>
       </section>
-    </div>
-  `;
+    `;
 
-  // Attach Event Listeners
-  document.getElementById("theme-toggle-btn")?.addEventListener("click", () => {
-    store.toggleTheme();
-  });
-
-  document.getElementById("manual-refresh-trigger")?.addEventListener("click", async () => {
-    const iconWrap = document.getElementById("refresh-icon-wrap");
-    if (iconWrap) iconWrap.classList.add("spinning");
-    await store.fetchLatestData(true);
-    setTimeout(() => {
-      if (iconWrap) iconWrap.classList.remove("spinning");
-    }, 600);
-  });
-
-  const providerBtns = container.querySelectorAll(".provider-tab, .glance-pill");
-  providerBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const pId = btn.getAttribute("data-provider-id") || btn.getAttribute("data-jump-provider");
-      if (pId) store.setProvider(pId);
+    // Attach Provider Switcher & Glance Listeners
+    heroWrap.querySelectorAll(".provider-tab, .glance-pill").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const pId = btn.getAttribute("data-provider-id") || btn.getAttribute("data-jump-provider");
+        if (pId) store.setProvider(pId);
+      });
     });
-  });
 
-  // Attach Jump-To-Service Handlers for Disruption Pills
-  container.querySelectorAll("[data-jump-service]").forEach(pill => {
-    pill.addEventListener("click", () => {
-      const serviceId = pill.getAttribute("data-jump-service");
-      const targetCard = document.querySelector(`[data-service-id="${serviceId}"]`);
-      if (targetCard) {
-        // Expand card accordion if collapsed
-        targetCard.classList.add("expanded");
-        targetCard.scrollIntoView({ behavior: "smooth", block: "center" });
-
-        // Trigger flash highlight
-        targetCard.classList.remove("card-highlight-pulse");
-        void targetCard.offsetWidth; // Force reflow
-        targetCard.classList.add("card-highlight-pulse");
-      }
+    // Attach Manual Refresh
+    document.getElementById("manual-refresh-trigger")?.addEventListener("click", async () => {
+      const iconWrap = document.getElementById("refresh-icon-wrap");
+      if (iconWrap) iconWrap.classList.add("spinning");
+      await store.fetchLatestData(true);
+      setTimeout(() => {
+        if (iconWrap) iconWrap.classList.remove("spinning");
+      }, 600);
     });
-  });
+
+    // Attach Jump Handlers for Disruption Pills
+    heroWrap.querySelectorAll("[data-jump-target]").forEach(pill => {
+      pill.addEventListener("click", () => {
+        const targetId = pill.getAttribute("data-jump-target");
+        // Check for incident card by ID
+        let targetElem = document.getElementById(targetId);
+        // Or check for service card by data-service-id
+        if (!targetElem) {
+          targetElem = document.querySelector(`[data-service-id="${targetId}"]`);
+        }
+
+        // If filtered out, reset provider to "all" to expose element
+        if (!targetElem && store.selectedProviderId !== "all") {
+          store.setProvider("all");
+          setTimeout(() => {
+            const freshTarget = document.getElementById(targetId) || document.querySelector(`[data-service-id="${targetId}"]`);
+            if (freshTarget) {
+              if (freshTarget.classList.contains("service-card")) freshTarget.classList.add("expanded");
+              freshTarget.scrollIntoView({ behavior: "smooth", block: "center" });
+              freshTarget.classList.remove("card-highlight-pulse");
+              void freshTarget.offsetWidth;
+              freshTarget.classList.add("card-highlight-pulse");
+            }
+          }, 100);
+          return;
+        }
+
+        if (targetElem) {
+          if (targetElem.classList.contains("service-card")) {
+            targetElem.classList.add("expanded");
+          }
+          targetElem.scrollIntoView({ behavior: "smooth", block: "center" });
+          targetElem.classList.remove("card-highlight-pulse");
+          void targetElem.offsetWidth;
+          targetElem.classList.add("card-highlight-pulse");
+        }
+      });
+    });
+  }
 }

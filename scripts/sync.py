@@ -108,35 +108,66 @@ def update_status_dataset(dry_run=False):
                     s["status"] = matched_status or mapped_status
 
                     for comp in s.get("components", []):
-                        # Match subcomponent name substring
+                        comp_name_lower = comp["name"].lower()
                         for rc_name, rc in remote_components.items():
-                            if comp["name"].lower() in rc_name.lower() or rc_name.lower() in comp["name"].lower():
+                            rc_lower = rc_name.lower()
+                            # Check name match or specific service keywords
+                            matched = (
+                                comp_name_lower in rc_lower or 
+                                rc_lower in comp_name_lower or
+                                ("worker" in comp_name_lower and "worker" in rc_lower and rc.get("status") != "operational") or
+                                ("cluster" in comp_name_lower and "cloud" in rc_lower and rc.get("status") != "operational")
+                            )
+                            if matched:
                                 comp_status = rc.get("status", "operational")
                                 comp["status"] = STATUSPAGE_MAP.get(comp_status, comp_status)
+                                break
 
         # Sync active incidents if present
         remote_incidents = remote_data.get("incidents", [])
+        current_active = []
         for inc in remote_incidents:
             if inc.get("status") != "resolved":
                 inc_id = f"{provider_id}-{inc.get('id')}"
-                existing = [i for i in data["incidents"]["active"] if i["id"] == inc_id]
-                if not existing:
-                    data["incidents"]["active"].append({
-                        "id": inc_id,
-                        "title": inc.get("name", "Service disruption"),
-                        "providerId": provider_id,
-                        "severity": inc.get("impact", "minor"),
-                        "status": inc.get("status", "investigating"),
-                        "createdAt": inc.get("created_at", now_iso),
-                        "updates": [
-                            {
-                                "stage": u.get("status", "investigating"),
-                                "timestamp": u.get("created_at", now_iso),
-                                "message": u.get("body", "")
-                            }
-                            for u in inc.get("incident_updates", [])
-                        ]
-                    })
+                current_active.append({
+                    "id": inc_id,
+                    "title": inc.get("name", "Service disruption"),
+                    "providerId": provider_id,
+                    "severity": inc.get("impact", "minor"),
+                    "status": inc.get("status", "investigating"),
+                    "createdAt": inc.get("created_at", now_iso),
+                    "updates": [
+                        {
+                            "stage": u.get("status", "investigating"),
+                            "timestamp": u.get("created_at", now_iso),
+                            "message": u.get("body", "")
+                        }
+                        for u in inc.get("incident_updates", [])
+                    ]
+                })
+
+        # Replace active incidents for this provider
+        data["incidents"]["active"] = [
+            i for i in data.get("incidents", {}).get("active", [])
+            if i.get("providerId") != provider_id
+        ] + current_active
+
+        # If active incidents exist, ensure provider & service reflect disruption
+        if current_active:
+            highest_sev = "degraded"
+            for act in current_active:
+                if act.get("severity") in ["critical", "major"]:
+                    highest_sev = "major_outage"
+                    break
+
+            for p in data.get("providers", []):
+                if p["id"] == provider_id and p["status"] == "operational":
+                    p["status"] = highest_sev
+
+            for cat in data.get("categories", []):
+                for s in cat.get("services", []):
+                    if s.get("providerId") == provider_id and s.get("status") == "operational":
+                        s["status"] = highest_sev
 
     # Sync GitLab via Status.io API
     print("[INFO] Syncing provider: gitlab from https://api.status.io/1.0/status/5b36dc6502d06804c08349f7...")

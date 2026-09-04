@@ -170,42 +170,15 @@ export function renderServiceMatrix(store) {
       return 0;
     });
 
-  const activeId = document.activeElement ? document.activeElement.id : null;
-  const selStart = document.activeElement?.selectionStart;
-  const selEnd = document.activeElement?.selectionEnd;
-
   container.innerHTML = `
     <div class="container">
-      <!-- Search & Filter Controls -->
-      <div class="search-filter-bar">
-        <div class="search-box-wrap">
-          <span class="search-box-icon">${icons.search(16)}</span>
-          <input
-            type="search"
-            class="search-box-input"
-            id="service-search-input"
-            placeholder="Filter components by name or keyword..."
-            value="${store.searchQuery}"
-            aria-label="Search components"
-          />
-        </div>
-
-        <div style="display: flex; gap: 10px; align-items: center;">
-          <select class="filter-select" id="service-status-filter" aria-label="Filter by status">
-            <option value="all" ${statusFilter === "all" ? "selected" : ""}>All Component States</option>
-            <option value="issues" ${statusFilter === "issues" ? "selected" : ""}>Disruptions Only (!)</option>
-            <option value="operational" ${statusFilter === "operational" ? "selected" : ""}>Operational Only</option>
-          </select>
-        </div>
-      </div>
-
       <!-- Categories & Services List -->
       ${
         filteredCategories.length === 0
           ? `
             <div style="text-align: center; padding: 48px 24px; background: var(--bg-card); border: 1px dashed var(--border-color); border-radius: var(--radius-md); color: var(--text-muted);">
               <p style="font-size: 1.1rem; font-weight: 600; margin-bottom: 6px; color: var(--text-primary)">No matching components found</p>
-              <p style="font-size: 0.88rem;">Try clearing your search query or switching provider tabs above.</p>
+              <p style="font-size: 0.88rem;">Try switching provider tabs above.</p>
             </div>
           `
           : filteredCategories.map(cat => `
@@ -303,24 +276,6 @@ export function renderServiceMatrix(store) {
       }
     </div>
   `;
-
-  // Attach search & filter listeners
-  const searchInput = document.getElementById("service-search-input");
-  searchInput?.addEventListener("input", (e) => {
-    store.setSearchQuery(e.target.value);
-  });
-
-  if (activeId === "service-search-input" && searchInput) {
-    searchInput.focus();
-    if (typeof selStart === "number" && typeof selEnd === "number") {
-      try { searchInput.setSelectionRange(selStart, selEnd); } catch (_) {}
-    }
-  }
-
-  const filterSelect = document.getElementById("service-status-filter");
-  filterSelect?.addEventListener("change", (e) => {
-    store.setStatusFilter(e.target.value);
-  });
 
   // Attach Accordion Toggle
   container.querySelectorAll('[data-action="toggle-accordion"]').forEach(header => {

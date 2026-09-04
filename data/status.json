@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "degraded",
     "statusMessage": "Some Services Experiencing Degraded Performance",
-    "lastUpdated": "2026-09-04T09:58:53Z",
+    "lastUpdated": "2026-09-04T14:14:45Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 3,
+      "activeIncidentsCount": 2,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "claude",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -1025,26 +1025,6 @@
   ],
   "incidents": {
     "active": [
-      {
-        "id": "openai-01M1NKFZH5EEYEREC54HNAHY35",
-        "title": "Users in APAC region may face increased error in ChatGPT, Work, image generation, file upload, Voice, and Codex Cloud",
-        "providerId": "openai",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-09-04T07:00:26Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-09-04T09:47:58Z",
-            "message": "We have applied the mitigation and are monitoring the recovery."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-04T07:00:26Z",
-            "message": "We are investigating the issue for the listed services."
-          }
-        ]
-      },
       {
         "id": "cloudflare-9g65dxfbcjln",
         "title": "Incorrect geo location for some Cloudflare WARP users",

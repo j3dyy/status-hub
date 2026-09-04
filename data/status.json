@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "degraded",
     "statusMessage": "Some Services Experiencing Degraded Performance",
-    "lastUpdated": "2026-09-04T00:58:20Z",
+    "lastUpdated": "2026-09-04T05:44:50Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 3,
+      "activeIncidentsCount": 2,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1025,26 +1025,6 @@
   ],
   "incidents": {
     "active": [
-      {
-        "id": "cloudflare-48wc4y9p1vym",
-        "title": "Workers Builds elevated queue times",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "identified",
-        "createdAt": "2026-09-03T23:35:48.000Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-09-03T23:43:20.837Z",
-            "message": "The issue has been identified and a fix is being implemented."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-03T23:35:48.182Z",
-            "message": "Cloudflare is aware of and investigating an issue with delays running Cloudflare Workers builds which potentially impacts multiple customers."
-          }
-        ]
-      },
       {
         "id": "cloudflare-9g65dxfbcjln",
         "title": "Incorrect geo location for some Cloudflare WARP users",

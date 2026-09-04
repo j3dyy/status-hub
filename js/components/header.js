@@ -37,8 +37,6 @@ const RADAR_LOGO_SVG = `
   </svg>
 `;
 
-let isGlobalKeydownBound = false;
-
 export function renderHeader(store) {
   const container = document.getElementById("header-mount");
   if (!container) return;
@@ -124,13 +122,13 @@ export function renderHeader(store) {
   ]);
   const operationalCount = nonAllProviders.length - impactedProviderIds.size;
 
-  // Render or preserve static site-header to maintain input focus & cursor position
-  let searchInputElem = container.querySelector("#topbar-search-input");
+  // Render or preserve static site-header
+  let headerElem = container.querySelector(".site-header");
   let heroWrap = container.querySelector(".hero-container-wrap");
 
-  if (!searchInputElem) {
+  if (!headerElem) {
     container.innerHTML = `
-      <!-- Top Site Nav with Center Search Filter -->
+      <!-- Top Site Nav -->
       <header class="site-header">
         <div class="container site-header-inner">
           <div class="brand-group">
@@ -140,27 +138,6 @@ export function renderHeader(store) {
             <div class="brand-text">
               <span class="brand-title" style="font-size: 1.35rem; letter-spacing: -0.035em; font-weight: 850;">isdown</span>
               <span class="brand-subtitle">Real-time AI &amp; Cloud Status</span>
-            </div>
-          </div>
-
-          <!-- Topbar Quick Filter Search Input -->
-          <div class="header-search-container">
-            <div class="header-search-box">
-              <span class="header-search-icon">${icons.search(15)}</span>
-              <input
-                type="search"
-                id="topbar-search-input"
-                class="topbar-search-input"
-                placeholder="Filter services &amp; cloud status... (Press /)"
-                value="${store.searchQuery || ""}"
-                aria-label="Filter services &amp; cloud status"
-                autocomplete="off"
-                spellcheck="false"
-              />
-              <button class="header-search-clear" id="topbar-search-clear" title="Clear filter" style="display: ${store.searchQuery ? "flex" : "none"};">
-                ${icons.x(14)}
-              </button>
-              <kbd class="header-search-shortcut" id="topbar-search-shortcut" style="display: ${store.searchQuery ? "none" : "inline-block"};">/</kbd>
             </div>
           </div>
 
@@ -180,64 +157,13 @@ export function renderHeader(store) {
       <div class="container hero-container-wrap" style="padding-top: 24px;"></div>
     `;
 
-    // Attach Topbar Search Event Listeners
-    const topbarInput = document.getElementById("topbar-search-input");
-    const clearBtn = document.getElementById("topbar-search-clear");
-    const shortcutKbd = document.getElementById("topbar-search-shortcut");
-
-    topbarInput?.addEventListener("input", (e) => {
-      const val = e.target.value;
-      if (clearBtn) clearBtn.style.display = val ? "flex" : "none";
-      if (shortcutKbd) shortcutKbd.style.display = val ? "none" : "inline-block";
-      store.setSearchQuery(val);
-    });
-
-    clearBtn?.addEventListener("click", () => {
-      if (topbarInput) {
-        topbarInput.value = "";
-        topbarInput.focus();
-      }
-      if (clearBtn) clearBtn.style.display = "none";
-      if (shortcutKbd) shortcutKbd.style.display = "inline-block";
-      store.setSearchQuery("");
-    });
-
-    // Global keyboard shortcut
-    if (!isGlobalKeydownBound) {
-      window.addEventListener("keydown", (e) => {
-        const input = document.getElementById("topbar-search-input");
-        if (
-          (e.key === "/" && document.activeElement !== input && !["INPUT", "TEXTAREA"].includes(document.activeElement?.tagName)) ||
-          ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k")
-        ) {
-          e.preventDefault();
-          input?.focus();
-          input?.select();
-        }
-        if (e.key === "Escape" && document.activeElement === input) {
-          input?.blur();
-        }
-      });
-      isGlobalKeydownBound = true;
-    }
-
     document.getElementById("theme-toggle-btn")?.addEventListener("click", () => {
       store.toggleTheme();
     });
 
     heroWrap = container.querySelector(".hero-container-wrap");
   } else {
-    // Keep topbar input value and theme button synced without destroying DOM
-    const topbarInput = document.getElementById("topbar-search-input");
-    const clearBtn = document.getElementById("topbar-search-clear");
-    const shortcutKbd = document.getElementById("topbar-search-shortcut");
     const themeBtn = document.getElementById("theme-toggle-btn");
-
-    if (topbarInput && topbarInput !== document.activeElement && topbarInput.value !== store.searchQuery) {
-      topbarInput.value = store.searchQuery || "";
-    }
-    if (clearBtn) clearBtn.style.display = store.searchQuery ? "flex" : "none";
-    if (shortcutKbd) shortcutKbd.style.display = store.searchQuery ? "none" : "inline-block";
     if (themeBtn) themeBtn.innerHTML = isDark ? icons.sun(18) : icons.moon(18);
   }
 
@@ -369,7 +295,37 @@ export function renderHeader(store) {
     heroWrap.querySelectorAll(".provider-tab, .glance-pill").forEach(btn => {
       btn.addEventListener("click", () => {
         const pId = btn.getAttribute("data-provider-id") || btn.getAttribute("data-jump-provider");
-        if (pId) store.setProvider(pId);
+        if (!pId) return;
+
+        // 1. Set the active provider in state (which re-filters the service matrix)
+        store.setProvider(pId);
+
+        // 2. Scroll the corresponding provider tab horizontally into view in the navigation bar
+        const matchingTab = heroWrap.querySelector(`.provider-tab[data-provider-id="${pId}"]`);
+        if (matchingTab) {
+          matchingTab.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+        }
+
+        // 3. Smoothly scroll down to that clicked service in the services matrix
+        setTimeout(() => {
+          if (pId === "all") {
+            const servicesMount = document.getElementById("services-mount");
+            servicesMount?.scrollIntoView({ behavior: "smooth", block: "start" });
+          } else {
+            const serviceCard = document.querySelector(`.service-card[data-service-id*="${pId}"]`) ||
+                                document.querySelector(`.service-card`) ||
+                                document.getElementById("services-mount");
+            if (serviceCard) {
+              if (serviceCard.classList.contains("service-card")) {
+                serviceCard.classList.add("expanded");
+              }
+              serviceCard.scrollIntoView({ behavior: "smooth", block: "center" });
+              serviceCard.classList.remove("card-highlight-pulse");
+              void serviceCard.offsetWidth;
+              serviceCard.classList.add("card-highlight-pulse");
+            }
+          }
+        }, 80);
       });
     });
 

@@ -160,6 +160,23 @@
   background: rgba(255, 255, 255, 0.2);
 }
 
+.provider-tab.has-disruption {
+  border-color: var(--status-major-border);
+  background-color: var(--status-major-bg);
+  color: var(--status-major);
+}
+
+.provider-tab.has-disruption:hover {
+  border-color: var(--status-major);
+  color: var(--status-major);
+}
+
+.provider-tab.has-disruption.active {
+  background-color: var(--status-major);
+  color: white;
+  border-color: var(--status-major);
+}
+
 /* --------------------------------------------------------------------------
    Global Status Hero Banner (OpenAI / GitHub Style)
    -------------------------------------------------------------------------- */

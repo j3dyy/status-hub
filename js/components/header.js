@@ -241,21 +241,40 @@ export function renderHeader(store) {
     if (themeBtn) themeBtn.innerHTML = isDark ? icons.sun(18) : icons.moon(18);
   }
 
+  // Sort providers: "all" first, then any degrading providers with badges, then healthy providers
+  const sortedProviders = [...providers].sort((a, b) => {
+    if (a.id === "all") return -1;
+    if (b.id === "all") return 1;
+    const aImpacted = impactedProviderIds.has(a.id);
+    const bImpacted = impactedProviderIds.has(b.id);
+    if (aImpacted && !bImpacted) return -1;
+    if (!aImpacted && bImpacted) return 1;
+    return 0;
+  });
+
+  const sortedNonAllProviders = [...nonAllProviders].sort((a, b) => {
+    const aImpacted = impactedProviderIds.has(a.id);
+    const bImpacted = impactedProviderIds.has(b.id);
+    if (aImpacted && !bImpacted) return -1;
+    if (!aImpacted && bImpacted) return 1;
+    return 0;
+  });
+
   // Update Hero & Provider Tabs
   if (heroWrap) {
     heroWrap.innerHTML = `
       <!-- Provider Tabs Bar -->
       <nav class="provider-nav-wrap" aria-label="Provider selection">
         <div class="provider-tabs">
-          ${providers.map(p => {
+          ${sortedProviders.map(p => {
             const isActive = store.selectedProviderId === p.id;
             const iconSvg = icons[p.icon] ? icons[p.icon](16) : icons.layers(16);
             const isImpacted = impactedProviderIds.has(p.id);
             return `
-              <button class="provider-tab ${isActive ? "active" : ""}" data-provider-id="${p.id}">
+              <button class="provider-tab ${isActive ? "active" : ""} ${isImpacted ? "has-disruption" : ""}" data-provider-id="${p.id}">
                 ${iconSvg}
                 <span>${p.name}</span>
-                ${isImpacted ? `<span class="tab-badge" style="background: var(--status-major); color: white;">!</span>` : ""}
+                ${isImpacted ? `<span class="tab-badge" style="background: var(--status-major); color: white; font-weight: 700;">!</span>` : ""}
               </button>
             `;
           }).join("")}
@@ -320,7 +339,7 @@ export function renderHeader(store) {
                 ${icons.layers ? icons.layers(14) : "🌐"} ALL PLATFORMS:
               </span>
               <div class="glance-pills-row">
-                ${nonAllProviders.map(p => {
+                ${sortedNonAllProviders.map(p => {
                   const isImpacted = impactedProviderIds.has(p.id);
                   const isTabActive = store.selectedProviderId === p.id;
                   const dotClass = isImpacted ? (p.status === "major_outage" ? "major_outage" : "degraded") : "operational";

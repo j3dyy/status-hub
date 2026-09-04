@@ -2,14 +2,14 @@
  * Status Radar - Main Application Entrypoint
  */
 
-import { store } from "./state.js?v=20260904-5";
-import { renderHeader } from "./components/header.js?v=20260904-5";
-import { renderMetricsSummary } from "./components/metrics-summary.js?v=20260904-5";
-import { renderServiceMatrix } from "./components/service-matrix.js?v=20260904-5";
-import { renderMetricsChart } from "./components/metrics-chart.js?v=20260904-5";
-import { renderIncidents } from "./components/incident-timeline.js?v=20260904-5";
-import { renderMaintenance } from "./components/maintenance.js?v=20260904-5";
-import { initSubscribeModal } from "./components/subscribe-modal.js?v=20260904-5";
+import { store } from "./state.js?v=20260904-6";
+import { renderHeader } from "./components/header.js?v=20260904-6";
+import { renderMetricsSummary } from "./components/metrics-summary.js?v=20260904-6";
+import { renderServiceMatrix } from "./components/service-matrix.js?v=20260904-6";
+import { renderMetricsChart } from "./components/metrics-chart.js?v=20260904-6";
+import { renderIncidents } from "./components/incident-timeline.js?v=20260904-6";
+import { renderMaintenance } from "./components/maintenance.js?v=20260904-6";
+import { initSubscribeModal } from "./components/subscribe-modal.js?v=20260904-6";
 
 function updateFavicon(status) {
   let favicon = document.querySelector("link[rel='icon']");

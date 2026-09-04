@@ -97,7 +97,23 @@ export function renderServiceMatrix(store) {
   const query = store.searchQuery;
   const statusFilter = store.statusFilter;
 
-  // Filter Categories and Services
+  const activeIncidents = data.incidents?.active || [];
+
+  function getServiceSeverityScore(service) {
+    // 4: major_outage, 3: partial_outage, 2: degraded
+    // 1: has active incident or non-operational subcomponent
+    // 0: fully operational
+    const hasActiveInc = activeIncidents.some(i => i.providerId === service.providerId);
+    const hasDegradedComp = (service.components || []).some(c => c.status !== "operational");
+
+    if (service.status === "major_outage") return 4;
+    if (service.status === "partial_outage") return 3;
+    if (service.status === "degraded") return 2;
+    if (hasActiveInc || hasDegradedComp) return 1;
+    return 0;
+  }
+
+  // Filter Categories and Services, placing degrading services with badges first
   const filteredCategories = data.categories
     .map(cat => {
       const filteredServices = cat.services.filter(service => {
@@ -126,12 +142,33 @@ export function renderServiceMatrix(store) {
 
         return true;
       });
+
+      // Sort services: degrading services with badges appear first
+      const sortedServices = [...filteredServices].sort((a, b) => {
+        const scoreA = getServiceSeverityScore(a);
+        const scoreB = getServiceSeverityScore(b);
+        if (scoreA !== scoreB) {
+          return scoreB - scoreA;
+        }
+        return 0;
+      });
+
+      const maxSeverity = sortedServices.length > 0 ? getServiceSeverityScore(sortedServices[0]) : 0;
+
       return {
         ...cat,
-        services: filteredServices
+        maxSeverity,
+        services: sortedServices
       };
     })
-    .filter(cat => cat.services.length > 0);
+    .filter(cat => cat.services.length > 0)
+    .sort((a, b) => {
+      // Elevate categories with disruptions or degraded services to the top
+      if (a.maxSeverity !== b.maxSeverity) {
+        return b.maxSeverity - a.maxSeverity;
+      }
+      return 0;
+    });
 
   const activeId = document.activeElement ? document.activeElement.id : null;
   const selStart = document.activeElement?.selectionStart;

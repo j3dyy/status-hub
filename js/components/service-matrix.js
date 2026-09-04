@@ -186,7 +186,7 @@ export function renderServiceMatrix(store) {
               <div class="category-header">
                 <h2 class="category-title">
                   <span>${cat.name}</span>
-                  <span style="font-size: 0.78rem; font-weight: 500; color: var(--text-muted); background: var(--bg-card-subtle); padding: 2px 8px; border-radius: var(--radius-full);">${cat.services.length} services</span>
+                  <span style="font-size: 0.78rem; font-weight: 500; color: var(--text-muted); background: var(--bg-card-subtle); padding: 2px 8px; border-radius: var(--radius-full);">${cat.services.length} ${cat.services.length === 1 ? "service" : "services"}</span>
                 </h2>
                 <span class="category-desc">${cat.description || ""}</span>
               </div>

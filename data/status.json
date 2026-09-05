@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "degraded",
     "statusMessage": "Some Services Experiencing Degraded Performance",
-    "lastUpdated": "2026-09-05T00:07:00Z",
+    "lastUpdated": "2026-09-05T04:25:37Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 3,
+      "activeIncidentsCount": 2,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1025,26 +1025,6 @@
   ],
   "incidents": {
     "active": [
-      {
-        "id": "cloudflare-ftvf8c3m4mv5",
-        "title": "Elevated number of R2 503 errors in Eastern North America region",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "identified",
-        "createdAt": "2026-09-04T21:10:29.000Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-09-04T21:27:22.631Z",
-            "message": "The cause of this issue has been identified and a fix is being implemented."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-04T21:10:29.438Z",
-            "message": "Cloudflare is investigating issues with R2 buckets in Eastern North America."
-          }
-        ]
-      },
       {
         "id": "cloudflare-9g65dxfbcjln",
         "title": "Incorrect geo location for some Cloudflare WARP users",

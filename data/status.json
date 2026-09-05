@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "degraded",
     "statusMessage": "Some Services Experiencing Degraded Performance",
-    "lastUpdated": "2026-09-05T17:19:47Z",
+    "lastUpdated": "2026-09-05T19:11:14Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",

@@ -5,14 +5,14 @@
     "company": "isdown.usectl.com",
     "url": "https://isdown.usectl.com",
     "supportUrl": "https://help.example.com",
-    "status": "major_outage",
-    "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-04T22:08:47Z",
+    "status": "degraded",
+    "statusMessage": "Some Services Experiencing Degraded Performance",
+    "lastUpdated": "2026-09-05T00:07:00Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 5,
+      "activeIncidentsCount": 3,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -69,7 +69,7 @@
       "name": "GitHub",
       "url": "https://www.githubstatus.com",
       "icon": "github",
-      "status": "major_outage"
+      "status": "operational"
     },
     {
       "id": "gitlab",
@@ -484,7 +484,7 @@
           "providerId": "github",
           "name": "GitHub Core Services",
           "description": "Git repository operations, Pull Requests, Webhooks and REST/GraphQL APIs",
-          "status": "major_outage",
+          "status": "operational",
           "uptime90d": 99.99,
           "currentLatencyMs": 85,
           "components": [
@@ -515,7 +515,7 @@
           "providerId": "github",
           "name": "GitHub Compute & Automation",
           "description": "GitHub Actions runners, Codespaces, and GitHub Copilot completions",
-          "status": "major_outage",
+          "status": "operational",
           "uptime90d": 99.92,
           "currentLatencyMs": 112,
           "components": [
@@ -1025,46 +1025,6 @@
   ],
   "incidents": {
     "active": [
-      {
-        "id": "github-r05vk75c594j",
-        "title": "Degradation in repos contents API",
-        "providerId": "github",
-        "severity": "minor",
-        "status": "investigating",
-        "createdAt": "2026-09-04T22:02:15.790Z",
-        "updates": [
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-04T22:02:15.829Z",
-            "message": "We are investigating reports of impacted performance for some GitHub services."
-          }
-        ]
-      },
-      {
-        "id": "github-zw1hbx2yyhvr",
-        "title": "Disruption with Copilot Code Review",
-        "providerId": "github",
-        "severity": "major",
-        "status": "investigating",
-        "createdAt": "2026-09-04T20:39:03.203Z",
-        "updates": [
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-04T21:54:22.688Z",
-            "message": "We are applying the mitigation and expect recovery within approximately 30 minutes."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-04T20:57:53.116Z",
-            "message": "Some users may be experiencing failures when using Copilot code review. We have identified the root cause and are working on a mitigation."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-04T20:39:03.249Z",
-            "message": "We are investigating reports of impacted performance for some GitHub services."
-          }
-        ]
-      },
       {
         "id": "cloudflare-ftvf8c3m4mv5",
         "title": "Elevated number of R2 503 errors in Eastern North America region",

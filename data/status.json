@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "degraded",
     "statusMessage": "Some Services Experiencing Degraded Performance",
-    "lastUpdated": "2026-09-06T16:15:39Z",
+    "lastUpdated": "2026-09-06T18:24:43Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 2,
+      "activeIncidentsCount": 4,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -863,7 +863,7 @@
           "providerId": "cloudflare",
           "name": "Cloudflare Global Network & Edge",
           "description": "Global Edge Network, Cloudflare DNS, Workers & Pages, WAF, and Zero Trust",
-          "status": "degraded",
+          "status": "degraded_performance",
           "uptime90d": 99.99,
           "currentLatencyMs": 24,
           "components": [
@@ -1025,6 +1025,36 @@
   ],
   "incidents": {
     "active": [
+      {
+        "id": "cloudflare-1ghtnh94pby6",
+        "title": "Purchased domains from registrar not appearing in Cloudflare Dashboard",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "investigating",
+        "createdAt": "2026-09-06T17:06:53.000Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-06T17:06:53.609Z",
+            "message": "We are investigating reports of delays in the provisioning of newly purchased domains. Our engineering team is currently working to resolve these delays affecting domain registration."
+          }
+        ]
+      },
+      {
+        "id": "cloudflare-htwds1qczkzd",
+        "title": "Service Connectivity Issues in Canberra",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "investigating",
+        "createdAt": "2026-09-06T16:36:05.000Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-06T16:36:05.551Z",
+            "message": "Customers may experience intermittent connectivity issues when accessing services through our Canberra (CBR01) data center. Our team is actively working to restore normal service."
+          }
+        ]
+      },
       {
         "id": "cloudflare-9g65dxfbcjln",
         "title": "Incorrect geo location for some Cloudflare WARP users",

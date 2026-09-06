@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "degraded",
     "statusMessage": "Some Services Experiencing Degraded Performance",
-    "lastUpdated": "2026-09-06T20:41:59Z",
+    "lastUpdated": "2026-09-06T22:24:06Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 3,
+      "activeIncidentsCount": 2,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1025,21 +1025,6 @@
   ],
   "incidents": {
     "active": [
-      {
-        "id": "cloudflare-1ghtnh94pby6",
-        "title": "Purchased domains from registrar not appearing in Cloudflare Dashboard",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "investigating",
-        "createdAt": "2026-09-06T17:06:53.000Z",
-        "updates": [
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-06T17:06:53.609Z",
-            "message": "We are investigating reports of delays in the provisioning of newly purchased domains. Our engineering team is currently working to resolve these delays affecting domain registration."
-          }
-        ]
-      },
       {
         "id": "cloudflare-9g65dxfbcjln",
         "title": "Incorrect geo location for some Cloudflare WARP users",

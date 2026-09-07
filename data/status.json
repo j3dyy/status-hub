@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "degraded",
     "statusMessage": "Some Services Experiencing Degraded Performance",
-    "lastUpdated": "2026-09-07T15:23:45Z",
+    "lastUpdated": "2026-09-07T19:20:19Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 3,
+      "activeIncidentsCount": 2,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1025,31 +1025,6 @@
   ],
   "incidents": {
     "active": [
-      {
-        "id": "cloudflare-z16209cfb1xv",
-        "title": "Browser Isolation Session Initialization Failures",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-09-07T14:25:18.000Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-09-07T15:11:43.791Z",
-            "message": "A fix has been implemented and we are monitoring the results.\n\nCustomers still experiencing the issue may attempt to close all their Browser Isolation tabs for 2 minutes before starting a new session."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-09-07T14:59:31.621Z",
-            "message": "The issue has been identified and a fix is being implemented."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-07T14:25:18.728Z",
-            "message": "We are investigating reports of customers encountering a white screen when attempting to access websites behind Browser Isolation. This is caused by Browser Isolation session initialization failing to complete. Our engineering team is actively working to identify and resolve the root cause."
-          }
-        ]
-      },
       {
         "id": "cloudflare-9g65dxfbcjln",
         "title": "Incorrect geo location for some Cloudflare WARP users",

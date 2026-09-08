@@ -5,14 +5,14 @@
     "company": "isdown.usectl.com",
     "url": "https://isdown.usectl.com",
     "supportUrl": "https://help.example.com",
-    "status": "degraded",
-    "statusMessage": "Some Services Experiencing Degraded Performance",
-    "lastUpdated": "2026-09-08T05:04:57Z",
+    "status": "partial_outage",
+    "statusMessage": "Partial Service Disruption Detected",
+    "lastUpdated": "2026-09-08T09:37:17Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 3,
+      "activeIncidentsCount": 2,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -76,7 +76,7 @@
       "name": "GitLab",
       "url": "https://status.gitlab.com",
       "icon": "gitlab",
-      "status": "operational"
+      "status": "partial_outage"
     },
     {
       "id": "bitbucket",
@@ -546,7 +546,7 @@
           "providerId": "gitlab",
           "name": "GitLab SaaS & Web Platform",
           "description": "GitLab.com web application, REST/GraphQL API, Git SSH & HTTPS operations, and GitLab Pages",
-          "status": "operational",
+          "status": "partial_outage",
           "uptime90d": 99.96,
           "currentLatencyMs": 94,
           "components": [
@@ -577,7 +577,7 @@
           "providerId": "gitlab",
           "name": "GitLab CI/CD & Cloud Runners",
           "description": "Hosted Linux, Windows, macOS runners, container registry, and GitLab Duo AI",
-          "status": "operational",
+          "status": "partial_outage",
           "uptime90d": 99.93,
           "currentLatencyMs": 108,
           "components": [
@@ -604,7 +604,7 @@
             {
               "id": "gitlab-duo",
               "name": "GitLab Duo (AI Code Assistance)",
-              "status": "operational"
+              "status": "partial_outage"
             }
           ]
         },
@@ -1025,26 +1025,6 @@
   ],
   "incidents": {
     "active": [
-      {
-        "id": "cloudflare-qz292kvy220g",
-        "title": "Cache Reserve Issue in Paris",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "identified",
-        "createdAt": "2026-09-08T03:25:59.000Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-09-08T04:42:58.905Z",
-            "message": "The issue has been identified and a fix is being implemented."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-08T03:25:59.425Z",
-            "message": "Cloudflare is investigating an issue with Cache Reserve errors in Paris (CDG). Customers may see an elevated request volume to origin servers in the forementioned region.\n\nWe are working to analyse and mitigate this problem.  More updates to follow shortly."
-          }
-        ]
-      },
       {
         "id": "cloudflare-9g65dxfbcjln",
         "title": "Incorrect geo location for some Cloudflare WARP users",

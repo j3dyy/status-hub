@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "degraded",
     "statusMessage": "Some Services Experiencing Degraded Performance",
-    "lastUpdated": "2026-09-08T20:20:02Z",
+    "lastUpdated": "2026-09-08T22:48:42Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 4,
+      "activeIncidentsCount": 2,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "claude",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -1025,61 +1025,6 @@
   ],
   "incidents": {
     "active": [
-      {
-        "id": "openai-01M20PYYYGRT9303VHAPA7YNT2",
-        "title": "Elevated errors for image generation",
-        "providerId": "openai",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-09-08T14:32:42Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-09-08T19:11:26Z",
-            "message": "We have applied the mitigation and are monitoring the recovery."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-09-08T16:35:08Z",
-            "message": "We have identified the issue affecting image generation in ChatGPT and the Images API. Some image-generation requests may continue to fail. "
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-08T15:38:07Z",
-            "message": "> We\u2019re continuing to investigate elevated errors affecting image generation in ChatGPT and the Images API. We saw an increase in failed Images API requests after our last update. We\u2019re applying mitigations and assessing their effect. Some image requests may still fail. We\u2019ll share another update as we learn more."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-08T15:05:21Z",
-            "message": "We\u2019re continuing to investigate elevated errors affecting image generation in ChatGPT and the Images API. We\u2019ve made changes aimed at reducing failures and are assessing their effect. Some requests may still fail. We\u2019ll share another update as we learn more."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-08T14:32:42Z",
-            "message": "We\u2019re investigating elevated errors affecting image generation in ChatGPT and the Images API. Some requests may fail. We\u2019ll share another update as we learn more."
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-hy0gsndpkypz",
-        "title": "Intermittent issues accessing the Dashboard on Firefox and Safari",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "investigating",
-        "createdAt": "2026-09-08T19:39:17.000Z",
-        "updates": [
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-08T20:03:04.943Z",
-            "message": "We are continuing to investigate this issue."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-08T19:39:17.493Z",
-            "message": "Cloudflare is investigating intermittent issues accessing the Cloudflare Dashboard from Firefox and Safari browsers."
-          }
-        ]
-      },
       {
         "id": "cloudflare-9g65dxfbcjln",
         "title": "Incorrect geo location for some Cloudflare WARP users",

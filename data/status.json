@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "degraded",
     "statusMessage": "Some Services Experiencing Degraded Performance",
-    "lastUpdated": "2026-09-08T13:52:29Z",
+    "lastUpdated": "2026-09-08T17:44:44Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 2,
+      "activeIncidentsCount": 4,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "claude",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -1025,6 +1025,66 @@
   ],
   "incidents": {
     "active": [
+      {
+        "id": "openai-01M20PYYYGRT9303VHAPA7YNT2",
+        "title": "Elevated errors for image generation",
+        "providerId": "openai",
+        "severity": "minor",
+        "status": "identified",
+        "createdAt": "2026-09-08T14:32:42Z",
+        "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-08T16:35:08Z",
+            "message": "We have identified the issue affecting image generation in ChatGPT and the Images API. Some image-generation requests may continue to fail. "
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-08T15:38:07Z",
+            "message": "> We\u2019re continuing to investigate elevated errors affecting image generation in ChatGPT and the Images API. We saw an increase in failed Images API requests after our last update. We\u2019re applying mitigations and assessing their effect. Some image requests may still fail. We\u2019ll share another update as we learn more."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-08T15:05:21Z",
+            "message": "We\u2019re continuing to investigate elevated errors affecting image generation in ChatGPT and the Images API. We\u2019ve made changes aimed at reducing failures and are assessing their effect. Some requests may still fail. We\u2019ll share another update as we learn more."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-08T14:32:42Z",
+            "message": "We\u2019re investigating elevated errors affecting image generation in ChatGPT and the Images API. Some requests may fail. We\u2019ll share another update as we learn more."
+          }
+        ]
+      },
+      {
+        "id": "openai-01M20QBACYZMK2PRCJQCBSWTYJ",
+        "title": "File uploads are delayed or failing",
+        "providerId": "openai",
+        "severity": "minor",
+        "status": "identified",
+        "createdAt": "2026-09-08T14:39:27Z",
+        "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-08T16:29:52Z",
+            "message": "We have identified the issue causing file-upload processing failures and delays in ChatGPT. Some files may remain unavailable while processing, and some uploads may fail."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-08T15:37:05Z",
+            "message": "We\u2019re continuing to investigate file-upload processing failures and delays in ChatGPT. Some files may appear uploaded but remain unavailable while processing; other uploads may fail. We have not confirmed recovery and will share another update as we learn more."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-08T14:47:48Z",
+            "message": "We are investigating the issue for the listed services."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-08T14:39:27Z",
+            "message": "Some file uploads are failing to process. Successful uploads may take longer than usual to become available. We\u2019re investigating and will share another update as we learn more."
+          }
+        ]
+      },
       {
         "id": "cloudflare-9g65dxfbcjln",
         "title": "Incorrect geo location for some Cloudflare WARP users",

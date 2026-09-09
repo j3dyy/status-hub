@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "degraded",
     "statusMessage": "Some Services Experiencing Degraded Performance",
-    "lastUpdated": "2026-09-09T10:00:26Z",
+    "lastUpdated": "2026-09-09T14:28:30Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 2,
+      "activeIncidentsCount": 3,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1025,6 +1025,21 @@
   ],
   "incidents": {
     "active": [
+      {
+        "id": "cloudflare-jsvvrtk5hvym",
+        "title": "Cloudflare Workers AI increased errors",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "investigating",
+        "createdAt": "2026-09-09T14:25:16.000Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-09T14:25:16.719Z",
+            "message": "Cloudflare is aware of, and investigating, increased Workers AI errors when attempting to use GLM 5.3. Updates to follow."
+          }
+        ]
+      },
       {
         "id": "cloudflare-9g65dxfbcjln",
         "title": "Incorrect geo location for some Cloudflare WARP users",

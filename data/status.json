@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "degraded",
     "statusMessage": "Some Services Experiencing Degraded Performance",
-    "lastUpdated": "2026-09-09T17:57:02Z",
+    "lastUpdated": "2026-09-09T20:51:38Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -1026,22 +1026,22 @@
   "incidents": {
     "active": [
       {
-        "id": "cloudflare-jsvvrtk5hvym",
-        "title": "Cloudflare Workers AI increased errors",
+        "id": "cloudflare-sjs8s0q2x4hw",
+        "title": "Workers Cron Triggers degraded",
         "providerId": "cloudflare",
         "severity": "minor",
         "status": "identified",
-        "createdAt": "2026-09-09T14:25:16.000Z",
+        "createdAt": "2026-09-09T19:17:26.000Z",
         "updates": [
           {
             "stage": "identified",
-            "timestamp": "2026-09-09T15:02:41.584Z",
+            "timestamp": "2026-09-09T19:18:25.542Z",
             "message": "The issue has been identified and a fix is being implemented."
           },
           {
             "stage": "investigating",
-            "timestamp": "2026-09-09T14:25:16.719Z",
-            "message": "Cloudflare is aware of, and investigating, increased Workers AI errors when attempting to use GLM 5.3. Updates to follow."
+            "timestamp": "2026-09-09T19:17:26.352Z",
+            "message": "Workers Cron Triggers may not execute or may be delayed in executing. Updates to Workers Cron Triggers may take some time to take effect."
           }
         ]
       },

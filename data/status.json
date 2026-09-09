@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "degraded",
     "statusMessage": "Some Services Experiencing Degraded Performance",
-    "lastUpdated": "2026-09-09T14:28:30Z",
+    "lastUpdated": "2026-09-09T17:57:02Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -1030,9 +1030,14 @@
         "title": "Cloudflare Workers AI increased errors",
         "providerId": "cloudflare",
         "severity": "minor",
-        "status": "investigating",
+        "status": "identified",
         "createdAt": "2026-09-09T14:25:16.000Z",
         "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-09T15:02:41.584Z",
+            "message": "The issue has been identified and a fix is being implemented."
+          },
           {
             "stage": "investigating",
             "timestamp": "2026-09-09T14:25:16.719Z",

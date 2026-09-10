@@ -5,14 +5,14 @@
     "company": "isdown.usectl.com",
     "url": "https://isdown.usectl.com",
     "supportUrl": "https://help.example.com",
-    "status": "major_outage",
-    "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-10T17:45:04Z",
+    "status": "degraded",
+    "statusMessage": "Some Services Experiencing Degraded Performance",
+    "lastUpdated": "2026-09-10T20:05:45Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 6,
+      "activeIncidentsCount": 7,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "claude",
@@ -76,7 +76,7 @@
       "name": "GitLab",
       "url": "https://status.gitlab.com",
       "icon": "gitlab",
-      "status": "partial_outage"
+      "status": "operational"
     },
     {
       "id": "bitbucket",
@@ -90,7 +90,7 @@
       "name": "Vercel",
       "url": "https://www.vercel-status.com",
       "icon": "vercel",
-      "status": "major_outage"
+      "status": "operational"
     },
     {
       "id": "docker",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -546,7 +546,7 @@
           "providerId": "gitlab",
           "name": "GitLab SaaS & Web Platform",
           "description": "GitLab.com web application, REST/GraphQL API, Git SSH & HTTPS operations, and GitLab Pages",
-          "status": "partial_outage",
+          "status": "operational",
           "uptime90d": 99.96,
           "currentLatencyMs": 94,
           "components": [
@@ -577,7 +577,7 @@
           "providerId": "gitlab",
           "name": "GitLab CI/CD & Cloud Runners",
           "description": "Hosted Linux, Windows, macOS runners, container registry, and GitLab Duo AI",
-          "status": "partial_outage",
+          "status": "operational",
           "uptime90d": 99.93,
           "currentLatencyMs": 108,
           "components": [
@@ -659,7 +659,7 @@
           "providerId": "vercel",
           "name": "Vercel Edge Platform & Deployments",
           "description": "Global Edge Network CDN, Serverless/Edge Functions, Deployments pipeline and Vercel Storage",
-          "status": "major_outage",
+          "status": "operational",
           "uptime90d": 99.99,
           "currentLatencyMs": 48,
           "components": [
@@ -1026,6 +1026,41 @@
   "incidents": {
     "active": [
       {
+        "id": "openai-01M26E3PPAYJMMRHX2MZJCTHMF",
+        "title": "Delays in customer support responses",
+        "providerId": "openai",
+        "severity": "none",
+        "status": "investigating",
+        "createdAt": "2026-09-10T19:53:26Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-10T19:53:27Z",
+            "message": "We are investigating technical issues affecting our customer support systems. Customers may experience longer than usual response times. We are working to restore normal operations."
+          }
+        ]
+      },
+      {
+        "id": "openai-01M26DX2PP1AFHGJK5E4M6S2J6",
+        "title": "Elevated errors affecting ChatGPT Work",
+        "providerId": "openai",
+        "severity": "minor",
+        "status": "investigating",
+        "createdAt": "2026-09-10T19:49:49Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-10T19:50:34Z",
+            "message": "We are investigating elevated errors affecting some ChatGPT Work users. Some users may encounter server errors. We are working to mitigate the issue."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-10T19:49:49Z",
+            "message": "We are investigating the issue for the listed services."
+          }
+        ]
+      },
+      {
         "id": "claude-r1pqn1kb4hvk",
         "title": "Degraded functionality for Claude Cowork on Windows",
         "providerId": "claude",
@@ -1127,21 +1162,6 @@
             "stage": "investigating",
             "timestamp": "2026-08-27T18:46:19.105Z",
             "message": "Cloudflare is investigating issues with Cloudflare WARP and Cloudflare Zero Trust users being incorrectly geolocated by some third party services."
-          }
-        ]
-      },
-      {
-        "id": "vercel-mf04gp4lrfz0",
-        "title": "Elevated error rate on Connect and Passport",
-        "providerId": "vercel",
-        "severity": "major",
-        "status": "investigating",
-        "createdAt": "2026-09-10T17:42:15.875Z",
-        "updates": [
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-10T17:42:15.922Z",
-            "message": "We've identified an issue where some customers may experience increased errors from Connect and Passport. We are currently investigating this issue. We will provide additional updates as they become available."
           }
         ]
       },

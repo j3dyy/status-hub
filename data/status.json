@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "degraded",
     "statusMessage": "Some Services Experiencing Degraded Performance",
-    "lastUpdated": "2026-09-10T09:59:44Z",
+    "lastUpdated": "2026-09-10T14:19:08Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 4,
+      "activeIncidentsCount": 5,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1030,9 +1030,14 @@
         "title": "Unable to open shared ChatGPT Project using direct link",
         "providerId": "openai",
         "severity": "minor",
-        "status": "identified",
+        "status": "monitoring",
         "createdAt": "2026-09-10T02:21:57Z",
         "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-10T12:06:23Z",
+            "message": "We have applied the mitigation and are monitoring the recovery."
+          },
           {
             "stage": "identified",
             "timestamp": "2026-09-10T09:37:49Z",
@@ -1047,6 +1052,26 @@
             "stage": "investigating",
             "timestamp": "2026-09-10T02:21:57Z",
             "message": "We are investigating the issue for the listed services."
+          }
+        ]
+      },
+      {
+        "id": "cloudflare-nhfcmzd1pv4p",
+        "title": "DNS Update Delays",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "identified",
+        "createdAt": "2026-09-10T13:58:42.000Z",
+        "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-10T14:17:13.545Z",
+            "message": "The issue has been identified and a fix is being implemented."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-10T13:58:42.994Z",
+            "message": "Cloudflare is investigating delays in propagation of updates to DNS records. More updates to follow shortly."
           }
         ]
       },

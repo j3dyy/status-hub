@@ -5,14 +5,14 @@
     "company": "isdown.usectl.com",
     "url": "https://isdown.usectl.com",
     "supportUrl": "https://help.example.com",
-    "status": "degraded",
-    "statusMessage": "Some Services Experiencing Degraded Performance",
-    "lastUpdated": "2026-09-10T14:19:08Z",
+    "status": "major_outage",
+    "statusMessage": "Major Outage Detected Across External Services",
+    "lastUpdated": "2026-09-10T17:45:04Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 5,
+      "activeIncidentsCount": 6,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,14 +27,14 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "claude",
       "name": "Anthropic Claude",
       "url": "https://status.claude.com",
       "icon": "sparkles",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "gemini",
@@ -76,7 +76,7 @@
       "name": "GitLab",
       "url": "https://status.gitlab.com",
       "icon": "gitlab",
-      "status": "operational"
+      "status": "partial_outage"
     },
     {
       "id": "bitbucket",
@@ -90,7 +90,7 @@
       "name": "Vercel",
       "url": "https://www.vercel-status.com",
       "icon": "vercel",
-      "status": "operational"
+      "status": "major_outage"
     },
     {
       "id": "docker",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -243,7 +243,7 @@
           "providerId": "claude",
           "name": "claude.ai",
           "description": "Web & mobile interface, Claude Pro/Team, Projects and interactive Artifacts",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.4,
           "currentLatencyMs": 118,
           "components": [
@@ -274,7 +274,7 @@
           "providerId": "claude",
           "name": "Claude Console (platform.claude.com)",
           "description": "Developer platform, prompt engineering workbench, API keys and billing management",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.93,
           "currentLatencyMs": 84,
           "components": [
@@ -300,7 +300,7 @@
           "providerId": "claude",
           "name": "Claude API (api.anthropic.com)",
           "description": "Direct inference endpoints for Claude 3.5 Sonnet, Claude 3.5 Haiku, and Claude 3 Opus",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.5,
           "currentLatencyMs": 142,
           "components": [
@@ -331,7 +331,7 @@
           "providerId": "claude",
           "name": "Claude Code",
           "description": "Agentic command-line developer assistant and IDE tool integration",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.44,
           "currentLatencyMs": 105,
           "components": [
@@ -357,7 +357,7 @@
           "providerId": "claude",
           "name": "Claude Cowork",
           "description": "Real-time collaborative workspaces, multi-user sessions, and team memory",
-          "status": "operational",
+          "status": "degraded_performance",
           "uptime90d": 99.43,
           "currentLatencyMs": 115,
           "components": [
@@ -378,7 +378,7 @@
           "providerId": "claude",
           "name": "Claude for Government",
           "description": "FedRAMP High / DoD IL5 compliant isolated federal cloud enclave",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 100.0,
           "currentLatencyMs": 95,
           "components": [
@@ -546,7 +546,7 @@
           "providerId": "gitlab",
           "name": "GitLab SaaS & Web Platform",
           "description": "GitLab.com web application, REST/GraphQL API, Git SSH & HTTPS operations, and GitLab Pages",
-          "status": "operational",
+          "status": "partial_outage",
           "uptime90d": 99.96,
           "currentLatencyMs": 94,
           "components": [
@@ -577,7 +577,7 @@
           "providerId": "gitlab",
           "name": "GitLab CI/CD & Cloud Runners",
           "description": "Hosted Linux, Windows, macOS runners, container registry, and GitLab Duo AI",
-          "status": "operational",
+          "status": "partial_outage",
           "uptime90d": 99.93,
           "currentLatencyMs": 108,
           "components": [
@@ -659,7 +659,7 @@
           "providerId": "vercel",
           "name": "Vercel Edge Platform & Deployments",
           "description": "Global Edge Network CDN, Serverless/Edge Functions, Deployments pipeline and Vercel Storage",
-          "status": "operational",
+          "status": "major_outage",
           "uptime90d": 99.99,
           "currentLatencyMs": 48,
           "components": [
@@ -1026,32 +1026,17 @@
   "incidents": {
     "active": [
       {
-        "id": "openai-01M24HYC9SX2Q4471EVMY6EXQE",
-        "title": "Unable to open shared ChatGPT Project using direct link",
-        "providerId": "openai",
+        "id": "claude-r1pqn1kb4hvk",
+        "title": "Degraded functionality for Claude Cowork on Windows",
+        "providerId": "claude",
         "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-09-10T02:21:57Z",
+        "status": "identified",
+        "createdAt": "2026-09-10T15:54:10.108Z",
         "updates": [
           {
-            "stage": "monitoring",
-            "timestamp": "2026-09-10T12:06:23Z",
-            "message": "We have applied the mitigation and are monitoring the recovery."
-          },
-          {
             "stage": "identified",
-            "timestamp": "2026-09-10T09:37:49Z",
-            "message": "We are still implementing the mitigation."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-09-10T06:01:47Z",
-            "message": "We are still implementing the mitigation."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-10T02:21:57Z",
-            "message": "We are investigating the issue for the listed services."
+            "timestamp": "2026-09-10T15:54:10.200Z",
+            "message": "A Windows update released September 8 has left Claude Cowork on Windows unable to run local commands, because its workspace can no longer reach your computer's drive. For most users, chat and file reading and editing still work. There's no in-app workaround yet, and restarting or reinstalling won't help. Microsoft has developed a fix and is working to release it. We'll post an update when we have more to share."
           }
         ]
       },
@@ -1142,6 +1127,21 @@
             "stage": "investigating",
             "timestamp": "2026-08-27T18:46:19.105Z",
             "message": "Cloudflare is investigating issues with Cloudflare WARP and Cloudflare Zero Trust users being incorrectly geolocated by some third party services."
+          }
+        ]
+      },
+      {
+        "id": "vercel-mf04gp4lrfz0",
+        "title": "Elevated error rate on Connect and Passport",
+        "providerId": "vercel",
+        "severity": "major",
+        "status": "investigating",
+        "createdAt": "2026-09-10T17:42:15.875Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-10T17:42:15.922Z",
+            "message": "We've identified an issue where some customers may experience increased errors from Connect and Passport. We are currently investigating this issue. We will provide additional updates as they become available."
           }
         ]
       },

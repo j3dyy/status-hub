@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "degraded",
     "statusMessage": "Some Services Experiencing Degraded Performance",
-    "lastUpdated": "2026-09-10T20:05:45Z",
+    "lastUpdated": "2026-09-10T22:33:41Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 7,
+      "activeIncidentsCount": 5,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "claude",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -300,7 +300,7 @@
           "providerId": "claude",
           "name": "Claude API (api.anthropic.com)",
           "description": "Direct inference endpoints for Claude 3.5 Sonnet, Claude 3.5 Haiku, and Claude 3 Opus",
-          "status": "degraded",
+          "status": "degraded_performance",
           "uptime90d": 99.5,
           "currentLatencyMs": 142,
           "components": [
@@ -1026,37 +1026,17 @@
   "incidents": {
     "active": [
       {
-        "id": "openai-01M26E3PPAYJMMRHX2MZJCTHMF",
-        "title": "Delays in customer support responses",
-        "providerId": "openai",
-        "severity": "none",
-        "status": "investigating",
-        "createdAt": "2026-09-10T19:53:26Z",
-        "updates": [
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-10T19:53:27Z",
-            "message": "We are investigating technical issues affecting our customer support systems. Customers may experience longer than usual response times. We are working to restore normal operations."
-          }
-        ]
-      },
-      {
-        "id": "openai-01M26DX2PP1AFHGJK5E4M6S2J6",
-        "title": "Elevated errors affecting ChatGPT Work",
-        "providerId": "openai",
+        "id": "claude-2pt83vlkk7x7",
+        "title": "Elevated latency on the Claude API for some users",
+        "providerId": "claude",
         "severity": "minor",
-        "status": "investigating",
-        "createdAt": "2026-09-10T19:49:49Z",
+        "status": "identified",
+        "createdAt": "2026-09-10T21:43:40.215Z",
         "updates": [
           {
-            "stage": "investigating",
-            "timestamp": "2026-09-10T19:50:34Z",
-            "message": "We are investigating elevated errors affecting some ChatGPT Work users. Some users may encounter server errors. We are working to mitigate the issue."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-10T19:49:49Z",
-            "message": "We are investigating the issue for the listed services."
+            "stage": "identified",
+            "timestamp": "2026-09-10T21:43:40.269Z",
+            "message": "We are experiencing slower than normal response times on the Claude API for some customers whose traffic enters through the US Midwest. Users may experience elevated latency and some request timeouts."
           }
         ]
       },
@@ -1072,26 +1052,6 @@
             "stage": "identified",
             "timestamp": "2026-09-10T15:54:10.200Z",
             "message": "A Windows update released September 8 has left Claude Cowork on Windows unable to run local commands, because its workspace can no longer reach your computer's drive. For most users, chat and file reading and editing still work. There's no in-app workaround yet, and restarting or reinstalling won't help. Microsoft has developed a fix and is working to release it. We'll post an update when we have more to share."
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-nhfcmzd1pv4p",
-        "title": "DNS Update Delays",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "identified",
-        "createdAt": "2026-09-10T13:58:42.000Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-09-10T14:17:13.545Z",
-            "message": "The issue has been identified and a fix is being implemented."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-10T13:58:42.994Z",
-            "message": "Cloudflare is investigating delays in propagation of updates to DNS records. More updates to follow shortly."
           }
         ]
       },

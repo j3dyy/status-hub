@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "degraded",
     "statusMessage": "Some Services Experiencing Degraded Performance",
-    "lastUpdated": "2026-09-10T05:28:13Z",
+    "lastUpdated": "2026-09-10T09:59:44Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -1030,9 +1030,19 @@
         "title": "Unable to open shared ChatGPT Project using direct link",
         "providerId": "openai",
         "severity": "minor",
-        "status": "investigating",
+        "status": "identified",
         "createdAt": "2026-09-10T02:21:57Z",
         "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-10T09:37:49Z",
+            "message": "We are still implementing the mitigation."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-10T06:01:47Z",
+            "message": "We are still implementing the mitigation."
+          },
           {
             "stage": "investigating",
             "timestamp": "2026-09-10T02:21:57Z",

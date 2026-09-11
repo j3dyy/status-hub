@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "degraded",
     "statusMessage": "Some Services Experiencing Degraded Performance",
-    "lastUpdated": "2026-09-10T22:33:41Z",
+    "lastUpdated": "2026-09-11T00:31:25Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 5,
+      "activeIncidentsCount": 4,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -300,7 +300,7 @@
           "providerId": "claude",
           "name": "Claude API (api.anthropic.com)",
           "description": "Direct inference endpoints for Claude 3.5 Sonnet, Claude 3.5 Haiku, and Claude 3 Opus",
-          "status": "degraded_performance",
+          "status": "degraded",
           "uptime90d": 99.5,
           "currentLatencyMs": 142,
           "components": [
@@ -1025,21 +1025,6 @@
   ],
   "incidents": {
     "active": [
-      {
-        "id": "claude-2pt83vlkk7x7",
-        "title": "Elevated latency on the Claude API for some users",
-        "providerId": "claude",
-        "severity": "minor",
-        "status": "identified",
-        "createdAt": "2026-09-10T21:43:40.215Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-09-10T21:43:40.269Z",
-            "message": "We are experiencing slower than normal response times on the Claude API for some customers whose traffic enters through the US Midwest. Users may experience elevated latency and some request timeouts."
-          }
-        ]
-      },
       {
         "id": "claude-r1pqn1kb4hvk",
         "title": "Degraded functionality for Claude Cowork on Windows",

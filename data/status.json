@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-11T13:53:22Z",
+    "lastUpdated": "2026-09-11T17:33:16Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 4,
+      "activeIncidentsCount": 5,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "claude",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -243,7 +243,7 @@
           "providerId": "claude",
           "name": "claude.ai",
           "description": "Web & mobile interface, Claude Pro/Team, Projects and interactive Artifacts",
-          "status": "degraded",
+          "status": "major_outage",
           "uptime90d": 99.4,
           "currentLatencyMs": 118,
           "components": [
@@ -274,7 +274,7 @@
           "providerId": "claude",
           "name": "Claude Console (platform.claude.com)",
           "description": "Developer platform, prompt engineering workbench, API keys and billing management",
-          "status": "degraded",
+          "status": "major_outage",
           "uptime90d": 99.93,
           "currentLatencyMs": 84,
           "components": [
@@ -300,7 +300,7 @@
           "providerId": "claude",
           "name": "Claude API (api.anthropic.com)",
           "description": "Direct inference endpoints for Claude 3.5 Sonnet, Claude 3.5 Haiku, and Claude 3 Opus",
-          "status": "degraded",
+          "status": "major_outage",
           "uptime90d": 99.5,
           "currentLatencyMs": 142,
           "components": [
@@ -331,7 +331,7 @@
           "providerId": "claude",
           "name": "Claude Code",
           "description": "Agentic command-line developer assistant and IDE tool integration",
-          "status": "degraded",
+          "status": "major_outage",
           "uptime90d": 99.44,
           "currentLatencyMs": 105,
           "components": [
@@ -357,7 +357,7 @@
           "providerId": "claude",
           "name": "Claude Cowork",
           "description": "Real-time collaborative workspaces, multi-user sessions, and team memory",
-          "status": "degraded_performance",
+          "status": "partial_outage",
           "uptime90d": 99.43,
           "currentLatencyMs": 115,
           "components": [
@@ -378,7 +378,7 @@
           "providerId": "claude",
           "name": "Claude for Government",
           "description": "FedRAMP High / DoD IL5 compliant isolated federal cloud enclave",
-          "status": "degraded",
+          "status": "major_outage",
           "uptime90d": 100.0,
           "currentLatencyMs": 95,
           "components": [
@@ -1026,10 +1026,35 @@
   "incidents": {
     "active": [
       {
+        "id": "openai-01M28MEQWTQJDRCRPFD9FWQ0H3",
+        "title": "1% of ChatGPT Work (mobile/web) turns are failing for existing threads",
+        "providerId": "openai",
+        "severity": "minor",
+        "status": "investigating",
+        "createdAt": "2026-09-11T16:22:49Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-11T17:17:35Z",
+            "message": "We are investigating the issue for the listed services."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-11T17:16:49Z",
+            "message": "We have identified that users are experiencing elevated errors for the impacted services.\n\nWe are working on implementing a mitigation."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-11T16:22:49Z",
+            "message": "We have identified that users are experiencing elevated errors for the impacted services.\n\nWe are working on implementing a mitigation."
+          }
+        ]
+      },
+      {
         "id": "claude-r1pqn1kb4hvk",
         "title": "Degraded functionality for Claude Cowork on Windows",
         "providerId": "claude",
-        "severity": "minor",
+        "severity": "major",
         "status": "identified",
         "createdAt": "2026-09-10T15:54:10.108Z",
         "updates": [

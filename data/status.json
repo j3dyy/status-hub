@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-11T20:00:16Z",
+    "lastUpdated": "2026-09-11T22:29:47Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -863,7 +863,7 @@
           "providerId": "cloudflare",
           "name": "Cloudflare Global Network & Edge",
           "description": "Global Edge Network, Cloudflare DNS, Workers & Pages, WAF, and Zero Trust",
-          "status": "degraded_performance",
+          "status": "degraded",
           "uptime90d": 99.99,
           "currentLatencyMs": 24,
           "components": [
@@ -1030,9 +1030,14 @@
         "title": "1% of ChatGPT Work (mobile/web) turns are failing for existing threads",
         "providerId": "openai",
         "severity": "minor",
-        "status": "investigating",
+        "status": "monitoring",
         "createdAt": "2026-09-11T16:22:49Z",
         "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-11T21:51:56Z",
+            "message": "We have applied the mitigation and are monitoring the recovery."
+          },
           {
             "stage": "investigating",
             "timestamp": "2026-09-11T17:17:35Z",
@@ -1066,17 +1071,17 @@
         ]
       },
       {
-        "id": "cloudflare-2njywrxj8qjf",
-        "title": "Network Performance Issues with Taiwan datacenter (TPE)",
+        "id": "cloudflare-k7l4hzmthl3k",
+        "title": "Cloudflare Tunnel Availability Issues",
         "providerId": "cloudflare",
         "severity": "minor",
         "status": "investigating",
-        "createdAt": "2026-09-11T19:35:42.000Z",
+        "createdAt": "2026-09-11T21:55:52.000Z",
         "updates": [
           {
             "stage": "investigating",
-            "timestamp": "2026-09-11T19:35:42.967Z",
-            "message": "Cloudflare is investigating issues with Network Performance in Taiwan datacenter (TPE)\n\nWe are working to analyze and mitigate this problem. More updates to follow shortly."
+            "timestamp": "2026-09-11T21:55:52.123Z",
+            "message": "Cloudflare is investigating issues with Cloudflare Tunnel. More updates to follow shortly."
           }
         ]
       },

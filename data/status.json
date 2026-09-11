@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-11T17:33:16Z",
+    "lastUpdated": "2026-09-11T20:00:16Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 5,
+      "activeIncidentsCount": 6,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -863,7 +863,7 @@
           "providerId": "cloudflare",
           "name": "Cloudflare Global Network & Edge",
           "description": "Global Edge Network, Cloudflare DNS, Workers & Pages, WAF, and Zero Trust",
-          "status": "degraded",
+          "status": "degraded_performance",
           "uptime90d": 99.99,
           "currentLatencyMs": 24,
           "components": [
@@ -1062,6 +1062,21 @@
             "stage": "identified",
             "timestamp": "2026-09-10T15:54:10.200Z",
             "message": "A Windows update released September 8 has left Claude Cowork on Windows unable to run local commands, because its workspace can no longer reach your computer's drive. For most users, chat and file reading and editing still work. There's no in-app workaround yet, and restarting or reinstalling won't help. Microsoft has developed a fix and is working to release it. We'll post an update when we have more to share."
+          }
+        ]
+      },
+      {
+        "id": "cloudflare-2njywrxj8qjf",
+        "title": "Network Performance Issues with Taiwan datacenter (TPE)",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "investigating",
+        "createdAt": "2026-09-11T19:35:42.000Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-11T19:35:42.967Z",
+            "message": "Cloudflare is investigating issues with Network Performance in Taiwan datacenter (TPE)\n\nWe are working to analyze and mitigate this problem. More updates to follow shortly."
           }
         ]
       },

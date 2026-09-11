@@ -5,9 +5,9 @@
     "company": "isdown.usectl.com",
     "url": "https://isdown.usectl.com",
     "supportUrl": "https://help.example.com",
-    "status": "degraded",
-    "statusMessage": "Some Services Experiencing Degraded Performance",
-    "lastUpdated": "2026-09-11T00:31:25Z",
+    "status": "major_outage",
+    "statusMessage": "Major Outage Detected Across External Services",
+    "lastUpdated": "2026-09-11T05:11:04Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -153,7 +153,7 @@
       "name": "MongoDB Atlas",
       "url": "https://status.cloud.mongodb.com",
       "icon": "mongodb",
-      "status": "degraded"
+      "status": "major_outage"
     },
     {
       "id": "stripe",
@@ -968,7 +968,7 @@
           "providerId": "mongodb",
           "name": "MongoDB Atlas Cloud Database",
           "description": "Managed multi-cloud document database, Atlas Vector Search, Data API, and App Services",
-          "status": "degraded",
+          "status": "major_outage",
           "uptime90d": 99.98,
           "currentLatencyMs": 62,
           "components": [

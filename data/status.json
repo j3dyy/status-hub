@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-11T09:46:28Z",
+    "lastUpdated": "2026-09-11T13:53:22Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 6,
+      "activeIncidentsCount": 4,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "claude",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -1025,41 +1025,6 @@
   ],
   "incidents": {
     "active": [
-      {
-        "id": "openai-01M27VK1VN54RQJGJEHB5JTQJJ",
-        "title": "Elevated errors for GPT-5.6 Sol on the API",
-        "providerId": "openai",
-        "severity": "minor",
-        "status": "identified",
-        "createdAt": "2026-09-11T09:08:15Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-09-11T09:08:15Z",
-            "message": "We have identified that users are experiencing elevated errors for the impacted services.\n\nWe are working on implementing a mitigation."
-          }
-        ]
-      },
-      {
-        "id": "openai-01M27Q9GH7WVKNA61ZR3RDMSY5",
-        "title": "Elevated errors for ChatGPT users in Europe",
-        "providerId": "openai",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-09-11T07:53:08Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-09-11T08:37:26Z",
-            "message": "We have applied the mitigation and are monitoring the recovery."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-09-11T07:53:08Z",
-            "message": "We have identified that users are experiencing elevated errors for the impacted services.\n\nWe are working on implementing a mitigation."
-          }
-        ]
-      },
       {
         "id": "claude-r1pqn1kb4hvk",
         "title": "Degraded functionality for Claude Cowork on Windows",

@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-12T05:00:08Z",
+    "lastUpdated": "2026-09-12T09:12:50Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -1041,27 +1041,22 @@
         ]
       },
       {
-        "id": "cloudflare-k7l4hzmthl3k",
-        "title": "Cloudflare Tunnel Availability Issues",
+        "id": "cloudflare-t4gby3dqzbg1",
+        "title": "Issues creating and updating Cloud Connector Rules",
         "providerId": "cloudflare",
         "severity": "minor",
         "status": "identified",
-        "createdAt": "2026-09-11T21:55:52.000Z",
+        "createdAt": "2026-09-12T08:06:38.000Z",
         "updates": [
           {
             "stage": "identified",
-            "timestamp": "2026-09-12T03:49:34.038Z",
-            "message": "Mitigation is reducing the affected traffic, and recovery is progressing. Some existing Cloudflare Tunnel connections may continue to experience intermittent issues while this work completes. We continue to monitor progress."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-09-11T23:15:41.328Z",
+            "timestamp": "2026-09-12T08:11:00.662Z",
             "message": "The issue has been identified and a fix is being implemented."
           },
           {
             "stage": "investigating",
-            "timestamp": "2026-09-11T21:55:52.123Z",
-            "message": "Cloudflare is investigating issues with Cloudflare Tunnel. More updates to follow shortly."
+            "timestamp": "2026-09-12T08:06:38.831Z",
+            "message": "Cloudflare is investigating failures in updating and creating Cloud Connector Rules.  We are working to mitigate this problem. More updates to follow shortly."
           }
         ]
       },

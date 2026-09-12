@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-11T22:29:47Z",
+    "lastUpdated": "2026-09-12T00:34:26Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -1075,9 +1075,14 @@
         "title": "Cloudflare Tunnel Availability Issues",
         "providerId": "cloudflare",
         "severity": "minor",
-        "status": "investigating",
+        "status": "identified",
         "createdAt": "2026-09-11T21:55:52.000Z",
         "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-11T23:15:41.328Z",
+            "message": "The issue has been identified and a fix is being implemented."
+          },
           {
             "stage": "investigating",
             "timestamp": "2026-09-11T21:55:52.123Z",

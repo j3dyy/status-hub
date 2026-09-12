@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-12T00:34:26Z",
+    "lastUpdated": "2026-09-12T05:00:08Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 6,
+      "activeIncidentsCount": 4,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "claude",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -1026,36 +1026,6 @@
   "incidents": {
     "active": [
       {
-        "id": "openai-01M28MEQWTQJDRCRPFD9FWQ0H3",
-        "title": "1% of ChatGPT Work (mobile/web) turns are failing for existing threads",
-        "providerId": "openai",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-09-11T16:22:49Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-09-11T21:51:56Z",
-            "message": "We have applied the mitigation and are monitoring the recovery."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-11T17:17:35Z",
-            "message": "We are investigating the issue for the listed services."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-09-11T17:16:49Z",
-            "message": "We have identified that users are experiencing elevated errors for the impacted services.\n\nWe are working on implementing a mitigation."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-11T16:22:49Z",
-            "message": "We have identified that users are experiencing elevated errors for the impacted services.\n\nWe are working on implementing a mitigation."
-          }
-        ]
-      },
-      {
         "id": "claude-r1pqn1kb4hvk",
         "title": "Degraded functionality for Claude Cowork on Windows",
         "providerId": "claude",
@@ -1080,6 +1050,11 @@
         "updates": [
           {
             "stage": "identified",
+            "timestamp": "2026-09-12T03:49:34.038Z",
+            "message": "Mitigation is reducing the affected traffic, and recovery is progressing. Some existing Cloudflare Tunnel connections may continue to experience intermittent issues while this work completes. We continue to monitor progress."
+          },
+          {
+            "stage": "identified",
             "timestamp": "2026-09-11T23:15:41.328Z",
             "message": "The issue has been identified and a fix is being implemented."
           },
@@ -1087,26 +1062,6 @@
             "stage": "investigating",
             "timestamp": "2026-09-11T21:55:52.123Z",
             "message": "Cloudflare is investigating issues with Cloudflare Tunnel. More updates to follow shortly."
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-sjs8s0q2x4hw",
-        "title": "Workers Cron Triggers degraded",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "identified",
-        "createdAt": "2026-09-09T19:17:26.000Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-09-09T19:18:25.542Z",
-            "message": "The issue has been identified and a fix is being implemented."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-09T19:17:26.352Z",
-            "message": "Workers Cron Triggers may not execute or may be delayed in executing. Updates to Workers Cron Triggers may take some time to take effect."
           }
         ]
       },

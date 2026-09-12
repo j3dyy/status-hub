@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-12T09:12:50Z",
+    "lastUpdated": "2026-09-12T12:53:54Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 4,
+      "activeIncidentsCount": 3,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1037,26 +1037,6 @@
             "stage": "identified",
             "timestamp": "2026-09-10T15:54:10.200Z",
             "message": "A Windows update released September 8 has left Claude Cowork on Windows unable to run local commands, because its workspace can no longer reach your computer's drive. For most users, chat and file reading and editing still work. There's no in-app workaround yet, and restarting or reinstalling won't help. Microsoft has developed a fix and is working to release it. We'll post an update when we have more to share."
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-t4gby3dqzbg1",
-        "title": "Issues creating and updating Cloud Connector Rules",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "identified",
-        "createdAt": "2026-09-12T08:06:38.000Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-09-12T08:11:00.662Z",
-            "message": "The issue has been identified and a fix is being implemented."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-12T08:06:38.831Z",
-            "message": "Cloudflare is investigating failures in updating and creating Cloud Connector Rules.  We are working to mitigate this problem. More updates to follow shortly."
           }
         ]
       },

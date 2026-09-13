@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-13T05:08:57Z",
+    "lastUpdated": "2026-09-13T10:18:24Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 3,
+      "activeIncidentsCount": 5,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "claude",
@@ -69,7 +69,7 @@
       "name": "GitHub",
       "url": "https://www.githubstatus.com",
       "icon": "github",
-      "status": "operational"
+      "status": "partial_outage"
     },
     {
       "id": "gitlab",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -484,7 +484,7 @@
           "providerId": "github",
           "name": "GitHub Core Services",
           "description": "Git repository operations, Pull Requests, Webhooks and REST/GraphQL APIs",
-          "status": "operational",
+          "status": "partial_outage",
           "uptime90d": 99.99,
           "currentLatencyMs": 85,
           "components": [
@@ -506,7 +506,7 @@
             {
               "id": "github-issues",
               "name": "Issues, Projects & Pull Requests",
-              "status": "operational"
+              "status": "degraded_performance"
             }
           ]
         },
@@ -515,14 +515,14 @@
           "providerId": "github",
           "name": "GitHub Compute & Automation",
           "description": "GitHub Actions runners, Codespaces, and GitHub Copilot completions",
-          "status": "operational",
+          "status": "partial_outage",
           "uptime90d": 99.92,
           "currentLatencyMs": 112,
           "components": [
             {
               "id": "gh-actions",
               "name": "GitHub Actions Workflow Runners",
-              "status": "operational"
+              "status": "degraded_performance"
             },
             {
               "id": "gh-copilot",
@@ -1025,6 +1025,66 @@
   ],
   "incidents": {
     "active": [
+      {
+        "id": "openai-01M2D1CZG0862JB4JHVW56QF89",
+        "title": "Codex GitHub Review and Pull Request Failures",
+        "providerId": "openai",
+        "severity": "minor",
+        "status": "monitoring",
+        "createdAt": "2026-09-13T09:26:00Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-13T09:55:55Z",
+            "message": "Github have applied the mitigation and are monitoring the recovery."
+          },
+          {
+            "stage": "resolved",
+            "timestamp": "2026-09-13T09:53:42Z",
+            "message": "Github has applied the mitigation and we are monitoring the recovery."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-13T09:35:40Z",
+            "message": "We have identified an upstream GitHub service disruption affecting review publication and pull request creation in Codex. Follow [GitHub\u2019s status page](https://www.githubstatus.com/ \"GitHub\u2019s status page\") for updates. We expect these workflows to recover as GitHub restores its services."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-13T09:32:51Z",
+            "message": "We have identified an upstream GitHub service disruption affecting review publication and pull request creation in Codex. Follow [GitHub\u2019s status page](https://www.githubstatus.com/ \"GitHub\u2019s status page\") for updates. We expect these workflows to recover as GitHub restores service.\n\nWe are working on implementing a mitigation."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-13T09:26:00Z",
+            "message": "We are investigating the issue for the listed services."
+          }
+        ]
+      },
+      {
+        "id": "github-0rn90wk115q9",
+        "title": "Incident with several GitHub Services",
+        "providerId": "github",
+        "severity": "critical",
+        "status": "investigating",
+        "createdAt": "2026-09-13T09:16:11.480Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-13T09:36:23.221Z",
+            "message": "We're seeing increased database replication delays on collab which is causing increased error rates in authorization endpoints and follow-on increased error rates across the system - we are investigating"
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-13T09:25:56.000Z",
+            "message": "Actions is experiencing degraded performance. We are continuing to investigate."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-13T09:16:11.624Z",
+            "message": "We are investigating reports of degraded availability for API Requests, Issues, Pages and Pull Requests"
+          }
+        ]
+      },
       {
         "id": "claude-r1pqn1kb4hvk",
         "title": "Degraded functionality for Claude Cowork on Windows",

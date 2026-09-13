@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-13T17:36:35Z",
+    "lastUpdated": "2026-09-13T19:47:32Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 4,
+      "activeIncidentsCount": 3,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "claude",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -1025,26 +1025,6 @@
   ],
   "incidents": {
     "active": [
-      {
-        "id": "openai-01M2DV6788RRSDZ5K98S5HN0A8",
-        "title": "Elevated errors for ChatGPT users in Europe",
-        "providerId": "openai",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-09-13T16:56:41Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-09-13T17:00:20Z",
-            "message": "We have applied the mitigation and are monitoring the recovery."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-13T16:56:42Z",
-            "message": "We have identified that users are experiencing elevated errors for the impacted services.\n\nWe are working on implementing a mitigation."
-          }
-        ]
-      },
       {
         "id": "claude-r1pqn1kb4hvk",
         "title": "Degraded functionality for Claude Cowork on Windows",

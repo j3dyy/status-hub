@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-14T14:09:34Z",
+    "lastUpdated": "2026-09-14T19:22:53Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 3,
+      "activeIncidentsCount": 4,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,14 +27,14 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "claude",
       "name": "Anthropic Claude",
       "url": "https://status.claude.com",
       "icon": "sparkles",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "gemini",
@@ -69,7 +69,7 @@
       "name": "GitHub",
       "url": "https://www.githubstatus.com",
       "icon": "github",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "gitlab",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -243,7 +243,7 @@
           "providerId": "claude",
           "name": "claude.ai",
           "description": "Web & mobile interface, Claude Pro/Team, Projects and interactive Artifacts",
-          "status": "major_outage",
+          "status": "operational",
           "uptime90d": 99.4,
           "currentLatencyMs": 118,
           "components": [
@@ -274,7 +274,7 @@
           "providerId": "claude",
           "name": "Claude Console (platform.claude.com)",
           "description": "Developer platform, prompt engineering workbench, API keys and billing management",
-          "status": "major_outage",
+          "status": "operational",
           "uptime90d": 99.93,
           "currentLatencyMs": 84,
           "components": [
@@ -300,7 +300,7 @@
           "providerId": "claude",
           "name": "Claude API (api.anthropic.com)",
           "description": "Direct inference endpoints for Claude 3.5 Sonnet, Claude 3.5 Haiku, and Claude 3 Opus",
-          "status": "major_outage",
+          "status": "operational",
           "uptime90d": 99.5,
           "currentLatencyMs": 142,
           "components": [
@@ -331,7 +331,7 @@
           "providerId": "claude",
           "name": "Claude Code",
           "description": "Agentic command-line developer assistant and IDE tool integration",
-          "status": "major_outage",
+          "status": "operational",
           "uptime90d": 99.44,
           "currentLatencyMs": 105,
           "components": [
@@ -357,7 +357,7 @@
           "providerId": "claude",
           "name": "Claude Cowork",
           "description": "Real-time collaborative workspaces, multi-user sessions, and team memory",
-          "status": "degraded_performance",
+          "status": "operational",
           "uptime90d": 99.43,
           "currentLatencyMs": 115,
           "components": [
@@ -378,7 +378,7 @@
           "providerId": "claude",
           "name": "Claude for Government",
           "description": "FedRAMP High / DoD IL5 compliant isolated federal cloud enclave",
-          "status": "major_outage",
+          "status": "operational",
           "uptime90d": 100.0,
           "currentLatencyMs": 95,
           "components": [
@@ -484,7 +484,7 @@
           "providerId": "github",
           "name": "GitHub Core Services",
           "description": "Git repository operations, Pull Requests, Webhooks and REST/GraphQL APIs",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.99,
           "currentLatencyMs": 85,
           "components": [
@@ -515,7 +515,7 @@
           "providerId": "github",
           "name": "GitHub Compute & Automation",
           "description": "GitHub Actions runners, Codespaces, and GitHub Copilot completions",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.92,
           "currentLatencyMs": 112,
           "components": [
@@ -1026,17 +1026,37 @@
   "incidents": {
     "active": [
       {
-        "id": "claude-r1pqn1kb4hvk",
-        "title": "Degraded functionality for Claude Cowork on Windows",
-        "providerId": "claude",
-        "severity": "major",
-        "status": "identified",
-        "createdAt": "2026-09-10T15:54:10.108Z",
+        "id": "openai-01M2GA8XTS6VB3QCDEGZ0HNAQ5",
+        "title": "Elevated errors affecting Work Mode in ChatGPT",
+        "providerId": "openai",
+        "severity": "minor",
+        "status": "monitoring",
+        "createdAt": "2026-09-14T15:58:48Z",
         "updates": [
           {
-            "stage": "identified",
-            "timestamp": "2026-09-10T15:54:10.200Z",
-            "message": "A Windows update released September 8 has left Claude Cowork on Windows unable to run local commands, because its workspace can no longer reach your computer's drive. For most users, chat and file reading and editing still work. There's no in-app workaround yet, and restarting or reinstalling won't help. Microsoft has developed a fix and is working to release it. We'll post an update when we have more to share."
+            "stage": "monitoring",
+            "timestamp": "2026-09-14T15:58:48Z",
+            "message": "Earlier today, some ChatGPT Plus users using Work Mode experienced errors starting or resuming tasks, or had limited access to workspace tools and files. We have applied a mitigation and service has recovered. We are monitoring the results."
+          }
+        ]
+      },
+      {
+        "id": "github-kzh5j0mt7qwc",
+        "title": "Actions Larger Runner Jobs for some customers may be slow to start",
+        "providerId": "github",
+        "severity": "minor",
+        "status": "monitoring",
+        "createdAt": "2026-09-14T18:40:25.082Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-14T19:01:52.783Z",
+            "message": "The degradation has been mitigated. We are monitoring to ensure stability."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-14T18:40:25.134Z",
+            "message": "We are investigating reports of impacted performance for some GitHub services."
           }
         ]
       },

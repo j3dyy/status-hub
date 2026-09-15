@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-15T00:54:56Z",
+    "lastUpdated": "2026-09-15T05:57:34Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 6,
+      "activeIncidentsCount": 4,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "claude",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -1026,51 +1026,6 @@
   "incidents": {
     "active": [
       {
-        "id": "openai-01M2GA8XTS6VB3QCDEGZ0HNAQ5",
-        "title": "Elevated errors affecting Work Mode in ChatGPT",
-        "providerId": "openai",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-09-14T15:58:48Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-09-14T19:42:08Z",
-            "message": "We have applied additional mitigations for Work Mode. We are monitoring to confirm that workspace tools and files are functioning normally for ChatGPT Plus users."
-          },
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-09-14T15:58:48Z",
-            "message": "Earlier today, some ChatGPT Plus users using Work Mode experienced errors starting or resuming tasks, or had limited access to workspace tools and files. We have applied a mitigation and service has recovered. We are monitoring the results."
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-rnmq02lhv5w1",
-        "title": "Load Balancing Analytics and Notification Delays",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-09-14T23:03:54.000Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-09-15T00:39:23.358Z",
-            "message": "We are continuing to monitor for any further issues."
-          },
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-09-15T00:37:08.501Z",
-            "message": "Load Balancing health events analytics and notifications are now up to date. Events and notifications between 22:02 and 22:45 UTC were skipped."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-14T23:03:54.699Z",
-            "message": "Cloudflare is investigating delays affecting analytics and notifications for Load Balancing health monitoring events. Load Balancing steering remains fully operational and is not impacted. We are working to resolve the issue."
-          }
-        ]
-      },
-      {
         "id": "cloudflare-19g1m7tsvncw",
         "title": "Some Replicate models are failing to start",
         "providerId": "cloudflare",
@@ -1095,9 +1050,14 @@
         "title": "Cloudflare Queues issues",
         "providerId": "cloudflare",
         "severity": "minor",
-        "status": "investigating",
+        "status": "identified",
         "createdAt": "2026-09-14T20:22:30.000Z",
         "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-15T02:01:55.742Z",
+            "message": "We are investigating an issue where messages published to some queues are not being delivered to their consumers, resulting in delivery delays. Publishing to queues is unaffected, and messages are being received and safely retained \u2014 no messages are being lost. We have identified the root cause and are actively working on a fix. Affected messages will be delivered automatically once the issue is resolved."
+          },
           {
             "stage": "investigating",
             "timestamp": "2026-09-14T20:22:30.141Z",

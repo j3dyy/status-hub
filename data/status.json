@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-14T22:37:43Z",
+    "lastUpdated": "2026-09-15T00:54:56Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 5,
+      "activeIncidentsCount": 6,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1046,13 +1046,43 @@
         ]
       },
       {
+        "id": "cloudflare-rnmq02lhv5w1",
+        "title": "Load Balancing Analytics and Notification Delays",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "monitoring",
+        "createdAt": "2026-09-14T23:03:54.000Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-15T00:39:23.358Z",
+            "message": "We are continuing to monitor for any further issues."
+          },
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-15T00:37:08.501Z",
+            "message": "Load Balancing health events analytics and notifications are now up to date. Events and notifications between 22:02 and 22:45 UTC were skipped."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-14T23:03:54.699Z",
+            "message": "Cloudflare is investigating delays affecting analytics and notifications for Load Balancing health monitoring events. Load Balancing steering remains fully operational and is not impacted. We are working to resolve the issue."
+          }
+        ]
+      },
+      {
         "id": "cloudflare-19g1m7tsvncw",
         "title": "Some Replicate models are failing to start",
         "providerId": "cloudflare",
         "severity": "minor",
-        "status": "investigating",
+        "status": "identified",
         "createdAt": "2026-09-14T22:25:50.000Z",
         "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-15T00:03:02.243Z",
+            "message": "Some third party models as well as https://replicate.com/qwen/qwen-edit-multiangle are affected and are unable to scale out. Please use alternate models while we work with providers to publish fixed versions."
+          },
           {
             "stage": "investigating",
             "timestamp": "2026-09-14T22:25:50.350Z",

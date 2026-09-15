@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-15T11:35:36Z",
+    "lastUpdated": "2026-09-15T15:40:51Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 4,
+      "activeIncidentsCount": 3,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1026,33 +1026,18 @@
   "incidents": {
     "active": [
       {
-        "id": "cloudflare-19g1m7tsvncw",
-        "title": "Some Replicate models are failing to start",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "identified",
-        "createdAt": "2026-09-14T22:25:50.000Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-09-15T00:03:02.243Z",
-            "message": "Some third party models as well as https://replicate.com/qwen/qwen-edit-multiangle are affected and are unable to scale out. Please use alternate models while we work with providers to publish fixed versions."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-14T22:25:50.350Z",
-            "message": "We are investigating an issue which is preventing Replicate models from failing to start new replicas."
-          }
-        ]
-      },
-      {
         "id": "cloudflare-s4x7n3nfqnyy",
         "title": "Cloudflare Queues issues",
         "providerId": "cloudflare",
         "severity": "minor",
-        "status": "identified",
+        "status": "monitoring",
         "createdAt": "2026-09-14T20:22:30.000Z",
         "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-15T15:14:25.707Z",
+            "message": "A fix has been implemented and we are monitoring the results."
+          },
           {
             "stage": "identified",
             "timestamp": "2026-09-15T02:01:55.742Z",

@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-16T00:34:44Z",
+    "lastUpdated": "2026-09-16T05:14:55Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 2,
+      "activeIncidentsCount": 3,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1025,6 +1025,26 @@
   ],
   "incidents": {
     "active": [
+      {
+        "id": "cloudflare-qc2v4gxy3gfw",
+        "title": "Network Performance Issues in Los Angeles",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "monitoring",
+        "createdAt": "2026-09-16T02:03:10.000Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-16T03:44:46.731Z",
+            "message": "A fix has been implemented and we are monitoring the results."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-16T02:03:10.101Z",
+            "message": "Cloudflare is investigating an increased level of HTTP 5XX errors. We are working to analyse and mitigate this problem. More updates to follow shortly."
+          }
+        ]
+      },
       {
         "id": "cloudflare-9g65dxfbcjln",
         "title": "Incorrect geo location for some Cloudflare WARP users",

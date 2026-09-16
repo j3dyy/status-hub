@@ -5,14 +5,14 @@
     "company": "isdown.usectl.com",
     "url": "https://isdown.usectl.com",
     "supportUrl": "https://help.example.com",
-    "status": "partial_outage",
-    "statusMessage": "Partial Service Disruption Detected",
-    "lastUpdated": "2026-09-16T10:02:57Z",
+    "status": "major_outage",
+    "statusMessage": "Major Outage Detected Across External Services",
+    "lastUpdated": "2026-09-16T14:54:05Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 7,
+      "activeIncidentsCount": 6,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -69,7 +69,7 @@
       "name": "GitHub",
       "url": "https://www.githubstatus.com",
       "icon": "github",
-      "status": "degraded"
+      "status": "major_outage"
     },
     {
       "id": "gitlab",
@@ -83,7 +83,7 @@
       "name": "Bitbucket",
       "url": "https://bitbucket.status.atlassian.com",
       "icon": "bitbucket",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "vercel",
@@ -484,7 +484,7 @@
           "providerId": "github",
           "name": "GitHub Core Services",
           "description": "Git repository operations, Pull Requests, Webhooks and REST/GraphQL APIs",
-          "status": "degraded",
+          "status": "major_outage",
           "uptime90d": 99.99,
           "currentLatencyMs": 85,
           "components": [
@@ -515,7 +515,7 @@
           "providerId": "github",
           "name": "GitHub Compute & Automation",
           "description": "GitHub Actions runners, Codespaces, and GitHub Copilot completions",
-          "status": "degraded",
+          "status": "major_outage",
           "uptime90d": 99.92,
           "currentLatencyMs": 112,
           "components": [
@@ -613,7 +613,7 @@
           "providerId": "bitbucket",
           "name": "Atlassian Bitbucket Cloud",
           "description": "Git repository hosting, Bitbucket Pipelines CI/CD, Pull Requests and REST API",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.94,
           "currentLatencyMs": 98,
           "components": [
@@ -640,7 +640,7 @@
             {
               "id": "bb-pipelines",
               "name": "Bitbucket Pipelines (CI/CD)",
-              "status": "degraded_performance"
+              "status": "operational"
             },
             {
               "id": "bb-webhooks",
@@ -1030,9 +1030,19 @@
         "title": "Degradation with Gemini 3.8 Flash",
         "providerId": "github",
         "severity": "major",
-        "status": "investigating",
+        "status": "monitoring",
         "createdAt": "2026-09-16T07:20:59.980Z",
         "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-16T11:45:34.367Z",
+            "message": "The degradation affecting Copilot AI Model Providers has been mitigated. We are monitoring to ensure stability."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-16T10:58:41.042Z",
+            "message": "Copilot AI Model Providers is experiencing degraded performance. We are continuing to investigate."
+          },
           {
             "stage": "investigating",
             "timestamp": "2026-09-16T08:28:57.275Z",
@@ -1046,28 +1056,28 @@
         ]
       },
       {
-        "id": "bitbucket-n856qjj4f12k",
-        "title": "Delays with Bitbucket Pipelines Execution",
-        "providerId": "bitbucket",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-09-16T09:32:05.447Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-09-16T09:32:05.551Z",
-            "message": "We have identified and resolved the underlying issue causing delays and stuck builds in Bitbucket Pipelines. System recovery is in progress, and we are actively monitoring the pipeline queues to ensure builds are processing normally.\n\nAction Recommended: If you have pipelines or builds that remain queued or are stalled, we recommend rerunning them or triggering a new build.\n\nWe will continue to monitor the service closely and provide a final update once stability is confirmed."
-          }
-        ]
-      },
-      {
         "id": "cloudflare-zlyf7lvpp05s",
         "title": "Support Helpdesk Availability Issues",
         "providerId": "cloudflare",
         "severity": "minor",
-        "status": "identified",
+        "status": "monitoring",
         "createdAt": "2026-09-16T08:31:12.000Z",
         "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-16T13:34:05.074Z",
+            "message": "A fix has been implemented and we are monitoring the results."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-16T11:43:17.700Z",
+            "message": "Support portal and live chat support remain unavailable while our helpdesk provider works toward a resolution. \n\nWe strongly advise holding non-urgent cases until the incident is resolved. Please note that emergency phone support is reserved for P1 and emergency issues. Response times on this backup channel may still be heavily delayed."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-16T10:21:02.551Z",
+            "message": "Support portal and live chat support are still unavailable due to the ongoing helpdesk provider outage.\n\nWe highly recommend waiting for the incident resolution to submit or update cases. If you have an urgent issue, you can reach out to us on the emergency phone support line but please note that responses might be heavily delayed."
+          },
           {
             "stage": "identified",
             "timestamp": "2026-09-16T09:11:29.019Z",

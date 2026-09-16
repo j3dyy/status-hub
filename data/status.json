@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-16T14:54:05Z",
+    "lastUpdated": "2026-09-16T18:43:46Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 6,
+      "activeIncidentsCount": 2,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -69,7 +69,7 @@
       "name": "GitHub",
       "url": "https://www.githubstatus.com",
       "icon": "github",
-      "status": "major_outage"
+      "status": "operational"
     },
     {
       "id": "gitlab",
@@ -153,7 +153,7 @@
       "name": "MongoDB Atlas",
       "url": "https://status.cloud.mongodb.com",
       "icon": "mongodb",
-      "status": "partial_outage"
+      "status": "major_outage"
     },
     {
       "id": "stripe",
@@ -484,7 +484,7 @@
           "providerId": "github",
           "name": "GitHub Core Services",
           "description": "Git repository operations, Pull Requests, Webhooks and REST/GraphQL APIs",
-          "status": "major_outage",
+          "status": "operational",
           "uptime90d": 99.99,
           "currentLatencyMs": 85,
           "components": [
@@ -515,7 +515,7 @@
           "providerId": "github",
           "name": "GitHub Compute & Automation",
           "description": "GitHub Actions runners, Codespaces, and GitHub Copilot completions",
-          "status": "major_outage",
+          "status": "operational",
           "uptime90d": 99.92,
           "currentLatencyMs": 112,
           "components": [
@@ -968,7 +968,7 @@
           "providerId": "mongodb",
           "name": "MongoDB Atlas Cloud Database",
           "description": "Managed multi-cloud document database, Atlas Vector Search, Data API, and App Services",
-          "status": "partial_outage",
+          "status": "major_outage",
           "uptime90d": 99.98,
           "currentLatencyMs": 62,
           "components": [
@@ -1026,96 +1026,6 @@
   "incidents": {
     "active": [
       {
-        "id": "github-nlxnbqnkdzdl",
-        "title": "Degradation with Gemini 3.8 Flash",
-        "providerId": "github",
-        "severity": "major",
-        "status": "monitoring",
-        "createdAt": "2026-09-16T07:20:59.980Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-09-16T11:45:34.367Z",
-            "message": "The degradation affecting Copilot AI Model Providers has been mitigated. We are monitoring to ensure stability."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-16T10:58:41.042Z",
-            "message": "Copilot AI Model Providers is experiencing degraded performance. We are continuing to investigate."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-16T08:28:57.275Z",
-            "message": "Copilot AI Model Providers is experiencing degraded performance. We are continuing to investigate."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-16T07:21:00.055Z",
-            "message": "We are investigating reports of degraded availability for Copilot AI Model Providers"
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-zlyf7lvpp05s",
-        "title": "Support Helpdesk Availability Issues",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-09-16T08:31:12.000Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-09-16T13:34:05.074Z",
-            "message": "A fix has been implemented and we are monitoring the results."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-09-16T11:43:17.700Z",
-            "message": "Support portal and live chat support remain unavailable while our helpdesk provider works toward a resolution. \n\nWe strongly advise holding non-urgent cases until the incident is resolved. Please note that emergency phone support is reserved for P1 and emergency issues. Response times on this backup channel may still be heavily delayed."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-09-16T10:21:02.551Z",
-            "message": "Support portal and live chat support are still unavailable due to the ongoing helpdesk provider outage.\n\nWe highly recommend waiting for the incident resolution to submit or update cases. If you have an urgent issue, you can reach out to us on the emergency phone support line but please note that responses might be heavily delayed."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-09-16T09:11:29.019Z",
-            "message": "Support portal and live chat support are still unavailable due to the ongoing helpdesk provider outage. Customers may still experience issues submitting or viewing tickets/chats, and overall response times may be delayed.\n\nPhone support remains fully operational for urgent inquiries."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-16T08:32:48.107Z",
-            "message": "We are continuing to investigate this issue."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-16T08:31:12.349Z",
-            "message": "Our helpdesk provider is currently experiencing issues, and as such customers might encounter errors while submitting or viewing tickets. Responses on customer inquiries may be delayed during this time."
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-qc2v4gxy3gfw",
-        "title": "Network Performance Issues in Los Angeles",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-09-16T02:03:10.000Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-09-16T03:44:46.731Z",
-            "message": "A fix has been implemented and we are monitoring the results."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-16T02:03:10.101Z",
-            "message": "Cloudflare is investigating an increased level of HTTP 5XX errors. We are working to analyse and mitigate this problem. More updates to follow shortly."
-          }
-        ]
-      },
-      {
         "id": "cloudflare-9g65dxfbcjln",
         "title": "Incorrect geo location for some Cloudflare WARP users",
         "providerId": "cloudflare",
@@ -1162,26 +1072,6 @@
             "stage": "investigating",
             "timestamp": "2026-08-27T18:46:19.105Z",
             "message": "Cloudflare is investigating issues with Cloudflare WARP and Cloudflare Zero Trust users being incorrectly geolocated by some third party services."
-          }
-        ]
-      },
-      {
-        "id": "mongodb-bm948zqk8djr",
-        "title": "Support Portal Outage",
-        "providerId": "mongodb",
-        "severity": "major",
-        "status": "investigating",
-        "createdAt": "2026-09-16T09:06:55.282Z",
-        "updates": [
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-16T09:09:18.687Z",
-            "message": "We are continuing to investigate this issue."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-16T09:06:55.374Z",
-            "message": "MongoDB customers are currently experiencing degraded or limited access to the MongoDB Customer Support Portal (https://support.mongodb.com/).\n\nIf you require assistance with a critical MongoDB Technical Support issue and are unable to access the Customer Support Portal, please contact us using one of the numbers listed below:\n\nNorth America: \nNew York: +1 646 201 9247\nEMEA: \nLondon, UK: +44 808 281 2632\nBarcelona, Spain: +(34) 931227636 \nMilan, Italy: +(39) 0294756824\nFrankfurt, Germany: +(49) 6977044487\nParis, France: +(33) 1 77513208\nSouth Africa: +27 87 550 8991\nTurkey: +(90) 850 390 7547\nIsrael:  +972 (0)3 376 8802\n\nAPAC: \nAustralia: +61 2 4022 8861\nIndia: 000-800-100-7387 (for calls originating in India only, please include initial '000' when dialing)\nJapan: +(81)5031989417\nChina: +86-400-120-9258\nHong Kong: +852 3008 3632\nTaiwan: 0-2-2656 3464 (for calls originating in Taiwan only, please include initial '0' when dialing) \nSingapore:  +65 8003211470 (for calls originating in Singapore only)\n\nWe appreciate your patience."
           }
         ]
       },

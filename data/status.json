@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-16T23:54:13Z",
+    "lastUpdated": "2026-09-17T03:57:06Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 2,
+      "activeIncidentsCount": 3,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1025,6 +1025,21 @@
   ],
   "incidents": {
     "active": [
+      {
+        "id": "cloudflare-823rbdm2k25x",
+        "title": "Replicate Pruna issue",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "identified",
+        "createdAt": "2026-09-17T01:09:40.000Z",
+        "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-17T01:09:40.676Z",
+            "message": "Some Pruna models may not be able to scale up and are therefore either experiencing long queue times or entirely unavailable. We are working with Pruna to resolve the issue."
+          }
+        ]
+      },
       {
         "id": "cloudflare-9g65dxfbcjln",
         "title": "Incorrect geo location for some Cloudflare WARP users",

@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-17T21:38:44Z",
+    "lastUpdated": "2026-09-17T23:41:51Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 5,
+      "activeIncidentsCount": 3,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "claude",
@@ -69,7 +69,7 @@
       "name": "GitHub",
       "url": "https://www.githubstatus.com",
       "icon": "github",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "gitlab",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -484,7 +484,7 @@
           "providerId": "github",
           "name": "GitHub Core Services",
           "description": "Git repository operations, Pull Requests, Webhooks and REST/GraphQL APIs",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.99,
           "currentLatencyMs": 85,
           "components": [
@@ -515,7 +515,7 @@
           "providerId": "github",
           "name": "GitHub Compute & Automation",
           "description": "GitHub Actions runners, Codespaces, and GitHub Copilot completions",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.92,
           "currentLatencyMs": 112,
           "components": [
@@ -1026,52 +1026,17 @@
   "incidents": {
     "active": [
       {
-        "id": "openai-01M2RMCS2HVBXGBFKEZ9RZR4FA",
-        "title": "We are seeing elevated error rates across API models",
-        "providerId": "openai",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-09-17T21:29:35Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-09-17T21:31:05Z",
-            "message": "We have applied the mitigation and are monitoring the recovery."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-09-17T21:29:35Z",
-            "message": "We have identified that users are experiencing elevated errors for the impacted services.\n\nWe are working on implementing a mitigation."
-          }
-        ]
-      },
-      {
-        "id": "github-nvy2q96mcmyg",
-        "title": "Elevated rate of errors for OpenAI models provided by Copilot",
-        "providerId": "github",
+        "id": "cloudflare-n3n98pb4x9f4",
+        "title": "Increased Errors for Durable Objects and Downstream Services in Asia Pacific (APAC) Region",
+        "providerId": "cloudflare",
         "severity": "minor",
         "status": "investigating",
-        "createdAt": "2026-09-17T20:59:02.074Z",
+        "createdAt": "2026-09-17T23:37:18.342Z",
         "updates": [
           {
             "stage": "investigating",
-            "timestamp": "2026-09-17T20:59:02.127Z",
-            "message": "We are investigating reports of degraded performance for Copilot AI Model Providers"
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-823rbdm2k25x",
-        "title": "Replicate Pruna issue",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "identified",
-        "createdAt": "2026-09-17T01:09:40.000Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-09-17T01:09:40.676Z",
-            "message": "Some Pruna models may not be able to scale up and are therefore either experiencing long queue times or entirely unavailable. We are working with Pruna to resolve the issue."
+            "timestamp": "2026-09-17T23:37:18.571Z",
+            "message": "Cloudflare is investigating an issue causing elevated error rates for Durable Objects and downstream services in the Asia Pacific region. We are working to mitigate this issue and will provide additional updates shortly."
           }
         ]
       },

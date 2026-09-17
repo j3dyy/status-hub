@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-17T18:25:57Z",
+    "lastUpdated": "2026-09-17T21:38:44Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 3,
+      "activeIncidentsCount": 5,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "claude",
@@ -69,14 +69,14 @@
       "name": "GitHub",
       "url": "https://www.githubstatus.com",
       "icon": "github",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "gitlab",
       "name": "GitLab",
       "url": "https://status.gitlab.com",
       "icon": "gitlab",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "bitbucket",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -484,7 +484,7 @@
           "providerId": "github",
           "name": "GitHub Core Services",
           "description": "Git repository operations, Pull Requests, Webhooks and REST/GraphQL APIs",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.99,
           "currentLatencyMs": 85,
           "components": [
@@ -515,7 +515,7 @@
           "providerId": "github",
           "name": "GitHub Compute & Automation",
           "description": "GitHub Actions runners, Codespaces, and GitHub Copilot completions",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.92,
           "currentLatencyMs": 112,
           "components": [
@@ -546,14 +546,14 @@
           "providerId": "gitlab",
           "name": "GitLab SaaS & Web Platform",
           "description": "GitLab.com web application, REST/GraphQL API, Git SSH & HTTPS operations, and GitLab Pages",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.96,
           "currentLatencyMs": 94,
           "components": [
             {
               "id": "gitlab-web",
               "name": "Website",
-              "status": "operational"
+              "status": "degraded"
             },
             {
               "id": "gitlab-api",
@@ -563,7 +563,7 @@
             {
               "id": "gitlab-git",
               "name": "Git Operations",
-              "status": "operational"
+              "status": "degraded"
             },
             {
               "id": "gitlab-pages",
@@ -577,7 +577,7 @@
           "providerId": "gitlab",
           "name": "GitLab CI/CD & Cloud Runners",
           "description": "Hosted Linux, Windows, macOS runners, container registry, and GitLab Duo AI",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.93,
           "currentLatencyMs": 108,
           "components": [
@@ -1025,6 +1025,41 @@
   ],
   "incidents": {
     "active": [
+      {
+        "id": "openai-01M2RMCS2HVBXGBFKEZ9RZR4FA",
+        "title": "We are seeing elevated error rates across API models",
+        "providerId": "openai",
+        "severity": "minor",
+        "status": "monitoring",
+        "createdAt": "2026-09-17T21:29:35Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-17T21:31:05Z",
+            "message": "We have applied the mitigation and are monitoring the recovery."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-17T21:29:35Z",
+            "message": "We have identified that users are experiencing elevated errors for the impacted services.\n\nWe are working on implementing a mitigation."
+          }
+        ]
+      },
+      {
+        "id": "github-nvy2q96mcmyg",
+        "title": "Elevated rate of errors for OpenAI models provided by Copilot",
+        "providerId": "github",
+        "severity": "minor",
+        "status": "investigating",
+        "createdAt": "2026-09-17T20:59:02.074Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-17T20:59:02.127Z",
+            "message": "We are investigating reports of degraded performance for Copilot AI Model Providers"
+          }
+        ]
+      },
       {
         "id": "cloudflare-823rbdm2k25x",
         "title": "Replicate Pruna issue",

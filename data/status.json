@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-18T06:38:05Z",
+    "lastUpdated": "2026-09-18T11:50:07Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 2,
+      "activeIncidentsCount": 3,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -111,7 +111,7 @@
       "name": "Sentry",
       "url": "https://status.sentry.io",
       "icon": "sentry",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "aws",
@@ -737,7 +737,7 @@
           "providerId": "sentry",
           "name": "Sentry Error Tracking & Ingestion",
           "description": "Real-time issue ingestion, performance tracing, session replay, and alert routing",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.98,
           "currentLatencyMs": 75,
           "components": [
@@ -1092,6 +1092,51 @@
             "stage": "monitoring",
             "timestamp": "2026-09-03T16:44:43.899Z",
             "message": "Please follow <a href=\"https://status.mongodb.com/incidents/7g5qmxgkc2y4\">the original status post</a> for updates on AWS me-central-1 and AWS me-south-1 issues."
+          }
+        ]
+      },
+      {
+        "id": "sentry-bjysgyqq93gn",
+        "title": "Delayed ingestion of errors in EU",
+        "providerId": "sentry",
+        "severity": "critical",
+        "status": "identified",
+        "createdAt": "2026-09-18T08:36:46.665Z",
+        "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-18T11:45:52.281Z",
+            "message": "Error ingestion is fully operational. We are currently working on recovering real-time processing of spans."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-18T10:58:36.195Z",
+            "message": "We have identified a networking issue with an upstream provider and are working on mitigations."
+          },
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-18T10:56:54.629Z",
+            "message": "We have identified a networking issue with an upstream provider and are working on mitigations."
+          },
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-18T09:54:39.811Z",
+            "message": "We are processing real-time data again and are working on burning our backlog."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-18T09:53:28.204Z",
+            "message": "We are processing real-time data again and are working on burning our backlog."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-18T09:00:44.262Z",
+            "message": "We have implemented a mitigation and are starting to recover."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-18T08:36:46.870Z",
+            "message": "We are currently investigating an issue that causes new errors to be delayed in the EU region."
           }
         ]
       }

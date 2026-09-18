@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-18T21:15:22Z",
+    "lastUpdated": "2026-09-18T23:22:28Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 3,
+      "activeIncidentsCount": 4,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "claude",
@@ -90,7 +90,7 @@
       "name": "Vercel",
       "url": "https://www.vercel-status.com",
       "icon": "vercel",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "docker",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -659,7 +659,7 @@
           "providerId": "vercel",
           "name": "Vercel Edge Platform & Deployments",
           "description": "Global Edge Network CDN, Serverless/Edge Functions, Deployments pipeline and Vercel Storage",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.99,
           "currentLatencyMs": 48,
           "components": [
@@ -1026,6 +1026,41 @@
   "incidents": {
     "active": [
       {
+        "id": "openai-01M2VA7X37P1ASADSNZ1CG4N4D",
+        "title": "Overbilling for OpenAI-hosted containers in the Agent API",
+        "providerId": "openai",
+        "severity": "none",
+        "status": "investigating",
+        "createdAt": "2026-09-18T22:29:53Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-18T22:29:53Z",
+            "message": "We\u2019re investigating an issue causing higher-than-expected charges for OpenAI-hosted containers in the Agent API.\n\nWe\u2019re working on a fix and preparing refunds for affected customers. We\u2019ll share further updates as we make progress."
+          }
+        ]
+      },
+      {
+        "id": "openai-01M2V76GEPJB0HQGRA0QERRZ3T",
+        "title": "Delayed support responses",
+        "providerId": "openai",
+        "severity": "none",
+        "status": "monitoring",
+        "createdAt": "2026-09-18T21:36:41Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-18T21:59:34Z",
+            "message": "We have applied the mitigation and are monitoring the recovery.\n\nSome support responses by email and chat may still be delayed while we work through affected cases."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-18T21:36:41Z",
+            "message": "Some users are experiencing delayed responses from OpenAI Support by email and chat.\n\nWe\u2019re investigating and will share updates as we learn more."
+          }
+        ]
+      },
+      {
         "id": "cloudflare-9g65dxfbcjln",
         "title": "Incorrect geo location for some Cloudflare WARP users",
         "providerId": "cloudflare",
@@ -1072,36 +1107,6 @@
             "stage": "investigating",
             "timestamp": "2026-08-27T18:46:19.105Z",
             "message": "Cloudflare is investigating issues with Cloudflare WARP and Cloudflare Zero Trust users being incorrectly geolocated by some third party services."
-          }
-        ]
-      },
-      {
-        "id": "vercel-bwkmw4hmrgmk",
-        "title": "Elevated Errors Triggering Deployments",
-        "providerId": "vercel",
-        "severity": "major",
-        "status": "monitoring",
-        "createdAt": "2026-09-18T20:32:36.902Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-09-18T21:13:28.339Z",
-            "message": "A fix has been implemented and we are monitoring the results."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-09-18T21:07:13.423Z",
-            "message": "The issue has been identified and a fix is being implemented."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-18T20:56:18.781Z",
-            "message": "We are continuing to investigate an issue causing elevated errors triggering deployments. We'll provide additional updates as they become available."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-18T20:32:37.010Z",
-            "message": "We are currently investigating an issue causing increased errors triggering deployments. We'll provide additional updates as they become available."
           }
         ]
       },

@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-18T18:37:00Z",
+    "lastUpdated": "2026-09-18T21:15:22Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 2,
+      "activeIncidentsCount": 3,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -90,7 +90,7 @@
       "name": "Vercel",
       "url": "https://www.vercel-status.com",
       "icon": "vercel",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "docker",
@@ -104,7 +104,7 @@
       "name": "npm",
       "url": "https://status.npmjs.org",
       "icon": "npmjs",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "sentry",
@@ -659,7 +659,7 @@
           "providerId": "vercel",
           "name": "Vercel Edge Platform & Deployments",
           "description": "Global Edge Network CDN, Serverless/Edge Functions, Deployments pipeline and Vercel Storage",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.99,
           "currentLatencyMs": 48,
           "components": [
@@ -711,7 +711,7 @@
           "providerId": "npmjs",
           "name": "npm Public Registry & Packaging",
           "description": "npm package registry, tarball downloads, CLI publishing, and search",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.97,
           "currentLatencyMs": 64,
           "components": [
@@ -728,7 +728,7 @@
             {
               "id": "npm-publish",
               "name": "Package Publishing & Webhooks",
-              "status": "operational"
+              "status": "partial_outage"
             }
           ]
         },
@@ -1072,6 +1072,36 @@
             "stage": "investigating",
             "timestamp": "2026-08-27T18:46:19.105Z",
             "message": "Cloudflare is investigating issues with Cloudflare WARP and Cloudflare Zero Trust users being incorrectly geolocated by some third party services."
+          }
+        ]
+      },
+      {
+        "id": "vercel-bwkmw4hmrgmk",
+        "title": "Elevated Errors Triggering Deployments",
+        "providerId": "vercel",
+        "severity": "major",
+        "status": "monitoring",
+        "createdAt": "2026-09-18T20:32:36.902Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-18T21:13:28.339Z",
+            "message": "A fix has been implemented and we are monitoring the results."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-18T21:07:13.423Z",
+            "message": "The issue has been identified and a fix is being implemented."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-18T20:56:18.781Z",
+            "message": "We are continuing to investigate an issue causing elevated errors triggering deployments. We'll provide additional updates as they become available."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-18T20:32:37.010Z",
+            "message": "We are currently investigating an issue causing increased errors triggering deployments. We'll provide additional updates as they become available."
           }
         ]
       },

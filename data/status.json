@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-18T23:22:28Z",
+    "lastUpdated": "2026-09-19T01:23:06Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 4,
+      "activeIncidentsCount": 3,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1030,33 +1030,23 @@
         "title": "Overbilling for OpenAI-hosted containers in the Agent API",
         "providerId": "openai",
         "severity": "none",
-        "status": "investigating",
+        "status": "identified",
         "createdAt": "2026-09-18T22:29:53Z",
         "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-19T01:08:42Z",
+            "message": "We are still implementing the mitigation."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-18T23:22:34Z",
+            "message": "We\u2019re continuing to work on a fix for the container overbilling issue.\n\nWe\u2019re also reviewing affected usage to identify impacted customers and calculate refunds."
+          },
           {
             "stage": "investigating",
             "timestamp": "2026-09-18T22:29:53Z",
             "message": "We\u2019re investigating an issue causing higher-than-expected charges for OpenAI-hosted containers in the Agent API.\n\nWe\u2019re working on a fix and preparing refunds for affected customers. We\u2019ll share further updates as we make progress."
-          }
-        ]
-      },
-      {
-        "id": "openai-01M2V76GEPJB0HQGRA0QERRZ3T",
-        "title": "Delayed support responses",
-        "providerId": "openai",
-        "severity": "none",
-        "status": "monitoring",
-        "createdAt": "2026-09-18T21:36:41Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-09-18T21:59:34Z",
-            "message": "We have applied the mitigation and are monitoring the recovery.\n\nSome support responses by email and chat may still be delayed while we work through affected cases."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-09-18T21:36:41Z",
-            "message": "Some users are experiencing delayed responses from OpenAI Support by email and chat.\n\nWe\u2019re investigating and will share updates as we learn more."
           }
         ]
       },

@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-19T17:24:45Z",
+    "lastUpdated": "2026-09-19T19:30:23Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -104,7 +104,7 @@
       "name": "npm",
       "url": "https://status.npmjs.org",
       "icon": "npmjs",
-      "status": "maintenance"
+      "status": "operational"
     },
     {
       "id": "sentry",
@@ -711,7 +711,7 @@
           "providerId": "npmjs",
           "name": "npm Public Registry & Packaging",
           "description": "npm package registry, tarball downloads, CLI publishing, and search",
-          "status": "maintenance",
+          "status": "operational",
           "uptime90d": 99.97,
           "currentLatencyMs": 64,
           "components": [
@@ -728,7 +728,7 @@
             {
               "id": "npm-publish",
               "name": "Package Publishing & Webhooks",
-              "status": "under_maintenance"
+              "status": "operational"
             }
           ]
         },

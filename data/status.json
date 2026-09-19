@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-19T01:23:06Z",
+    "lastUpdated": "2026-09-19T06:17:42Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -1030,9 +1030,14 @@
         "title": "Overbilling for OpenAI-hosted containers in the Agent API",
         "providerId": "openai",
         "severity": "none",
-        "status": "identified",
+        "status": "monitoring",
         "createdAt": "2026-09-18T22:29:53Z",
         "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-19T05:00:57Z",
+            "message": "We have applied the mitigation, and any new sessions would not run into this issue. We are monitoring the recovery."
+          },
           {
             "stage": "identified",
             "timestamp": "2026-09-19T01:08:42Z",

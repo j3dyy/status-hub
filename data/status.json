@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-20T21:14:23Z",
+    "lastUpdated": "2026-09-20T23:18:07Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 2,
+      "activeIncidentsCount": 3,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -69,7 +69,7 @@
       "name": "GitHub",
       "url": "https://www.githubstatus.com",
       "icon": "github",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "gitlab",
@@ -484,7 +484,7 @@
           "providerId": "github",
           "name": "GitHub Core Services",
           "description": "Git repository operations, Pull Requests, Webhooks and REST/GraphQL APIs",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.99,
           "currentLatencyMs": 85,
           "components": [
@@ -515,7 +515,7 @@
           "providerId": "github",
           "name": "GitHub Compute & Automation",
           "description": "GitHub Actions runners, Codespaces, and GitHub Copilot completions",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.92,
           "currentLatencyMs": 112,
           "components": [
@@ -1025,6 +1025,31 @@
   ],
   "incidents": {
     "active": [
+      {
+        "id": "github-f6yrxnz5f7bs",
+        "title": "Incident with Pull Requests",
+        "providerId": "github",
+        "severity": "minor",
+        "status": "monitoring",
+        "createdAt": "2026-09-20T22:13:37.889Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-20T22:32:02.624Z",
+            "message": "A git fileserver issue caused a brief delay in creating some merge commits - we've isolated the underlying server and already observed recovery."
+          },
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-20T22:27:28.769Z",
+            "message": "The degradation affecting Pull Requests has been mitigated. We are monitoring to ensure stability."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-20T22:13:37.969Z",
+            "message": "We are investigating reports of degraded performance for Pull Requests"
+          }
+        ]
+      },
       {
         "id": "cloudflare-9g65dxfbcjln",
         "title": "Incorrect geo location for some Cloudflare WARP users",

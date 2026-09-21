@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-21T06:31:48Z",
+    "lastUpdated": "2026-09-21T13:17:36Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 2,
+      "activeIncidentsCount": 3,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -76,7 +76,7 @@
       "name": "GitLab",
       "url": "https://status.gitlab.com",
       "icon": "gitlab",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "bitbucket",
@@ -546,29 +546,29 @@
           "providerId": "gitlab",
           "name": "GitLab SaaS & Web Platform",
           "description": "GitLab.com web application, REST/GraphQL API, Git SSH & HTTPS operations, and GitLab Pages",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.96,
           "currentLatencyMs": 94,
           "components": [
             {
               "id": "gitlab-web",
               "name": "Website",
-              "status": "operational"
+              "status": "degraded"
             },
             {
               "id": "gitlab-api",
               "name": "API",
-              "status": "operational"
+              "status": "degraded"
             },
             {
               "id": "gitlab-git",
               "name": "Git Operations",
-              "status": "operational"
+              "status": "degraded"
             },
             {
               "id": "gitlab-pages",
               "name": "GitLab Pages",
-              "status": "operational"
+              "status": "degraded"
             }
           ]
         },
@@ -577,7 +577,7 @@
           "providerId": "gitlab",
           "name": "GitLab CI/CD & Cloud Runners",
           "description": "Hosted Linux, Windows, macOS runners, container registry, and GitLab Duo AI",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.93,
           "currentLatencyMs": 108,
           "components": [
@@ -599,7 +599,7 @@
             {
               "id": "gitlab-registry",
               "name": "Container & Package Registry",
-              "status": "operational"
+              "status": "degraded"
             },
             {
               "id": "gitlab-duo",
@@ -1025,6 +1025,26 @@
   ],
   "incidents": {
     "active": [
+      {
+        "id": "cloudflare-rxmmx07ys7qg",
+        "title": "Unable to start containers in Asia-Pacific",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "identified",
+        "createdAt": "2026-09-21T12:42:26.180Z",
+        "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-21T13:15:02.377Z",
+            "message": "The issue has been identified and a fix is being implemented."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-21T12:42:26.266Z",
+            "message": "Cloudflare is aware of problems launching containers in the Asia-Pacific Region"
+          }
+        ]
+      },
       {
         "id": "cloudflare-9g65dxfbcjln",
         "title": "Incorrect geo location for some Cloudflare WARP users",

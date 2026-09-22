@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-22T19:12:13Z",
+    "lastUpdated": "2026-09-22T22:15:17Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 2,
+      "activeIncidentsCount": 3,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1025,6 +1025,21 @@
   ],
   "incidents": {
     "active": [
+      {
+        "id": "cloudflare-tl0vrgjy99r0",
+        "title": "Cloudflare One Clients are incorrectly challenged on some sites",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "investigating",
+        "createdAt": "2026-09-22T19:23:17.000Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-22T19:23:17.370Z",
+            "message": "Cloudflare is investigating an issue where Cloudflare One Client customers are incorrectly challenged while visiting some websites."
+          }
+        ]
+      },
       {
         "id": "cloudflare-9g65dxfbcjln",
         "title": "Incorrect geo location for some Cloudflare WARP users",

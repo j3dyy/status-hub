@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-22T11:28:54Z",
+    "lastUpdated": "2026-09-22T15:38:42Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 3,
+      "activeIncidentsCount": 5,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "claude",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -1026,22 +1026,57 @@
   "incidents": {
     "active": [
       {
-        "id": "cloudflare-dcmwvjwfyhjg",
-        "title": "Partial visibility of Workers and Durable Objects analytics for Fedramp High customers",
-        "providerId": "cloudflare",
+        "id": "openai-01M34TAFM9WBGEBE3G1GBH4SE8",
+        "title": "Elevated Error Rates for ChatGPT Work, across Plus, Pro, Business, Enterprise and Education plans.",
+        "providerId": "openai",
         "severity": "minor",
         "status": "monitoring",
-        "createdAt": "2026-09-22T09:36:11.000Z",
+        "createdAt": "2026-09-22T15:04:05Z",
         "updates": [
           {
             "stage": "monitoring",
-            "timestamp": "2026-09-22T10:08:10.832Z",
-            "message": "A fix has been implemented and we are monitoring the results."
+            "timestamp": "2026-09-22T15:26:41Z",
+            "message": "We have applied the mitigation and are monitoring the recovery."
           },
           {
             "stage": "identified",
-            "timestamp": "2026-09-22T09:36:11.477Z",
-            "message": "Cloudflare is monitoring the restoration of Workers and Durable Objects analytics visibility for all Fedramp High customers. While the underlying data remains intact, affected datasets were not being correctly returned by our analytics dashboard and GraphQL API since June 11th. Services are currently recovering as we propagate the fix."
+            "timestamp": "2026-09-22T15:04:05Z",
+            "message": "We have identified that users are experiencing elevated errors for the impacted services.\n\nWe are working on implementing a mitigation."
+          }
+        ]
+      },
+      {
+        "id": "cloudflare-c2f7zj7fs8l8",
+        "title": "Bot Management Configuration Propagation Issues",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "investigating",
+        "createdAt": "2026-09-22T15:31:38.000Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-22T15:31:39.032Z",
+            "message": "We are currently investigating an issue where Bot Management configuration updates are not propagating to the edge. Our engineering team is aware of the issue and is actively working on a resolution. The running Bot Configuration at the Edge is not impacted. We will provide further updates as soon as we have more information."
+          }
+        ]
+      },
+      {
+        "id": "cloudflare-pvvq3811tpyq",
+        "title": "Elevated error rates for Stream Live LL-HLS",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "monitoring",
+        "createdAt": "2026-09-22T14:37:45.000Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-22T14:44:18.239Z",
+            "message": "A fix has been implemented and we are monitoring the results."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-22T14:37:45.928Z",
+            "message": "We are investigating an issue where some Stream Live customers are receiving errors when playing back live broadcasts with LL-HLS enabled."
           }
         ]
       },

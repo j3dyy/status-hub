@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-23T14:59:43Z",
+    "lastUpdated": "2026-09-23T18:59:20Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 5,
+      "activeIncidentsCount": 6,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -863,7 +863,7 @@
           "providerId": "cloudflare",
           "name": "Cloudflare Global Network & Edge",
           "description": "Global Edge Network, Cloudflare DNS, Workers & Pages, WAF, and Zero Trust",
-          "status": "degraded",
+          "status": "degraded_performance",
           "uptime90d": 99.99,
           "currentLatencyMs": 24,
           "components": [
@@ -1035,6 +1035,21 @@
         "updates": [
           {
             "stage": "investigating",
+            "timestamp": "2026-09-23T18:42:01.379Z",
+            "message": "Continuing to investigate the lag that may be experienced in issue labels being accurately reflected in Projects. We are working on alternate solutions to process the backlog of label updates."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-23T17:30:30.444Z",
+            "message": "We will post another update in approximately one hour to share our progress."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-23T17:01:27.947Z",
+            "message": "Updates to issue labels may be delayed in being reflected in Projects by about ~10 minutes. We have added some capacity to work through the backlog more quickly, but it'll likely be a few hours to complete processing the full backlog of messages. All other services are available."
+          },
+          {
+            "stage": "investigating",
             "timestamp": "2026-09-23T13:35:44.672Z",
             "message": "Users may experience stale Project search results. We are working to increase indexing speed. All other services are available."
           },
@@ -1062,6 +1077,26 @@
             "stage": "investigating",
             "timestamp": "2026-09-23T10:11:12.927Z",
             "message": "We are investigating reports of degraded performance for API Requests"
+          }
+        ]
+      },
+      {
+        "id": "cloudflare-8wmvkv5jkf15",
+        "title": "Network Performance Degradation \u2014 Asia-Pacific",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "identified",
+        "createdAt": "2026-09-23T18:42:39.000Z",
+        "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-23T18:44:55.594Z",
+            "message": "The issue has been identified and a fix is being implemented."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-23T18:42:39.661Z",
+            "message": "Since September 21, 2026 at 02:20 UTC, multiple subsea cable outages have caused congestion between Tokyo and Singapore datacenters. We have rerouted traffic to reduce impact and are working with third-party vendors to restore capacity."
           }
         ]
       },

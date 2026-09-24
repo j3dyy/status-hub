@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-23T22:13:11Z",
+    "lastUpdated": "2026-09-24T00:33:14Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -1033,6 +1033,11 @@
         "status": "investigating",
         "createdAt": "2026-09-23T10:11:12.845Z",
         "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-24T00:16:49.448Z",
+            "message": "We've deployed a change intended to accelerate processing of the backlog of issue label updates in Projects. A sizable backlog still remains and we continue working through it. All other services are operating normally. We will provide another update within the next hour."
+          },
           {
             "stage": "investigating",
             "timestamp": "2026-09-23T21:39:30.068Z",

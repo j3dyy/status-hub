@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-24T15:16:46Z",
+    "lastUpdated": "2026-09-24T19:18:43Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 4,
+      "activeIncidentsCount": 8,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "claude",
@@ -69,7 +69,7 @@
       "name": "GitHub",
       "url": "https://www.githubstatus.com",
       "icon": "github",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "gitlab",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -484,7 +484,7 @@
           "providerId": "github",
           "name": "GitHub Core Services",
           "description": "Git repository operations, Pull Requests, Webhooks and REST/GraphQL APIs",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.99,
           "currentLatencyMs": 85,
           "components": [
@@ -515,7 +515,7 @@
           "providerId": "github",
           "name": "GitHub Compute & Automation",
           "description": "GitHub Actions runners, Codespaces, and GitHub Copilot completions",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.92,
           "currentLatencyMs": 112,
           "components": [
@@ -1025,6 +1025,86 @@
   ],
   "incidents": {
     "active": [
+      {
+        "id": "openai-01M3ACKDE4GYY67FXXNRRSC0CE",
+        "title": "Elevated Error Rates on GPT-6 Astra Pro",
+        "providerId": "openai",
+        "severity": "none",
+        "status": "identified",
+        "createdAt": "2026-09-24T18:59:44Z",
+        "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-24T18:59:44Z",
+            "message": "We have identified that users are experiencing elevated errors for GPT-6 Astra Pro.\n\nWe are working on implementing a mitigation."
+          }
+        ]
+      },
+      {
+        "id": "github-1dk955gg3bvz",
+        "title": "Disruption with billing information updates",
+        "providerId": "github",
+        "severity": "minor",
+        "status": "investigating",
+        "createdAt": "2026-09-24T16:51:32.619Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-24T18:22:35.640Z",
+            "message": "We are continuing to work on mitigation. We will post another update in approximately one hour."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-24T17:40:15.902Z",
+            "message": "We have identified the problem and are actively working on mitigation."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-24T16:51:48.684Z",
+            "message": "We are investigating failures on billing information updates. Customers may be unable to create or update their billing information in the meantime."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-24T16:51:32.660Z",
+            "message": "We are investigating reports of impacted performance for some GitHub services."
+          }
+        ]
+      },
+      {
+        "id": "cloudflare-dwfzz0bwhmsq",
+        "title": "Delays Starting Cloudflare Workers Builds",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "monitoring",
+        "createdAt": "2026-09-24T17:33:57.000Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-24T17:33:57.620Z",
+            "message": "Customers may experience delays starting Cloudflare Workers builds."
+          }
+        ]
+      },
+      {
+        "id": "cloudflare-mltthh0jxxpz",
+        "title": "Browser isolation session data sync issues",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "monitoring",
+        "createdAt": "2026-09-24T17:26:03.000Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-24T17:28:20.141Z",
+            "message": "A fix has been implemented and we are monitoring the results."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-24T17:26:03.603Z",
+            "message": "Cloudflare is investigating issues with Browser Isolation's session data sync. Customers that use Browser Isolation may observe errors on acquiring a browser stating that browser storage is unavailable, and they will need to sign into web apps again. They will continue to be able to use browsers during this time."
+          }
+        ]
+      },
       {
         "id": "cloudflare-8wmvkv5jkf15",
         "title": "Network Performance Degradation \u2014 Asia-Pacific",

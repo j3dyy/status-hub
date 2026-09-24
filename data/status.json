@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-24T00:33:14Z",
+    "lastUpdated": "2026-09-24T05:20:52Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 5,
+      "activeIncidentsCount": 4,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -69,7 +69,7 @@
       "name": "GitHub",
       "url": "https://www.githubstatus.com",
       "icon": "github",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "gitlab",
@@ -484,7 +484,7 @@
           "providerId": "github",
           "name": "GitHub Core Services",
           "description": "Git repository operations, Pull Requests, Webhooks and REST/GraphQL APIs",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.99,
           "currentLatencyMs": 85,
           "components": [
@@ -515,7 +515,7 @@
           "providerId": "github",
           "name": "GitHub Compute & Automation",
           "description": "GitHub Actions runners, Codespaces, and GitHub Copilot completions",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.92,
           "currentLatencyMs": 112,
           "components": [
@@ -1025,76 +1025,6 @@
   ],
   "incidents": {
     "active": [
-      {
-        "id": "github-8zc63m64hy36",
-        "title": "Incident across several services",
-        "providerId": "github",
-        "severity": "minor",
-        "status": "investigating",
-        "createdAt": "2026-09-23T10:11:12.845Z",
-        "updates": [
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-24T00:16:49.448Z",
-            "message": "We've deployed a change intended to accelerate processing of the backlog of issue label updates in Projects. A sizable backlog still remains and we continue working through it. All other services are operating normally. We will provide another update within the next hour."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-23T21:39:30.068Z",
-            "message": "Updates to issue labels may be delayed in being reflected in Projects. We are continuing to deploy a change that will accelerate processing of the backlog of label updates. All other services are available. We will provide another update within the next hour."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-23T20:26:02.259Z",
-            "message": "We are preparing to deploy a change that will mitigate the impact."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-23T18:42:01.379Z",
-            "message": "Continuing to investigate the lag that may be experienced in issue labels being accurately reflected in Projects. We are working on alternate solutions to process the backlog of label updates."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-23T17:30:30.444Z",
-            "message": "We will post another update in approximately one hour to share our progress."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-23T17:01:27.947Z",
-            "message": "Updates to issue labels may be delayed in being reflected in Projects by about ~10 minutes. We have added some capacity to work through the backlog more quickly, but it'll likely be a few hours to complete processing the full backlog of messages. All other services are available."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-23T13:35:44.672Z",
-            "message": "Users may experience stale Project search results. We are working to increase indexing speed. All other services are available."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-23T11:38:30.053Z",
-            "message": "We are seeing recovery for Projects. Users may experience stale search results for Projects while indexing catches up."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-23T10:58:27.097Z",
-            "message": "The degradation affecting API Requests has been mitigated. We are monitoring to ensure stability."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-23T10:57:57.451Z",
-            "message": "Database replicas have been restored. Org creation and the GitHub API are no longer degraded."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-23T10:20:06.970Z",
-            "message": "Database replicas have detached. We're working to restore the database replicas. Users may experience issues beyond creating organizations and a degraded experience with the GitHub API and Projects."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-23T10:11:12.927Z",
-            "message": "We are investigating reports of degraded performance for API Requests"
-          }
-        ]
-      },
       {
         "id": "cloudflare-8wmvkv5jkf15",
         "title": "Network Performance Degradation \u2014 Asia-Pacific",

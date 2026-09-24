@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-24T19:18:43Z",
+    "lastUpdated": "2026-09-24T22:33:49Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 8,
+      "activeIncidentsCount": 6,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "claude",
@@ -69,14 +69,14 @@
       "name": "GitHub",
       "url": "https://www.githubstatus.com",
       "icon": "github",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "gitlab",
       "name": "GitLab",
       "url": "https://status.gitlab.com",
       "icon": "gitlab",
-      "status": "partial_outage"
+      "status": "operational"
     },
     {
       "id": "bitbucket",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -484,7 +484,7 @@
           "providerId": "github",
           "name": "GitHub Core Services",
           "description": "Git repository operations, Pull Requests, Webhooks and REST/GraphQL APIs",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.99,
           "currentLatencyMs": 85,
           "components": [
@@ -515,7 +515,7 @@
           "providerId": "github",
           "name": "GitHub Compute & Automation",
           "description": "GitHub Actions runners, Codespaces, and GitHub Copilot completions",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.92,
           "currentLatencyMs": 112,
           "components": [
@@ -546,14 +546,14 @@
           "providerId": "gitlab",
           "name": "GitLab SaaS & Web Platform",
           "description": "GitLab.com web application, REST/GraphQL API, Git SSH & HTTPS operations, and GitLab Pages",
-          "status": "partial_outage",
+          "status": "operational",
           "uptime90d": 99.96,
           "currentLatencyMs": 94,
           "components": [
             {
               "id": "gitlab-web",
               "name": "Website",
-              "status": "partial_outage"
+              "status": "operational"
             },
             {
               "id": "gitlab-api",
@@ -563,7 +563,7 @@
             {
               "id": "gitlab-git",
               "name": "Git Operations",
-              "status": "partial_outage"
+              "status": "operational"
             },
             {
               "id": "gitlab-pages",
@@ -577,7 +577,7 @@
           "providerId": "gitlab",
           "name": "GitLab CI/CD & Cloud Runners",
           "description": "Hosted Linux, Windows, macOS runners, container registry, and GitLab Duo AI",
-          "status": "partial_outage",
+          "status": "operational",
           "uptime90d": 99.93,
           "currentLatencyMs": 108,
           "components": [
@@ -1026,62 +1026,17 @@
   "incidents": {
     "active": [
       {
-        "id": "openai-01M3ACKDE4GYY67FXXNRRSC0CE",
-        "title": "Elevated Error Rates on GPT-6 Astra Pro",
-        "providerId": "openai",
-        "severity": "none",
-        "status": "identified",
-        "createdAt": "2026-09-24T18:59:44Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-09-24T18:59:44Z",
-            "message": "We have identified that users are experiencing elevated errors for GPT-6 Astra Pro.\n\nWe are working on implementing a mitigation."
-          }
-        ]
-      },
-      {
-        "id": "github-1dk955gg3bvz",
-        "title": "Disruption with billing information updates",
-        "providerId": "github",
-        "severity": "minor",
-        "status": "investigating",
-        "createdAt": "2026-09-24T16:51:32.619Z",
-        "updates": [
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-24T18:22:35.640Z",
-            "message": "We are continuing to work on mitigation. We will post another update in approximately one hour."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-24T17:40:15.902Z",
-            "message": "We have identified the problem and are actively working on mitigation."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-24T16:51:48.684Z",
-            "message": "We are investigating failures on billing information updates. Customers may be unable to create or update their billing information in the meantime."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-24T16:51:32.660Z",
-            "message": "We are investigating reports of impacted performance for some GitHub services."
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-dwfzz0bwhmsq",
-        "title": "Delays Starting Cloudflare Workers Builds",
+        "id": "cloudflare-2x4qt2q2ds9x",
+        "title": "Intermittent 500 errors for backend services on Replicate",
         "providerId": "cloudflare",
         "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-09-24T17:33:57.000Z",
+        "status": "investigating",
+        "createdAt": "2026-09-24T20:40:47.000Z",
         "updates": [
           {
-            "stage": "monitoring",
-            "timestamp": "2026-09-24T17:33:57.620Z",
-            "message": "Customers may experience delays starting Cloudflare Workers builds."
+            "stage": "investigating",
+            "timestamp": "2026-09-24T20:40:47.880Z",
+            "message": "We have a backend component that entered an unexpected reboot, causing issues for services downstream."
           }
         ]
       },

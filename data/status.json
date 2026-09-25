@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-25T05:31:02Z",
+    "lastUpdated": "2026-09-25T10:31:01Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 6,
+      "activeIncidentsCount": 5,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1026,28 +1026,18 @@
   "incidents": {
     "active": [
       {
-        "id": "cloudflare-drq3pdx1f11y",
-        "title": "Edit Compression Rule Issue",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "investigating",
-        "createdAt": "2026-09-25T04:58:31.718Z",
-        "updates": [
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-25T04:58:31.768Z",
-            "message": "Cloudflare is investigating an issue with editing rules in the Dashboard. \n\nCustomers may see errors when trying to edit or create a Compression rule. Existing Compression rules are unaffected.\n\nWe are working to understand the full impact and mitigate this problem. More updates to follow shortly."
-          }
-        ]
-      },
-      {
         "id": "cloudflare-gv29fd076q2t",
         "title": "Issues with Durable Objects",
         "providerId": "cloudflare",
         "severity": "minor",
-        "status": "investigating",
+        "status": "monitoring",
         "createdAt": "2026-09-25T00:03:24.000Z",
         "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-25T08:48:52.382Z",
+            "message": "A fix has been implemented and we are monitoring the results."
+          },
           {
             "stage": "investigating",
             "timestamp": "2026-09-25T02:32:19.163Z",
@@ -1073,6 +1063,11 @@
         "status": "identified",
         "createdAt": "2026-09-23T18:42:39.000Z",
         "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-25T08:50:56.071Z",
+            "message": "Cloudflare continues to mitigate intermittent connectivity degradation for a small subset of customers caused by significant degradation of capacity in the region."
+          },
           {
             "stage": "identified",
             "timestamp": "2026-09-23T18:44:55.594Z",

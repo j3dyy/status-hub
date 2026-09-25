@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-24T22:33:49Z",
+    "lastUpdated": "2026-09-25T00:47:03Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 6,
+      "activeIncidentsCount": 5,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -76,7 +76,7 @@
       "name": "GitLab",
       "url": "https://status.gitlab.com",
       "icon": "gitlab",
-      "status": "operational"
+      "status": "partial_outage"
     },
     {
       "id": "bitbucket",
@@ -546,29 +546,29 @@
           "providerId": "gitlab",
           "name": "GitLab SaaS & Web Platform",
           "description": "GitLab.com web application, REST/GraphQL API, Git SSH & HTTPS operations, and GitLab Pages",
-          "status": "operational",
+          "status": "partial_outage",
           "uptime90d": 99.96,
           "currentLatencyMs": 94,
           "components": [
             {
               "id": "gitlab-web",
               "name": "Website",
-              "status": "operational"
+              "status": "partial_outage"
             },
             {
               "id": "gitlab-api",
               "name": "API",
-              "status": "operational"
+              "status": "partial_outage"
             },
             {
               "id": "gitlab-git",
               "name": "Git Operations",
-              "status": "operational"
+              "status": "partial_outage"
             },
             {
               "id": "gitlab-pages",
               "name": "GitLab Pages",
-              "status": "operational"
+              "status": "partial_outage"
             }
           ]
         },
@@ -577,34 +577,34 @@
           "providerId": "gitlab",
           "name": "GitLab CI/CD & Cloud Runners",
           "description": "Hosted Linux, Windows, macOS runners, container registry, and GitLab Duo AI",
-          "status": "operational",
+          "status": "partial_outage",
           "uptime90d": 99.93,
           "currentLatencyMs": 108,
           "components": [
             {
               "id": "gitlab-ci-linux",
               "name": "CI/CD - Hosted runners on Linux",
-              "status": "operational"
+              "status": "partial_outage"
             },
             {
               "id": "gitlab-ci-windows",
               "name": "CI/CD - Hosted runners on Windows",
-              "status": "operational"
+              "status": "partial_outage"
             },
             {
               "id": "gitlab-ci-mac",
               "name": "CI/CD - Hosted runners on macOS",
-              "status": "operational"
+              "status": "partial_outage"
             },
             {
               "id": "gitlab-registry",
               "name": "Container & Package Registry",
-              "status": "operational"
+              "status": "partial_outage"
             },
             {
               "id": "gitlab-duo",
               "name": "GitLab Duo (AI Code Assistance)",
-              "status": "operational"
+              "status": "partial_outage"
             }
           ]
         },
@@ -1026,37 +1026,17 @@
   "incidents": {
     "active": [
       {
-        "id": "cloudflare-2x4qt2q2ds9x",
-        "title": "Intermittent 500 errors for backend services on Replicate",
+        "id": "cloudflare-gv29fd076q2t",
+        "title": "Workflows stuck in Queued state",
         "providerId": "cloudflare",
         "severity": "minor",
         "status": "investigating",
-        "createdAt": "2026-09-24T20:40:47.000Z",
+        "createdAt": "2026-09-25T00:03:24.000Z",
         "updates": [
           {
             "stage": "investigating",
-            "timestamp": "2026-09-24T20:40:47.880Z",
-            "message": "We have a backend component that entered an unexpected reboot, causing issues for services downstream."
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-mltthh0jxxpz",
-        "title": "Browser isolation session data sync issues",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-09-24T17:26:03.000Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-09-24T17:28:20.141Z",
-            "message": "A fix has been implemented and we are monitoring the results."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-09-24T17:26:03.603Z",
-            "message": "Cloudflare is investigating issues with Browser Isolation's session data sync. Customers that use Browser Isolation may observe errors on acquiring a browser stating that browser storage is unavailable, and they will need to sign into web apps again. They will continue to be able to use browsers during this time."
+            "timestamp": "2026-09-25T00:03:24.600Z",
+            "message": "Cloudflare is aware of and investigating an issue impacting some customers where new Workflows instances may be stuck in a Queued state. More updates to follow shortly."
           }
         ]
       },

@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-25T00:47:03Z",
+    "lastUpdated": "2026-09-25T05:31:02Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 5,
+      "activeIncidentsCount": 6,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -76,7 +76,7 @@
       "name": "GitLab",
       "url": "https://status.gitlab.com",
       "icon": "gitlab",
-      "status": "partial_outage"
+      "status": "operational"
     },
     {
       "id": "bitbucket",
@@ -546,29 +546,29 @@
           "providerId": "gitlab",
           "name": "GitLab SaaS & Web Platform",
           "description": "GitLab.com web application, REST/GraphQL API, Git SSH & HTTPS operations, and GitLab Pages",
-          "status": "partial_outage",
+          "status": "operational",
           "uptime90d": 99.96,
           "currentLatencyMs": 94,
           "components": [
             {
               "id": "gitlab-web",
               "name": "Website",
-              "status": "partial_outage"
+              "status": "operational"
             },
             {
               "id": "gitlab-api",
               "name": "API",
-              "status": "partial_outage"
+              "status": "operational"
             },
             {
               "id": "gitlab-git",
               "name": "Git Operations",
-              "status": "partial_outage"
+              "status": "operational"
             },
             {
               "id": "gitlab-pages",
               "name": "GitLab Pages",
-              "status": "partial_outage"
+              "status": "operational"
             }
           ]
         },
@@ -577,34 +577,34 @@
           "providerId": "gitlab",
           "name": "GitLab CI/CD & Cloud Runners",
           "description": "Hosted Linux, Windows, macOS runners, container registry, and GitLab Duo AI",
-          "status": "partial_outage",
+          "status": "operational",
           "uptime90d": 99.93,
           "currentLatencyMs": 108,
           "components": [
             {
               "id": "gitlab-ci-linux",
               "name": "CI/CD - Hosted runners on Linux",
-              "status": "partial_outage"
+              "status": "operational"
             },
             {
               "id": "gitlab-ci-windows",
               "name": "CI/CD - Hosted runners on Windows",
-              "status": "partial_outage"
+              "status": "operational"
             },
             {
               "id": "gitlab-ci-mac",
               "name": "CI/CD - Hosted runners on macOS",
-              "status": "partial_outage"
+              "status": "operational"
             },
             {
               "id": "gitlab-registry",
               "name": "Container & Package Registry",
-              "status": "partial_outage"
+              "status": "operational"
             },
             {
               "id": "gitlab-duo",
               "name": "GitLab Duo (AI Code Assistance)",
-              "status": "partial_outage"
+              "status": "operational"
             }
           ]
         },
@@ -1026,13 +1026,38 @@
   "incidents": {
     "active": [
       {
+        "id": "cloudflare-drq3pdx1f11y",
+        "title": "Edit Compression Rule Issue",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "investigating",
+        "createdAt": "2026-09-25T04:58:31.718Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-25T04:58:31.768Z",
+            "message": "Cloudflare is investigating an issue with editing rules in the Dashboard. \n\nCustomers may see errors when trying to edit or create a Compression rule. Existing Compression rules are unaffected.\n\nWe are working to understand the full impact and mitigate this problem. More updates to follow shortly."
+          }
+        ]
+      },
+      {
         "id": "cloudflare-gv29fd076q2t",
-        "title": "Workflows stuck in Queued state",
+        "title": "Issues with Durable Objects",
         "providerId": "cloudflare",
         "severity": "minor",
         "status": "investigating",
         "createdAt": "2026-09-25T00:03:24.000Z",
         "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-25T02:32:19.163Z",
+            "message": "Cloudflare is investigating issues causing an increase of errors for Durable Objects .We are working to analyse and mitigate this problem. More updates to follow shortly."
+          },
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-25T01:31:54.374Z",
+            "message": "A fix has been implemented and we are monitoring the results."
+          },
           {
             "stage": "investigating",
             "timestamp": "2026-09-25T00:03:24.600Z",

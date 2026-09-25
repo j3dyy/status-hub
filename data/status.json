@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-25T10:31:01Z",
+    "lastUpdated": "2026-09-25T15:31:13Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 5,
+      "activeIncidentsCount": 4,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1025,36 +1025,6 @@
   ],
   "incidents": {
     "active": [
-      {
-        "id": "cloudflare-gv29fd076q2t",
-        "title": "Issues with Durable Objects",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-09-25T00:03:24.000Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-09-25T08:48:52.382Z",
-            "message": "A fix has been implemented and we are monitoring the results."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-25T02:32:19.163Z",
-            "message": "Cloudflare is investigating issues causing an increase of errors for Durable Objects .We are working to analyse and mitigate this problem. More updates to follow shortly."
-          },
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-09-25T01:31:54.374Z",
-            "message": "A fix has been implemented and we are monitoring the results."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-25T00:03:24.600Z",
-            "message": "Cloudflare is aware of and investigating an issue impacting some customers where new Workflows instances may be stuck in a Queued state. More updates to follow shortly."
-          }
-        ]
-      },
       {
         "id": "cloudflare-8wmvkv5jkf15",
         "title": "Network Performance Degradation \u2014 Asia-Pacific",

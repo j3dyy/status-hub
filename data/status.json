@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-27T02:45:43Z",
+    "lastUpdated": "2026-09-27T08:35:23Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 5,
+      "activeIncidentsCount": 4,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -104,7 +104,7 @@
       "name": "npm",
       "url": "https://status.npmjs.org",
       "icon": "npmjs",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "sentry",
@@ -711,7 +711,7 @@
           "providerId": "npmjs",
           "name": "npm Public Registry & Packaging",
           "description": "npm package registry, tarball downloads, CLI publishing, and search",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.97,
           "currentLatencyMs": 64,
           "components": [
@@ -728,7 +728,7 @@
             {
               "id": "npm-publish",
               "name": "Package Publishing & Webhooks",
-              "status": "degraded_performance"
+              "status": "operational"
             }
           ]
         },
@@ -1117,26 +1117,6 @@
             "stage": "investigating",
             "timestamp": "2026-08-27T18:46:19.105Z",
             "message": "Cloudflare is investigating issues with Cloudflare WARP and Cloudflare Zero Trust users being incorrectly geolocated by some third party services."
-          }
-        ]
-      },
-      {
-        "id": "npmjs-zff9xpz80gwf",
-        "title": "Issues with npm package publish and private install",
-        "providerId": "npmjs",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-09-27T00:50:52.921Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-09-27T01:30:21.498Z",
-            "message": "A fix has been implemented and we are monitoring the results."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-27T00:50:53.044Z",
-            "message": "We are currently investigating this issue."
           }
         ]
       },

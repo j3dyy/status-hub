@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-29T09:06:14Z",
+    "lastUpdated": "2026-09-29T15:48:45Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 4,
+      "activeIncidentsCount": 5,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -34,7 +34,7 @@
       "name": "Anthropic Claude",
       "url": "https://status.claude.com",
       "icon": "sparkles",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "gemini",
@@ -243,7 +243,7 @@
           "providerId": "claude",
           "name": "claude.ai",
           "description": "Web & mobile interface, Claude Pro/Team, Projects and interactive Artifacts",
-          "status": "operational",
+          "status": "major_outage",
           "uptime90d": 99.4,
           "currentLatencyMs": 118,
           "components": [
@@ -274,7 +274,7 @@
           "providerId": "claude",
           "name": "Claude Console (platform.claude.com)",
           "description": "Developer platform, prompt engineering workbench, API keys and billing management",
-          "status": "operational",
+          "status": "major_outage",
           "uptime90d": 99.93,
           "currentLatencyMs": 84,
           "components": [
@@ -300,7 +300,7 @@
           "providerId": "claude",
           "name": "Claude API (api.anthropic.com)",
           "description": "Direct inference endpoints for Claude 3.5 Sonnet, Claude 3.5 Haiku, and Claude 3 Opus",
-          "status": "operational",
+          "status": "degraded_performance",
           "uptime90d": 99.5,
           "currentLatencyMs": 142,
           "components": [
@@ -331,7 +331,7 @@
           "providerId": "claude",
           "name": "Claude Code",
           "description": "Agentic command-line developer assistant and IDE tool integration",
-          "status": "operational",
+          "status": "major_outage",
           "uptime90d": 99.44,
           "currentLatencyMs": 105,
           "components": [
@@ -357,7 +357,7 @@
           "providerId": "claude",
           "name": "Claude Cowork",
           "description": "Real-time collaborative workspaces, multi-user sessions, and team memory",
-          "status": "operational",
+          "status": "major_outage",
           "uptime90d": 99.43,
           "currentLatencyMs": 115,
           "components": [
@@ -378,7 +378,7 @@
           "providerId": "claude",
           "name": "Claude for Government",
           "description": "FedRAMP High / DoD IL5 compliant isolated federal cloud enclave",
-          "status": "operational",
+          "status": "major_outage",
           "uptime90d": 100.0,
           "currentLatencyMs": 95,
           "components": [
@@ -1025,6 +1025,51 @@
   ],
   "incidents": {
     "active": [
+      {
+        "id": "claude-4xvtc2gnq73l",
+        "title": "Elevated errors on claude.ai, Claude Code, Claude Cowork and the Claude API",
+        "providerId": "claude",
+        "severity": "major",
+        "status": "monitoring",
+        "createdAt": "2026-09-29T14:21:37.188Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-29T15:30:44.556Z",
+            "message": "All services have been operating normally since 14:59 UTC. We are continuing to monitor."
+          },
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-29T15:11:27.450Z",
+            "message": "Most services have recovered as of 14:59 UTC. Signing in, starting new chats, voice conversations, Claude Code and Cowork sessions, purchases and file uploads are working again. Some messages sent between 14:00 and 14:59 UTC may not have been saved. We are monitoring closely and will post another update within 30 minutes."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-29T15:00:14.745Z",
+            "message": "The errors that began at 14:00 UTC were mitigated at 14:36 UTC, and existing conversations are mostly working again. A second issue is preventing many users from signing in (single sign-on and Sign in with Apple are unavailable), starting new chats, voice conversations and Claude Code or Cowork sessions, making purchases, and uploading files. If you're signed in, please don't sign out. We're working on a fix and will post another update within 30 minutes."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-29T14:41:08.273Z",
+            "message": "We have applied a mitigation and error rates have dropped substantially. Some sign-in attempts, account actions and Claude Code and Cowork sessions are still failing. We are continuing to work on a full fix."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-29T14:30:19.579Z",
+            "message": "We are investigating reports of degraded performance affecting claude.ai, platform.claude.com, the Claude API, Claude Code, and Claude Cowork. We will provide an update as soon as possible."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-29T14:28:49.253Z",
+            "message": "We are investigating elevated error rates affecting Claude.ai (including the desktop and mobile apps), Claude Code and Claude Cowork. Some requests to the Claude API are also returning errors. We will provide an update as soon as possible."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-29T14:21:37.364Z",
+            "message": "We are investigating elevated error rates affecting Claude.ai (including the desktop and mobile apps), Claude Code and Claude Cowork. Users may see failed requests, errors loading or sending conversations, or be asked to sign in again; retrying may succeed. We will provide an update as soon as possible."
+          }
+        ]
+      },
       {
         "id": "cloudflare-8wmvkv5jkf15",
         "title": "Network Performance Degradation \u2014 Asia-Pacific",

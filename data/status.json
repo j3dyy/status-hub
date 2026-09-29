@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-29T20:17:03Z",
+    "lastUpdated": "2026-09-29T23:47:48Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 7,
+      "activeIncidentsCount": 3,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "claude",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -229,7 +229,7 @@
             {
               "id": "openai-realtime",
               "name": "Realtime Audio & Speech API",
-              "status": "degraded_performance"
+              "status": "operational"
             },
             {
               "id": "chatgpt-web",
@@ -863,7 +863,7 @@
           "providerId": "cloudflare",
           "name": "Cloudflare Global Network & Edge",
           "description": "Global Edge Network, Cloudflare DNS, Workers & Pages, WAF, and Zero Trust",
-          "status": "degraded_performance",
+          "status": "degraded",
           "uptime90d": 99.99,
           "currentLatencyMs": 24,
           "components": [
@@ -1025,101 +1025,6 @@
   ],
   "incidents": {
     "active": [
-      {
-        "id": "openai-01M3Q4RK1SM4EMK445GGPG7C0N",
-        "title": "Elevated errors across ChatGPT, Codex, and the API including the Agents API",
-        "providerId": "openai",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-09-29T17:52:52Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-09-29T19:39:36Z",
-            "message": "We have applied the mitigation and are monitoring the recovery."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-29T19:08:39Z",
-            "message": "We\u2019re still investigating elevated errors affecting ChatGPT, Codex, and the API including the Agents API.\n\nSome users may experience failed requests, difficulty logging in or signing up, and tasks that do not complete. We\u2019ll share updates as we learn more."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-29T18:24:17Z",
-            "message": "We\u2019re investigating elevated errors affecting ChatGPT, Codex, and the API including the Agents API.\n\nSome users may experience failed requests, difficulty logging in or signing up, and tasks that do not complete. We\u2019ll share updates as we learn more."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-29T17:52:52Z",
-            "message": "We\u2019re investigating elevated errors affecting ChatGPT, Codex, and the API. Some users may experience failed requests, difficulty logging in or signing up, and tasks that do not complete. We\u2019ll share updates as we learn more."
-          }
-        ]
-      },
-      {
-        "id": "openai-01M3Q4HMNP8SZ27DTZKW6F5BJ4",
-        "title": "Support available via email",
-        "providerId": "openai",
-        "severity": "none",
-        "status": "investigating",
-        "createdAt": "2026-09-29T17:49:05Z",
-        "updates": [
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-29T18:50:38Z",
-            "message": "Our Help Center is available, but support chat remains unavailable. If you need assistance, you can browse the Help Center or email [support@openai.com](mailto:support@openai.com \"support@openai.com\")."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-29T17:55:17Z",
-            "message": "Our Help Center is available, but support chat remains unavailable. If you need assistance, you can browse the Help Center or email [support@openai.com](mailto:support@openai.com \"support@openai.com\")."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-29T17:49:05Z",
-            "message": "Our Help Center and support chat are currently unavailable. If you need assistance, you can still reach our support team by emailing [support@openai.com](mailto:support@openai.com \"support@openai.com\").\n\nWe apologize for the inconvenience."
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-vcstgt8gqkyk",
-        "title": "OTP Deliverability Errors",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "investigating",
-        "createdAt": "2026-09-29T20:11:20.000Z",
-        "updates": [
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-29T20:11:20.186Z",
-            "message": "We are investigating an issue causing a high percentage of Access One Time Pin emails to fail. All other authentication methods are operating as normal."
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-8wmvkv5jkf15",
-        "title": "Network Performance Degradation \u2014 Asia-Pacific",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "identified",
-        "createdAt": "2026-09-23T18:42:39.000Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-09-25T08:50:56.071Z",
-            "message": "Cloudflare continues to mitigate intermittent connectivity degradation for a small subset of customers caused by significant degradation of capacity in the region."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-09-23T18:44:55.594Z",
-            "message": "The issue has been identified and a fix is being implemented."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-23T18:42:39.661Z",
-            "message": "Since September 21, 2026 at 02:20 UTC, multiple subsea cable outages have caused congestion between Tokyo and Singapore datacenters. We have rerouted traffic to reduce impact and are working with third-party vendors to restore capacity."
-          }
-        ]
-      },
       {
         "id": "cloudflare-tl0vrgjy99r0",
         "title": "Cloudflare One Clients are incorrectly challenged on some sites",

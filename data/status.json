@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-30T02:29:03Z",
+    "lastUpdated": "2026-09-30T08:57:50Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 4,
+      "activeIncidentsCount": 5,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1030,13 +1030,38 @@
         "title": "Elevated errors in ChatGPT Space Pages",
         "providerId": "openai",
         "severity": "minor",
-        "status": "identified",
+        "status": "monitoring",
         "createdAt": "2026-09-30T02:20:32Z",
         "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-30T06:03:10Z",
+            "message": "We have applied the mitigation and are monitoring the recovery."
+          },
           {
             "stage": "identified",
             "timestamp": "2026-09-30T02:20:32Z",
             "message": "We have identified that users may experience errors creating or interacting with Pages, including failures when using Page tools or connecting to live Page sessions.\n\nWe are working on implementing a mitigation."
+          }
+        ]
+      },
+      {
+        "id": "openai-01M3RDNY37CAPQGRKPBVMNRT4K",
+        "title": "Elevated error rates for ChatGPT Pro and Plus users",
+        "providerId": "openai",
+        "severity": "minor",
+        "status": "monitoring",
+        "createdAt": "2026-09-30T05:47:57Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-30T05:56:48Z",
+            "message": "We have applied the mitigation and are monitoring the recovery."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-30T05:47:57Z",
+            "message": "We have identified that users are experiencing elevated errors for the impacted services.\n\nWe are working on implementing a mitigation."
           }
         ]
       },

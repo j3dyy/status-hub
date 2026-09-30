@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-30T08:57:50Z",
+    "lastUpdated": "2026-09-30T15:50:48Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 5,
+      "activeIncidentsCount": 8,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -76,7 +76,7 @@
       "name": "GitLab",
       "url": "https://status.gitlab.com",
       "icon": "gitlab",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "bitbucket",
@@ -546,7 +546,7 @@
           "providerId": "gitlab",
           "name": "GitLab SaaS & Web Platform",
           "description": "GitLab.com web application, REST/GraphQL API, Git SSH & HTTPS operations, and GitLab Pages",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.96,
           "currentLatencyMs": 94,
           "components": [
@@ -577,24 +577,24 @@
           "providerId": "gitlab",
           "name": "GitLab CI/CD & Cloud Runners",
           "description": "Hosted Linux, Windows, macOS runners, container registry, and GitLab Duo AI",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.93,
           "currentLatencyMs": 108,
           "components": [
             {
               "id": "gitlab-ci-linux",
               "name": "CI/CD - Hosted runners on Linux",
-              "status": "degraded"
+              "status": "operational"
             },
             {
               "id": "gitlab-ci-windows",
               "name": "CI/CD - Hosted runners on Windows",
-              "status": "degraded"
+              "status": "operational"
             },
             {
               "id": "gitlab-ci-mac",
               "name": "CI/CD - Hosted runners on macOS",
-              "status": "degraded"
+              "status": "operational"
             },
             {
               "id": "gitlab-registry",
@@ -1035,6 +1035,16 @@
         "updates": [
           {
             "stage": "monitoring",
+            "timestamp": "2026-09-30T15:00:05Z",
+            "message": "We have applied mitigations and are monitoring the recovery."
+          },
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-30T10:34:34Z",
+            "message": "All impacted services are recovered, we are continuing to monitor for any reoccurrence."
+          },
+          {
+            "stage": "monitoring",
             "timestamp": "2026-09-30T06:03:10Z",
             "message": "We have applied the mitigation and are monitoring the recovery."
           },
@@ -1046,22 +1056,77 @@
         ]
       },
       {
-        "id": "openai-01M3RDNY37CAPQGRKPBVMNRT4K",
-        "title": "Elevated error rates for ChatGPT Pro and Plus users",
-        "providerId": "openai",
+        "id": "cloudflare-4m03612lprhr",
+        "title": "Cloudflare Workers build delays",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "investigating",
+        "createdAt": "2026-09-30T15:33:06.000Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-30T15:33:06.717Z",
+            "message": "Cloudflare is aware of and investigating an issue with Cloudflare Workers build delays which potentially impacts multiple customers. Further detail will be provided as more information becomes available."
+          }
+        ]
+      },
+      {
+        "id": "cloudflare-mq69fw5ykdwb",
+        "title": "R2 Latency",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "investigating",
+        "createdAt": "2026-09-30T13:49:25.000Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-30T14:39:04.313Z",
+            "message": "We are continuing to investigate this issue."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-30T13:49:25.727Z",
+            "message": "Cloudflare is aware of R2 latency, and investigating an issue which potentially impacts multiple customers. \nFurther detail will be provided as more information becomes available."
+          }
+        ]
+      },
+      {
+        "id": "cloudflare-2h896759fg2f",
+        "title": "Membership Permission Change Delays",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "investigating",
+        "createdAt": "2026-09-30T13:36:42.000Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-30T13:36:42.920Z",
+            "message": "Cloudflare is investigating delays in applying changes to account member roles and permissions. Recently updated permissions may not be immediately reflected in some Cloudflare services. We are working to mitigate this issue."
+          }
+        ]
+      },
+      {
+        "id": "cloudflare-fs7dz54l226c",
+        "title": "Network Performance Issues in Madrid",
+        "providerId": "cloudflare",
         "severity": "minor",
         "status": "monitoring",
-        "createdAt": "2026-09-30T05:47:57Z",
+        "createdAt": "2026-09-30T10:31:12.000Z",
         "updates": [
           {
             "stage": "monitoring",
-            "timestamp": "2026-09-30T05:56:48Z",
-            "message": "We have applied the mitigation and are monitoring the recovery."
+            "timestamp": "2026-09-30T14:06:40.522Z",
+            "message": "A fix has been implemented and we are monitoring the results."
           },
           {
             "stage": "identified",
-            "timestamp": "2026-09-30T05:47:57Z",
-            "message": "We have identified that users are experiencing elevated errors for the impacted services.\n\nWe are working on implementing a mitigation."
+            "timestamp": "2026-09-30T11:31:16.708Z",
+            "message": "The issue has been identified and a fix is being implemented."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-30T10:31:12.858Z",
+            "message": "Cloudflare is investigating issues with network performance in Madrid (MAD). \nWe are working to analyse and mitigate this problem. More updates to follow shortly."
           }
         ]
       },

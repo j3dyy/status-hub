@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-30T15:50:48Z",
+    "lastUpdated": "2026-09-30T20:25:54Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -1026,6 +1026,36 @@
   "incidents": {
     "active": [
       {
+        "id": "openai-01M3SMF1Q0TDCQVNYSXYG37QMR",
+        "title": "Elevated latency for some API requests",
+        "providerId": "openai",
+        "severity": "minor",
+        "status": "monitoring",
+        "createdAt": "2026-09-30T17:05:46Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-30T18:21:53Z",
+            "message": "We have applied the mitigation and are monitoring the recovery."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-30T17:51:40Z",
+            "message": "We have implemented an initial mitigation and are seeing improvements in API latency. We are continuing to investigate the scope of the issue and apply additional mitigations as needed. Some requests to the Responses and Chat Completions APIs may still experience elevated latency or timeouts."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-30T17:13:13Z",
+            "message": "We have identified that users are experiencing elevated latency for the impacted services.\n\nWe are working on implementing a mitigation."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-30T17:05:46Z",
+            "message": "We have identified that users are experiencing elevated latency for the impacted services.\n\nWe are working on implementing a mitigation."
+          }
+        ]
+      },
+      {
         "id": "openai-01M3R1T4FCR1337FBBYY9K2RPB",
         "title": "Elevated errors in ChatGPT Space Pages",
         "providerId": "openai",
@@ -1060,48 +1090,18 @@
         "title": "Cloudflare Workers build delays",
         "providerId": "cloudflare",
         "severity": "minor",
-        "status": "investigating",
+        "status": "monitoring",
         "createdAt": "2026-09-30T15:33:06.000Z",
         "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-30T17:42:28.924Z",
+            "message": "A fix has been implemented and we are monitoring the results."
+          },
           {
             "stage": "investigating",
             "timestamp": "2026-09-30T15:33:06.717Z",
             "message": "Cloudflare is aware of and investigating an issue with Cloudflare Workers build delays which potentially impacts multiple customers. Further detail will be provided as more information becomes available."
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-mq69fw5ykdwb",
-        "title": "R2 Latency",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "investigating",
-        "createdAt": "2026-09-30T13:49:25.000Z",
-        "updates": [
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-30T14:39:04.313Z",
-            "message": "We are continuing to investigate this issue."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-30T13:49:25.727Z",
-            "message": "Cloudflare is aware of R2 latency, and investigating an issue which potentially impacts multiple customers. \nFurther detail will be provided as more information becomes available."
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-2h896759fg2f",
-        "title": "Membership Permission Change Delays",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "investigating",
-        "createdAt": "2026-09-30T13:36:42.000Z",
-        "updates": [
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-30T13:36:42.920Z",
-            "message": "Cloudflare is investigating delays in applying changes to account member roles and permissions. Recently updated permissions may not be immediately reflected in some Cloudflare services. We are working to mitigate this issue."
           }
         ]
       },
@@ -1197,6 +1197,31 @@
             "stage": "investigating",
             "timestamp": "2026-08-27T18:46:19.105Z",
             "message": "Cloudflare is investigating issues with Cloudflare WARP and Cloudflare Zero Trust users being incorrectly geolocated by some third party services."
+          }
+        ]
+      },
+      {
+        "id": "mongodb-c82n77tbp85t",
+        "title": "Delays in Atlas cluster management operations",
+        "providerId": "mongodb",
+        "severity": "none",
+        "status": "monitoring",
+        "createdAt": "2026-09-30T18:51:35.421Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-09-30T19:26:13.657Z",
+            "message": "The team has implemented a fix and latency of Atlas Cluster management operations are returning to normal. Clusters that incorrectly appeared as degraded in the Atlas UI are also beginning to correctly update their status."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-09-30T19:01:35.809Z",
+            "message": "We've identified an issue with metric ingestion that is causing delays to Atlas Cluster management operations for some customers. Clusters may also appear degraded in the Atlas UI while metrics ingestion is delayed; however, the cluster health is unaffected."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-09-30T18:51:35.478Z",
+            "message": "We are investigating an issue with Atlas metrics ingestion that may delay cluster management operations, including cluster creation and modification."
           }
         ]
       },

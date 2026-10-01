@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-01T00:06:50Z",
+    "lastUpdated": "2026-10-01T05:49:05Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 6,
+      "activeIncidentsCount": 7,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -76,14 +76,14 @@
       "name": "GitLab",
       "url": "https://status.gitlab.com",
       "icon": "gitlab",
-      "status": "operational"
+      "status": "partial_outage"
     },
     {
       "id": "bitbucket",
       "name": "Bitbucket",
       "url": "https://bitbucket.status.atlassian.com",
       "icon": "bitbucket",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "vercel",
@@ -546,7 +546,7 @@
           "providerId": "gitlab",
           "name": "GitLab SaaS & Web Platform",
           "description": "GitLab.com web application, REST/GraphQL API, Git SSH & HTTPS operations, and GitLab Pages",
-          "status": "operational",
+          "status": "partial_outage",
           "uptime90d": 99.96,
           "currentLatencyMs": 94,
           "components": [
@@ -577,7 +577,7 @@
           "providerId": "gitlab",
           "name": "GitLab CI/CD & Cloud Runners",
           "description": "Hosted Linux, Windows, macOS runners, container registry, and GitLab Duo AI",
-          "status": "operational",
+          "status": "partial_outage",
           "uptime90d": 99.93,
           "currentLatencyMs": 108,
           "components": [
@@ -613,7 +613,7 @@
           "providerId": "bitbucket",
           "name": "Atlassian Bitbucket Cloud",
           "description": "Git repository hosting, Bitbucket Pipelines CI/CD, Pull Requests and REST API",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.94,
           "currentLatencyMs": 98,
           "components": [
@@ -640,7 +640,7 @@
             {
               "id": "bb-pipelines",
               "name": "Bitbucket Pipelines (CI/CD)",
-              "status": "operational"
+              "status": "degraded_performance"
             },
             {
               "id": "bb-webhooks",
@@ -1052,6 +1052,36 @@
             "stage": "identified",
             "timestamp": "2026-09-30T02:20:32Z",
             "message": "We have identified that users may experience errors creating or interacting with Pages, including failures when using Page tools or connecting to live Page sessions.\n\nWe are working on implementing a mitigation."
+          }
+        ]
+      },
+      {
+        "id": "bitbucket-vtywt50wxvtz",
+        "title": "Job processing and scheduling is degraded affecting multiple Atlassian products",
+        "providerId": "bitbucket",
+        "severity": "major",
+        "status": "identified",
+        "createdAt": "2026-10-01T02:55:55.498Z",
+        "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-10-01T05:00:54.986Z",
+            "message": "Our teams continue to work on recovery until the incident is fully resolved. We will provide further updates if we have significant progress to share.\n\nAlong with impact to scheduled and asynchronous work across several products, we also identified SLA component in Jira Service Management is not appearing as expected."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-10-01T04:03:57.515Z",
+            "message": "Our teams have taken corrective steps to mitigate the issue and are observing some improvements. We continue to monitor the situation and will take necessary actions until the incident is fully recovered."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-10-01T03:47:44.644Z",
+            "message": "Our teams have identified the root cause of this incident and is now actively working on mitigating the issue. We will provide further updates within an hour or sooner if we have any significant progress to share."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-01T02:55:55.733Z",
+            "message": "Job processing and job scheduling is degraded, which is affecting scheduled and asynchronous work across several products, including Jira, Confluence and Bitbucket Cloud.\n\nAffected users may see delayed or missing job execution, including delayed email-to-ticket processing and schedules that do not run as expected."
           }
         ]
       },

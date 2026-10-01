@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-09-30T20:25:54Z",
+    "lastUpdated": "2026-10-01T00:06:50Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 8,
+      "activeIncidentsCount": 6,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1026,36 +1026,6 @@
   "incidents": {
     "active": [
       {
-        "id": "openai-01M3SMF1Q0TDCQVNYSXYG37QMR",
-        "title": "Elevated latency for some API requests",
-        "providerId": "openai",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-09-30T17:05:46Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-09-30T18:21:53Z",
-            "message": "We have applied the mitigation and are monitoring the recovery."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-09-30T17:51:40Z",
-            "message": "We have implemented an initial mitigation and are seeing improvements in API latency. We are continuing to investigate the scope of the issue and apply additional mitigations as needed. Some requests to the Responses and Chat Completions APIs may still experience elevated latency or timeouts."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-09-30T17:13:13Z",
-            "message": "We have identified that users are experiencing elevated latency for the impacted services.\n\nWe are working on implementing a mitigation."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-09-30T17:05:46Z",
-            "message": "We have identified that users are experiencing elevated latency for the impacted services.\n\nWe are working on implementing a mitigation."
-          }
-        ]
-      },
-      {
         "id": "openai-01M3R1T4FCR1337FBBYY9K2RPB",
         "title": "Elevated errors in ChatGPT Space Pages",
         "providerId": "openai",
@@ -1197,31 +1167,6 @@
             "stage": "investigating",
             "timestamp": "2026-08-27T18:46:19.105Z",
             "message": "Cloudflare is investigating issues with Cloudflare WARP and Cloudflare Zero Trust users being incorrectly geolocated by some third party services."
-          }
-        ]
-      },
-      {
-        "id": "mongodb-c82n77tbp85t",
-        "title": "Delays in Atlas cluster management operations",
-        "providerId": "mongodb",
-        "severity": "none",
-        "status": "monitoring",
-        "createdAt": "2026-09-30T18:51:35.421Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-09-30T19:26:13.657Z",
-            "message": "The team has implemented a fix and latency of Atlas Cluster management operations are returning to normal. Clusters that incorrectly appeared as degraded in the Atlas UI are also beginning to correctly update their status."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-09-30T19:01:35.809Z",
-            "message": "We've identified an issue with metric ingestion that is causing delays to Atlas Cluster management operations for some customers. Clusters may also appear degraded in the Atlas UI while metrics ingestion is delayed; however, the cluster health is unaffected."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-30T18:51:35.478Z",
-            "message": "We are investigating an issue with Atlas metrics ingestion that may delay cluster management operations, including cluster creation and modification."
           }
         ]
       },

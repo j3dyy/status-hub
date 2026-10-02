@@ -5,14 +5,14 @@
     "company": "isdown.usectl.com",
     "url": "https://isdown.usectl.com",
     "supportUrl": "https://help.example.com",
-    "status": "degraded",
-    "statusMessage": "Some Services Experiencing Degraded Performance",
-    "lastUpdated": "2026-10-02T01:51:52Z",
+    "status": "major_outage",
+    "statusMessage": "Major Outage Detected Across External Services",
+    "lastUpdated": "2026-10-02T07:52:30Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 5,
+      "activeIncidentsCount": 3,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -153,7 +153,7 @@
       "name": "MongoDB Atlas",
       "url": "https://status.cloud.mongodb.com",
       "icon": "mongodb",
-      "status": "degraded"
+      "status": "major_outage"
     },
     {
       "id": "stripe",
@@ -968,7 +968,7 @@
           "providerId": "mongodb",
           "name": "MongoDB Atlas Cloud Database",
           "description": "Managed multi-cloud document database, Atlas Vector Search, Data API, and App Services",
-          "status": "degraded",
+          "status": "major_outage",
           "uptime90d": 99.98,
           "currentLatencyMs": 62,
           "components": [
@@ -1025,31 +1025,6 @@
   ],
   "incidents": {
     "active": [
-      {
-        "id": "cloudflare-fs7dz54l226c",
-        "title": "Network Performance Issues in Madrid",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-09-30T10:31:12.000Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-09-30T14:06:40.522Z",
-            "message": "A fix has been implemented and we are monitoring the results."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-09-30T11:31:16.708Z",
-            "message": "The issue has been identified and a fix is being implemented."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-30T10:31:12.858Z",
-            "message": "Cloudflare is investigating issues with network performance in Madrid (MAD). \nWe are working to analyse and mitigate this problem. More updates to follow shortly."
-          }
-        ]
-      },
       {
         "id": "cloudflare-tl0vrgjy99r0",
         "title": "Cloudflare One Clients are incorrectly challenged on some sites",
@@ -1117,21 +1092,6 @@
             "stage": "investigating",
             "timestamp": "2026-08-27T18:46:19.105Z",
             "message": "Cloudflare is investigating issues with Cloudflare WARP and Cloudflare Zero Trust users being incorrectly geolocated by some third party services."
-          }
-        ]
-      },
-      {
-        "id": "mongodb-y5cmsx7nwwg3",
-        "title": "MongoDB Charts: Infinite login loop when creating new Charts projects",
-        "providerId": "mongodb",
-        "severity": "minor",
-        "status": "identified",
-        "createdAt": "2026-10-02T00:01:48.122Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-10-02T00:01:48.239Z",
-            "message": "Since approximately 23:30 UTC on 2026-10-01, users creating new Charts projects by clicking on the \"Visualization\" tab will repeatedly be prompted to login and will not be able to view the Charts interface. While these Charts projects will be created, we cannot guarantee the timing at this moment.\n\nExisting Charts projects are not affected."
           }
         ]
       },

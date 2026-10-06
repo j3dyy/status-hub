@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-05T12:43:53Z",
+    "lastUpdated": "2026-10-06T01:35:11Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 5,
+      "activeIncidentsCount": 6,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -139,7 +139,7 @@
       "name": "Cloudflare",
       "url": "https://www.cloudflarestatus.com",
       "icon": "cloudflare",
-      "status": "degraded"
+      "status": "partial_outage"
     },
     {
       "id": "hetzner",
@@ -1026,6 +1026,46 @@
   "incidents": {
     "active": [
       {
+        "id": "openai-01M47AFBNRNXKJWN549T3PMYV8",
+        "title": "Elevated errors in API Platform login and administration APIs.",
+        "providerId": "openai",
+        "severity": "minor",
+        "status": "monitoring",
+        "createdAt": "2026-10-06T00:40:32Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-10-06T00:40:57Z",
+            "message": "We have applied the mitigation and are monitoring the recovery."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-06T00:40:32Z",
+            "message": "We are investigating the issue for the listed services."
+          }
+        ]
+      },
+      {
+        "id": "openai-01M46KED6KQ6PR195KZYYVNY8W",
+        "title": "Elevated error rates in Codex Cloud",
+        "providerId": "openai",
+        "severity": "none",
+        "status": "monitoring",
+        "createdAt": "2026-10-05T17:58:04Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-10-05T18:07:03Z",
+            "message": "We have applied the mitigation and are monitoring the recovery."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-10-05T17:58:04Z",
+            "message": "We have identified that users are experiencing elevated errors within Codex Cloud.\n\nWe are working on implementing a mitigation."
+          }
+        ]
+      },
+      {
         "id": "openai-01M45E0JFFJZ6EQ3BWYPW74R2Z",
         "title": "Elevated Work Mode errors",
         "providerId": "openai",
@@ -1047,26 +1087,6 @@
             "stage": "investigating",
             "timestamp": "2026-10-05T07:03:53Z",
             "message": "We are observing elevated Work Mode errors. Scheduled tasks may also be impacted."
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-ts295zqycqn7",
-        "title": "API Shield JWT Validation Errors",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "identified",
-        "createdAt": "2026-10-05T10:55:29.000Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-10-05T11:24:33.467Z",
-            "message": "The issue has been identified and a fix is being implemented."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-05T10:55:29.272Z",
-            "message": "Cloudflare is investigating an issue affecting API Shield JWT validation for customers using symmetric keying material. Our team is actively working on restoring normal service."
           }
         ]
       },

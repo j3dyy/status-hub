@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-06T01:35:11Z",
+    "lastUpdated": "2026-10-06T08:06:49Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 6,
+      "activeIncidentsCount": 5,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1025,26 +1025,6 @@
   ],
   "incidents": {
     "active": [
-      {
-        "id": "openai-01M47AFBNRNXKJWN549T3PMYV8",
-        "title": "Elevated errors in API Platform login and administration APIs.",
-        "providerId": "openai",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-10-06T00:40:32Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-10-06T00:40:57Z",
-            "message": "We have applied the mitigation and are monitoring the recovery."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-06T00:40:32Z",
-            "message": "We are investigating the issue for the listed services."
-          }
-        ]
-      },
       {
         "id": "openai-01M46KED6KQ6PR195KZYYVNY8W",
         "title": "Elevated error rates in Codex Cloud",

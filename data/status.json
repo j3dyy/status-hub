@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-06T08:06:49Z",
+    "lastUpdated": "2026-10-06T15:09:27Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 5,
+      "activeIncidentsCount": 4,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "claude",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -863,7 +863,7 @@
           "providerId": "cloudflare",
           "name": "Cloudflare Global Network & Edge",
           "description": "Global Edge Network, Cloudflare DNS, Workers & Pages, WAF, and Zero Trust",
-          "status": "degraded",
+          "status": "degraded_performance",
           "uptime90d": 99.99,
           "currentLatencyMs": 24,
           "components": [
@@ -1026,47 +1026,27 @@
   "incidents": {
     "active": [
       {
-        "id": "openai-01M46KED6KQ6PR195KZYYVNY8W",
-        "title": "Elevated error rates in Codex Cloud",
-        "providerId": "openai",
-        "severity": "none",
+        "id": "cloudflare-ryvhi2suec0d",
+        "title": "Network routing issue",
+        "providerId": "cloudflare",
+        "severity": "minor",
         "status": "monitoring",
-        "createdAt": "2026-10-05T17:58:04Z",
+        "createdAt": "2026-10-06T13:34:23.615Z",
         "updates": [
           {
             "stage": "monitoring",
-            "timestamp": "2026-10-05T18:07:03Z",
-            "message": "We have applied the mitigation and are monitoring the recovery."
+            "timestamp": "2026-10-06T14:34:29.665Z",
+            "message": "We are continuing to monitor for any further issues."
           },
           {
             "stage": "identified",
-            "timestamp": "2026-10-05T17:58:04Z",
-            "message": "We have identified that users are experiencing elevated errors within Codex Cloud.\n\nWe are working on implementing a mitigation."
-          }
-        ]
-      },
-      {
-        "id": "openai-01M45E0JFFJZ6EQ3BWYPW74R2Z",
-        "title": "Elevated Work Mode errors",
-        "providerId": "openai",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-10-05T07:03:53Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-10-05T09:50:38Z",
-            "message": "We have mitigated the issue, and are monitoring recovery."
+            "timestamp": "2026-10-06T14:15:45.013Z",
+            "message": "We are continuing to work on a fix for the issue."
           },
           {
             "stage": "investigating",
-            "timestamp": "2026-10-05T07:14:08Z",
-            "message": "We are continuing to observe elevated Work Mode errors. Scheduled tasks may also be impacted."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-05T07:03:53Z",
-            "message": "We are observing elevated Work Mode errors. Scheduled tasks may also be impacted."
+            "timestamp": "2026-10-06T13:34:23.615Z",
+            "message": "Cloudflare is aware of an issue with network routing to Microsoft Azure, which is causing errors for requests directed to origins hosted on that service. The team is actively working on remediation."
           }
         ]
       },

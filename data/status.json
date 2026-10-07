@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-07T18:49:45Z",
+    "lastUpdated": "2026-10-07T23:23:04Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -274,7 +274,7 @@
           "providerId": "claude",
           "name": "Claude Console (platform.claude.com)",
           "description": "Developer platform, prompt engineering workbench, API keys and billing management",
-          "status": "partial_outage",
+          "status": "degraded_performance",
           "uptime90d": 99.93,
           "currentLatencyMs": 84,
           "components": [
@@ -1030,9 +1030,14 @@
         "title": "Elevated errors on platform.claude.com",
         "providerId": "claude",
         "severity": "major",
-        "status": "identified",
+        "status": "monitoring",
         "createdAt": "2026-10-07T13:25:04.163Z",
         "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-10-07T21:44:41.466Z",
+            "message": "We've mitigated the errors loading usage data on platform.claude.com and in the Admin API usage report. While we work on a full fix, the most recent ~30 minutes of usage may take longer to appear on the platform.claude.com. API requests are not affected, and we will provide additional updates here."
+          },
           {
             "stage": "identified",
             "timestamp": "2026-10-07T17:28:02.568Z",

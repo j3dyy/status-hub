@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-07T05:29:23Z",
+    "lastUpdated": "2026-10-07T11:57:57Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 4,
+      "activeIncidentsCount": 3,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -863,7 +863,7 @@
           "providerId": "cloudflare",
           "name": "Cloudflare Global Network & Edge",
           "description": "Global Edge Network, Cloudflare DNS, Workers & Pages, WAF, and Zero Trust",
-          "status": "partial_outage",
+          "status": "degraded",
           "uptime90d": 99.99,
           "currentLatencyMs": 24,
           "components": [
@@ -1025,31 +1025,6 @@
   ],
   "incidents": {
     "active": [
-      {
-        "id": "cloudflare-tt8f4ttcuonf",
-        "title": "Network Performance Issues in Columbus",
-        "providerId": "cloudflare",
-        "severity": "major",
-        "status": "monitoring",
-        "createdAt": "2026-10-07T02:48:37.964Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-10-07T05:11:39.305Z",
-            "message": "A fix has been implemented and we are monitoring the results."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-10-07T03:06:12.759Z",
-            "message": "The issue has been identified and a fix is being implemented."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-07T02:48:37.964Z",
-            "message": "Cloudflare is investigating issues with Network Performance in Columbus, OH (CMH). \n\nWe are working to analyze and mitigate this problem. More updates to follow shortly."
-          }
-        ]
-      },
       {
         "id": "cloudflare-tl0vrgjy99r0",
         "title": "Cloudflare One Clients are incorrectly challenged on some sites",

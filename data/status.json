@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-09T08:55:15Z",
+    "lastUpdated": "2026-10-09T15:58:47Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 4,
+      "activeIncidentsCount": 5,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1052,6 +1052,26 @@
             "stage": "investigating",
             "timestamp": "2026-10-07T13:25:04.271Z",
             "message": "We are investigating elevated errors affecting usage data on the platform.claude.com Usage page and the Admin API usage report. Core functionality is not affected. We will provide an update as soon as possible."
+          }
+        ]
+      },
+      {
+        "id": "cloudflare-4knp3pzs3qvx",
+        "title": "Cloudflare DNS Resolver 1.1.1.1 and Gateway DNS are having issues in SIN",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "investigating",
+        "createdAt": "2026-10-09T14:41:09.000Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-09T14:42:08.428Z",
+            "message": "We are continuing to investigate this issue."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-09T14:41:09.782Z",
+            "message": "Cloudflare is aware of, and investigating, an issue which potentially impacts multiple users in Singapore that use the 1.1.1.1 public resolver or Gateway DNS. Further detail will be provided as more information becomes available."
           }
         ]
       },

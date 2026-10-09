@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-09T15:58:47Z",
+    "lastUpdated": "2026-10-09T20:46:57Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 5,
+      "activeIncidentsCount": 6,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "claude",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -1026,6 +1026,31 @@
   "incidents": {
     "active": [
       {
+        "id": "openai-01M4GV1M2A3K38T73JCVCD9G0R",
+        "title": "Delayed Costs data in the Compliance API",
+        "providerId": "openai",
+        "severity": "minor",
+        "status": "identified",
+        "createdAt": "2026-10-09T17:23:18Z",
+        "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-10-09T18:46:25Z",
+            "message": "Some customers may continue to experience delayed Costs data through the Compliance API. ChatGPT usage and API Platform requests are not affected, and other reporting channels remain available. We have identified the cause and are continuing work to restore normal data freshness. We will provide another update as work progresses."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-10-09T17:27:49Z",
+            "message": "We have identified an issue causing delays in publishing Costs data through the Compliance API. The API Platform organization costs endpoint and ChatGPT usage are not affected, and other reporting channels remain available. We are working to restore normal data freshness."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-10-09T17:23:18Z",
+            "message": "We have identified an issue causing delays in publishing organization cost data through the Costs API. API and ChatGPT usage are not affected, and other reporting channels remain available. We are working to restore normal data freshness."
+          }
+        ]
+      },
+      {
         "id": "claude-978mjkgw6mh7",
         "title": "Elevated errors on platform.claude.com",
         "providerId": "claude",
@@ -1056,22 +1081,17 @@
         ]
       },
       {
-        "id": "cloudflare-4knp3pzs3qvx",
-        "title": "Cloudflare DNS Resolver 1.1.1.1 and Gateway DNS are having issues in SIN",
+        "id": "cloudflare-x8n12150xwf6",
+        "title": "Cloudflare API service issues",
         "providerId": "cloudflare",
         "severity": "minor",
         "status": "investigating",
-        "createdAt": "2026-10-09T14:41:09.000Z",
+        "createdAt": "2026-10-09T18:52:55.000Z",
         "updates": [
           {
             "stage": "investigating",
-            "timestamp": "2026-10-09T14:42:08.428Z",
-            "message": "We are continuing to investigate this issue."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-09T14:41:09.782Z",
-            "message": "Cloudflare is aware of, and investigating, an issue which potentially impacts multiple users in Singapore that use the 1.1.1.1 public resolver or Gateway DNS. Further detail will be provided as more information becomes available."
+            "timestamp": "2026-10-09T18:52:55.923Z",
+            "message": "Cloudflare is investigating issues with Cloudflare Dashboard APIs. These issues do not affect the serving of cached files via the Cloudflare CDN or other security features at the Cloudflare Edge. Customers using the Cloudflare APIs are impacted as requests might fail and/or errors may be displayed."
           }
         ]
       },

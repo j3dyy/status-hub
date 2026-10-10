@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-10T00:21:00Z",
+    "lastUpdated": "2026-10-10T06:08:20Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 8,
+      "activeIncidentsCount": 6,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "partial_outage"
+      "status": "degraded"
     },
     {
       "id": "claude",
@@ -76,7 +76,7 @@
       "name": "GitLab",
       "url": "https://status.gitlab.com",
       "icon": "gitlab",
-      "status": "operational"
+      "status": "partial_outage"
     },
     {
       "id": "bitbucket",
@@ -90,7 +90,7 @@
       "name": "Vercel",
       "url": "https://www.vercel-status.com",
       "icon": "vercel",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "docker",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "partial_outage",
+          "status": "degraded",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -546,24 +546,24 @@
           "providerId": "gitlab",
           "name": "GitLab SaaS & Web Platform",
           "description": "GitLab.com web application, REST/GraphQL API, Git SSH & HTTPS operations, and GitLab Pages",
-          "status": "operational",
+          "status": "partial_outage",
           "uptime90d": 99.96,
           "currentLatencyMs": 94,
           "components": [
             {
               "id": "gitlab-web",
               "name": "Website",
-              "status": "operational"
+              "status": "partial_outage"
             },
             {
               "id": "gitlab-api",
               "name": "API",
-              "status": "operational"
+              "status": "partial_outage"
             },
             {
               "id": "gitlab-git",
               "name": "Git Operations",
-              "status": "operational"
+              "status": "partial_outage"
             },
             {
               "id": "gitlab-pages",
@@ -577,24 +577,24 @@
           "providerId": "gitlab",
           "name": "GitLab CI/CD & Cloud Runners",
           "description": "Hosted Linux, Windows, macOS runners, container registry, and GitLab Duo AI",
-          "status": "operational",
+          "status": "partial_outage",
           "uptime90d": 99.93,
           "currentLatencyMs": 108,
           "components": [
             {
               "id": "gitlab-ci-linux",
               "name": "CI/CD - Hosted runners on Linux",
-              "status": "operational"
+              "status": "partial_outage"
             },
             {
               "id": "gitlab-ci-windows",
               "name": "CI/CD - Hosted runners on Windows",
-              "status": "operational"
+              "status": "partial_outage"
             },
             {
               "id": "gitlab-ci-mac",
               "name": "CI/CD - Hosted runners on macOS",
-              "status": "operational"
+              "status": "partial_outage"
             },
             {
               "id": "gitlab-registry",
@@ -659,7 +659,7 @@
           "providerId": "vercel",
           "name": "Vercel Edge Platform & Deployments",
           "description": "Global Edge Network CDN, Serverless/Edge Functions, Deployments pipeline and Vercel Storage",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.99,
           "currentLatencyMs": 48,
           "components": [
@@ -1056,21 +1056,6 @@
         ]
       },
       {
-        "id": "openai-01M4H7FKXDA425TDNP2CRGEYA3",
-        "title": "Some ChatGPT content may be unavailable on Android",
-        "providerId": "openai",
-        "severity": "major",
-        "status": "identified",
-        "createdAt": "2026-10-09T21:00:39Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-10-09T21:00:39Z",
-            "message": "We have identified an issue affecting the ChatGPT Android app where users may see \u201cThis content is unavailable in this version of the app\u201d instead of certain content. A fix is rolling out gradually in the latest Android version. Users can use ChatGPT on the web while we work to restore the experience for older app versions."
-          }
-        ]
-      },
-      {
         "id": "claude-978mjkgw6mh7",
         "title": "Elevated errors on platform.claude.com",
         "providerId": "claude",
@@ -1101,27 +1086,22 @@
         ]
       },
       {
-        "id": "cloudflare-x8n12150xwf6",
-        "title": "Cloudflare API service issues",
+        "id": "cloudflare-cyxclg7nnhjy",
+        "title": "Elevated Errors in China Network Colos",
         "providerId": "cloudflare",
         "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-10-09T18:52:55.000Z",
+        "status": "identified",
+        "createdAt": "2026-10-10T04:13:17.000Z",
         "updates": [
           {
-            "stage": "monitoring",
-            "timestamp": "2026-10-09T21:10:01.321Z",
-            "message": "A fix has been implemented and we are monitoring the results."
-          },
-          {
             "stage": "identified",
-            "timestamp": "2026-10-09T20:58:43.812Z",
+            "timestamp": "2026-10-10T05:48:24.702Z",
             "message": "The issue has been identified and a fix is being implemented."
           },
           {
             "stage": "investigating",
-            "timestamp": "2026-10-09T18:52:55.923Z",
-            "message": "Cloudflare is investigating issues with Cloudflare Dashboard APIs. These issues do not affect the serving of cached files via the Cloudflare CDN or other security features at the Cloudflare Edge. Customers using the Cloudflare APIs are impacted as requests might fail and/or errors may be displayed."
+            "timestamp": "2026-10-10T04:13:17.834Z",
+            "message": "We are investigating a spike in errors observed in our China colos."
           }
         ]
       },
@@ -1192,21 +1172,6 @@
             "stage": "investigating",
             "timestamp": "2026-08-27T18:46:19.105Z",
             "message": "Cloudflare is investigating issues with Cloudflare WARP and Cloudflare Zero Trust users being incorrectly geolocated by some third party services."
-          }
-        ]
-      },
-      {
-        "id": "vercel-bpzq72pgngc7",
-        "title": "Delays in Drains, Observability, and Workflow in Washington (iad1)",
-        "providerId": "vercel",
-        "severity": "major",
-        "status": "investigating",
-        "createdAt": "2026-10-10T00:15:49.929Z",
-        "updates": [
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-10T00:15:50.120Z",
-            "message": "We've identified an issue where some customers may experience delayed drain delivery, delayed logs, metrics, and traces, and Workflow runs that remain pending in Washington (iad1).\n\nWe are investigating this issue. We will provide additional updates as they become available."
           }
         ]
       },

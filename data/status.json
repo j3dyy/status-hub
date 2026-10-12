@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-12T12:55:07Z",
+    "lastUpdated": "2026-10-12T21:38:47Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "claude",
@@ -69,7 +69,7 @@
       "name": "GitHub",
       "url": "https://www.githubstatus.com",
       "icon": "github",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "gitlab",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -484,7 +484,7 @@
           "providerId": "github",
           "name": "GitHub Core Services",
           "description": "Git repository operations, Pull Requests, Webhooks and REST/GraphQL APIs",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.99,
           "currentLatencyMs": 85,
           "components": [
@@ -506,7 +506,7 @@
             {
               "id": "github-issues",
               "name": "Issues, Projects & Pull Requests",
-              "status": "degraded_performance"
+              "status": "operational"
             }
           ]
         },
@@ -515,14 +515,14 @@
           "providerId": "github",
           "name": "GitHub Compute & Automation",
           "description": "GitHub Actions runners, Codespaces, and GitHub Copilot completions",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.92,
           "currentLatencyMs": 112,
           "components": [
             {
               "id": "gh-actions",
               "name": "GitHub Actions Workflow Runners",
-              "status": "degraded_performance"
+              "status": "operational"
             },
             {
               "id": "gh-copilot",
@@ -1026,56 +1026,6 @@
   "incidents": {
     "active": [
       {
-        "id": "openai-01M4GV1M2A3K38T73JCVCD9G0R",
-        "title": "Delayed Costs data in the Compliance API",
-        "providerId": "openai",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-10-09T17:23:18Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-10-09T22:03:59Z",
-            "message": "We have implemented a mitigation, and delayed Costs data is now processing through the Compliance API. Some customers may continue to see incomplete Costs data while the backlog catches up. We expect this catch-up process to continue through Sunday, October 11. ChatGPT usage and API Platform requests remain unaffected. We are monitoring recovery."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-10-09T18:46:25Z",
-            "message": "Some customers may continue to experience delayed Costs data through the Compliance API. ChatGPT usage and API Platform requests are not affected, and other reporting channels remain available. We have identified the cause and are continuing work to restore normal data freshness. We will provide another update as work progresses."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-10-09T17:27:49Z",
-            "message": "We have identified an issue causing delays in publishing Costs data through the Compliance API. The API Platform organization costs endpoint and ChatGPT usage are not affected, and other reporting channels remain available. We are working to restore normal data freshness."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-10-09T17:23:18Z",
-            "message": "We have identified an issue causing delays in publishing organization cost data through the Costs API. API and ChatGPT usage are not affected, and other reporting channels remain available. We are working to restore normal data freshness."
-          }
-        ]
-      },
-      {
-        "id": "github-93njd414rpbx",
-        "title": "Incident with Actions, Pull Requests and Issues",
-        "providerId": "github",
-        "severity": "minor",
-        "status": "investigating",
-        "createdAt": "2026-10-12T12:21:47.972Z",
-        "updates": [
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-12T12:33:21.895Z",
-            "message": "Users may experience issues loading the Actions tab UI, interacting with the Checks API, queueing new Actions runs, creating and updating issues, and requesting PR reviews, including via REST and GraphQL APIs."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-12T12:21:48.115Z",
-            "message": "We are investigating reports of degraded performance for Actions, Issues and Pull Requests"
-          }
-        ]
-      },
-      {
         "id": "claude-978mjkgw6mh7",
         "title": "Elevated errors on platform.claude.com",
         "providerId": "claude",
@@ -1106,6 +1056,46 @@
         ]
       },
       {
+        "id": "cloudflare-mbv1dfp471bh",
+        "title": "Cloudflare Workers - Cron Trigger Activation Issues",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "monitoring",
+        "createdAt": "2026-10-12T19:09:20.000Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-10-12T19:39:43.166Z",
+            "message": "A fix has been implemented and we are monitoring the results."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-12T19:09:20.633Z",
+            "message": "Cloudflare is investigating issues with Workers Cron Triggers. Customers who have recently created or modified a Cron Trigger schedule may find that the schedule is not executing as expected. Pre-existing Cron Trigger schedules that have not been recently modified are not affected. \n\nWe are working to identify the cause and mitigate this problem. More updates to follow shortly."
+          }
+        ]
+      },
+      {
+        "id": "cloudflare-ja8aolszxtrg",
+        "title": "Cloudflare Network Performance Issues",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "identified",
+        "createdAt": "2026-10-12T16:22:05.949Z",
+        "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-10-12T17:13:47.670Z",
+            "message": "We are continuing to work on a fix for the issue."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-12T16:22:05.949Z",
+            "message": "Cloudflare is investigating intermittent performance issues affecting some data centers. Customers may experience errors or increased latency when accessing websites and services proxied through Cloudflare. We are working to mitigate this issue."
+          }
+        ]
+      },
+      {
         "id": "cloudflare-vyy1a1dspusg",
         "title": "Elevated errors in Los Angeles (LAX)",
         "providerId": "cloudflare",
@@ -1128,6 +1118,11 @@
         "status": "identified",
         "createdAt": "2026-10-10T04:13:17.000Z",
         "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-10-12T15:33:07.052Z",
+            "message": "We have identified that increased latency and 5xx errors affecting certain China Network colos are caused by cross-border routing instability in the China network. \nWe are actively working to mitigate impact for affected customers by adjusting traffic routing, and are continuing to work with our network partners on a resolution. Customers experiencing issues may contact Cloudflare Support."
+          },
           {
             "stage": "identified",
             "timestamp": "2026-10-12T04:23:57.604Z",

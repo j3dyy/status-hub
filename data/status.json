@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-12T04:55:29Z",
+    "lastUpdated": "2026-10-12T12:55:07Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 6,
+      "activeIncidentsCount": 8,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -69,14 +69,14 @@
       "name": "GitHub",
       "url": "https://www.githubstatus.com",
       "icon": "github",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "gitlab",
       "name": "GitLab",
       "url": "https://status.gitlab.com",
       "icon": "gitlab",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "bitbucket",
@@ -484,7 +484,7 @@
           "providerId": "github",
           "name": "GitHub Core Services",
           "description": "Git repository operations, Pull Requests, Webhooks and REST/GraphQL APIs",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.99,
           "currentLatencyMs": 85,
           "components": [
@@ -506,7 +506,7 @@
             {
               "id": "github-issues",
               "name": "Issues, Projects & Pull Requests",
-              "status": "operational"
+              "status": "degraded_performance"
             }
           ]
         },
@@ -515,14 +515,14 @@
           "providerId": "github",
           "name": "GitHub Compute & Automation",
           "description": "GitHub Actions runners, Codespaces, and GitHub Copilot completions",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.92,
           "currentLatencyMs": 112,
           "components": [
             {
               "id": "gh-actions",
               "name": "GitHub Actions Workflow Runners",
-              "status": "operational"
+              "status": "degraded_performance"
             },
             {
               "id": "gh-copilot",
@@ -546,7 +546,7 @@
           "providerId": "gitlab",
           "name": "GitLab SaaS & Web Platform",
           "description": "GitLab.com web application, REST/GraphQL API, Git SSH & HTTPS operations, and GitLab Pages",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.96,
           "currentLatencyMs": 94,
           "components": [
@@ -577,7 +577,7 @@
           "providerId": "gitlab",
           "name": "GitLab CI/CD & Cloud Runners",
           "description": "Hosted Linux, Windows, macOS runners, container registry, and GitLab Duo AI",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.93,
           "currentLatencyMs": 108,
           "components": [
@@ -604,7 +604,7 @@
             {
               "id": "gitlab-duo",
               "name": "GitLab Duo (AI Code Assistance)",
-              "status": "operational"
+              "status": "degraded"
             }
           ]
         },
@@ -1056,6 +1056,26 @@
         ]
       },
       {
+        "id": "github-93njd414rpbx",
+        "title": "Incident with Actions, Pull Requests and Issues",
+        "providerId": "github",
+        "severity": "minor",
+        "status": "investigating",
+        "createdAt": "2026-10-12T12:21:47.972Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-12T12:33:21.895Z",
+            "message": "Users may experience issues loading the Actions tab UI, interacting with the Checks API, queueing new Actions runs, creating and updating issues, and requesting PR reviews, including via REST and GraphQL APIs."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-12T12:21:48.115Z",
+            "message": "We are investigating reports of degraded performance for Actions, Issues and Pull Requests"
+          }
+        ]
+      },
+      {
         "id": "claude-978mjkgw6mh7",
         "title": "Elevated errors on platform.claude.com",
         "providerId": "claude",
@@ -1082,6 +1102,21 @@
             "stage": "investigating",
             "timestamp": "2026-10-07T13:25:04.271Z",
             "message": "We are investigating elevated errors affecting usage data on the platform.claude.com Usage page and the Admin API usage report. Core functionality is not affected. We will provide an update as soon as possible."
+          }
+        ]
+      },
+      {
+        "id": "cloudflare-vyy1a1dspusg",
+        "title": "Elevated errors in Los Angeles (LAX)",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "investigating",
+        "createdAt": "2026-10-12T08:52:23.535Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-12T08:52:23.535Z",
+            "message": "Customers reaching Los Angeles (LAX) colo may see an elevate number of errors. Our team is investigating and working on mitigating the issue."
           }
         ]
       },

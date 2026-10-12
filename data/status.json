@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-11T23:54:17Z",
+    "lastUpdated": "2026-10-12T04:55:29Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -1093,6 +1093,11 @@
         "status": "identified",
         "createdAt": "2026-10-10T04:13:17.000Z",
         "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-10-12T04:23:57.604Z",
+            "message": "We are investigating reports of degraded performance for traffic traversing the public internet between certain cities and provinces in mainland China and origin servers located outside the region. The impact is being reported across multiple ISPs and manifests as slower speeds or intermittent timeouts. \n\nWhile this congestion occurs upstream of Cloudflare's network, our engineering team is actively working to mitigate the effects. Intermittent 524 timeout errors is expected to continue due to ongoing congestion. While there is no fixed timeline for full resolution, as there are dependencies outside our network, we are taking steps to reduce customer impact."
+          },
           {
             "stage": "identified",
             "timestamp": "2026-10-10T05:48:24.702Z",

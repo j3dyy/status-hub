@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-13T17:10:07Z",
+    "lastUpdated": "2026-10-13T21:51:17Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 8,
+      "activeIncidentsCount": 7,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -34,7 +34,7 @@
       "name": "Anthropic Claude",
       "url": "https://status.claude.com",
       "icon": "sparkles",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "gemini",
@@ -76,7 +76,7 @@
       "name": "GitLab",
       "url": "https://status.gitlab.com",
       "icon": "gitlab",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "bitbucket",
@@ -243,7 +243,7 @@
           "providerId": "claude",
           "name": "claude.ai",
           "description": "Web & mobile interface, Claude Pro/Team, Projects and interactive Artifacts",
-          "status": "major_outage",
+          "status": "operational",
           "uptime90d": 99.4,
           "currentLatencyMs": 118,
           "components": [
@@ -274,7 +274,7 @@
           "providerId": "claude",
           "name": "Claude Console (platform.claude.com)",
           "description": "Developer platform, prompt engineering workbench, API keys and billing management",
-          "status": "degraded_performance",
+          "status": "operational",
           "uptime90d": 99.93,
           "currentLatencyMs": 84,
           "components": [
@@ -300,7 +300,7 @@
           "providerId": "claude",
           "name": "Claude API (api.anthropic.com)",
           "description": "Direct inference endpoints for Claude 3.5 Sonnet, Claude 3.5 Haiku, and Claude 3 Opus",
-          "status": "major_outage",
+          "status": "operational",
           "uptime90d": 99.5,
           "currentLatencyMs": 142,
           "components": [
@@ -331,7 +331,7 @@
           "providerId": "claude",
           "name": "Claude Code",
           "description": "Agentic command-line developer assistant and IDE tool integration",
-          "status": "major_outage",
+          "status": "operational",
           "uptime90d": 99.44,
           "currentLatencyMs": 105,
           "components": [
@@ -357,7 +357,7 @@
           "providerId": "claude",
           "name": "Claude Cowork",
           "description": "Real-time collaborative workspaces, multi-user sessions, and team memory",
-          "status": "major_outage",
+          "status": "operational",
           "uptime90d": 99.43,
           "currentLatencyMs": 115,
           "components": [
@@ -378,7 +378,7 @@
           "providerId": "claude",
           "name": "Claude for Government",
           "description": "FedRAMP High / DoD IL5 compliant isolated federal cloud enclave",
-          "status": "major_outage",
+          "status": "operational",
           "uptime90d": 100.0,
           "currentLatencyMs": 95,
           "components": [
@@ -546,7 +546,7 @@
           "providerId": "gitlab",
           "name": "GitLab SaaS & Web Platform",
           "description": "GitLab.com web application, REST/GraphQL API, Git SSH & HTTPS operations, and GitLab Pages",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.96,
           "currentLatencyMs": 94,
           "components": [
@@ -577,24 +577,24 @@
           "providerId": "gitlab",
           "name": "GitLab CI/CD & Cloud Runners",
           "description": "Hosted Linux, Windows, macOS runners, container registry, and GitLab Duo AI",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.93,
           "currentLatencyMs": 108,
           "components": [
             {
               "id": "gitlab-ci-linux",
               "name": "CI/CD - Hosted runners on Linux",
-              "status": "degraded"
+              "status": "operational"
             },
             {
               "id": "gitlab-ci-windows",
               "name": "CI/CD - Hosted runners on Windows",
-              "status": "degraded"
+              "status": "operational"
             },
             {
               "id": "gitlab-ci-mac",
               "name": "CI/CD - Hosted runners on macOS",
-              "status": "degraded"
+              "status": "operational"
             },
             {
               "id": "gitlab-registry",
@@ -1026,32 +1026,17 @@
   "incidents": {
     "active": [
       {
-        "id": "claude-978mjkgw6mh7",
-        "title": "Elevated errors on platform.claude.com",
-        "providerId": "claude",
-        "severity": "major",
-        "status": "monitoring",
-        "createdAt": "2026-10-07T13:25:04.163Z",
+        "id": "cloudflare-fdgz8zlmfhw6",
+        "title": "Network Performance Issues in LAX",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "identified",
+        "createdAt": "2026-10-13T20:37:59.232Z",
         "updates": [
           {
-            "stage": "monitoring",
-            "timestamp": "2026-10-07T21:44:41.466Z",
-            "message": "We've mitigated the errors loading usage data on platform.claude.com and in the Admin API usage report. While we work on a full fix, the most recent ~30 minutes of usage may take longer to appear on the platform.claude.com. API requests are not affected, and we will provide additional updates here."
-          },
-          {
             "stage": "identified",
-            "timestamp": "2026-10-07T17:28:02.568Z",
-            "message": "We've identified the cause of errors loading usage data. The Admin API usage report has recovered, and fixes for the platform.claude.com Usage and Rate limits pages are in progress. The most recent 30 minutes of usage may be delayed. Core functionality is not affected."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-07T16:36:44.789Z",
-            "message": "We are continuing to work on elevated errors affecting usage data on the platform.claude.com Usage and Rate limits pages and the Admin API usage report. A mitigation for the Usage page and the Admin API usage report is rolling out; once it is in place, the most recent usage may take about 30 minutes to appear there. Core functionality is not affected."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-07T13:25:04.271Z",
-            "message": "We are investigating elevated errors affecting usage data on the platform.claude.com Usage page and the Admin API usage report. Core functionality is not affected. We will provide an update as soon as possible."
+            "timestamp": "2026-10-13T20:37:59.232Z",
+            "message": "Cloudflare is investigating issues with network performance in LAX. We are working to analyse and mitigate this problem. More updates to follow shortly."
           }
         ]
       },
@@ -1092,26 +1077,6 @@
             "stage": "identified",
             "timestamp": "2026-10-13T10:14:58.277Z",
             "message": "Since 2026-10-12 at 16:57:24 UTC, audit logs from multiple Cloudflare products are not ingested into the audit logs v2 database anymore. V1 audit logs are not affected"
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-vyy1a1dspusg",
-        "title": "Elevated errors in Los Angeles (LAX)",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "identified",
-        "createdAt": "2026-10-12T08:52:23.535Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-10-12T21:41:25.669Z",
-            "message": "We are continuing to work on a fix for the issue."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-12T08:52:23.535Z",
-            "message": "Customers reaching Los Angeles (LAX) colo may see an elevate number of errors. Our team is investigating and working on mitigating the issue."
           }
         ]
       },

@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-13T09:46:08Z",
+    "lastUpdated": "2026-10-13T17:10:07Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "claude",
@@ -76,7 +76,7 @@
       "name": "GitLab",
       "url": "https://status.gitlab.com",
       "icon": "gitlab",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "bitbucket",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -546,7 +546,7 @@
           "providerId": "gitlab",
           "name": "GitLab SaaS & Web Platform",
           "description": "GitLab.com web application, REST/GraphQL API, Git SSH & HTTPS operations, and GitLab Pages",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.96,
           "currentLatencyMs": 94,
           "components": [
@@ -577,24 +577,24 @@
           "providerId": "gitlab",
           "name": "GitLab CI/CD & Cloud Runners",
           "description": "Hosted Linux, Windows, macOS runners, container registry, and GitLab Duo AI",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.93,
           "currentLatencyMs": 108,
           "components": [
             {
               "id": "gitlab-ci-linux",
               "name": "CI/CD - Hosted runners on Linux",
-              "status": "operational"
+              "status": "degraded"
             },
             {
               "id": "gitlab-ci-windows",
               "name": "CI/CD - Hosted runners on Windows",
-              "status": "operational"
+              "status": "degraded"
             },
             {
               "id": "gitlab-ci-mac",
               "name": "CI/CD - Hosted runners on macOS",
-              "status": "operational"
+              "status": "degraded"
             },
             {
               "id": "gitlab-registry",
@@ -1026,36 +1026,6 @@
   "incidents": {
     "active": [
       {
-        "id": "openai-01M4T4ZCM54D3ZPTQXRSWFG0XS",
-        "title": "Degraded performance in GPT-6.1 Sol Codex and Work mode",
-        "providerId": "openai",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-10-13T08:10:00Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-10-13T09:30:00Z",
-            "message": "We have applied the mitigation and are monitoring the recovery."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-13T08:22:16Z",
-            "message": "We are investigating the issue for the listed services."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-13T08:18:33Z",
-            "message": "Degraded performance on GPT 6.1 Sol Codex and Work mode"
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-13T08:10:00Z",
-            "message": "We are investigating the issue for the listed services."
-          }
-        ]
-      },
-      {
         "id": "claude-978mjkgw6mh7",
         "title": "Elevated errors on platform.claude.com",
         "providerId": "claude",
@@ -1086,42 +1056,42 @@
         ]
       },
       {
-        "id": "cloudflare-gqm2xrm9wk8t",
-        "title": "Network performance issues in Ashburn, US (IAD)",
+        "id": "cloudflare-cbvocc87nsne",
+        "title": "Cloudflare Workers - Cron Trigger Activation Issues",
         "providerId": "cloudflare",
         "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-10-13T04:00:44.604Z",
+        "status": "identified",
+        "createdAt": "2026-10-13T15:18:01.555Z",
         "updates": [
           {
-            "stage": "monitoring",
-            "timestamp": "2026-10-13T06:57:17.159Z",
-            "message": "Impact observed 06:33 - 06:41 UTC when we observe the vendor restoring the impacted capacity. We believe they temporarily affected all remaining capacity during the restoration and are following up with them. At this point all capacity has been restored and we are monitoring"
-          },
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-10-13T05:09:00.774Z",
-            "message": "We have identified the issue to be related to third-party circuit maintenance, have mitigated the impact that affected traffic, and customers should expect normal network behaviour and performance through the maintenance window. We will update when the maintenance is complete, expected at 10:00 GMT today (2026-10-13)."
-          },
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-10-13T05:00:19.129Z",
-            "message": " We have taken measures to address any impact and are closely monitoring the situation."
-          },
-          {
             "stage": "identified",
-            "timestamp": "2026-10-13T04:52:39.244Z",
-            "message": "We are continuing to work on a fix for the issue."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-10-13T04:52:01.175Z",
+            "timestamp": "2026-10-13T15:19:04.428Z",
             "message": "The issue has been identified and a fix is being implemented."
           },
           {
             "stage": "investigating",
-            "timestamp": "2026-10-13T04:00:44.604Z",
-            "message": "Cloudflare is investigating issues with network performance in Ashburn, US (IAD). We are working to analyse and mitigate this problem. More updates to follow shortly."
+            "timestamp": "2026-10-13T15:18:01.555Z",
+            "message": "Cloudflare is investigating issues with Workers Cron Triggers. Customers who have recently created or modified a Cron Trigger schedule may find that the schedule is not executing as expected. Pre-existing Cron Trigger schedules that have not been recently modified are not affected.\n\nWe are working to identify the cause and mitigate this problem. More updates to follow shortly."
+          }
+        ]
+      },
+      {
+        "id": "cloudflare-hpmrg8d5vwr6",
+        "title": "Audit Logs v2 ingestion is missing multiple Cloudflare products ",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "monitoring",
+        "createdAt": "2026-10-13T10:14:58.277Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-10-13T11:45:43.999Z",
+            "message": "We are continuing to monitor for any further issues."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-10-13T10:14:58.277Z",
+            "message": "Since 2026-10-12 at 16:57:24 UTC, audit logs from multiple Cloudflare products are not ingested into the audit logs v2 database anymore. V1 audit logs are not affected"
           }
         ]
       },

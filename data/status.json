@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-12T21:38:47Z",
+    "lastUpdated": "2026-10-13T02:43:10Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 8,
+      "activeIncidentsCount": 6,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1056,53 +1056,18 @@
         ]
       },
       {
-        "id": "cloudflare-mbv1dfp471bh",
-        "title": "Cloudflare Workers - Cron Trigger Activation Issues",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-10-12T19:09:20.000Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-10-12T19:39:43.166Z",
-            "message": "A fix has been implemented and we are monitoring the results."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-12T19:09:20.633Z",
-            "message": "Cloudflare is investigating issues with Workers Cron Triggers. Customers who have recently created or modified a Cron Trigger schedule may find that the schedule is not executing as expected. Pre-existing Cron Trigger schedules that have not been recently modified are not affected. \n\nWe are working to identify the cause and mitigate this problem. More updates to follow shortly."
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-ja8aolszxtrg",
-        "title": "Cloudflare Network Performance Issues",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "identified",
-        "createdAt": "2026-10-12T16:22:05.949Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-10-12T17:13:47.670Z",
-            "message": "We are continuing to work on a fix for the issue."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-12T16:22:05.949Z",
-            "message": "Cloudflare is investigating intermittent performance issues affecting some data centers. Customers may experience errors or increased latency when accessing websites and services proxied through Cloudflare. We are working to mitigate this issue."
-          }
-        ]
-      },
-      {
         "id": "cloudflare-vyy1a1dspusg",
         "title": "Elevated errors in Los Angeles (LAX)",
         "providerId": "cloudflare",
         "severity": "minor",
-        "status": "investigating",
+        "status": "identified",
         "createdAt": "2026-10-12T08:52:23.535Z",
         "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-10-12T21:41:25.669Z",
+            "message": "We are continuing to work on a fix for the issue."
+          },
           {
             "stage": "investigating",
             "timestamp": "2026-10-12T08:52:23.535Z",

@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-14T15:27:33Z",
+    "lastUpdated": "2026-10-14T19:38:13Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "claude",
@@ -76,7 +76,7 @@
       "name": "GitLab",
       "url": "https://status.gitlab.com",
       "icon": "gitlab",
-      "status": "partial_outage"
+      "status": "operational"
     },
     {
       "id": "bitbucket",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -546,7 +546,7 @@
           "providerId": "gitlab",
           "name": "GitLab SaaS & Web Platform",
           "description": "GitLab.com web application, REST/GraphQL API, Git SSH & HTTPS operations, and GitLab Pages",
-          "status": "partial_outage",
+          "status": "operational",
           "uptime90d": 99.96,
           "currentLatencyMs": 94,
           "components": [
@@ -577,24 +577,24 @@
           "providerId": "gitlab",
           "name": "GitLab CI/CD & Cloud Runners",
           "description": "Hosted Linux, Windows, macOS runners, container registry, and GitLab Duo AI",
-          "status": "partial_outage",
+          "status": "operational",
           "uptime90d": 99.93,
           "currentLatencyMs": 108,
           "components": [
             {
               "id": "gitlab-ci-linux",
               "name": "CI/CD - Hosted runners on Linux",
-              "status": "partial_outage"
+              "status": "operational"
             },
             {
               "id": "gitlab-ci-windows",
               "name": "CI/CD - Hosted runners on Windows",
-              "status": "partial_outage"
+              "status": "operational"
             },
             {
               "id": "gitlab-ci-mac",
               "name": "CI/CD - Hosted runners on macOS",
-              "status": "partial_outage"
+              "status": "operational"
             },
             {
               "id": "gitlab-registry",
@@ -1026,6 +1026,26 @@
   "incidents": {
     "active": [
       {
+        "id": "openai-01M4XNQX7C6RCBNGX9H711WFSG",
+        "title": "Delayed Costs data in the Compliance API",
+        "providerId": "openai",
+        "severity": "minor",
+        "status": "identified",
+        "createdAt": "2026-10-14T17:00:44Z",
+        "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-10-14T17:02:47Z",
+            "message": "We have identified an issue causing delays in publishing organization cost data through the Costs API. API and ChatGPT usage are not affected, and other reporting channels remain available. We are working to restore normal data freshness."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-10-14T17:00:44Z",
+            "message": "We have identified an issue causing delays in publishing organization cost data through the Costs API. API and ChatGPT usage are not affected, and other reporting channels remain available. We are working to restore normal data freshness."
+          }
+        ]
+      },
+      {
         "id": "cloudflare-npjny9agana8",
         "title": "Cloudflare Workers - Cron Trigger Activation Issues",
         "providerId": "cloudflare",
@@ -1075,9 +1095,14 @@
         "title": "Elevated Errors in China Network Colos",
         "providerId": "cloudflare",
         "severity": "minor",
-        "status": "identified",
+        "status": "monitoring",
         "createdAt": "2026-10-10T04:13:17.000Z",
         "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-10-14T17:50:10.585Z",
+            "message": "A fix has been implemented and we are monitoring the results."
+          },
           {
             "stage": "identified",
             "timestamp": "2026-10-12T15:33:07.052Z",
@@ -1097,26 +1122,6 @@
             "stage": "investigating",
             "timestamp": "2026-10-10T04:13:17.834Z",
             "message": "We are investigating a spike in errors observed in our China colos."
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-tl0vrgjy99r0",
-        "title": "Cloudflare One Clients are incorrectly challenged on some sites",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "identified",
-        "createdAt": "2026-09-22T19:23:17.000Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-09-23T11:02:41.670Z",
-            "message": "The issue has been identified and a fix is being implemented."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-09-22T19:23:17.370Z",
-            "message": "Cloudflare is investigating an issue where Cloudflare One Client customers are incorrectly challenged while visiting some websites."
           }
         ]
       },

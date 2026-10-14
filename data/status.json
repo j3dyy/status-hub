@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-14T10:33:41Z",
+    "lastUpdated": "2026-10-14T15:27:33Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 8,
+      "activeIncidentsCount": 6,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "claude",
@@ -76,7 +76,7 @@
       "name": "GitLab",
       "url": "https://status.gitlab.com",
       "icon": "gitlab",
-      "status": "operational"
+      "status": "partial_outage"
     },
     {
       "id": "bitbucket",
@@ -104,7 +104,7 @@
       "name": "npm",
       "url": "https://status.npmjs.org",
       "icon": "npmjs",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "sentry",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -546,7 +546,7 @@
           "providerId": "gitlab",
           "name": "GitLab SaaS & Web Platform",
           "description": "GitLab.com web application, REST/GraphQL API, Git SSH & HTTPS operations, and GitLab Pages",
-          "status": "operational",
+          "status": "partial_outage",
           "uptime90d": 99.96,
           "currentLatencyMs": 94,
           "components": [
@@ -577,24 +577,24 @@
           "providerId": "gitlab",
           "name": "GitLab CI/CD & Cloud Runners",
           "description": "Hosted Linux, Windows, macOS runners, container registry, and GitLab Duo AI",
-          "status": "operational",
+          "status": "partial_outage",
           "uptime90d": 99.93,
           "currentLatencyMs": 108,
           "components": [
             {
               "id": "gitlab-ci-linux",
               "name": "CI/CD - Hosted runners on Linux",
-              "status": "operational"
+              "status": "partial_outage"
             },
             {
               "id": "gitlab-ci-windows",
               "name": "CI/CD - Hosted runners on Windows",
-              "status": "operational"
+              "status": "partial_outage"
             },
             {
               "id": "gitlab-ci-mac",
               "name": "CI/CD - Hosted runners on macOS",
-              "status": "operational"
+              "status": "partial_outage"
             },
             {
               "id": "gitlab-registry",
@@ -711,7 +711,7 @@
           "providerId": "npmjs",
           "name": "npm Public Registry & Packaging",
           "description": "npm package registry, tarball downloads, CLI publishing, and search",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.97,
           "currentLatencyMs": 64,
           "components": [
@@ -1026,21 +1026,6 @@
   "incidents": {
     "active": [
       {
-        "id": "openai-01M4WYPP5QA0CJ3JV76KH285K8",
-        "title": "Limited availability on gpt-image-2.5-flare and gpt-image-2.5-sunburst",
-        "providerId": "openai",
-        "severity": "minor",
-        "status": "investigating",
-        "createdAt": "2026-10-14T10:18:07Z",
-        "updates": [
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-14T10:18:07Z",
-            "message": "We are investigating limited availability when using gpt-image-2.5-flare and gpt-image-2.5-sunburst in the API."
-          }
-        ]
-      },
-      {
         "id": "cloudflare-npjny9agana8",
         "title": "Cloudflare Workers - Cron Trigger Activation Issues",
         "providerId": "cloudflare",
@@ -1182,21 +1167,6 @@
             "stage": "investigating",
             "timestamp": "2026-08-27T18:46:19.105Z",
             "message": "Cloudflare is investigating issues with Cloudflare WARP and Cloudflare Zero Trust users being incorrectly geolocated by some third party services."
-          }
-        ]
-      },
-      {
-        "id": "npmjs-nwrj52br2kjv",
-        "title": "Issues with login and viewing packages",
-        "providerId": "npmjs",
-        "severity": "minor",
-        "status": "investigating",
-        "createdAt": "2026-10-14T09:29:04.643Z",
-        "updates": [
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-14T09:29:04.757Z",
-            "message": "We observed increased errors and latency in login and viewing packages. We are investigating the issue."
           }
         ]
       },

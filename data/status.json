@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-13T21:51:17Z",
+    "lastUpdated": "2026-10-14T00:48:19Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 7,
+      "activeIncidentsCount": 5,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1025,41 +1025,6 @@
   ],
   "incidents": {
     "active": [
-      {
-        "id": "cloudflare-fdgz8zlmfhw6",
-        "title": "Network Performance Issues in LAX",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "identified",
-        "createdAt": "2026-10-13T20:37:59.232Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-10-13T20:37:59.232Z",
-            "message": "Cloudflare is investigating issues with network performance in LAX. We are working to analyse and mitigate this problem. More updates to follow shortly."
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-cbvocc87nsne",
-        "title": "Cloudflare Workers - Cron Trigger Activation Issues",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "identified",
-        "createdAt": "2026-10-13T15:18:01.555Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-10-13T15:19:04.428Z",
-            "message": "The issue has been identified and a fix is being implemented."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-13T15:18:01.555Z",
-            "message": "Cloudflare is investigating issues with Workers Cron Triggers. Customers who have recently created or modified a Cron Trigger schedule may find that the schedule is not executing as expected. Pre-existing Cron Trigger schedules that have not been recently modified are not affected.\n\nWe are working to identify the cause and mitigate this problem. More updates to follow shortly."
-          }
-        ]
-      },
       {
         "id": "cloudflare-hpmrg8d5vwr6",
         "title": "Audit Logs v2 ingestion is missing multiple Cloudflare products ",

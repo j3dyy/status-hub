@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-14T00:48:19Z",
+    "lastUpdated": "2026-10-14T05:31:08Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 5,
+      "activeIncidentsCount": 6,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1025,6 +1025,26 @@
   ],
   "incidents": {
     "active": [
+      {
+        "id": "cloudflare-7hicc5bfkvx3",
+        "title": "Elevated number of 5XX errors in PDX",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "monitoring",
+        "createdAt": "2026-10-14T04:40:32.403Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-10-14T04:54:34.852Z",
+            "message": "A fix has been implemented and we are monitoring the results."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-14T04:40:32.403Z",
+            "message": "Cloudflare is investigating increased numbers of 5XX errors in PDX. We are working to analyse and mitigate this problem. More updates to follow shortly."
+          }
+        ]
+      },
       {
         "id": "cloudflare-hpmrg8d5vwr6",
         "title": "Audit Logs v2 ingestion is missing multiple Cloudflare products ",

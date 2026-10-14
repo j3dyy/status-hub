@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-14T05:31:08Z",
+    "lastUpdated": "2026-10-14T10:33:41Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 6,
+      "activeIncidentsCount": 8,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "claude",
@@ -104,7 +104,7 @@
       "name": "npm",
       "url": "https://status.npmjs.org",
       "icon": "npmjs",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "sentry",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -711,7 +711,7 @@
           "providerId": "npmjs",
           "name": "npm Public Registry & Packaging",
           "description": "npm package registry, tarball downloads, CLI publishing, and search",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.97,
           "currentLatencyMs": 64,
           "components": [
@@ -1026,22 +1026,42 @@
   "incidents": {
     "active": [
       {
-        "id": "cloudflare-7hicc5bfkvx3",
-        "title": "Elevated number of 5XX errors in PDX",
+        "id": "openai-01M4WYPP5QA0CJ3JV76KH285K8",
+        "title": "Limited availability on gpt-image-2.5-flare and gpt-image-2.5-sunburst",
+        "providerId": "openai",
+        "severity": "minor",
+        "status": "investigating",
+        "createdAt": "2026-10-14T10:18:07Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-14T10:18:07Z",
+            "message": "We are investigating limited availability when using gpt-image-2.5-flare and gpt-image-2.5-sunburst in the API."
+          }
+        ]
+      },
+      {
+        "id": "cloudflare-npjny9agana8",
+        "title": "Cloudflare Workers - Cron Trigger Activation Issues",
         "providerId": "cloudflare",
         "severity": "minor",
         "status": "monitoring",
-        "createdAt": "2026-10-14T04:40:32.403Z",
+        "createdAt": "2026-10-14T05:36:12.243Z",
         "updates": [
           {
             "stage": "monitoring",
-            "timestamp": "2026-10-14T04:54:34.852Z",
-            "message": "A fix has been implemented and we are monitoring the results."
+            "timestamp": "2026-10-14T08:14:16.627Z",
+            "message": "We are continuing to monitor for any further issues."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-10-14T07:23:21.018Z",
+            "message": "A fix has been identified and is underway"
           },
           {
             "stage": "investigating",
-            "timestamp": "2026-10-14T04:40:32.403Z",
-            "message": "Cloudflare is investigating increased numbers of 5XX errors in PDX. We are working to analyse and mitigate this problem. More updates to follow shortly."
+            "timestamp": "2026-10-14T05:36:12.243Z",
+            "message": "Cloudflare is investigating issues with Workers Cron Triggers. Customers who have recently created or modified a Cron Trigger schedule may find that the schedule is not executing as expected. Pre-existing Cron Trigger schedules that have not been recently modified are not affected.\n\nWe are working to identify the cause and mitigate this problem. More updates to follow shortly."
           }
         ]
       },
@@ -1162,6 +1182,21 @@
             "stage": "investigating",
             "timestamp": "2026-08-27T18:46:19.105Z",
             "message": "Cloudflare is investigating issues with Cloudflare WARP and Cloudflare Zero Trust users being incorrectly geolocated by some third party services."
+          }
+        ]
+      },
+      {
+        "id": "npmjs-nwrj52br2kjv",
+        "title": "Issues with login and viewing packages",
+        "providerId": "npmjs",
+        "severity": "minor",
+        "status": "investigating",
+        "createdAt": "2026-10-14T09:29:04.643Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-14T09:29:04.757Z",
+            "message": "We observed increased errors and latency in login and viewing packages. We are investigating the issue."
           }
         ]
       },

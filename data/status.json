@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-15T15:09:33Z",
+    "lastUpdated": "2026-10-15T19:09:55Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 5,
+      "activeIncidentsCount": 7,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -76,7 +76,7 @@
       "name": "GitLab",
       "url": "https://status.gitlab.com",
       "icon": "gitlab",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "bitbucket",
@@ -546,7 +546,7 @@
           "providerId": "gitlab",
           "name": "GitLab SaaS & Web Platform",
           "description": "GitLab.com web application, REST/GraphQL API, Git SSH & HTTPS operations, and GitLab Pages",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.96,
           "currentLatencyMs": 94,
           "components": [
@@ -577,24 +577,24 @@
           "providerId": "gitlab",
           "name": "GitLab CI/CD & Cloud Runners",
           "description": "Hosted Linux, Windows, macOS runners, container registry, and GitLab Duo AI",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.93,
           "currentLatencyMs": 108,
           "components": [
             {
               "id": "gitlab-ci-linux",
               "name": "CI/CD - Hosted runners on Linux",
-              "status": "operational"
+              "status": "degraded"
             },
             {
               "id": "gitlab-ci-windows",
               "name": "CI/CD - Hosted runners on Windows",
-              "status": "operational"
+              "status": "degraded"
             },
             {
               "id": "gitlab-ci-mac",
               "name": "CI/CD - Hosted runners on macOS",
-              "status": "operational"
+              "status": "degraded"
             },
             {
               "id": "gitlab-registry",
@@ -875,7 +875,7 @@
             {
               "id": "cf-workers",
               "name": "Cloudflare Workers & Pages",
-              "status": "operational"
+              "status": "degraded_performance"
             },
             {
               "id": "cf-cdn",
@@ -1047,6 +1047,41 @@
             "stage": "identified",
             "timestamp": "2026-10-14T17:00:44Z",
             "message": "We have identified an issue causing delays in publishing organization cost data through the Costs API. API and ChatGPT usage are not affected, and other reporting channels remain available. We are working to restore normal data freshness."
+          }
+        ]
+      },
+      {
+        "id": "cloudflare-5py8l9ees6di",
+        "title": "Pages.dev sites experiencing availability issues in Norway",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "investigating",
+        "createdAt": "2026-10-15T16:42:45.547Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-15T16:42:45.547Z",
+            "message": "Cloudflare is aware of and is investigating reports that pages.dev subdomains are not available in Norway.  Pages sites that use Custom Domains are not impacted. We will update this as more information become available."
+          }
+        ]
+      },
+      {
+        "id": "cloudflare-9yl8m5h16g1z",
+        "title": "Increased Errors for Durable Objects",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "identified",
+        "createdAt": "2026-10-15T15:37:05.000Z",
+        "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-10-15T16:12:20.143Z",
+            "message": "The issue has been identified and a fix is being implemented."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-15T15:37:05.614Z",
+            "message": "Cloudflare is investigating issues causing an increase of errors for Durable Objects and downstream services in  DEN. We are working to analyse and mitigate this problem. More updates to follow shortly."
           }
         ]
       },

@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-15T05:38:14Z",
+    "lastUpdated": "2026-10-15T10:19:22Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -76,14 +76,14 @@
       "name": "GitLab",
       "url": "https://status.gitlab.com",
       "icon": "gitlab",
-      "status": "major_outage"
+      "status": "operational"
     },
     {
       "id": "bitbucket",
       "name": "Bitbucket",
       "url": "https://bitbucket.status.atlassian.com",
       "icon": "bitbucket",
-      "status": "operational"
+      "status": "partial_outage"
     },
     {
       "id": "vercel",
@@ -546,19 +546,19 @@
           "providerId": "gitlab",
           "name": "GitLab SaaS & Web Platform",
           "description": "GitLab.com web application, REST/GraphQL API, Git SSH & HTTPS operations, and GitLab Pages",
-          "status": "major_outage",
+          "status": "operational",
           "uptime90d": 99.96,
           "currentLatencyMs": 94,
           "components": [
             {
               "id": "gitlab-web",
               "name": "Website",
-              "status": "partial_outage"
+              "status": "operational"
             },
             {
               "id": "gitlab-api",
               "name": "API",
-              "status": "partial_outage"
+              "status": "operational"
             },
             {
               "id": "gitlab-git",
@@ -577,7 +577,7 @@
           "providerId": "gitlab",
           "name": "GitLab CI/CD & Cloud Runners",
           "description": "Hosted Linux, Windows, macOS runners, container registry, and GitLab Duo AI",
-          "status": "major_outage",
+          "status": "operational",
           "uptime90d": 99.93,
           "currentLatencyMs": 108,
           "components": [
@@ -613,19 +613,19 @@
           "providerId": "bitbucket",
           "name": "Atlassian Bitbucket Cloud",
           "description": "Git repository hosting, Bitbucket Pipelines CI/CD, Pull Requests and REST API",
-          "status": "operational",
+          "status": "partial_outage",
           "uptime90d": 99.94,
           "currentLatencyMs": 98,
           "components": [
             {
               "id": "bb-web",
               "name": "Website",
-              "status": "operational"
+              "status": "major_outage"
             },
             {
               "id": "bb-api",
               "name": "API",
-              "status": "operational"
+              "status": "major_outage"
             },
             {
               "id": "bb-ssh",
@@ -640,7 +640,7 @@
             {
               "id": "bb-pipelines",
               "name": "Bitbucket Pipelines (CI/CD)",
-              "status": "operational"
+              "status": "major_outage"
             },
             {
               "id": "bb-webhooks",
@@ -1051,6 +1051,21 @@
         ]
       },
       {
+        "id": "bitbucket-mgg6br7xyc6p",
+        "title": "Bitbucket Cloud - Service Disruption",
+        "providerId": "bitbucket",
+        "severity": "critical",
+        "status": "investigating",
+        "createdAt": "2026-10-15T10:07:21.477Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-15T10:07:21.658Z",
+            "message": "We are actively investigating an issue affecting Bitbucket Cloud. Impacted users may experience connection errors, timeouts, or an inability to access the Bitbucket web interface and Pipelines.\n\nOur teams are actively investigating the cause to mitigate the impact and restore service as quickly as possible.\n\nWe will provide our next update within 30 minutes, or sooner if there is a material update."
+          }
+        ]
+      },
+      {
         "id": "cloudflare-hpmrg8d5vwr6",
         "title": "Audit Logs v2 ingestion is missing multiple Cloudflare products ",
         "providerId": "cloudflare",
@@ -1067,41 +1082,6 @@
             "stage": "identified",
             "timestamp": "2026-10-13T10:14:58.277Z",
             "message": "Since 2026-10-12 at 16:57:24 UTC, audit logs from multiple Cloudflare products are not ingested into the audit logs v2 database anymore. V1 audit logs are not affected"
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-cyxclg7nnhjy",
-        "title": "Elevated Errors in China Network Colos",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-10-10T04:13:17.000Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-10-14T17:50:10.585Z",
-            "message": "A fix has been implemented and we are monitoring the results."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-10-12T15:33:07.052Z",
-            "message": "We have identified that increased latency and 5xx errors affecting certain China Network colos are caused by cross-border routing instability in the China network. \nWe are actively working to mitigate impact for affected customers by adjusting traffic routing, and are continuing to work with our network partners on a resolution. Customers experiencing issues may contact Cloudflare Support."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-10-12T04:23:57.604Z",
-            "message": "We are investigating reports of degraded performance for traffic traversing the public internet between certain cities and provinces in mainland China and origin servers located outside the region. The impact is being reported across multiple ISPs and manifests as slower speeds or intermittent timeouts. \n\nWhile this congestion occurs upstream of Cloudflare's network, our engineering team is actively working to mitigate the effects. Intermittent 524 timeout errors is expected to continue due to ongoing congestion. While there is no fixed timeline for full resolution, as there are dependencies outside our network, we are taking steps to reduce customer impact."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-10-10T05:48:24.702Z",
-            "message": "The issue has been identified and a fix is being implemented."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-10T04:13:17.834Z",
-            "message": "We are investigating a spike in errors observed in our China colos."
           }
         ]
       },

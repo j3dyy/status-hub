@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-15T00:54:13Z",
+    "lastUpdated": "2026-10-15T05:38:14Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 6,
+      "activeIncidentsCount": 5,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -76,7 +76,7 @@
       "name": "GitLab",
       "url": "https://status.gitlab.com",
       "icon": "gitlab",
-      "status": "operational"
+      "status": "major_outage"
     },
     {
       "id": "bitbucket",
@@ -546,19 +546,19 @@
           "providerId": "gitlab",
           "name": "GitLab SaaS & Web Platform",
           "description": "GitLab.com web application, REST/GraphQL API, Git SSH & HTTPS operations, and GitLab Pages",
-          "status": "operational",
+          "status": "major_outage",
           "uptime90d": 99.96,
           "currentLatencyMs": 94,
           "components": [
             {
               "id": "gitlab-web",
               "name": "Website",
-              "status": "operational"
+              "status": "partial_outage"
             },
             {
               "id": "gitlab-api",
               "name": "API",
-              "status": "operational"
+              "status": "partial_outage"
             },
             {
               "id": "gitlab-git",
@@ -577,7 +577,7 @@
           "providerId": "gitlab",
           "name": "GitLab CI/CD & Cloud Runners",
           "description": "Hosted Linux, Windows, macOS runners, container registry, and GitLab Duo AI",
-          "status": "operational",
+          "status": "major_outage",
           "uptime90d": 99.93,
           "currentLatencyMs": 108,
           "components": [
@@ -1047,31 +1047,6 @@
             "stage": "identified",
             "timestamp": "2026-10-14T17:00:44Z",
             "message": "We have identified an issue causing delays in publishing organization cost data through the Costs API. API and ChatGPT usage are not affected, and other reporting channels remain available. We are working to restore normal data freshness."
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-npjny9agana8",
-        "title": "Cloudflare Workers - Cron Trigger Activation Issues",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-10-14T05:36:12.243Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-10-14T08:14:16.627Z",
-            "message": "We are continuing to monitor for any further issues."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-10-14T07:23:21.018Z",
-            "message": "A fix has been identified and is underway"
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-14T05:36:12.243Z",
-            "message": "Cloudflare is investigating issues with Workers Cron Triggers. Customers who have recently created or modified a Cron Trigger schedule may find that the schedule is not executing as expected. Pre-existing Cron Trigger schedules that have not been recently modified are not affected.\n\nWe are working to identify the cause and mitigate this problem. More updates to follow shortly."
           }
         ]
       },

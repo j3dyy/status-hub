@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-16T00:31:38Z",
+    "lastUpdated": "2026-10-16T04:57:03Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 5,
+      "activeIncidentsCount": 3,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1052,41 +1052,6 @@
             "stage": "identified",
             "timestamp": "2026-10-14T17:00:44Z",
             "message": "We have identified an issue causing delays in publishing organization cost data through the Costs API. API and ChatGPT usage are not affected, and other reporting channels remain available. We are working to restore normal data freshness."
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-51udczr46uj2",
-        "title": "Workers Cron Triggers issues",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "identified",
-        "createdAt": "2026-10-16T00:01:49.616Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-10-16T00:01:49.616Z",
-            "message": "Cloudflare is investigating issues with Workers Cron Triggers. A subset of customers may not being their cron get invoked. \n\nWe are working to mitigate this problem. More updates to follow shortly."
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-hpmrg8d5vwr6",
-        "title": "Audit Logs v2 ingestion is missing multiple Cloudflare products ",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-10-13T10:14:58.277Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-10-13T11:45:43.999Z",
-            "message": "We are continuing to monitor for any further issues."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-10-13T10:14:58.277Z",
-            "message": "Since 2026-10-12 at 16:57:24 UTC, audit logs from multiple Cloudflare products are not ingested into the audit logs v2 database anymore. V1 audit logs are not affected"
           }
         ]
       },

@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-16T09:38:33Z",
+    "lastUpdated": "2026-10-16T14:16:50Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 4,
+      "activeIncidentsCount": 2,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "claude",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -1025,56 +1025,6 @@
   ],
   "incidents": {
     "active": [
-      {
-        "id": "openai-01M4XNQX7C6RCBNGX9H711WFSG",
-        "title": "Delayed Costs data in the Compliance API",
-        "providerId": "openai",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-10-14T17:00:44Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-10-15T22:36:42Z",
-            "message": "We have deployed a fix and are monitoring recovery. Costs data in the Compliance API remains delayed while we process the backlog. We will provide further updates as processing catches up."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-10-14T20:00:36Z",
-            "message": "We have identified an issue causing delays in publishing organization cost data through the Costs API. A fix is in progress and currently undergoing testing. API and ChatGPT usage are not affected, and other reporting channels remain available. We are continuing work to restore normal data freshness."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-10-14T17:02:47Z",
-            "message": "We have identified an issue causing delays in publishing organization cost data through the Costs API. API and ChatGPT usage are not affected, and other reporting channels remain available. We are working to restore normal data freshness."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-10-14T17:00:44Z",
-            "message": "We have identified an issue causing delays in publishing organization cost data through the Costs API. API and ChatGPT usage are not affected, and other reporting channels remain available. We are working to restore normal data freshness."
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-xh6wdjrte1ez",
-        "title": " Cloudflare Access Availability Issues",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "identified",
-        "createdAt": "2026-10-16T09:20:43.089Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-10-16T09:21:43.632Z",
-            "message": "The issue has been identified and a fix is being implemented."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-16T09:20:43.089Z",
-            "message": "Cloudflare is investigating issues with Cloudflare Access after login. \nWe are working to understand the full impact and mitigate this problem. More updates to follow shortly."
-          }
-        ]
-      },
       {
         "id": "cloudflare-9g65dxfbcjln",
         "title": "Incorrect geo location for some Cloudflare WARP users",

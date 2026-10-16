@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-16T04:57:03Z",
+    "lastUpdated": "2026-10-16T09:38:33Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 3,
+      "activeIncidentsCount": 4,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1052,6 +1052,26 @@
             "stage": "identified",
             "timestamp": "2026-10-14T17:00:44Z",
             "message": "We have identified an issue causing delays in publishing organization cost data through the Costs API. API and ChatGPT usage are not affected, and other reporting channels remain available. We are working to restore normal data freshness."
+          }
+        ]
+      },
+      {
+        "id": "cloudflare-xh6wdjrte1ez",
+        "title": " Cloudflare Access Availability Issues",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "identified",
+        "createdAt": "2026-10-16T09:20:43.089Z",
+        "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-10-16T09:21:43.632Z",
+            "message": "The issue has been identified and a fix is being implemented."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-16T09:20:43.089Z",
+            "message": "Cloudflare is investigating issues with Cloudflare Access after login. \nWe are working to understand the full impact and mitigate this problem. More updates to follow shortly."
           }
         ]
       },

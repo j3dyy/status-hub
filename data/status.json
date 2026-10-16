@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-15T22:20:51Z",
+    "lastUpdated": "2026-10-16T00:31:38Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 4,
+      "activeIncidentsCount": 5,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1030,9 +1030,14 @@
         "title": "Delayed Costs data in the Compliance API",
         "providerId": "openai",
         "severity": "minor",
-        "status": "identified",
+        "status": "monitoring",
         "createdAt": "2026-10-14T17:00:44Z",
         "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-10-15T22:36:42Z",
+            "message": "We have deployed a fix and are monitoring recovery. Costs data in the Compliance API remains delayed while we process the backlog. We will provide further updates as processing catches up."
+          },
           {
             "stage": "identified",
             "timestamp": "2026-10-14T20:00:36Z",
@@ -1047,6 +1052,21 @@
             "stage": "identified",
             "timestamp": "2026-10-14T17:00:44Z",
             "message": "We have identified an issue causing delays in publishing organization cost data through the Costs API. API and ChatGPT usage are not affected, and other reporting channels remain available. We are working to restore normal data freshness."
+          }
+        ]
+      },
+      {
+        "id": "cloudflare-51udczr46uj2",
+        "title": "Workers Cron Triggers issues",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "identified",
+        "createdAt": "2026-10-16T00:01:49.616Z",
+        "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-10-16T00:01:49.616Z",
+            "message": "Cloudflare is investigating issues with Workers Cron Triggers. A subset of customers may not being their cron get invoked. \n\nWe are working to mitigate this problem. More updates to follow shortly."
           }
         ]
       },

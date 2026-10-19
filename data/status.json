@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-19T16:59:33Z",
+    "lastUpdated": "2026-10-19T21:26:09Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 2,
+      "activeIncidentsCount": 4,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -111,7 +111,7 @@
       "name": "Sentry",
       "url": "https://status.sentry.io",
       "icon": "sentry",
-      "status": "operational"
+      "status": "major_outage"
     },
     {
       "id": "aws",
@@ -737,7 +737,7 @@
           "providerId": "sentry",
           "name": "Sentry Error Tracking & Ingestion",
           "description": "Real-time issue ingestion, performance tracing, session replay, and alert routing",
-          "status": "operational",
+          "status": "major_outage",
           "uptime90d": 99.98,
           "currentLatencyMs": 75,
           "components": [
@@ -1026,6 +1026,21 @@
   "incidents": {
     "active": [
       {
+        "id": "cloudflare-3z8y23zn7tr2",
+        "title": "Cloudflare Secure Web Gateway and DLP enforcement issues for Google Gemini",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "identified",
+        "createdAt": "2026-10-19T20:30:00.915Z",
+        "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-10-19T20:30:00.915Z",
+            "message": "Cloudflare has identified an issue affecting Gateway application controls and Data Loss Prevention (DLP) inspection for certain Google Gemini traffic.\nWe are working on a fix and will provide further updates as more information becomes available."
+          }
+        ]
+      },
+      {
         "id": "cloudflare-9g65dxfbcjln",
         "title": "Incorrect geo location for some Cloudflare WARP users",
         "providerId": "cloudflare",
@@ -1092,6 +1107,36 @@
             "stage": "monitoring",
             "timestamp": "2026-09-03T16:44:43.899Z",
             "message": "Please follow <a href=\"https://status.mongodb.com/incidents/7g5qmxgkc2y4\">the original status post</a> for updates on AWS me-central-1 and AWS me-south-1 issues."
+          }
+        ]
+      },
+      {
+        "id": "sentry-gbgxwj82brd4",
+        "title": "Sentry is down",
+        "providerId": "sentry",
+        "severity": "critical",
+        "status": "monitoring",
+        "createdAt": "2026-10-19T20:39:34.460Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-10-19T21:10:18.367Z",
+            "message": "We are still working through our ingestion backlogs. At this point, it looks like we'll be caught up in the next 20 minutes."
+          },
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-10-19T20:53:50.547Z",
+            "message": "We have identified and addressed the cause of the outage. Things are moving again and we are burning through ingestion backlogs. We will update the statuspage again as things progress."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-19T20:43:08.310Z",
+            "message": "Impact is isolated to our US region customers. Alerting is also impact by this incident."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-19T20:39:35.055Z",
+            "message": "Sentry.io is taking a long time to load and ingestion may be impacted. We will update as we know more."
           }
         ]
       }

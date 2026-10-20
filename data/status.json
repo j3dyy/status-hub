@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-20T19:13:49Z",
+    "lastUpdated": "2026-10-20T22:23:09Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 5,
+      "activeIncidentsCount": 3,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -76,7 +76,7 @@
       "name": "GitLab",
       "url": "https://status.gitlab.com",
       "icon": "gitlab",
-      "status": "operational"
+      "status": "major_outage"
     },
     {
       "id": "bitbucket",
@@ -111,7 +111,7 @@
       "name": "Sentry",
       "url": "https://status.sentry.io",
       "icon": "sentry",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "aws",
@@ -546,7 +546,7 @@
           "providerId": "gitlab",
           "name": "GitLab SaaS & Web Platform",
           "description": "GitLab.com web application, REST/GraphQL API, Git SSH & HTTPS operations, and GitLab Pages",
-          "status": "operational",
+          "status": "major_outage",
           "uptime90d": 99.96,
           "currentLatencyMs": 94,
           "components": [
@@ -577,7 +577,7 @@
           "providerId": "gitlab",
           "name": "GitLab CI/CD & Cloud Runners",
           "description": "Hosted Linux, Windows, macOS runners, container registry, and GitLab Duo AI",
-          "status": "operational",
+          "status": "major_outage",
           "uptime90d": 99.93,
           "currentLatencyMs": 108,
           "components": [
@@ -737,7 +737,7 @@
           "providerId": "sentry",
           "name": "Sentry Error Tracking & Ingestion",
           "description": "Real-time issue ingestion, performance tracing, session replay, and alert routing",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.98,
           "currentLatencyMs": 75,
           "components": [
@@ -749,7 +749,7 @@
             {
               "id": "sentry-web",
               "name": "Web Application & Dashboards",
-              "status": "partial_outage"
+              "status": "operational"
             },
             {
               "id": "sentry-alerts",
@@ -1096,31 +1096,6 @@
         ]
       },
       {
-        "id": "mongodb-v2d572p364wf",
-        "title": "GCP Availability Zone europe-west2-b connectivity issues",
-        "providerId": "mongodb",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-10-20T07:32:48.863Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-10-20T11:43:55.016Z",
-            "message": "We are seeing signs of Availability Zone connectivity improving and are continuing to monitor."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-10-20T08:38:58.364Z",
-            "message": "The Google Cloud status page has been updated to report further information, follow this link for details https://status.cloud.google.com/incidents/Xs2XTHzAVC9YnafnPyzj"
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-10-20T07:32:48.914Z",
-            "message": "Since 0600 UTC we have observed cluster node connectivity issues isolated to a single availability zone, GCP europe-west2-b.\n\nAtlas clusters are distributed across multiple AZs and 3-node clusters can continue to serve reads and writes from nodes in the other 2 Availability Zones in this region.\n\nWe are working with our partners to resolve the cause of the issue and restore service to the affected nodes."
-          }
-        ]
-      },
-      {
         "id": "mongodb-yhvvsfvwyf1h",
         "title": "Impaired Cluster operations in AWS me-central-1 and AWS me-south-1",
         "providerId": "mongodb",
@@ -1137,26 +1112,6 @@
             "stage": "monitoring",
             "timestamp": "2026-09-03T16:44:43.899Z",
             "message": "Please follow <a href=\"https://status.mongodb.com/incidents/7g5qmxgkc2y4\">the original status post</a> for updates on AWS me-central-1 and AWS me-south-1 issues."
-          }
-        ]
-      },
-      {
-        "id": "sentry-qt0614n6hpn1",
-        "title": "Sentry.io not loading",
-        "providerId": "sentry",
-        "severity": "major",
-        "status": "investigating",
-        "createdAt": "2026-10-20T18:20:52.872Z",
-        "updates": [
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-20T18:58:57.853Z",
-            "message": "We have mitigated the immediate problem, but are continuing to investigate the cause. You may continue to experience interruptions using our UI and API. We will update as we know more."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-20T18:20:52.981Z",
-            "message": "Users are experiencing issues loading the Sentry dashboard. We are investigating the problem."
           }
         ]
       }

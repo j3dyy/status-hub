@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-20T10:09:36Z",
+    "lastUpdated": "2026-10-20T15:06:39Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -125,7 +125,7 @@
       "name": "Google Cloud",
       "url": "https://status.cloud.google.com",
       "icon": "gcp",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "azure",
@@ -801,7 +801,7 @@
           "providerId": "gcp",
           "name": "Google Cloud Platform (GCP Infrastructure)",
           "description": "Google Compute Engine, GKE Kubernetes, Cloud Storage, Cloud Run, and Vertex AI",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.99,
           "currentLatencyMs": 41,
           "components": [
@@ -1100,9 +1100,14 @@
         "title": "GCP Availability Zone europe-west2-b connectivity issues",
         "providerId": "mongodb",
         "severity": "minor",
-        "status": "identified",
+        "status": "monitoring",
         "createdAt": "2026-10-20T07:32:48.863Z",
         "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-10-20T11:43:55.016Z",
+            "message": "We are seeing signs of Availability Zone connectivity improving and are continuing to monitor."
+          },
           {
             "stage": "identified",
             "timestamp": "2026-10-20T08:38:58.364Z",

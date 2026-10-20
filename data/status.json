@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-20T05:14:12Z",
+    "lastUpdated": "2026-10-20T10:09:36Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -125,7 +125,7 @@
       "name": "Google Cloud",
       "url": "https://status.cloud.google.com",
       "icon": "gcp",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "azure",
@@ -801,7 +801,7 @@
           "providerId": "gcp",
           "name": "Google Cloud Platform (GCP Infrastructure)",
           "description": "Google Compute Engine, GKE Kubernetes, Cloud Storage, Cloud Run, and Vertex AI",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.99,
           "currentLatencyMs": 41,
           "components": [
@@ -863,7 +863,7 @@
           "providerId": "cloudflare",
           "name": "Cloudflare Global Network & Edge",
           "description": "Global Edge Network, Cloudflare DNS, Workers & Pages, WAF, and Zero Trust",
-          "status": "major_outage",
+          "status": "degraded",
           "uptime90d": 99.99,
           "currentLatencyMs": 24,
           "components": [
@@ -1026,46 +1026,6 @@
   "incidents": {
     "active": [
       {
-        "id": "cloudflare-0eqtn0khkz87",
-        "title": "Cloudflare Zero Trust connectivity",
-        "providerId": "cloudflare",
-        "severity": "critical",
-        "status": "monitoring",
-        "createdAt": "2026-10-20T03:20:42.381Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-10-20T04:44:31.749Z",
-            "message": "A fix has been implemented and we are monitoring the results."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-10-20T04:40:15.488Z",
-            "message": "The issue has been identified and a fix is being implemented."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-20T04:22:27.922Z",
-            "message": "We are continuing to investigate the issue."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-20T04:09:34.506Z",
-            "message": "We are continuing to investigate the issue."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-20T03:47:31.135Z",
-            "message": "We are continuing to investigate the issue."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-20T03:20:42.381Z",
-            "message": "Cloudflare is investigating an issue with traffic that goes through Cloudflare One Gateway when an identity policy is present in the policy decision. \n\nThis impacts all onramps to Cloudflare One Gateway. \n\nCloudflare One Gateway policies with no identity policy are unaffected.\n\nWe are also seeing impact to the Cloudflare Dashboard and are investigating further."
-          }
-        ]
-      },
-      {
         "id": "cloudflare-3z8y23zn7tr2",
         "title": "Cloudflare Secure Web Gateway and DLP enforcement issues for Google Gemini",
         "providerId": "cloudflare",
@@ -1132,6 +1092,26 @@
             "stage": "investigating",
             "timestamp": "2026-08-27T18:46:19.105Z",
             "message": "Cloudflare is investigating issues with Cloudflare WARP and Cloudflare Zero Trust users being incorrectly geolocated by some third party services."
+          }
+        ]
+      },
+      {
+        "id": "mongodb-v2d572p364wf",
+        "title": "GCP Availability Zone europe-west2-b connectivity issues",
+        "providerId": "mongodb",
+        "severity": "minor",
+        "status": "identified",
+        "createdAt": "2026-10-20T07:32:48.863Z",
+        "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-10-20T08:38:58.364Z",
+            "message": "The Google Cloud status page has been updated to report further information, follow this link for details https://status.cloud.google.com/incidents/Xs2XTHzAVC9YnafnPyzj"
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-10-20T07:32:48.914Z",
+            "message": "Since 0600 UTC we have observed cluster node connectivity issues isolated to a single availability zone, GCP europe-west2-b.\n\nAtlas clusters are distributed across multiple AZs and 3-node clusters can continue to serve reads and writes from nodes in the other 2 Availability Zones in this region.\n\nWe are working with our partners to resolve the cause of the issue and restore service to the affected nodes."
           }
         ]
       },

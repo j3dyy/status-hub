@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-20T15:06:39Z",
+    "lastUpdated": "2026-10-20T19:13:49Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 4,
+      "activeIncidentsCount": 5,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -111,7 +111,7 @@
       "name": "Sentry",
       "url": "https://status.sentry.io",
       "icon": "sentry",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "aws",
@@ -737,7 +737,7 @@
           "providerId": "sentry",
           "name": "Sentry Error Tracking & Ingestion",
           "description": "Real-time issue ingestion, performance tracing, session replay, and alert routing",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.98,
           "currentLatencyMs": 75,
           "components": [
@@ -749,7 +749,7 @@
             {
               "id": "sentry-web",
               "name": "Web Application & Dashboards",
-              "status": "operational"
+              "status": "partial_outage"
             },
             {
               "id": "sentry-alerts",
@@ -1137,6 +1137,26 @@
             "stage": "monitoring",
             "timestamp": "2026-09-03T16:44:43.899Z",
             "message": "Please follow <a href=\"https://status.mongodb.com/incidents/7g5qmxgkc2y4\">the original status post</a> for updates on AWS me-central-1 and AWS me-south-1 issues."
+          }
+        ]
+      },
+      {
+        "id": "sentry-qt0614n6hpn1",
+        "title": "Sentry.io not loading",
+        "providerId": "sentry",
+        "severity": "major",
+        "status": "investigating",
+        "createdAt": "2026-10-20T18:20:52.872Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-20T18:58:57.853Z",
+            "message": "We have mitigated the immediate problem, but are continuing to investigate the cause. You may continue to experience interruptions using our UI and API. We will update as we know more."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-20T18:20:52.981Z",
+            "message": "Users are experiencing issues loading the Sentry dashboard. We are investigating the problem."
           }
         ]
       }

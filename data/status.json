@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-22T05:57:58Z",
+    "lastUpdated": "2026-10-22T11:38:35Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 4,
+      "activeIncidentsCount": 3,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,14 +27,14 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "claude",
       "name": "Anthropic Claude",
       "url": "https://status.claude.com",
       "icon": "sparkles",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "gemini",
@@ -104,7 +104,7 @@
       "name": "npm",
       "url": "https://status.npmjs.org",
       "icon": "npmjs",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "sentry",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -243,7 +243,7 @@
           "providerId": "claude",
           "name": "claude.ai",
           "description": "Web & mobile interface, Claude Pro/Team, Projects and interactive Artifacts",
-          "status": "degraded_performance",
+          "status": "operational",
           "uptime90d": 99.4,
           "currentLatencyMs": 118,
           "components": [
@@ -274,7 +274,7 @@
           "providerId": "claude",
           "name": "Claude Console (platform.claude.com)",
           "description": "Developer platform, prompt engineering workbench, API keys and billing management",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.93,
           "currentLatencyMs": 84,
           "components": [
@@ -300,7 +300,7 @@
           "providerId": "claude",
           "name": "Claude API (api.anthropic.com)",
           "description": "Direct inference endpoints for Claude 3.5 Sonnet, Claude 3.5 Haiku, and Claude 3 Opus",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.5,
           "currentLatencyMs": 142,
           "components": [
@@ -331,7 +331,7 @@
           "providerId": "claude",
           "name": "Claude Code",
           "description": "Agentic command-line developer assistant and IDE tool integration",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.44,
           "currentLatencyMs": 105,
           "components": [
@@ -357,7 +357,7 @@
           "providerId": "claude",
           "name": "Claude Cowork",
           "description": "Real-time collaborative workspaces, multi-user sessions, and team memory",
-          "status": "degraded_performance",
+          "status": "operational",
           "uptime90d": 99.43,
           "currentLatencyMs": 115,
           "components": [
@@ -378,7 +378,7 @@
           "providerId": "claude",
           "name": "Claude for Government",
           "description": "FedRAMP High / DoD IL5 compliant isolated federal cloud enclave",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 100.0,
           "currentLatencyMs": 95,
           "components": [
@@ -711,7 +711,7 @@
           "providerId": "npmjs",
           "name": "npm Public Registry & Packaging",
           "description": "npm package registry, tarball downloads, CLI publishing, and search",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.97,
           "currentLatencyMs": 64,
           "components": [
@@ -728,7 +728,7 @@
             {
               "id": "npm-publish",
               "name": "Package Publishing & Webhooks",
-              "status": "operational"
+              "status": "degraded_performance"
             }
           ]
         },
@@ -1026,41 +1026,6 @@
   "incidents": {
     "active": [
       {
-        "id": "openai-01M5GPE9C4E19HE461P8JAMYXD",
-        "title": "ChatGPT conversion failures in India, Japan and Korea. And Response API errors",
-        "providerId": "openai",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-10-22T02:18:32Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-10-22T02:42:24Z",
-            "message": "We have applied the mitigation and are monitoring the recovery."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-22T02:18:32Z",
-            "message": "We are investigating the issue for the listed services."
-          }
-        ]
-      },
-      {
-        "id": "claude-wj6r4t6mxq1r",
-        "title": "Elevated errors affecting Connectors",
-        "providerId": "claude",
-        "severity": "minor",
-        "status": "investigating",
-        "createdAt": "2026-10-22T03:50:12.630Z",
-        "updates": [
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-22T03:50:12.760Z",
-            "message": "We are investigating elevated errors affecting connectors. We will provide an update as soon as possible."
-          }
-        ]
-      },
-      {
         "id": "cloudflare-9g65dxfbcjln",
         "title": "Incorrect geo location for some Cloudflare WARP users",
         "providerId": "cloudflare",
@@ -1107,6 +1072,26 @@
             "stage": "investigating",
             "timestamp": "2026-08-27T18:46:19.105Z",
             "message": "Cloudflare is investigating issues with Cloudflare WARP and Cloudflare Zero Trust users being incorrectly geolocated by some third party services."
+          }
+        ]
+      },
+      {
+        "id": "npmjs-56x3sh4qhr9s",
+        "title": "Degraded Publish, Install, and View Package",
+        "providerId": "npmjs",
+        "severity": "minor",
+        "status": "monitoring",
+        "createdAt": "2026-10-22T06:43:54.961Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-10-22T09:00:47.160Z",
+            "message": "A fix has been implemented and we are monitoring the results."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-22T06:43:55.109Z",
+            "message": "We are currently investigating this issue."
           }
         ]
       },

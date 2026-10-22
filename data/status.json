@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-22T20:01:03Z",
+    "lastUpdated": "2026-10-22T23:16:34Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 7,
+      "activeIncidentsCount": 5,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1035,39 +1035,34 @@
         "updates": [
           {
             "stage": "identified",
+            "timestamp": "2026-10-22T21:30:55Z",
+            "message": "We have identified the issue and are working to implement the mitigation."
+          },
+          {
+            "stage": "identified",
             "timestamp": "2026-10-22T19:36:53Z",
             "message": "We have identified that new ad accounts are failing to assign their creator admin. We are investigating the issue."
           }
         ]
       },
       {
-        "id": "openai-01M5JF8DR3EGQJNTXPZ24AKX2G",
-        "title": "Degraded Performance of Dots on Enterprise",
-        "providerId": "openai",
-        "severity": "minor",
-        "status": "identified",
-        "createdAt": "2026-10-22T18:51:28Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-10-22T18:59:18Z",
-            "message": "Our teams have identified the issue and are actively implementing a mitigation. At this time the majority of impact is affecting enterprise customers."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-22T18:51:28Z",
-            "message": "Users are experiencing failures sending messages to dots."
-          }
-        ]
-      },
-      {
         "id": "github-wq8305lppdc2",
-        "title": "Errors loading Issues, Pull Requests, and search results",
+        "title": "Project updates delayed",
         "providerId": "github",
         "severity": "minor",
         "status": "investigating",
         "createdAt": "2026-10-22T15:28:03.986Z",
         "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-22T22:07:36.307Z",
+            "message": "Some GitHub Projects updates, including newly added items and changes to issues and pull requests, are still delayed.<br /><br />We have seen some recovery, and are working to add more capacity to accelerate the recovery."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-22T20:46:26.570Z",
+            "message": "Some GitHub Projects updates, including newly added items and changes to issues and pull requests, remain delayed.<br /><br />We've identified interruptions in update processing and are evaluating mitigations to restore normal operation."
+          },
           {
             "stage": "investigating",
             "timestamp": "2026-10-22T19:56:09.809Z",
@@ -1172,21 +1167,6 @@
             "stage": "investigating",
             "timestamp": "2026-10-22T17:32:32.382Z",
             "message": "We are investigating an issue affecting audit log delivery for WARP API. Audit logs for some customers may be delayed or not delivered, and some dependent services may also be affected.\n\nWe have identified the cause as a capacity problem in a shared internal data pipeline in our PDX region. Mitigations are in place and the pipeline is partially recovered. We are continuing to monitor and work toward full recovery."
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-l3d16334tgjp",
-        "title": "Network Error Log Processing Unavailable",
-        "providerId": "cloudflare",
-        "severity": "major",
-        "status": "investigating",
-        "createdAt": "2026-10-22T16:30:31.718Z",
-        "updates": [
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-22T16:30:31.826Z",
-            "message": "Since 20:19 UTC, new Network Error Logging (NEL) reports are not being processed. Reports received during this period will not appear in Network Error Logging analytics. Website traffic and other services are not affected. We are investigating and will provide an update as soon as possible."
           }
         ]
       },

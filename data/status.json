@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-22T16:02:27Z",
+    "lastUpdated": "2026-10-22T20:01:03Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 3,
+      "activeIncidentsCount": 7,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "claude",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -506,7 +506,7 @@
             {
               "id": "github-issues",
               "name": "Issues, Projects & Pull Requests",
-              "status": "degraded_performance"
+              "status": "operational"
             }
           ]
         },
@@ -522,7 +522,7 @@
             {
               "id": "gh-actions",
               "name": "GitHub Actions Workflow Runners",
-              "status": "degraded_performance"
+              "status": "operational"
             },
             {
               "id": "gh-copilot",
@@ -863,7 +863,7 @@
           "providerId": "cloudflare",
           "name": "Cloudflare Global Network & Edge",
           "description": "Global Edge Network, Cloudflare DNS, Workers & Pages, WAF, and Zero Trust",
-          "status": "degraded",
+          "status": "major_outage",
           "uptime90d": 99.99,
           "currentLatencyMs": 24,
           "components": [
@@ -1026,6 +1026,41 @@
   "incidents": {
     "active": [
       {
+        "id": "openai-01M5JHVJVC8WAXB4WRYFMKG6HP",
+        "title": "New Ad Accounts failing to provision admins",
+        "providerId": "openai",
+        "severity": "minor",
+        "status": "identified",
+        "createdAt": "2026-10-22T19:36:53Z",
+        "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-10-22T19:36:53Z",
+            "message": "We have identified that new ad accounts are failing to assign their creator admin. We are investigating the issue."
+          }
+        ]
+      },
+      {
+        "id": "openai-01M5JF8DR3EGQJNTXPZ24AKX2G",
+        "title": "Degraded Performance of Dots on Enterprise",
+        "providerId": "openai",
+        "severity": "minor",
+        "status": "identified",
+        "createdAt": "2026-10-22T18:51:28Z",
+        "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-10-22T18:59:18Z",
+            "message": "Our teams have identified the issue and are actively implementing a mitigation. At this time the majority of impact is affecting enterprise customers."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-22T18:51:28Z",
+            "message": "Users are experiencing failures sending messages to dots."
+          }
+        ]
+      },
+      {
         "id": "github-wq8305lppdc2",
         "title": "Errors loading Issues, Pull Requests, and search results",
         "providerId": "github",
@@ -1033,6 +1068,61 @@
         "status": "investigating",
         "createdAt": "2026-10-22T15:28:03.986Z",
         "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-22T19:56:09.809Z",
+            "message": "Some GitHub Projects updates related to issue changes and merged pull requests are still delayed. We're investigating the remaining delays and working to restore normal processing."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-22T19:04:03.282Z",
+            "message": "Some updates in GitHub Projects are still delayed. We're continuing mitigation work and monitoring."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-22T18:26:31.116Z",
+            "message": "The other affected services have recovered. <br /><br />We're continuing to investigate GitHub Projects and verify that normal operation has been restored."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-22T17:43:44.874Z",
+            "message": "We're seeing recovery across the affected services. GitHub Projects is still recovering as queued updates are processed, and we're continuing to monitor for stability."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-22T17:41:38.697Z",
+            "message": "Actions, Issues, Packages and Pull Requests are operating normally."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-22T17:16:06.206Z",
+            "message": "We're seeing recovery after adding capacity, with errors decreasing. Some users may still experience errors loading Issues, Pull Requests and search results on github.com. <br /><br />We're continuing to work towards full recovery and monitoring for stability."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-22T16:41:52.512Z",
+            "message": "Some users continue to experience errors loading Issues, Pull Requests, package listings and search results on github.com. <br /><br />We're working through multiple mitigation efforts and continuing to investigate."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-22T16:35:07.604Z",
+            "message": "API Requests is operating normally."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-22T16:28:56.822Z",
+            "message": "Packages is experiencing degraded performance. We are continuing to investigate."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-22T16:26:16.966Z",
+            "message": "API Requests is experiencing degraded performance. We are continuing to investigate."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-22T16:08:04.783Z",
+            "message": "Some users continue to experience intermittent errors loading Issues, Pull Requests and search results on github.com. <br /><br />We're investigating and evaluating mitigation options to restore normal service."
+          },
           {
             "stage": "investigating",
             "timestamp": "2026-10-22T15:33:52.378Z",
@@ -1046,17 +1136,57 @@
         ]
       },
       {
-        "id": "cloudflare-lhdg2tq46faq",
-        "title": "Cloudflare Workers API Latency",
+        "id": "cloudflare-v967mz6rrcxw",
+        "title": "Elevated error rates for Durable Objects in Western Europe",
         "providerId": "cloudflare",
         "severity": "minor",
-        "status": "identified",
-        "createdAt": "2026-10-22T15:33:17.354Z",
+        "status": "monitoring",
+        "createdAt": "2026-10-22T17:51:09.000Z",
         "updates": [
           {
-            "stage": "identified",
-            "timestamp": "2026-10-22T15:33:17.354Z",
-            "message": "Cloudflare is investigating an increased latency when interacting with Workers API and Workers configuration in the dashboard. Customers might experience longer wait times on Workers endpoints, particularly when deploying a script. Workers that are already running in production are not affected. More updates to follow shortly."
+            "stage": "monitoring",
+            "timestamp": "2026-10-22T18:19:52.207Z",
+            "message": "A fix has been implemented and we are monitoring the results."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-22T17:51:10.039Z",
+            "message": "We are investigating elevated error rates affecting Durable Objects in Western Europe. Customers may see errors when using Durable Objects and related services. We will post updates as we learn more."
+          }
+        ]
+      },
+      {
+        "id": "cloudflare-qwrtvb4jfvk7",
+        "title": "Delayed audit log delivery for WARP and Zero Trust services",
+        "providerId": "cloudflare",
+        "severity": "major",
+        "status": "monitoring",
+        "createdAt": "2026-10-22T17:32:32.000Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-10-22T17:50:19.008Z",
+            "message": "A fix has been implemented and we are monitoring the results."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-22T17:32:32.382Z",
+            "message": "We are investigating an issue affecting audit log delivery for WARP API. Audit logs for some customers may be delayed or not delivered, and some dependent services may also be affected.\n\nWe have identified the cause as a capacity problem in a shared internal data pipeline in our PDX region. Mitigations are in place and the pipeline is partially recovered. We are continuing to monitor and work toward full recovery."
+          }
+        ]
+      },
+      {
+        "id": "cloudflare-l3d16334tgjp",
+        "title": "Network Error Log Processing Unavailable",
+        "providerId": "cloudflare",
+        "severity": "major",
+        "status": "investigating",
+        "createdAt": "2026-10-22T16:30:31.718Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-22T16:30:31.826Z",
+            "message": "Since 20:19 UTC, new Network Error Logging (NEL) reports are not being processed. Reports received during this period will not appear in Network Error Logging analytics. Website traffic and other services are not affected. We are investigating and will provide an update as soon as possible."
           }
         ]
       },

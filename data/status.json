@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-23T06:29:13Z",
+    "lastUpdated": "2026-10-23T12:00:03Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 2,
+      "activeIncidentsCount": 1,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -863,7 +863,7 @@
           "providerId": "cloudflare",
           "name": "Cloudflare Global Network & Edge",
           "description": "Global Edge Network, Cloudflare DNS, Workers & Pages, WAF, and Zero Trust",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.99,
           "currentLatencyMs": 24,
           "components": [
@@ -1025,36 +1025,6 @@
   ],
   "incidents": {
     "active": [
-      {
-        "id": "cloudflare-8m9a1fjjwxp5",
-        "title": "Support Helpdesk Availability Issues",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "identified",
-        "createdAt": "2026-10-23T03:03:09.059Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-10-23T05:56:54.483Z",
-            "message": "We are continuing to work on a fix for the issue."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-10-23T04:43:47.961Z",
-            "message": "We are continuing to work on a fix for the issue."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-10-23T03:37:46.862Z",
-            "message": "Support portal, live chat support and emergency telephone line are still unavailable due to the ongoing helpdesk provider outage. Customers may experience issues submitting or viewing tickets/chats, and overall response times may be delayed. \n\n\nCustomers with urgent issues should revert to using the support email address (backupsupport@cloudflare.com)."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-23T03:03:09.059Z",
-            "message": "Our helpdesk provider is currently experiencing issues, and as such customers might encounter errors while submitting or viewing tickets. Responses on customer inquiries may be delayed during this time."
-          }
-        ]
-      },
       {
         "id": "mongodb-yhvvsfvwyf1h",
         "title": "Impaired Cluster operations in AWS me-central-1 and AWS me-south-1",

@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-22T23:16:34Z",
+    "lastUpdated": "2026-10-23T01:38:22Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 5,
+      "activeIncidentsCount": 2,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "claude",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -863,7 +863,7 @@
           "providerId": "cloudflare",
           "name": "Cloudflare Global Network & Edge",
           "description": "Global Edge Network, Cloudflare DNS, Workers & Pages, WAF, and Zero Trust",
-          "status": "major_outage",
+          "status": "operational",
           "uptime90d": 99.99,
           "currentLatencyMs": 24,
           "components": [
@@ -1026,33 +1026,23 @@
   "incidents": {
     "active": [
       {
-        "id": "openai-01M5JHVJVC8WAXB4WRYFMKG6HP",
-        "title": "New Ad Accounts failing to provision admins",
-        "providerId": "openai",
-        "severity": "minor",
-        "status": "identified",
-        "createdAt": "2026-10-22T19:36:53Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-10-22T21:30:55Z",
-            "message": "We have identified the issue and are working to implement the mitigation."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-10-22T19:36:53Z",
-            "message": "We have identified that new ad accounts are failing to assign their creator admin. We are investigating the issue."
-          }
-        ]
-      },
-      {
         "id": "github-wq8305lppdc2",
         "title": "Project updates delayed",
         "providerId": "github",
         "severity": "minor",
-        "status": "investigating",
+        "status": "monitoring",
         "createdAt": "2026-10-22T15:28:03.986Z",
         "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-10-23T00:55:18.035Z",
+            "message": "The degradation has been mitigated. We are monitoring to ensure stability."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-22T23:48:05.358Z",
+            "message": "GitHub Projects update processing has improved, but newly added items may still take longer than expected to appear. <br /><br />We're continuing to work on the remaining delays and monitor recovery."
+          },
           {
             "stage": "investigating",
             "timestamp": "2026-10-22T22:07:36.307Z",
@@ -1127,46 +1117,6 @@
             "stage": "investigating",
             "timestamp": "2026-10-22T15:28:04.258Z",
             "message": "We are investigating reports of degraded performance for Actions, Issues and Pull Requests"
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-v967mz6rrcxw",
-        "title": "Elevated error rates for Durable Objects in Western Europe",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-10-22T17:51:09.000Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-10-22T18:19:52.207Z",
-            "message": "A fix has been implemented and we are monitoring the results."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-22T17:51:10.039Z",
-            "message": "We are investigating elevated error rates affecting Durable Objects in Western Europe. Customers may see errors when using Durable Objects and related services. We will post updates as we learn more."
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-qwrtvb4jfvk7",
-        "title": "Delayed audit log delivery for WARP and Zero Trust services",
-        "providerId": "cloudflare",
-        "severity": "major",
-        "status": "monitoring",
-        "createdAt": "2026-10-22T17:32:32.000Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-10-22T17:50:19.008Z",
-            "message": "A fix has been implemented and we are monitoring the results."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-22T17:32:32.382Z",
-            "message": "We are investigating an issue affecting audit log delivery for WARP API. Audit logs for some customers may be delayed or not delivered, and some dependent services may also be affected.\n\nWe have identified the cause as a capacity problem in a shared internal data pipeline in our PDX region. Mitigations are in place and the pipeline is partially recovered. We are continuing to monitor and work toward full recovery."
           }
         ]
       },

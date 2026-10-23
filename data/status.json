@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-23T01:38:22Z",
+    "lastUpdated": "2026-10-23T06:29:13Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -69,7 +69,7 @@
       "name": "GitHub",
       "url": "https://www.githubstatus.com",
       "icon": "github",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "gitlab",
@@ -484,7 +484,7 @@
           "providerId": "github",
           "name": "GitHub Core Services",
           "description": "Git repository operations, Pull Requests, Webhooks and REST/GraphQL APIs",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.99,
           "currentLatencyMs": 85,
           "components": [
@@ -515,7 +515,7 @@
           "providerId": "github",
           "name": "GitHub Compute & Automation",
           "description": "GitHub Actions runners, Codespaces, and GitHub Copilot completions",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.92,
           "currentLatencyMs": 112,
           "components": [
@@ -863,7 +863,7 @@
           "providerId": "cloudflare",
           "name": "Cloudflare Global Network & Edge",
           "description": "Global Edge Network, Cloudflare DNS, Workers & Pages, WAF, and Zero Trust",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.99,
           "currentLatencyMs": 24,
           "components": [
@@ -1026,97 +1026,32 @@
   "incidents": {
     "active": [
       {
-        "id": "github-wq8305lppdc2",
-        "title": "Project updates delayed",
-        "providerId": "github",
+        "id": "cloudflare-8m9a1fjjwxp5",
+        "title": "Support Helpdesk Availability Issues",
+        "providerId": "cloudflare",
         "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-10-22T15:28:03.986Z",
+        "status": "identified",
+        "createdAt": "2026-10-23T03:03:09.059Z",
         "updates": [
           {
-            "stage": "monitoring",
-            "timestamp": "2026-10-23T00:55:18.035Z",
-            "message": "The degradation has been mitigated. We are monitoring to ensure stability."
+            "stage": "identified",
+            "timestamp": "2026-10-23T05:56:54.483Z",
+            "message": "We are continuing to work on a fix for the issue."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-10-23T04:43:47.961Z",
+            "message": "We are continuing to work on a fix for the issue."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-10-23T03:37:46.862Z",
+            "message": "Support portal, live chat support and emergency telephone line are still unavailable due to the ongoing helpdesk provider outage. Customers may experience issues submitting or viewing tickets/chats, and overall response times may be delayed. \n\n\nCustomers with urgent issues should revert to using the support email address (backupsupport@cloudflare.com)."
           },
           {
             "stage": "investigating",
-            "timestamp": "2026-10-22T23:48:05.358Z",
-            "message": "GitHub Projects update processing has improved, but newly added items may still take longer than expected to appear. <br /><br />We're continuing to work on the remaining delays and monitor recovery."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-22T22:07:36.307Z",
-            "message": "Some GitHub Projects updates, including newly added items and changes to issues and pull requests, are still delayed.<br /><br />We have seen some recovery, and are working to add more capacity to accelerate the recovery."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-22T20:46:26.570Z",
-            "message": "Some GitHub Projects updates, including newly added items and changes to issues and pull requests, remain delayed.<br /><br />We've identified interruptions in update processing and are evaluating mitigations to restore normal operation."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-22T19:56:09.809Z",
-            "message": "Some GitHub Projects updates related to issue changes and merged pull requests are still delayed. We're investigating the remaining delays and working to restore normal processing."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-22T19:04:03.282Z",
-            "message": "Some updates in GitHub Projects are still delayed. We're continuing mitigation work and monitoring."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-22T18:26:31.116Z",
-            "message": "The other affected services have recovered. <br /><br />We're continuing to investigate GitHub Projects and verify that normal operation has been restored."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-22T17:43:44.874Z",
-            "message": "We're seeing recovery across the affected services. GitHub Projects is still recovering as queued updates are processed, and we're continuing to monitor for stability."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-22T17:41:38.697Z",
-            "message": "Actions, Issues, Packages and Pull Requests are operating normally."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-22T17:16:06.206Z",
-            "message": "We're seeing recovery after adding capacity, with errors decreasing. Some users may still experience errors loading Issues, Pull Requests and search results on github.com. <br /><br />We're continuing to work towards full recovery and monitoring for stability."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-22T16:41:52.512Z",
-            "message": "Some users continue to experience errors loading Issues, Pull Requests, package listings and search results on github.com. <br /><br />We're working through multiple mitigation efforts and continuing to investigate."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-22T16:35:07.604Z",
-            "message": "API Requests is operating normally."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-22T16:28:56.822Z",
-            "message": "Packages is experiencing degraded performance. We are continuing to investigate."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-22T16:26:16.966Z",
-            "message": "API Requests is experiencing degraded performance. We are continuing to investigate."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-22T16:08:04.783Z",
-            "message": "Some users continue to experience intermittent errors loading Issues, Pull Requests and search results on github.com. <br /><br />We're investigating and evaluating mitigation options to restore normal service."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-22T15:33:52.378Z",
-            "message": "Some users may experience intermittent errors loading Issues, Pull Requests and search results on github.com. <br /><br />We're investigating and working to restore normal service."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-22T15:28:04.258Z",
-            "message": "We are investigating reports of degraded performance for Actions, Issues and Pull Requests"
+            "timestamp": "2026-10-23T03:03:09.059Z",
+            "message": "Our helpdesk provider is currently experiencing issues, and as such customers might encounter errors while submitting or viewing tickets. Responses on customer inquiries may be delayed during this time."
           }
         ]
       },

@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-24T01:42:01Z",
+    "lastUpdated": "2026-10-24T06:30:46Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 2,
+      "activeIncidentsCount": 1,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -863,7 +863,7 @@
           "providerId": "cloudflare",
           "name": "Cloudflare Global Network & Edge",
           "description": "Global Edge Network, Cloudflare DNS, Workers & Pages, WAF, and Zero Trust",
-          "status": "degraded_performance",
+          "status": "operational",
           "uptime90d": 99.99,
           "currentLatencyMs": 24,
           "components": [
@@ -1025,31 +1025,6 @@
   ],
   "incidents": {
     "active": [
-      {
-        "id": "cloudflare-39fz3wkl42tr",
-        "title": "Network Performance Issues in Ashburn",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-10-24T01:01:09.147Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-10-24T01:28:05.195Z",
-            "message": "A fix has been implemented and we are monitoring the results."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-24T01:05:17.906Z",
-            "message": "Affected services: Durable Objects, R2, Workflows, Queues, D1 and Artifacts."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-24T01:01:09.147Z",
-            "message": "Cloudflare is investigating issues with Network Performance in Ashburn, VA.\n\nWe are working to analyze and mitigate this problem. More updates to follow shortly."
-          }
-        ]
-      },
       {
         "id": "mongodb-yhvvsfvwyf1h",
         "title": "Impaired Cluster operations in AWS me-central-1 and AWS me-south-1",

@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-28T01:21:50Z",
+    "lastUpdated": "2026-10-28T07:03:25Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -1026,17 +1026,22 @@
   "incidents": {
     "active": [
       {
-        "id": "cloudflare-klub12zy71b4",
-        "title": "Increased Errors for Durable Objects in the Eastern North America region",
+        "id": "cloudflare-snth5ero95rz",
+        "title": "Network Performance Issues in Ashburn, IAD",
         "providerId": "cloudflare",
         "severity": "minor",
-        "status": "investigating",
-        "createdAt": "2026-10-28T00:17:25.893Z",
+        "status": "monitoring",
+        "createdAt": "2026-10-28T04:39:13.459Z",
         "updates": [
           {
+            "stage": "monitoring",
+            "timestamp": "2026-10-28T05:05:21.234Z",
+            "message": "We are continuing to monitor for any further issues."
+          },
+          {
             "stage": "investigating",
-            "timestamp": "2026-10-28T00:17:25.893Z",
-            "message": "Cloudflare is aware of, and investigating an issue with Durable Objects and downstream services which potentially impacts multiple customers in the Eastern North America region. Durable Objects are experiencing an elevated level of overload errors in the aforementioned region. This may also affect downstream services such as D1, Queues and Workflows etc. We are currently investigating this issue."
+            "timestamp": "2026-10-28T04:39:13.459Z",
+            "message": "Cloudflare is investigating network performance issues affecting our Ashburn (IAD) data center. Traffic routed through this location may experience elevated latency and/or 5xx errors.\n\nWe are working to analyze and mitigate this problem. More updates to follow shortly."
           }
         ]
       },

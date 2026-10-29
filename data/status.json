@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-29T16:00:08Z",
+    "lastUpdated": "2026-10-29T21:01:20Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -1026,17 +1026,17 @@
   "incidents": {
     "active": [
       {
-        "id": "cloudflare-r4mz367vddi7",
-        "title": "Increased Durable Objects, D1 and Workflows Error Rates",
+        "id": "cloudflare-kp28d3kzgft1",
+        "title": "R2 Elevated Latency in Eastern Europe",
         "providerId": "cloudflare",
         "severity": "minor",
         "status": "investigating",
-        "createdAt": "2026-10-29T14:16:46.205Z",
+        "createdAt": "2026-10-29T19:57:28.577Z",
         "updates": [
           {
             "stage": "investigating",
-            "timestamp": "2026-10-29T14:16:46.205Z",
-            "message": "Cloudflare is investigating an issue where customers are experiencing elevated errors for operations on Increased Durable Objects, D1 and Workflows."
+            "timestamp": "2026-10-29T19:57:28.577Z",
+            "message": "Cloudflare is investigating elevated latency affecting R2 requests in Eastern Europe. We are actively investigating and will provide further updates as soon as more information becomes available."
           }
         ]
       },

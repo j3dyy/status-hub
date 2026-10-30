@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-30T18:52:37Z",
+    "lastUpdated": "2026-10-30T22:46:33Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -69,7 +69,7 @@
       "name": "GitHub",
       "url": "https://www.githubstatus.com",
       "icon": "github",
-      "status": "major_outage"
+      "status": "degraded"
     },
     {
       "id": "gitlab",
@@ -484,7 +484,7 @@
           "providerId": "github",
           "name": "GitHub Core Services",
           "description": "Git repository operations, Pull Requests, Webhooks and REST/GraphQL APIs",
-          "status": "major_outage",
+          "status": "degraded",
           "uptime90d": 99.99,
           "currentLatencyMs": 85,
           "components": [
@@ -515,7 +515,7 @@
           "providerId": "github",
           "name": "GitHub Compute & Automation",
           "description": "GitHub Actions runners, Codespaces, and GitHub Copilot completions",
-          "status": "major_outage",
+          "status": "degraded",
           "uptime90d": 99.92,
           "currentLatencyMs": 112,
           "components": [
@@ -1026,37 +1026,37 @@
   "incidents": {
     "active": [
       {
-        "id": "github-pwxsjgnvrk6b",
-        "title": "Incident with Actions, Pages, and Webhooks",
+        "id": "github-lyyfm7j4pkgl",
+        "title": "Incident with Dependabot",
         "providerId": "github",
-        "severity": "major",
+        "severity": "minor",
         "status": "monitoring",
-        "createdAt": "2026-10-30T17:50:54.677Z",
+        "createdAt": "2026-10-30T20:59:14.225Z",
         "updates": [
           {
             "stage": "monitoring",
-            "timestamp": "2026-10-30T18:32:39.824Z",
-            "message": "The degradation affecting Actions, Pages and Webhooks has been mitigated. We are monitoring to ensure stability."
+            "timestamp": "2026-10-30T22:32:14.170Z",
+            "message": "The degradation has been mitigated. We are monitoring to ensure stability."
           },
           {
             "stage": "investigating",
-            "timestamp": "2026-10-30T18:32:23.550Z",
-            "message": "All affected services have recovered following mitigation. We continue to investigate root cause."
+            "timestamp": "2026-10-30T22:32:08.552Z",
+            "message": "We have mitigated impact and are seeing recovery. We are monitoring for full recovery."
           },
           {
             "stage": "investigating",
-            "timestamp": "2026-10-30T18:06:21.711Z",
-            "message": "We continue to investigate delays affecting Actions workflows, Pages deployments, and webhook events, along with errors affecting code search and live updates. We have taken mitigation steps. Actions processing and Pages deployments are showing signs of recovery, but impact has not fully resolved. We are monitoring recovery and investigating the underlying cause."
+            "timestamp": "2026-10-30T21:44:52.903Z",
+            "message": "We are continuing to investigate elevated errors when viewing some Dependabot alerts. We\u2019ll provide more updates as we learn more."
           },
           {
             "stage": "investigating",
-            "timestamp": "2026-10-30T18:00:58.169Z",
-            "message": "Pages is experiencing degraded performance. We are continuing to investigate."
+            "timestamp": "2026-10-30T21:00:18.322Z",
+            "message": "We are investigating elevated errors when viewing some Dependabot alerts."
           },
           {
             "stage": "investigating",
-            "timestamp": "2026-10-30T17:50:54.785Z",
-            "message": "We are investigating reports of degraded performance for Actions and Webhooks"
+            "timestamp": "2026-10-30T20:59:14.291Z",
+            "message": "We are investigating reports of impacted performance for some GitHub services."
           }
         ]
       },

@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-29T21:01:20Z",
+    "lastUpdated": "2026-10-30T00:51:34Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 2,
+      "activeIncidentsCount": 1,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -863,7 +863,7 @@
           "providerId": "cloudflare",
           "name": "Cloudflare Global Network & Edge",
           "description": "Global Edge Network, Cloudflare DNS, Workers & Pages, WAF, and Zero Trust",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.99,
           "currentLatencyMs": 24,
           "components": [
@@ -1025,21 +1025,6 @@
   ],
   "incidents": {
     "active": [
-      {
-        "id": "cloudflare-kp28d3kzgft1",
-        "title": "R2 Elevated Latency in Eastern Europe",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "investigating",
-        "createdAt": "2026-10-29T19:57:28.577Z",
-        "updates": [
-          {
-            "stage": "investigating",
-            "timestamp": "2026-10-29T19:57:28.577Z",
-            "message": "Cloudflare is investigating elevated latency affecting R2 requests in Eastern Europe. We are actively investigating and will provide further updates as soon as more information becomes available."
-          }
-        ]
-      },
       {
         "id": "mongodb-yhvvsfvwyf1h",
         "title": "Impaired Cluster operations in AWS me-central-1 and AWS me-south-1",

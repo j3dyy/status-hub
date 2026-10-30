@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-10-30T13:38:40Z",
+    "lastUpdated": "2026-10-30T18:52:37Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 1,
+      "activeIncidentsCount": 2,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -69,7 +69,7 @@
       "name": "GitHub",
       "url": "https://www.githubstatus.com",
       "icon": "github",
-      "status": "operational"
+      "status": "major_outage"
     },
     {
       "id": "gitlab",
@@ -484,7 +484,7 @@
           "providerId": "github",
           "name": "GitHub Core Services",
           "description": "Git repository operations, Pull Requests, Webhooks and REST/GraphQL APIs",
-          "status": "operational",
+          "status": "major_outage",
           "uptime90d": 99.99,
           "currentLatencyMs": 85,
           "components": [
@@ -515,7 +515,7 @@
           "providerId": "github",
           "name": "GitHub Compute & Automation",
           "description": "GitHub Actions runners, Codespaces, and GitHub Copilot completions",
-          "status": "operational",
+          "status": "major_outage",
           "uptime90d": 99.92,
           "currentLatencyMs": 112,
           "components": [
@@ -1025,6 +1025,41 @@
   ],
   "incidents": {
     "active": [
+      {
+        "id": "github-pwxsjgnvrk6b",
+        "title": "Incident with Actions, Pages, and Webhooks",
+        "providerId": "github",
+        "severity": "major",
+        "status": "monitoring",
+        "createdAt": "2026-10-30T17:50:54.677Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-10-30T18:32:39.824Z",
+            "message": "The degradation affecting Actions, Pages and Webhooks has been mitigated. We are monitoring to ensure stability."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-30T18:32:23.550Z",
+            "message": "All affected services have recovered following mitigation. We continue to investigate root cause."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-30T18:06:21.711Z",
+            "message": "We continue to investigate delays affecting Actions workflows, Pages deployments, and webhook events, along with errors affecting code search and live updates. We have taken mitigation steps. Actions processing and Pages deployments are showing signs of recovery, but impact has not fully resolved. We are monitoring recovery and investigating the underlying cause."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-30T18:00:58.169Z",
+            "message": "Pages is experiencing degraded performance. We are continuing to investigate."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-10-30T17:50:54.785Z",
+            "message": "We are investigating reports of degraded performance for Actions and Webhooks"
+          }
+        ]
+      },
       {
         "id": "mongodb-yhvvsfvwyf1h",
         "title": "Impaired Cluster operations in AWS me-central-1 and AWS me-south-1",

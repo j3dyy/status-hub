@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-02T08:43:48Z",
+    "lastUpdated": "2026-11-02T18:52:24Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 1,
+      "activeIncidentsCount": 2,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -111,7 +111,7 @@
       "name": "Sentry",
       "url": "https://status.sentry.io",
       "icon": "sentry",
-      "status": "operational"
+      "status": "major_outage"
     },
     {
       "id": "aws",
@@ -737,7 +737,7 @@
           "providerId": "sentry",
           "name": "Sentry Error Tracking & Ingestion",
           "description": "Real-time issue ingestion, performance tracing, session replay, and alert routing",
-          "status": "operational",
+          "status": "major_outage",
           "uptime90d": 99.98,
           "currentLatencyMs": 75,
           "components": [
@@ -1042,6 +1042,36 @@
             "stage": "monitoring",
             "timestamp": "2026-09-03T16:44:43.899Z",
             "message": "Please follow <a href=\"https://status.mongodb.com/incidents/7g5qmxgkc2y4\">the original status post</a> for updates on AWS me-central-1 and AWS me-south-1 issues."
+          }
+        ]
+      },
+      {
+        "id": "sentry-35sw8wr49l3p",
+        "title": "Sentry dashboard is down",
+        "providerId": "sentry",
+        "severity": "critical",
+        "status": "monitoring",
+        "createdAt": "2026-11-02T15:20:31.011Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-11-02T17:13:27.378Z",
+            "message": "The issue is mitigated, but we are continuing to monitor the situation."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-11-02T16:19:13.123Z",
+            "message": "We're continuing to investigate availability issues with our UI and API affecting both US and EU customers."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-11-02T15:28:04.902Z",
+            "message": "Our API is affected in addition to the Sentry.io dashboard. This is also affecting both US and EU customers."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-11-02T15:20:31.119Z",
+            "message": "We are investigating the issue, will update when we know more."
           }
         ]
       }

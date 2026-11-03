@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-02T18:52:24Z",
+    "lastUpdated": "2026-11-03T01:26:37Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "claude",
@@ -111,7 +111,7 @@
       "name": "Sentry",
       "url": "https://status.sentry.io",
       "icon": "sentry",
-      "status": "major_outage"
+      "status": "operational"
     },
     {
       "id": "aws",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -737,7 +737,7 @@
           "providerId": "sentry",
           "name": "Sentry Error Tracking & Ingestion",
           "description": "Real-time issue ingestion, performance tracing, session replay, and alert routing",
-          "status": "major_outage",
+          "status": "operational",
           "uptime90d": 99.98,
           "currentLatencyMs": 75,
           "components": [
@@ -1026,6 +1026,26 @@
   "incidents": {
     "active": [
       {
+        "id": "openai-01M6FDZ89W4PKDS19K496J307G",
+        "title": "File upload errors in ChatGPT",
+        "providerId": "openai",
+        "severity": "minor",
+        "status": "investigating",
+        "createdAt": "2026-11-03T00:46:58Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-11-03T00:58:21Z",
+            "message": "We\u2019re investigating a potential issue for the listed services and checking how it affects users. We\u2019ll share an update when we know more."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-11-03T00:46:58Z",
+            "message": "Some users are having trouble uploading files to ChatGPT or getting ChatGPT to read uploaded files.\n\nWe are working on implementing a mitigation."
+          }
+        ]
+      },
+      {
         "id": "mongodb-yhvvsfvwyf1h",
         "title": "Impaired Cluster operations in AWS me-central-1 and AWS me-south-1",
         "providerId": "mongodb",
@@ -1042,36 +1062,6 @@
             "stage": "monitoring",
             "timestamp": "2026-09-03T16:44:43.899Z",
             "message": "Please follow <a href=\"https://status.mongodb.com/incidents/7g5qmxgkc2y4\">the original status post</a> for updates on AWS me-central-1 and AWS me-south-1 issues."
-          }
-        ]
-      },
-      {
-        "id": "sentry-35sw8wr49l3p",
-        "title": "Sentry dashboard is down",
-        "providerId": "sentry",
-        "severity": "critical",
-        "status": "monitoring",
-        "createdAt": "2026-11-02T15:20:31.011Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-11-02T17:13:27.378Z",
-            "message": "The issue is mitigated, but we are continuing to monitor the situation."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-02T16:19:13.123Z",
-            "message": "We're continuing to investigate availability issues with our UI and API affecting both US and EU customers."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-02T15:28:04.902Z",
-            "message": "Our API is affected in addition to the Sentry.io dashboard. This is also affecting both US and EU customers."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-02T15:20:31.119Z",
-            "message": "We are investigating the issue, will update when we know more."
           }
         ]
       }

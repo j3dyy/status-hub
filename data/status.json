@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-03T16:28:18Z",
+    "lastUpdated": "2026-11-03T21:55:15Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 5,
+      "activeIncidentsCount": 2,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -69,7 +69,7 @@
       "name": "GitHub",
       "url": "https://www.githubstatus.com",
       "icon": "github",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "gitlab",
@@ -111,7 +111,7 @@
       "name": "Sentry",
       "url": "https://status.sentry.io",
       "icon": "sentry",
-      "status": "partial_outage"
+      "status": "maintenance"
     },
     {
       "id": "aws",
@@ -484,7 +484,7 @@
           "providerId": "github",
           "name": "GitHub Core Services",
           "description": "Git repository operations, Pull Requests, Webhooks and REST/GraphQL APIs",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.99,
           "currentLatencyMs": 85,
           "components": [
@@ -515,7 +515,7 @@
           "providerId": "github",
           "name": "GitHub Compute & Automation",
           "description": "GitHub Actions runners, Codespaces, and GitHub Copilot completions",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.92,
           "currentLatencyMs": 112,
           "components": [
@@ -737,7 +737,7 @@
           "providerId": "sentry",
           "name": "Sentry Error Tracking & Ingestion",
           "description": "Real-time issue ingestion, performance tracing, session replay, and alert routing",
-          "status": "partial_outage",
+          "status": "maintenance",
           "uptime90d": 99.98,
           "currentLatencyMs": 75,
           "components": [
@@ -863,7 +863,7 @@
           "providerId": "cloudflare",
           "name": "Cloudflare Global Network & Edge",
           "description": "Global Edge Network, Cloudflare DNS, Workers & Pages, WAF, and Zero Trust",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.99,
           "currentLatencyMs": 24,
           "components": [
@@ -1026,42 +1026,22 @@
   "incidents": {
     "active": [
       {
-        "id": "cloudflare-7gixemnw9oei",
-        "title": "Increased Durable Object Errors in the Dallas, TX US region",
-        "providerId": "cloudflare",
+        "id": "github-13b6lyl8d7bz",
+        "title": "Incident with Git Operations",
+        "providerId": "github",
         "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-11-03T15:38:17.485Z",
+        "status": "investigating",
+        "createdAt": "2026-11-03T20:57:14.438Z",
         "updates": [
           {
-            "stage": "monitoring",
-            "timestamp": "2026-11-03T16:13:24.412Z",
-            "message": "We are continuing to monitor for any further issues."
+            "stage": "investigating",
+            "timestamp": "2026-11-03T21:37:34.716Z",
+            "message": "We have identified the issue impacting Git Operations and are beginning to roll out a mitigation. We will follow up with another update when we begin to see recovery."
           },
           {
             "stage": "investigating",
-            "timestamp": "2026-11-03T15:38:17.485Z",
-            "message": "Cloudflare is aware of and investigating an increased number of errors from Durable Objects in Dallas, Texas, USA.  More updates to follow."
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-nbyxn84kvb6o",
-        "title": "Cloudflare Workers and Pages build errors ",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "identified",
-        "createdAt": "2026-11-03T14:46:56.697Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-11-03T15:15:31.333Z",
-            "message": "Customers may experience increased queue times for Workers Builders"
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-03T14:46:56.697Z",
-            "message": "Cloudflare is aware of and investigating an issue with Cloudflare Workers and Pages build failures which potentially impacts multiple customers. Further detail will be provided as more information becomes available."
+            "timestamp": "2026-11-03T20:57:14.523Z",
+            "message": "We are investigating reports of degraded performance for Git Operations"
           }
         ]
       },
@@ -1082,56 +1062,6 @@
             "stage": "monitoring",
             "timestamp": "2026-09-03T16:44:43.899Z",
             "message": "Please follow <a href=\"https://status.mongodb.com/incidents/7g5qmxgkc2y4\">the original status post</a> for updates on AWS me-central-1 and AWS me-south-1 issues."
-          }
-        ]
-      },
-      {
-        "id": "sentry-mc3nt1t8nb4j",
-        "title": "Delays in spans and transactions processing",
-        "providerId": "sentry",
-        "severity": "major",
-        "status": "identified",
-        "createdAt": "2026-11-03T15:40:37.817Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-11-03T15:53:34.063Z",
-            "message": "We have identified the issue. We are working to roll out a fix."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-03T15:52:10.125Z",
-            "message": "We are still investigating the issue. EU is not affected, only US span and transaction ingestion."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-03T15:44:13.503Z",
-            "message": "We are investigating an incident affecting ingestion of spans and transactions. No data has been lost."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-03T15:40:37.956Z",
-            "message": "We are investigating an incident affecting ingestion of spans and transactions. No data has been lost."
-          }
-        ]
-      },
-      {
-        "id": "sentry-d5k96p3sczrc",
-        "title": "Sentry.io dashboard and API is down",
-        "providerId": "sentry",
-        "severity": "critical",
-        "status": "monitoring",
-        "createdAt": "2026-11-03T14:57:34.679Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-11-03T15:25:30.533Z",
-            "message": "The issue has been mitigated. Dashboard and API are operational."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-03T14:57:34.826Z",
-            "message": "We are investigating the issue. This is affecting both US and EU customers."
           }
         ]
       }

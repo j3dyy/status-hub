@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-03T21:55:15Z",
+    "lastUpdated": "2026-11-04T02:01:32Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 2,
+      "activeIncidentsCount": 1,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -69,7 +69,7 @@
       "name": "GitHub",
       "url": "https://www.githubstatus.com",
       "icon": "github",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "gitlab",
@@ -111,7 +111,7 @@
       "name": "Sentry",
       "url": "https://status.sentry.io",
       "icon": "sentry",
-      "status": "maintenance"
+      "status": "operational"
     },
     {
       "id": "aws",
@@ -484,7 +484,7 @@
           "providerId": "github",
           "name": "GitHub Core Services",
           "description": "Git repository operations, Pull Requests, Webhooks and REST/GraphQL APIs",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.99,
           "currentLatencyMs": 85,
           "components": [
@@ -515,7 +515,7 @@
           "providerId": "github",
           "name": "GitHub Compute & Automation",
           "description": "GitHub Actions runners, Codespaces, and GitHub Copilot completions",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.92,
           "currentLatencyMs": 112,
           "components": [
@@ -737,7 +737,7 @@
           "providerId": "sentry",
           "name": "Sentry Error Tracking & Ingestion",
           "description": "Real-time issue ingestion, performance tracing, session replay, and alert routing",
-          "status": "maintenance",
+          "status": "operational",
           "uptime90d": 99.98,
           "currentLatencyMs": 75,
           "components": [
@@ -1025,26 +1025,6 @@
   ],
   "incidents": {
     "active": [
-      {
-        "id": "github-13b6lyl8d7bz",
-        "title": "Incident with Git Operations",
-        "providerId": "github",
-        "severity": "minor",
-        "status": "investigating",
-        "createdAt": "2026-11-03T20:57:14.438Z",
-        "updates": [
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-03T21:37:34.716Z",
-            "message": "We have identified the issue impacting Git Operations and are beginning to roll out a mitigation. We will follow up with another update when we begin to see recovery."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-03T20:57:14.523Z",
-            "message": "We are investigating reports of degraded performance for Git Operations"
-          }
-        ]
-      },
       {
         "id": "mongodb-yhvvsfvwyf1h",
         "title": "Impaired Cluster operations in AWS me-central-1 and AWS me-south-1",

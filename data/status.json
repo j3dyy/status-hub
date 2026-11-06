@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-06T18:22:19Z",
+    "lastUpdated": "2026-11-06T23:22:10Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 2,
+      "activeIncidentsCount": 3,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "claude",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -1025,6 +1025,26 @@
   ],
   "incidents": {
     "active": [
+      {
+        "id": "openai-01M6S2FV5TZWQ753NHRB7BF5K7",
+        "title": "Elevated error rates with some U.S. business Mastercards",
+        "providerId": "openai",
+        "severity": "none",
+        "status": "identified",
+        "createdAt": "2026-11-06T18:38:43Z",
+        "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-11-06T18:50:47Z",
+            "message": "Investigating \u2014 We\u2019re seeing payment declines on some U.S. business Mastercards. Affected cards have numbers beginning with 544015, 546400, 543502, 543799, or 512998. Some cards beginning with 513989 are also affected.\n\nFor API customers, this can prevent automatic recharges and one-time credit purchases. If your prepaid balance runs out, your API requests may fail.\n\nIf you use one of these cards, we recommend adding a card from a different issuer before your next payment, even if you haven\u2019t seen a decline. If an API credit purchase has already failed, use the new card to retry the purchase.\n\nWe\u2019re working with our payment partners and will share updates here."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-11-06T18:38:43Z",
+            "message": "**Investigating \u2014 We\u2019re seeing payment declines on some U.S. business Mastercards. Affected cards have numbers beginning with 544015, 546400, 543502, 543799, or 512998. Some cards beginning with 513989 are also affected.**\n\n**For API customers, this can prevent automatic recharges and one-time credit purchases. If your prepaid balance runs out, your API requests may fail.**\n\n**If you use one of these cards, we recommend adding a card from a different issuer before your next payment, even if you haven\u2019t seen a decline. If an API credit purchase has already failed, use the new card to retry the purchase.**\n\n**We\u2019re working with our payment partners and will share updates here.**"
+          }
+        ]
+      },
       {
         "id": "cloudflare-wp49bp8bqo6c",
         "title": "Fedramp Customers have Delayed Purges",

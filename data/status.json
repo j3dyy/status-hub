@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-06T03:37:14Z",
+    "lastUpdated": "2026-11-06T11:30:26Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 3,
+      "activeIncidentsCount": 1,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "claude",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -863,7 +863,7 @@
           "providerId": "cloudflare",
           "name": "Cloudflare Global Network & Edge",
           "description": "Global Edge Network, Cloudflare DNS, Workers & Pages, WAF, and Zero Trust",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.99,
           "currentLatencyMs": 24,
           "components": [
@@ -1025,56 +1025,6 @@
   ],
   "incidents": {
     "active": [
-      {
-        "id": "openai-01M6P50GPP1V98EF8MJ9SH393R",
-        "title": "ChatGPT Work and Dots Errors",
-        "providerId": "openai",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-11-05T15:25:03Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-11-05T17:05:56Z",
-            "message": "We\u2019ve applied a mitigation and are monitoring the affected services to confirm recovery."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-11-05T16:57:41Z",
-            "message": "We have identified that users are experiencing elevated errors for the impacted services.\n\nWe are working on implementing a mitigation."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-05T16:26:31Z",
-            "message": "We\u2019re investigating a potential issue for the listed services and checking how it affects users. We\u2019ll share an update when we know more."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-05T15:30:00Z",
-            "message": "We\u2019re investigating a potential issue for the listed services and checking how it affects users. We\u2019ll share an update when we know more."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-05T15:25:03Z",
-            "message": "We\u2019re investigating a potential issue for the listed services and checking how it affects users. We\u2019ll share an update when we know more."
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-oy8gxjb38yse",
-        "title": "Increased Errors for Durable Objects in Western Europe",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-11-05T13:23:55.346Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-11-05T13:23:55.346Z",
-            "message": "Cloudflare investigated an issue that caused an increase of errors for Durable Objects in Western Europe. \nThe issue has been resolved and we are monitoring the results."
-          }
-        ]
-      },
       {
         "id": "mongodb-yhvvsfvwyf1h",
         "title": "Impaired Cluster operations in AWS me-central-1 and AWS me-south-1",

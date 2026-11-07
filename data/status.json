@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-06T23:22:10Z",
+    "lastUpdated": "2026-11-07T02:59:28Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 3,
+      "activeIncidentsCount": 4,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1030,9 +1030,14 @@
         "title": "Elevated error rates with some U.S. business Mastercards",
         "providerId": "openai",
         "severity": "none",
-        "status": "identified",
+        "status": "monitoring",
         "createdAt": "2026-11-06T18:38:43Z",
         "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-11-07T01:29:31Z",
+            "message": "We\u2019ve applied a mitigation and are monitoring the affected services to confirm recovery."
+          },
           {
             "stage": "identified",
             "timestamp": "2026-11-06T18:50:47Z",
@@ -1042,6 +1047,26 @@
             "stage": "identified",
             "timestamp": "2026-11-06T18:38:43Z",
             "message": "**Investigating \u2014 We\u2019re seeing payment declines on some U.S. business Mastercards. Affected cards have numbers beginning with 544015, 546400, 543502, 543799, or 512998. Some cards beginning with 513989 are also affected.**\n\n**For API customers, this can prevent automatic recharges and one-time credit purchases. If your prepaid balance runs out, your API requests may fail.**\n\n**If you use one of these cards, we recommend adding a card from a different issuer before your next payment, even if you haven\u2019t seen a decline. If an API credit purchase has already failed, use the new card to retry the purchase.**\n\n**We\u2019re working with our payment partners and will share updates here.**"
+          }
+        ]
+      },
+      {
+        "id": "cloudflare-c60k3g4vsoc1",
+        "title": "Spectrum Availability Issue in Phoenix",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "monitoring",
+        "createdAt": "2026-11-07T00:59:31.548Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-11-07T02:51:59.805Z",
+            "message": "We are continuing to monitor for any further issues."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-11-07T00:59:31.548Z",
+            "message": "Cloudflare is investigating issues with Spectrum in Phoenix. This may be impacting the availability of existing Spectrum applications. We are working to understand the full impact and mitigate this problem. More updates to follow shortly."
           }
         ]
       },

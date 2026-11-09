@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-08T20:38:02Z",
+    "lastUpdated": "2026-11-09T00:02:04Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",

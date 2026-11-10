@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-10T15:46:39Z",
+    "lastUpdated": "2026-11-10T21:28:00Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "claude",
@@ -111,7 +111,7 @@
       "name": "Sentry",
       "url": "https://status.sentry.io",
       "icon": "sentry",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "aws",
@@ -139,7 +139,7 @@
       "name": "Cloudflare",
       "url": "https://www.cloudflarestatus.com",
       "icon": "cloudflare",
-      "status": "partial_outage"
+      "status": "degraded"
     },
     {
       "id": "hetzner",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -737,7 +737,7 @@
           "providerId": "sentry",
           "name": "Sentry Error Tracking & Ingestion",
           "description": "Real-time issue ingestion, performance tracing, session replay, and alert routing",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.98,
           "currentLatencyMs": 75,
           "components": [
@@ -1026,31 +1026,6 @@
   "incidents": {
     "active": [
       {
-        "id": "openai-01M6S2FV5TZWQ753NHRB7BF5K7",
-        "title": "Elevated error rates with some U.S. business Mastercards",
-        "providerId": "openai",
-        "severity": "none",
-        "status": "monitoring",
-        "createdAt": "2026-11-06T18:38:43Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-11-07T01:29:31Z",
-            "message": "We\u2019ve applied a mitigation and are monitoring the affected services to confirm recovery."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-11-06T18:50:47Z",
-            "message": "Investigating \u2014 We\u2019re seeing payment declines on some U.S. business Mastercards. Affected cards have numbers beginning with 544015, 546400, 543502, 543799, or 512998. Some cards beginning with 513989 are also affected.\n\nFor API customers, this can prevent automatic recharges and one-time credit purchases. If your prepaid balance runs out, your API requests may fail.\n\nIf you use one of these cards, we recommend adding a card from a different issuer before your next payment, even if you haven\u2019t seen a decline. If an API credit purchase has already failed, use the new card to retry the purchase.\n\nWe\u2019re working with our payment partners and will share updates here."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-11-06T18:38:43Z",
-            "message": "**Investigating \u2014 We\u2019re seeing payment declines on some U.S. business Mastercards. Affected cards have numbers beginning with 544015, 546400, 543502, 543799, or 512998. Some cards beginning with 513989 are also affected.**\n\n**For API customers, this can prevent automatic recharges and one-time credit purchases. If your prepaid balance runs out, your API requests may fail.**\n\n**If you use one of these cards, we recommend adding a card from a different issuer before your next payment, even if you haven\u2019t seen a decline. If an API credit purchase has already failed, use the new card to retry the purchase.**\n\n**We\u2019re working with our payment partners and will share updates here.**"
-          }
-        ]
-      },
-      {
         "id": "cloudflare-0ocqieaifg7h",
         "title": "Changes to Cloudflare Workers are not producing Event Subscription events",
         "providerId": "cloudflare",
@@ -1102,6 +1077,21 @@
             "stage": "monitoring",
             "timestamp": "2026-09-03T16:44:43.899Z",
             "message": "Please follow <a href=\"https://status.mongodb.com/incidents/7g5qmxgkc2y4\">the original status post</a> for updates on AWS me-central-1 and AWS me-south-1 issues."
+          }
+        ]
+      },
+      {
+        "id": "sentry-5cm0pk2bsn0z",
+        "title": "EU region replay ingestion latency",
+        "providerId": "sentry",
+        "severity": "minor",
+        "status": "identified",
+        "createdAt": "2026-11-10T21:21:16.448Z",
+        "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-11-10T21:21:16.628Z",
+            "message": "We have identified an issue causing ingestion latency for replay events in our EU region and are working on a fix."
           }
         ]
       }

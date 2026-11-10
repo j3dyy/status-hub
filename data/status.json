@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-09T16:26:44Z",
+    "lastUpdated": "2026-11-10T00:22:26Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -1055,9 +1055,14 @@
         "title": "Changes made to Workers may be delayed or disrupted",
         "providerId": "cloudflare",
         "severity": "minor",
-        "status": "identified",
+        "status": "monitoring",
         "createdAt": "2026-11-09T16:15:26.798Z",
         "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-11-09T16:35:55.009Z",
+            "message": "We are continuing to monitor for any further issues."
+          },
           {
             "stage": "identified",
             "timestamp": "2026-11-09T16:22:38.538Z",

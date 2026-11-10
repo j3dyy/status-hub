@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-10T00:22:26Z",
+    "lastUpdated": "2026-11-10T07:36:24Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -1051,27 +1051,17 @@
         ]
       },
       {
-        "id": "cloudflare-1x0tbxpmmttu",
-        "title": "Changes made to Workers may be delayed or disrupted",
+        "id": "cloudflare-0ocqieaifg7h",
+        "title": "Changes to Cloudflare Workers are not producing Event Subscription events",
         "providerId": "cloudflare",
         "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-11-09T16:15:26.798Z",
+        "status": "investigating",
+        "createdAt": "2026-11-10T01:53:58.905Z",
         "updates": [
           {
-            "stage": "monitoring",
-            "timestamp": "2026-11-09T16:35:55.009Z",
-            "message": "We are continuing to monitor for any further issues."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-11-09T16:22:38.538Z",
-            "message": "We are continuing to work on a fix for the issue."
-          },
-          {
             "stage": "investigating",
-            "timestamp": "2026-11-09T16:15:26.798Z",
-            "message": "Cloudflare is aware of and investigating issues related to creating, editing and deleting Workers. Impact is limited to changing Workers \u2014 Workers that are already deployed are unaffected."
+            "timestamp": "2026-11-10T01:53:58.905Z",
+            "message": "Changes to Cloudflare Workers are temporarily not producing Event Subscription events. We have intentionally disabled this feature due to an on-going issue. We are actively working to restore it, but this, regrettably, may take a while. Changes to Workers themselves are working normally. Already deployed Workers are entirely unaffected."
           }
         ]
       },

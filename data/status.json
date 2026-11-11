@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-11T01:26:31Z",
+    "lastUpdated": "2026-11-11T08:16:14Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 3,
+      "activeIncidentsCount": 6,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -111,7 +111,7 @@
       "name": "Sentry",
       "url": "https://status.sentry.io",
       "icon": "sentry",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "aws",
@@ -139,7 +139,7 @@
       "name": "Cloudflare",
       "url": "https://www.cloudflarestatus.com",
       "icon": "cloudflare",
-      "status": "degraded"
+      "status": "partial_outage"
     },
     {
       "id": "hetzner",
@@ -737,7 +737,7 @@
           "providerId": "sentry",
           "name": "Sentry Error Tracking & Ingestion",
           "description": "Real-time issue ingestion, performance tracing, session replay, and alert routing",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.98,
           "currentLatencyMs": 75,
           "components": [
@@ -1026,13 +1026,58 @@
   "incidents": {
     "active": [
       {
+        "id": "cloudflare-21vwp89eiyjx",
+        "title": "SSL Certificate Provisioning Issue",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "investigating",
+        "createdAt": "2026-11-11T07:45:42.146Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-11-11T07:45:42.146Z",
+            "message": "Cloudflare is investigating an issue deploying a subset of Custom certificates. Customers are advised to temporarily pause certificate redeployments until this incident is resolved\n\nSSL certificates already in production remain unaffected and are operating normally."
+          }
+        ]
+      },
+      {
+        "id": "cloudflare-yu63fhh2peb7",
+        "title": "Replicate Input Upload Issue",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "identified",
+        "createdAt": "2026-11-11T04:33:19.016Z",
+        "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-11-11T07:33:53.799Z",
+            "message": "We are continuing to work on a fix for the issue.\n\nCurrent impact:\nInput uploads are degraded.\nModel builds and pushes via r8.im are unavailable."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-11-11T05:11:52.647Z",
+            "message": "The issue has been identified and a fix is being implemented."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-11-11T04:33:19.016Z",
+            "message": "Cloudflare is investigating issues with Replicate input uploads.\n\nWe are working to understand the full impact and mitigate this problem.  More updates to follow shortly"
+          }
+        ]
+      },
+      {
         "id": "cloudflare-0ocqieaifg7h",
         "title": "Changes to Cloudflare Workers are not producing Event Subscription events",
         "providerId": "cloudflare",
         "severity": "minor",
-        "status": "investigating",
+        "status": "identified",
         "createdAt": "2026-11-10T01:53:58.905Z",
         "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-11-11T05:05:06.331Z",
+            "message": "The issue has been identified and a fix is being implemented."
+          },
           {
             "stage": "investigating",
             "timestamp": "2026-11-10T01:53:58.905Z",
@@ -1077,6 +1122,21 @@
             "stage": "monitoring",
             "timestamp": "2026-09-03T16:44:43.899Z",
             "message": "Please follow <a href=\"https://status.mongodb.com/incidents/7g5qmxgkc2y4\">the original status post</a> for updates on AWS me-central-1 and AWS me-south-1 issues."
+          }
+        ]
+      },
+      {
+        "id": "sentry-f51kdttk60mx",
+        "title": "Account emails not being delivered",
+        "providerId": "sentry",
+        "severity": "major",
+        "status": "investigating",
+        "createdAt": "2026-11-11T07:52:15.818Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-11-11T07:52:15.980Z",
+            "message": "Since 21:37 UTC on November 10, some account emails from Sentry have not been delivered. This includes email address verification, adding new email addresses, and emails sent when you create an account or organization. Organization invites and password reset emails may also be affected.\n\nAlert and notification emails are being delivered as normal.\n\nWe're investigating and working on a fix. Emails sent during this time may not arrive, so you might need to request a new verification email, invite or password reset once this is resolved. We'll post another update within the next hour."
           }
         ]
       }

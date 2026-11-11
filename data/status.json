@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-10T21:28:00Z",
+    "lastUpdated": "2026-11-11T01:26:31Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 4,
+      "activeIncidentsCount": 3,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -111,7 +111,7 @@
       "name": "Sentry",
       "url": "https://status.sentry.io",
       "icon": "sentry",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "aws",
@@ -737,7 +737,7 @@
           "providerId": "sentry",
           "name": "Sentry Error Tracking & Ingestion",
           "description": "Real-time issue ingestion, performance tracing, session replay, and alert routing",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.98,
           "currentLatencyMs": 75,
           "components": [
@@ -1077,21 +1077,6 @@
             "stage": "monitoring",
             "timestamp": "2026-09-03T16:44:43.899Z",
             "message": "Please follow <a href=\"https://status.mongodb.com/incidents/7g5qmxgkc2y4\">the original status post</a> for updates on AWS me-central-1 and AWS me-south-1 issues."
-          }
-        ]
-      },
-      {
-        "id": "sentry-5cm0pk2bsn0z",
-        "title": "EU region replay ingestion latency",
-        "providerId": "sentry",
-        "severity": "minor",
-        "status": "identified",
-        "createdAt": "2026-11-10T21:21:16.448Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-11-10T21:21:16.628Z",
-            "message": "We have identified an issue causing ingestion latency for replay events in our EU region and are working on a fix."
           }
         ]
       }

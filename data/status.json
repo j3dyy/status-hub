@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-12T03:35:15Z",
+    "lastUpdated": "2026-11-12T11:49:46Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 5,
+      "activeIncidentsCount": 4,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "major_outage"
+      "status": "operational"
     },
     {
       "id": "claude",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "major_outage",
+          "status": "operational",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -1025,21 +1025,6 @@
   ],
   "incidents": {
     "active": [
-      {
-        "id": "openai-01M76CW2D7FM7K7F8NJ4W0G08N",
-        "title": "Unable to start new Workspace Agent runs",
-        "providerId": "openai",
-        "severity": "critical",
-        "status": "investigating",
-        "createdAt": "2026-11-11T22:50:17Z",
-        "updates": [
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-11T22:50:17Z",
-            "message": "We are investigating an issue preventing users from starting new Workspace Agent runs. We will share another update as more information becomes available."
-          }
-        ]
-      },
       {
         "id": "cloudflare-yu63fhh2peb7",
         "title": "Replicate Model Registry Unavailable",

@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-11T22:52:24Z",
+    "lastUpdated": "2026-11-12T03:35:15Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -111,7 +111,7 @@
       "name": "Sentry",
       "url": "https://status.sentry.io",
       "icon": "sentry",
-      "status": "maintenance"
+      "status": "operational"
     },
     {
       "id": "aws",
@@ -737,7 +737,7 @@
           "providerId": "sentry",
           "name": "Sentry Error Tracking & Ingestion",
           "description": "Real-time issue ingestion, performance tracing, session replay, and alert routing",
-          "status": "maintenance",
+          "status": "operational",
           "uptime90d": 99.98,
           "currentLatencyMs": 75,
           "components": [
@@ -1042,12 +1042,17 @@
       },
       {
         "id": "cloudflare-yu63fhh2peb7",
-        "title": "Replicate Input Upload Issue",
+        "title": "Replicate Model Registry Unavailable",
         "providerId": "cloudflare",
         "severity": "minor",
         "status": "identified",
         "createdAt": "2026-11-11T04:33:19.016Z",
         "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-11-11T23:50:01.742Z",
+            "message": "We are continuing to work on a fix for the issue.\n\nCurrent impact:\nInput uploads are degraded.\nModel builds and pushes via r8.im are unavailable."
+          },
           {
             "stage": "identified",
             "timestamp": "2026-11-11T07:33:53.799Z",

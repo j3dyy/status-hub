@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-12T19:18:17Z",
+    "lastUpdated": "2026-11-13T00:34:22Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -69,7 +69,7 @@
       "name": "GitHub",
       "url": "https://www.githubstatus.com",
       "icon": "github",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "gitlab",
@@ -243,7 +243,7 @@
           "providerId": "claude",
           "name": "claude.ai",
           "description": "Web & mobile interface, Claude Pro/Team, Projects and interactive Artifacts",
-          "status": "partial_outage",
+          "status": "degraded_performance",
           "uptime90d": 99.4,
           "currentLatencyMs": 118,
           "components": [
@@ -357,7 +357,7 @@
           "providerId": "claude",
           "name": "Claude Cowork",
           "description": "Real-time collaborative workspaces, multi-user sessions, and team memory",
-          "status": "partial_outage",
+          "status": "degraded_performance",
           "uptime90d": 99.43,
           "currentLatencyMs": 115,
           "components": [
@@ -484,7 +484,7 @@
           "providerId": "github",
           "name": "GitHub Core Services",
           "description": "Git repository operations, Pull Requests, Webhooks and REST/GraphQL APIs",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.99,
           "currentLatencyMs": 85,
           "components": [
@@ -515,7 +515,7 @@
           "providerId": "github",
           "name": "GitHub Compute & Automation",
           "description": "GitHub Actions runners, Codespaces, and GitHub Copilot completions",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.92,
           "currentLatencyMs": 112,
           "components": [
@@ -1041,26 +1041,6 @@
         ]
       },
       {
-        "id": "github-gl7yhd7jx00v",
-        "title": "Incident with Webhooks API",
-        "providerId": "github",
-        "severity": "minor",
-        "status": "investigating",
-        "createdAt": "2026-11-12T18:43:13.817Z",
-        "updates": [
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-12T18:52:18.168Z",
-            "message": "Webhooks API is experiencing timeouts and errors impacting about 1% of customer traffic. We are working through possible mitigation strategies."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-12T18:43:13.908Z",
-            "message": "We are investigating reports of degraded performance for Webhooks"
-          }
-        ]
-      },
-      {
         "id": "claude-sqn3fg1l96dl",
         "title": "Elevated errors affecting the Microsoft 365 connector",
         "providerId": "claude",
@@ -1068,6 +1048,21 @@
         "status": "identified",
         "createdAt": "2026-11-12T17:52:44.934Z",
         "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-11-12T22:23:58.309Z",
+            "message": "This issue is caused by a Microsoft 365 service incident, and mail, calendar and search tools in the Microsoft 365 connector are still failing for most requests. Claude for Outlook remains affected. You can follow Microsoft's progress at https://status.cloud.microsoft. We will update this post when service is restored."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-11-12T21:18:24.190Z",
+            "message": "We are continuing to work with our upstream provider, who is restarting affected servers. Mail, calendar and search tools in the Microsoft 365 connector are still failing for most requests, and Claude for Outlook remains affected. We will provide another update as soon as we have more information."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-11-12T20:28:28.214Z",
+            "message": "We are continuing to work with our upstream provider on this issue. Mail, calendar and search tools in the Microsoft 365 connector are still failing for most requests. Claude for Outlook is also affected: mail and calendar actions may fail, and some users may not be able to open the add-in. We will provide another update within the hour."
+          },
           {
             "stage": "identified",
             "timestamp": "2026-11-12T18:34:20.058Z",
@@ -1081,13 +1076,33 @@
         ]
       },
       {
+        "id": "cloudflare-9zxr2bkqoct7",
+        "title": "Durable Objects increased error rates in North America",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "monitoring",
+        "createdAt": "2026-11-12T22:39:40.553Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-11-12T22:39:40.553Z",
+            "message": "Durable Objects saw an increased error rate in North American colos due to a sudden increase in traffic. Impact has subsided. We are now monitoring."
+          }
+        ]
+      },
+      {
         "id": "cloudflare-yu63fhh2peb7",
         "title": "Replicate Model Registry Unavailable",
         "providerId": "cloudflare",
         "severity": "minor",
-        "status": "identified",
+        "status": "monitoring",
         "createdAt": "2026-11-11T04:33:19.016Z",
         "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-11-12T22:55:17.816Z",
+            "message": "A fix has been implemented and we are monitoring the results."
+          },
           {
             "stage": "identified",
             "timestamp": "2026-11-11T23:50:01.742Z",

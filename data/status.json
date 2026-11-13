@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-13T15:30:36Z",
+    "lastUpdated": "2026-11-13T21:34:30Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 6,
+      "activeIncidentsCount": 7,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -243,7 +243,7 @@
           "providerId": "claude",
           "name": "claude.ai",
           "description": "Web & mobile interface, Claude Pro/Team, Projects and interactive Artifacts",
-          "status": "partial_outage",
+          "status": "degraded_performance",
           "uptime90d": 99.4,
           "currentLatencyMs": 118,
           "components": [
@@ -300,7 +300,7 @@
           "providerId": "claude",
           "name": "Claude API (api.anthropic.com)",
           "description": "Direct inference endpoints for Claude 3.5 Sonnet, Claude 3.5 Haiku, and Claude 3 Opus",
-          "status": "partial_outage",
+          "status": "major_outage",
           "uptime90d": 99.5,
           "currentLatencyMs": 142,
           "components": [
@@ -331,7 +331,7 @@
           "providerId": "claude",
           "name": "Claude Code",
           "description": "Agentic command-line developer assistant and IDE tool integration",
-          "status": "partial_outage",
+          "status": "major_outage",
           "uptime90d": 99.44,
           "currentLatencyMs": 105,
           "components": [
@@ -1026,13 +1026,38 @@
   "incidents": {
     "active": [
       {
+        "id": "openai-01M7ATRS6BMZ61E4JDHJGM79Y0",
+        "title": "Delayed Costs Data in the Compliance API",
+        "providerId": "openai",
+        "severity": "minor",
+        "status": "monitoring",
+        "createdAt": "2026-11-13T16:10:07Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-11-13T18:56:44Z",
+            "message": "We\u2019ve applied a mitigation and are monitoring the affected services to confirm recovery. Delays in cost data are still expected."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-11-13T16:10:07Z",
+            "message": "We have identified an issue causing delays in publishing Organization cost data through the Costs API. API and ChatGPT usage are not affected. We are working to restore normal data freshness."
+          }
+        ]
+      },
+      {
         "id": "openai-01M78GAT3AK9P9W8Z230KHFVE8",
         "title": "Elevated errors affecting the Microsoft 365 connector",
         "providerId": "openai",
         "severity": "minor",
-        "status": "investigating",
+        "status": "monitoring",
         "createdAt": "2026-11-12T18:29:14Z",
         "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-11-13T16:20:45Z",
+            "message": "We\u2019re seeing signs of recovery for the Microsoft 365 connector and are continuing to monitor the affected services to confirm recovery."
+          },
           {
             "stage": "investigating",
             "timestamp": "2026-11-12T18:29:15Z",
@@ -1041,43 +1066,18 @@
         ]
       },
       {
-        "id": "claude-34wq7gxnxvvm",
-        "title": "Elevated errors on claude.ai, the Claude API, and Claude Code",
-        "providerId": "claude",
-        "severity": "major",
-        "status": "investigating",
-        "createdAt": "2026-11-13T13:09:50.199Z",
-        "updates": [
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-13T14:36:13.852Z",
-            "message": "We're seeing recovery on claude.ai and the Claude API, though errors may return while we continue working on this. Connectors, including Docs and Sheets, remain degraded, as do Claude in Meetings, Claude Managed Agents, Claude Security and connector use in Claude Code. Mobile apps are affected in the same way as claude.ai. We'll share another update soon."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-13T14:03:47.245Z",
-            "message": "We are investigating reports of degraded performance affecting a variety of surfaces including claude.ai, the Claude API, Claude Code, connectors (including Claude Docs and Claude Sheets), Claude Security and Claude Managed Agents."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-13T13:52:05.519Z",
-            "message": "We are investigating reports of degraded performance affecting claude.ai, the Claude API, Claude Code, and connectors (including Claude Docs and Claude Sheets)."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-13T13:09:50.342Z",
-            "message": "We are investigating reports of degraded performance affecting claude.ai, the Claude API, and Claude Code. We will provide an update as soon as possible."
-          }
-        ]
-      },
-      {
         "id": "claude-sqn3fg1l96dl",
         "title": "Elevated errors affecting the Microsoft 365 connector",
         "providerId": "claude",
         "severity": "major",
-        "status": "identified",
+        "status": "monitoring",
         "createdAt": "2026-11-12T17:52:44.934Z",
         "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-11-13T15:40:53.613Z",
+            "message": "We're seeing signs of recovery for the Microsoft 365 connector. Claude for Outlook is also recovering. Some SharePoint search requests are still returning errors. Microsoft's incident remains open, so errors may return. We're continuing to monitor and will update this post as soon as we have more info."
+          },
           {
             "stage": "identified",
             "timestamp": "2026-11-12T22:23:58.309Z",
@@ -1102,6 +1102,31 @@
             "stage": "investigating",
             "timestamp": "2026-11-12T17:52:45.043Z",
             "message": "We are investigating elevated errors and slow responses affecting the Microsoft 365 connector. Requests to mail, SharePoint, Teams chat and calendar through the connector may fail, and new connections to the connector may not complete. We will provide an update as soon as possible."
+          }
+        ]
+      },
+      {
+        "id": "cloudflare-e7ktq32gphhe",
+        "title": "Cloudflare is seeing an issue with Workers API availability",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "monitoring",
+        "createdAt": "2026-11-13T15:31:13.773Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-11-13T15:42:43.996Z",
+            "message": "A fix has been implemented and we are monitoring the results."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-11-13T15:39:22.677Z",
+            "message": "The issue has been identified and a fix is being implemented."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-11-13T15:31:13.773Z",
+            "message": "Cloudflare is investigating an issue impacting the Cloudflare Workers API, customers may be seeing an increase in 5xx errors deploying Workers or doing other API actions."
           }
         ]
       },

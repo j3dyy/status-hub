@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-13T00:34:22Z",
+    "lastUpdated": "2026-11-13T07:15:37Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 6,
+      "activeIncidentsCount": 4,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1072,56 +1072,6 @@
             "stage": "investigating",
             "timestamp": "2026-11-12T17:52:45.043Z",
             "message": "We are investigating elevated errors and slow responses affecting the Microsoft 365 connector. Requests to mail, SharePoint, Teams chat and calendar through the connector may fail, and new connections to the connector may not complete. We will provide an update as soon as possible."
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-9zxr2bkqoct7",
-        "title": "Durable Objects increased error rates in North America",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-11-12T22:39:40.553Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-11-12T22:39:40.553Z",
-            "message": "Durable Objects saw an increased error rate in North American colos due to a sudden increase in traffic. Impact has subsided. We are now monitoring."
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-yu63fhh2peb7",
-        "title": "Replicate Model Registry Unavailable",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-11-11T04:33:19.016Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-11-12T22:55:17.816Z",
-            "message": "A fix has been implemented and we are monitoring the results."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-11-11T23:50:01.742Z",
-            "message": "We are continuing to work on a fix for the issue.\n\nCurrent impact:\nInput uploads are degraded.\nModel builds and pushes via r8.im are unavailable."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-11-11T07:33:53.799Z",
-            "message": "We are continuing to work on a fix for the issue.\n\nCurrent impact:\nInput uploads are degraded.\nModel builds and pushes via r8.im are unavailable."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-11-11T05:11:52.647Z",
-            "message": "The issue has been identified and a fix is being implemented."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-11T04:33:19.016Z",
-            "message": "Cloudflare is investigating issues with Replicate input uploads.\n\nWe are working to understand the full impact and mitigate this problem.  More updates to follow shortly"
           }
         ]
       },

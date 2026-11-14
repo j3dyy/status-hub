@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-14T08:07:37Z",
+    "lastUpdated": "2026-11-14T15:03:27Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 5,
+      "activeIncidentsCount": 4,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1062,31 +1062,6 @@
             "stage": "investigating",
             "timestamp": "2026-11-14T07:11:36.218Z",
             "message": "We are investigating an issue with Sign in with Apple on the Claude iOS app, which is mainly affecting new accounts. New users can sign up with Google or email instead. We will provide an update as soon as possible."
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-e7ktq32gphhe",
-        "title": "Cloudflare is seeing an issue with Workers API availability",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-11-13T15:31:13.773Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-11-13T15:42:43.996Z",
-            "message": "A fix has been implemented and we are monitoring the results."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-11-13T15:39:22.677Z",
-            "message": "The issue has been identified and a fix is being implemented."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-13T15:31:13.773Z",
-            "message": "Cloudflare is investigating an issue impacting the Cloudflare Workers API, customers may be seeing an increase in 5xx errors deploying Workers or doing other API actions."
           }
         ]
       },

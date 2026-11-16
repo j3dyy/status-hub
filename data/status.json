@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-16T09:24:16Z",
+    "lastUpdated": "2026-11-16T19:46:27Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 3,
+      "activeIncidentsCount": 4,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -243,7 +243,7 @@
           "providerId": "claude",
           "name": "claude.ai",
           "description": "Web & mobile interface, Claude Pro/Team, Projects and interactive Artifacts",
-          "status": "partial_outage",
+          "status": "degraded_performance",
           "uptime90d": 99.4,
           "currentLatencyMs": 118,
           "components": [
@@ -1025,6 +1025,36 @@
   ],
   "incidents": {
     "active": [
+      {
+        "id": "claude-b5cq662qf2wm",
+        "title": "Claude unable to join meetings",
+        "providerId": "claude",
+        "severity": "major",
+        "status": "investigating",
+        "createdAt": "2026-11-16T15:10:15.167Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-11-16T18:10:10.240Z",
+            "message": "Claude may still be unable to join some calls in Claude Meetings (beta), and Auto-join remains paused. Calls already in progress and other Claude features are not affected. We expect this to take some time to fully resolve and will post an update when the status changes."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-11-16T16:27:03.835Z",
+            "message": "We have temporarily paused Auto-join while we work on this. Adding Claude to a call by hand is also affected. Calls already in progress are not affected. We will provide another update as soon as possible."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-11-16T15:12:56.268Z",
+            "message": "We are continuing to investigate an issue preventing Claude from joining new calls in Claude Meetings (beta)."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-11-16T15:10:15.235Z",
+            "message": "We are investigating an issue preventing Claude from joining new calls in Claude Meetings (beta). Calls already in progress are not affected, and core functionality is not impacted. We will provide an update as soon as possible."
+          }
+        ]
+      },
       {
         "id": "claude-ct4c2pwf2xpj",
         "title": "Some users unable to sign up with Apple on the Claude iOS app",

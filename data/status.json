@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-15T22:01:56Z",
+    "lastUpdated": "2026-11-16T01:56:26Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 4,
+      "activeIncidentsCount": 3,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "claude",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -1025,31 +1025,6 @@
   ],
   "incidents": {
     "active": [
-      {
-        "id": "openai-01M7ATRS6BMZ61E4JDHJGM79Y0",
-        "title": "Delayed Costs Data in the Compliance API",
-        "providerId": "openai",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-11-13T16:10:07Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-11-14T05:31:20Z",
-            "message": "We are monitoring the affected services to confirm recovery. Delays in cost data are still expected."
-          },
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-11-13T18:56:44Z",
-            "message": "We\u2019ve applied a mitigation and are monitoring the affected services to confirm recovery. Delays in cost data are still expected."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-11-13T16:10:07Z",
-            "message": "We have identified an issue causing delays in publishing Organization cost data through the Costs API. API and ChatGPT usage are not affected. We are working to restore normal data freshness."
-          }
-        ]
-      },
       {
         "id": "claude-ct4c2pwf2xpj",
         "title": "Some users unable to sign up with Apple on the Claude iOS app",

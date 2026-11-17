@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-17T11:11:31Z",
+    "lastUpdated": "2026-11-17T19:53:10Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 4,
+      "activeIncidentsCount": 6,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "claude",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -1026,6 +1026,46 @@
   "incidents": {
     "active": [
       {
+        "id": "openai-01M7N9VNR6X5SEC90M1YCDB36D",
+        "title": "Costs API data is delayed",
+        "providerId": "openai",
+        "severity": "minor",
+        "status": "investigating",
+        "createdAt": "2026-11-17T17:46:15Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-11-17T18:41:57Z",
+            "message": "We have identified the issue and we are working towards a full recovery."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-11-17T17:46:15Z",
+            "message": "We have identified a delay in our Costs API. We are working to resolve the issue."
+          }
+        ]
+      },
+      {
+        "id": "claude-1lglzf469c0z",
+        "title": "Some users unable to sign in with Apple on claude.ai and the Claude iOS app",
+        "providerId": "claude",
+        "severity": "major",
+        "status": "identified",
+        "createdAt": "2026-11-17T18:55:53.499Z",
+        "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-11-17T18:56:06.194Z",
+            "message": "We have identified the cause of the issue affecting claude.ai and are working on a fix. We will provide an update as soon as possible."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-11-17T18:55:53.596Z",
+            "message": "We are investigating an issue with Sign in with Apple on claude.ai and the Claude iOS app. Sign in with Google and email are not affected. We will provide an update as soon as possible."
+          }
+        ]
+      },
+      {
         "id": "claude-b5cq662qf2wm",
         "title": "Claude unable to join meetings",
         "providerId": "claude",
@@ -1061,22 +1101,22 @@
         ]
       },
       {
-        "id": "cloudflare-5831aw44ia7i",
-        "title": "Turnstile verification failures",
+        "id": "cloudflare-sv9tnfpjiojf",
+        "title": "Errors and stalled predictions on some models",
         "providerId": "cloudflare",
         "severity": "minor",
         "status": "identified",
-        "createdAt": "2026-11-17T10:24:59.409Z",
+        "createdAt": "2026-11-17T15:02:47.698Z",
         "updates": [
           {
             "stage": "identified",
-            "timestamp": "2026-11-17T10:42:45.008Z",
-            "message": "The issue has been identified and a fix is being implemented."
+            "timestamp": "2026-11-17T16:32:13.057Z",
+            "message": "The issue has been identified and a fix is being implemented.\n\nCurrent impact: prediction requests for some models may return HTTP 500 errors, and some predictions may stay in a processing state. Customers using the API may also see validation errors on responses."
           },
           {
             "stage": "investigating",
-            "timestamp": "2026-11-17T10:24:59.409Z",
-            "message": "We are investigating reports of Turnstile verification failures affecting some users with browser fingerprinting protection enabled, including Helium. We are assessing the impact and potential mitigations."
+            "timestamp": "2026-11-17T15:02:47.698Z",
+            "message": "We are currently investigating this issue.\n\nCloudflare is aware of, and investigating, an issue affecting predictions for some models on Replicate. Customers may see prediction requests return HTTP 500 errors, and some predictions may remain in a processing state without completing. Some API responses are also missing version information, which can cause validation errors in client libraries. We are working to understand the full impact and mitigate this problem. "
           }
         ]
       },

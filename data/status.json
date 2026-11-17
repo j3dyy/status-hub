@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-16T19:46:27Z",
+    "lastUpdated": "2026-11-17T02:39:16Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 4,
+      "activeIncidentsCount": 3,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1030,9 +1030,14 @@
         "title": "Claude unable to join meetings",
         "providerId": "claude",
         "severity": "major",
-        "status": "investigating",
+        "status": "identified",
         "createdAt": "2026-11-16T15:10:15.167Z",
         "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-11-17T02:02:57.704Z",
+            "message": "Claude Meetings (beta) saw higher than expected demand today, and Claude was unable to join many calls. We have put mitigations in place and are continuing to monitor and improve join reliability.\n\nClaude Meetings is now re-enabled for all Enterprise customers, though Claude may take a little longer than usual to join. Adding Claude to new calls and Auto-join remain paused for Team customers. We will share more updates as we expand capacity and begin restoring the feature for Team customers."
+          },
           {
             "stage": "investigating",
             "timestamp": "2026-11-16T18:10:10.240Z",
@@ -1052,26 +1057,6 @@
             "stage": "investigating",
             "timestamp": "2026-11-16T15:10:15.235Z",
             "message": "We are investigating an issue preventing Claude from joining new calls in Claude Meetings (beta). Calls already in progress are not affected, and core functionality is not impacted. We will provide an update as soon as possible."
-          }
-        ]
-      },
-      {
-        "id": "claude-ct4c2pwf2xpj",
-        "title": "Some users unable to sign up with Apple on the Claude iOS app",
-        "providerId": "claude",
-        "severity": "major",
-        "status": "investigating",
-        "createdAt": "2026-11-14T07:11:36.117Z",
-        "updates": [
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-14T20:12:05.565Z",
-            "message": "We are continuing to investigate an issue with Sign in with Apple on the Claude iOS app, which is mainly affecting new accounts. New users can sign up with Google or email instead. We will provide another update as soon as possible."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-14T07:11:36.218Z",
-            "message": "We are investigating an issue with Sign in with Apple on the Claude iOS app, which is mainly affecting new accounts. New users can sign up with Google or email instead. We will provide an update as soon as possible."
           }
         ]
       },

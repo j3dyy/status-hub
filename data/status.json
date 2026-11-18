@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-17T19:53:10Z",
+    "lastUpdated": "2026-11-18T02:08:07Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -274,7 +274,7 @@
           "providerId": "claude",
           "name": "Claude Console (platform.claude.com)",
           "description": "Developer platform, prompt engineering workbench, API keys and billing management",
-          "status": "major_outage",
+          "status": "degraded",
           "uptime90d": 99.93,
           "currentLatencyMs": 84,
           "components": [
@@ -300,7 +300,7 @@
           "providerId": "claude",
           "name": "Claude API (api.anthropic.com)",
           "description": "Direct inference endpoints for Claude 3.5 Sonnet, Claude 3.5 Haiku, and Claude 3 Opus",
-          "status": "major_outage",
+          "status": "degraded",
           "uptime90d": 99.5,
           "currentLatencyMs": 142,
           "components": [
@@ -331,7 +331,7 @@
           "providerId": "claude",
           "name": "Claude Code",
           "description": "Agentic command-line developer assistant and IDE tool integration",
-          "status": "major_outage",
+          "status": "degraded",
           "uptime90d": 99.44,
           "currentLatencyMs": 105,
           "components": [
@@ -357,7 +357,7 @@
           "providerId": "claude",
           "name": "Claude Cowork",
           "description": "Real-time collaborative workspaces, multi-user sessions, and team memory",
-          "status": "major_outage",
+          "status": "degraded",
           "uptime90d": 99.43,
           "currentLatencyMs": 115,
           "components": [
@@ -378,7 +378,7 @@
           "providerId": "claude",
           "name": "Claude for Government",
           "description": "FedRAMP High / DoD IL5 compliant isolated federal cloud enclave",
-          "status": "major_outage",
+          "status": "degraded",
           "uptime90d": 100.0,
           "currentLatencyMs": 95,
           "components": [
@@ -1030,9 +1030,14 @@
         "title": "Costs API data is delayed",
         "providerId": "openai",
         "severity": "minor",
-        "status": "investigating",
+        "status": "monitoring",
         "createdAt": "2026-11-17T17:46:15Z",
         "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-11-17T19:53:49Z",
+            "message": "We've pushed a fix and are monitoring the recovery."
+          },
           {
             "stage": "investigating",
             "timestamp": "2026-11-17T18:41:57Z",
@@ -1046,33 +1051,18 @@
         ]
       },
       {
-        "id": "claude-1lglzf469c0z",
-        "title": "Some users unable to sign in with Apple on claude.ai and the Claude iOS app",
-        "providerId": "claude",
-        "severity": "major",
-        "status": "identified",
-        "createdAt": "2026-11-17T18:55:53.499Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-11-17T18:56:06.194Z",
-            "message": "We have identified the cause of the issue affecting claude.ai and are working on a fix. We will provide an update as soon as possible."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-11-17T18:55:53.596Z",
-            "message": "We are investigating an issue with Sign in with Apple on claude.ai and the Claude iOS app. Sign in with Google and email are not affected. We will provide an update as soon as possible."
-          }
-        ]
-      },
-      {
         "id": "claude-b5cq662qf2wm",
         "title": "Claude unable to join meetings",
         "providerId": "claude",
-        "severity": "major",
+        "severity": "minor",
         "status": "identified",
         "createdAt": "2026-11-16T15:10:15.167Z",
         "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-11-17T23:39:43.919Z",
+            "message": "Claude Meetings (beta) is joining calls more reliably, and we are monitoring it. It remains enabled for all Enterprise customers. Team customers can again add Claude to new calls manually, and Auto-join is being restored gradually for Team customers."
+          },
           {
             "stage": "identified",
             "timestamp": "2026-11-17T02:02:57.704Z",
@@ -1101,6 +1091,26 @@
         ]
       },
       {
+        "id": "cloudflare-0jozucwnpzy0",
+        "title": "Cloudflare Access Issue",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "identified",
+        "createdAt": "2026-11-18T01:10:14.795Z",
+        "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-11-18T01:22:09.872Z",
+            "message": "The issue has been identified and a fix is being implemented."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-11-18T01:10:14.795Z",
+            "message": "Cloudflare is investigating issues with Cloudflare Access. Customers may experience a delay making configuration changes to Access.\n\nWe are working to understand the full impact and mitigate this problem.  More updates to follow shortly."
+          }
+        ]
+      },
+      {
         "id": "cloudflare-sv9tnfpjiojf",
         "title": "Errors and stalled predictions on some models",
         "providerId": "cloudflare",
@@ -1108,6 +1118,11 @@
         "status": "identified",
         "createdAt": "2026-11-17T15:02:47.698Z",
         "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-11-17T21:53:51.025Z",
+            "message": "The issue has been identified and a fix is being implemented.\n\nCurrent impact: predictions on OpenAI models are back to normal. Predictions on other models may still return HTTP 500 errors or stay in a processing state while we continue to work on a fix."
+          },
           {
             "stage": "identified",
             "timestamp": "2026-11-17T16:32:13.057Z",

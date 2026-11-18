@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-18T02:08:07Z",
+    "lastUpdated": "2026-11-18T10:09:00Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 6,
+      "activeIncidentsCount": 4,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1087,51 +1087,6 @@
             "stage": "investigating",
             "timestamp": "2026-11-16T15:10:15.235Z",
             "message": "We are investigating an issue preventing Claude from joining new calls in Claude Meetings (beta). Calls already in progress are not affected, and core functionality is not impacted. We will provide an update as soon as possible."
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-0jozucwnpzy0",
-        "title": "Cloudflare Access Issue",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "identified",
-        "createdAt": "2026-11-18T01:10:14.795Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-11-18T01:22:09.872Z",
-            "message": "The issue has been identified and a fix is being implemented."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-18T01:10:14.795Z",
-            "message": "Cloudflare is investigating issues with Cloudflare Access. Customers may experience a delay making configuration changes to Access.\n\nWe are working to understand the full impact and mitigate this problem.  More updates to follow shortly."
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-sv9tnfpjiojf",
-        "title": "Errors and stalled predictions on some models",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "identified",
-        "createdAt": "2026-11-17T15:02:47.698Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-11-17T21:53:51.025Z",
-            "message": "The issue has been identified and a fix is being implemented.\n\nCurrent impact: predictions on OpenAI models are back to normal. Predictions on other models may still return HTTP 500 errors or stay in a processing state while we continue to work on a fix."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-11-17T16:32:13.057Z",
-            "message": "The issue has been identified and a fix is being implemented.\n\nCurrent impact: prediction requests for some models may return HTTP 500 errors, and some predictions may stay in a processing state. Customers using the API may also see validation errors on responses."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-17T15:02:47.698Z",
-            "message": "We are currently investigating this issue.\n\nCloudflare is aware of, and investigating, an issue affecting predictions for some models on Replicate. Customers may see prediction requests return HTTP 500 errors, and some predictions may remain in a processing state without completing. Some API responses are also missing version information, which can cause validation errors in client libraries. We are working to understand the full impact and mitigate this problem. "
           }
         ]
       },

@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-18T10:09:00Z",
+    "lastUpdated": "2026-11-18T18:51:28Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 4,
+      "activeIncidentsCount": 3,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "claude",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -1025,31 +1025,6 @@
   ],
   "incidents": {
     "active": [
-      {
-        "id": "openai-01M7N9VNR6X5SEC90M1YCDB36D",
-        "title": "Costs API data is delayed",
-        "providerId": "openai",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-11-17T17:46:15Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-11-17T19:53:49Z",
-            "message": "We've pushed a fix and are monitoring the recovery."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-17T18:41:57Z",
-            "message": "We have identified the issue and we are working towards a full recovery."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-17T17:46:15Z",
-            "message": "We have identified a delay in our Costs API. We are working to resolve the issue."
-          }
-        ]
-      },
       {
         "id": "claude-b5cq662qf2wm",
         "title": "Claude unable to join meetings",

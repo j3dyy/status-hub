@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-18T18:51:28Z",
+    "lastUpdated": "2026-11-19T00:55:51Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 3,
+      "activeIncidentsCount": 4,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1062,6 +1062,31 @@
             "stage": "investigating",
             "timestamp": "2026-11-16T15:10:15.235Z",
             "message": "We are investigating an issue preventing Claude from joining new calls in Claude Meetings (beta). Calls already in progress are not affected, and core functionality is not impacted. We will provide an update as soon as possible."
+          }
+        ]
+      },
+      {
+        "id": "cloudflare-f33c51cw0ojd",
+        "title": "Degraded connectivity between Europe and Asia Pacific",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "monitoring",
+        "createdAt": "2026-11-18T22:26:41.943Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-11-19T00:36:54.191Z",
+            "message": "A fix has been implemented and we are monitoring the results."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-11-18T23:48:52.158Z",
+            "message": "The issue has been identified and a fix is being implemented."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-11-18T22:26:41.943Z",
+            "message": "Cloudflare is investigating degraded connectivity between Europe and the Asia Pacific region. Customers may experience increased errors and latency for requests traversing this path, including requests involving R2, D1, and Cache Reserve. Other Cloudflare services that rely on Europe-to-Asia Pacific connectivity may also be affected. Network teams are working to mitigate the issue and restore normal connectivity. Further updates will be provided as more information becomes available."
           }
         ]
       },

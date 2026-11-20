@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-20T04:57:44Z",
+    "lastUpdated": "2026-11-20T13:56:14Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 2,
+      "activeIncidentsCount": 3,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1025,6 +1025,26 @@
   ],
   "incidents": {
     "active": [
+      {
+        "id": "cloudflare-4lv21sf5fzhm",
+        "title": "Network Performance Issues in Miami",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "identified",
+        "createdAt": "2026-11-20T05:00:56.036Z",
+        "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-11-20T05:10:34.028Z",
+            "message": "The issue has been identified and a fix is being implemented."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-11-20T05:00:56.036Z",
+            "message": "Cloudflare has identified issues with Network Performance in Miami. We are working to analyze and mitigate this problem. More updates to follow shortly."
+          }
+        ]
+      },
       {
         "id": "cloudflare-0ocqieaifg7h",
         "title": "Changes to Cloudflare Workers are not producing Event Subscription events",

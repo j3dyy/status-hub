@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-20T21:44:37Z",
+    "lastUpdated": "2026-11-21T02:52:09Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 4,
+      "activeIncidentsCount": 3,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1025,26 +1025,6 @@
   ],
   "incidents": {
     "active": [
-      {
-        "id": "cloudflare-akjr7qn5o622",
-        "title": "Cache Purging Delays in Milan",
-        "providerId": "cloudflare",
-        "severity": "none",
-        "status": "identified",
-        "createdAt": "2026-11-20T20:51:40.979Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-11-20T20:55:47.303Z",
-            "message": "The issue has been identified and a fix is being implemented."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-20T20:51:40.979Z",
-            "message": "Cloudflare single-file cache purging (purge by URL) called via the Dashboard/API is delayed in Milan. We are working to resolve this issue as soon as possible. Until then you may use the Purge Everything feature but do be aware it may cause a surge in traffic to your origin server(s). More updates to follow."
-          }
-        ]
-      },
       {
         "id": "cloudflare-oz6to8yacrxe",
         "title": "Network Performance Issues in Washington, DC datacenter (IAD)",

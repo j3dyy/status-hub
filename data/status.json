@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-23T03:53:26Z",
+    "lastUpdated": "2026-11-23T14:03:51Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 2,
+      "activeIncidentsCount": 3,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -1025,6 +1025,21 @@
   ],
   "incidents": {
     "active": [
+      {
+        "id": "cloudflare-00dp7cliyqqt",
+        "title": "Cloudflare Workers API \u2013 Delayed or Inconsistent Responses",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "investigating",
+        "createdAt": "2026-11-23T13:52:11.144Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-11-23T13:52:11.144Z",
+            "message": "Cloudflare is investigating an issue affecting the Workers API and Workers configuration in the Cloudflare dashboard. \nCustomers may see out-of-date or inconsistent information when viewing or managing Workers. \nFor example, recent deployments or configuration changes may not show up right away. \nWorkers that are already running in production are not affected. \n\n\nWe are working to mitigate this problem. More updates to follow shortly."
+          }
+        ]
+      },
       {
         "id": "cloudflare-0ocqieaifg7h",
         "title": "Changes to Cloudflare Workers are not producing Event Subscription events",

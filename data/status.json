@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-24T11:37:45Z",
+    "lastUpdated": "2026-11-24T21:31:21Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 5,
+      "activeIncidentsCount": 6,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -274,7 +274,7 @@
           "providerId": "claude",
           "name": "Claude Console (platform.claude.com)",
           "description": "Developer platform, prompt engineering workbench, API keys and billing management",
-          "status": "degraded",
+          "status": "major_outage",
           "uptime90d": 99.93,
           "currentLatencyMs": 84,
           "components": [
@@ -300,7 +300,7 @@
           "providerId": "claude",
           "name": "Claude API (api.anthropic.com)",
           "description": "Direct inference endpoints for Claude 3.5 Sonnet, Claude 3.5 Haiku, and Claude 3 Opus",
-          "status": "degraded",
+          "status": "major_outage",
           "uptime90d": 99.5,
           "currentLatencyMs": 142,
           "components": [
@@ -331,7 +331,7 @@
           "providerId": "claude",
           "name": "Claude Code",
           "description": "Agentic command-line developer assistant and IDE tool integration",
-          "status": "degraded",
+          "status": "major_outage",
           "uptime90d": 99.44,
           "currentLatencyMs": 105,
           "components": [
@@ -357,7 +357,7 @@
           "providerId": "claude",
           "name": "Claude Cowork",
           "description": "Real-time collaborative workspaces, multi-user sessions, and team memory",
-          "status": "degraded",
+          "status": "major_outage",
           "uptime90d": 99.43,
           "currentLatencyMs": 115,
           "components": [
@@ -378,7 +378,7 @@
           "providerId": "claude",
           "name": "Claude for Government",
           "description": "FedRAMP High / DoD IL5 compliant isolated federal cloud enclave",
-          "status": "degraded",
+          "status": "major_outage",
           "uptime90d": 100.0,
           "currentLatencyMs": 95,
           "components": [
@@ -1029,7 +1029,7 @@
         "id": "claude-3vbyqgnswwxq",
         "title": "Claude for Microsoft 365 add-in missing for some users",
         "providerId": "claude",
-        "severity": "minor",
+        "severity": "major",
         "status": "investigating",
         "createdAt": "2026-11-24T00:10:40.018Z",
         "updates": [
@@ -1046,17 +1046,42 @@
         ]
       },
       {
+        "id": "cloudflare-x5ma22sji8wi",
+        "title": "Issues with Email Routing in France",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "identified",
+        "createdAt": "2026-11-24T13:38:40.144Z",
+        "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-11-24T14:50:35.525Z",
+            "message": "We are continuing to work on a fix for the issue."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-11-24T13:38:40.144Z",
+            "message": "Cloudflare is investigating issues with Email Routing in France. Some SPF records may intermittently fail to resolve. Impact is restricted to email forwarding functionality and does not affect any connectivity, security, CDN or Area1 functionality, nor does it affect Email Routing outside of France. We are working to mitigate this problem. More updates to follow shortly."
+          }
+        ]
+      },
+      {
         "id": "cloudflare-no721jcnlrbh",
         "title": "Magic Transit Degraded Performance",
         "providerId": "cloudflare",
         "severity": "major",
-        "status": "investigating",
+        "status": "identified",
         "createdAt": "2026-11-24T11:29:22.902Z",
         "updates": [
           {
+            "stage": "identified",
+            "timestamp": "2026-11-24T12:58:11.264Z",
+            "message": "The issue has been identified and a fix is being implemented."
+          },
+          {
             "stage": "investigating",
             "timestamp": "2026-11-24T11:29:22.902Z",
-            "message": "Cloudflare is currently investigating issues related to Magic Transit. Impacted customers may see oversized DF-set inbound packets dropped when clear_dont_fragment_bit is enabled."
+            "message": "Cloudflare is currently investigating issues related to Magic Transit. A subset of Magic Transit customers have a Cloudflare-managed setting enabled that clears the Don't Fragment (DF) flag. For these customers, the setting is not currently taking effect. As a result, packets with the DF flag set and larger than the tunnel MTU may be dropped.\nWe advise customers to set an MSS clamp on their egress traffic in order to ensure ingress traffic is correctly sized."
           }
         ]
       },
@@ -1065,9 +1090,14 @@
         "title": "Cloudflare Workers API \u2013 Delayed or Inconsistent Responses",
         "providerId": "cloudflare",
         "severity": "minor",
-        "status": "identified",
+        "status": "monitoring",
         "createdAt": "2026-11-23T13:52:11.144Z",
         "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-11-24T19:25:51.327Z",
+            "message": "Fixes have been deployed to production and inconsistent reads no longer appear to occurring. Continuing to monitor throughout the remainder of the day."
+          },
           {
             "stage": "identified",
             "timestamp": "2026-11-24T01:28:49.900Z",

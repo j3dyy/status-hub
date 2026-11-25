@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-25T04:33:08Z",
+    "lastUpdated": "2026-11-25T14:54:42Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "claude",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -863,7 +863,7 @@
           "providerId": "cloudflare",
           "name": "Cloudflare Global Network & Edge",
           "description": "Global Edge Network, Cloudflare DNS, Workers & Pages, WAF, and Zero Trust",
-          "status": "major_outage",
+          "status": "degraded",
           "uptime90d": 99.99,
           "currentLatencyMs": 24,
           "components": [
@@ -1026,6 +1026,36 @@
   "incidents": {
     "active": [
       {
+        "id": "openai-01M898HVZGXFV2XC4775CG9GF8",
+        "title": "ChatGPT, ChatGPT Work, and Codex Cloud are experiencing elevated conversation errors",
+        "providerId": "openai",
+        "severity": "minor",
+        "status": "monitoring",
+        "createdAt": "2026-11-25T11:48:13Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-11-25T13:22:34Z",
+            "message": "We have applied mitigations and are seeing recovery across ChatGPT, ChatGPT Work, and Codex cloud threads. We are monitoring the affected services to ensure continued stability. Our investigation into the underlying cause remains ongoing."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-11-25T13:07:14Z",
+            "message": "We are seeing improvements following our mitigations. Some users may continue to experience elevated errors across ChatGPT, ChatGPT Work, and Codex cloud threads. We are continuing to work toward full recovery."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-11-25T11:56:25Z",
+            "message": "We have identified that users are experiencing elevated errors for ChatGPT and ChatGPT Work, as well as cloud Codex threads.\n\nWe have identified the issue and are working on implementing a mitigation."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-11-25T11:48:13Z",
+            "message": "We have identified that users are experiencing elevated errors for the impacted services.\n\nWe are working on implementing a mitigation."
+          }
+        ]
+      },
+      {
         "id": "claude-3vbyqgnswwxq",
         "title": "Claude for Microsoft 365 add-in missing for some users",
         "providerId": "claude",
@@ -1042,26 +1072,6 @@
             "stage": "investigating",
             "timestamp": "2026-11-24T00:10:40.111Z",
             "message": "We are investigating an issue causing the Claude add-in to disappear from Excel, Word, and PowerPoint on Mac for users signed in to Microsoft Office with a personal Microsoft account. Work and school accounts do not appear affected, and Claude's other apps are unaffected. We will provide an update as soon as possible."
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-no721jcnlrbh",
-        "title": "Magic Transit Degraded Performance",
-        "providerId": "cloudflare",
-        "severity": "major",
-        "status": "identified",
-        "createdAt": "2026-11-24T11:29:22.902Z",
-        "updates": [
-          {
-            "stage": "identified",
-            "timestamp": "2026-11-24T12:58:11.264Z",
-            "message": "The issue has been identified and a fix is being implemented."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-24T11:29:22.902Z",
-            "message": "Cloudflare is currently investigating issues related to Magic Transit. A subset of Magic Transit customers have a Cloudflare-managed setting enabled that clears the Don't Fragment (DF) flag. For these customers, the setting is not currently taking effect. As a result, packets with the DF flag set and larger than the tunnel MTU may be dropped.\nWe advise customers to set an MSS clamp on their egress traffic in order to ensure ingress traffic is correctly sized."
           }
         ]
       },

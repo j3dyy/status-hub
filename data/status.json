@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-25T14:54:42Z",
+    "lastUpdated": "2026-11-25T23:29:27Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 4,
+      "activeIncidentsCount": 6,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -69,7 +69,7 @@
       "name": "GitHub",
       "url": "https://www.githubstatus.com",
       "icon": "github",
-      "status": "operational"
+      "status": "degraded"
     },
     {
       "id": "gitlab",
@@ -484,7 +484,7 @@
           "providerId": "github",
           "name": "GitHub Core Services",
           "description": "Git repository operations, Pull Requests, Webhooks and REST/GraphQL APIs",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.99,
           "currentLatencyMs": 85,
           "components": [
@@ -515,7 +515,7 @@
           "providerId": "github",
           "name": "GitHub Compute & Automation",
           "description": "GitHub Actions runners, Codespaces, and GitHub Copilot completions",
-          "status": "operational",
+          "status": "degraded",
           "uptime90d": 99.92,
           "currentLatencyMs": 112,
           "components": [
@@ -1026,32 +1026,42 @@
   "incidents": {
     "active": [
       {
-        "id": "openai-01M898HVZGXFV2XC4775CG9GF8",
-        "title": "ChatGPT, ChatGPT Work, and Codex Cloud are experiencing elevated conversation errors",
+        "id": "openai-01M89RGC3STKK2MT53TXHFMY4H",
+        "title": "Elevated errors with Codex GitHub reviews and pull request merges",
         "providerId": "openai",
         "severity": "minor",
         "status": "monitoring",
-        "createdAt": "2026-11-25T11:48:13Z",
+        "createdAt": "2026-11-25T16:27:02Z",
         "updates": [
           {
             "stage": "monitoring",
-            "timestamp": "2026-11-25T13:22:34Z",
-            "message": "We have applied mitigations and are seeing recovery across ChatGPT, ChatGPT Work, and Codex cloud threads. We are monitoring the affected services to ensure continued stability. Our investigation into the underlying cause remains ongoing."
+            "timestamp": "2026-11-25T16:58:51Z",
+            "message": "GitHub reports that the service disruption affecting pull requests and webhooks has been mitigated. We are monitoring Codex automated pull request reviews and merge operations to confirm recovery and stability."
           },
           {
             "stage": "identified",
-            "timestamp": "2026-11-25T13:07:14Z",
-            "message": "We are seeing improvements following our mitigations. Some users may continue to experience elevated errors across ChatGPT, ChatGPT Work, and Codex cloud threads. We are continuing to work toward full recovery."
+            "timestamp": "2026-11-25T16:27:02Z",
+            "message": "Some Codex users may not receive automated reviews on GitHub pull requests or may encounter errors when merging pull requests from Codex. We have identified these failures as related to a GitHub service disruption. We will provide further updates as more information becomes available."
+          }
+        ]
+      },
+      {
+        "id": "github-m0wvf9pt3l0l",
+        "title": "LFS degradation for some customers",
+        "providerId": "github",
+        "severity": "minor",
+        "status": "investigating",
+        "createdAt": "2026-11-25T23:06:54.830Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-11-25T23:10:38.986Z",
+            "message": "We have identified an issue that impacts Large File Storage (LFS) for a small number of customers. We are working on mitigation."
           },
           {
-            "stage": "identified",
-            "timestamp": "2026-11-25T11:56:25Z",
-            "message": "We have identified that users are experiencing elevated errors for ChatGPT and ChatGPT Work, as well as cloud Codex threads.\n\nWe have identified the issue and are working on implementing a mitigation."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-11-25T11:48:13Z",
-            "message": "We have identified that users are experiencing elevated errors for the impacted services.\n\nWe are working on implementing a mitigation."
+            "stage": "investigating",
+            "timestamp": "2026-11-25T23:06:54.890Z",
+            "message": "We are investigating reports of impacted performance for some GitHub services."
           }
         ]
       },
@@ -1060,9 +1070,14 @@
         "title": "Claude for Microsoft 365 add-in missing for some users",
         "providerId": "claude",
         "severity": "major",
-        "status": "investigating",
+        "status": "identified",
         "createdAt": "2026-11-24T00:10:40.018Z",
         "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-11-25T20:21:12.137Z",
+            "message": "We have identified an issue with an upstream provider that is causing the Claude add-in to disappear from Excel, Word, and PowerPoint on Mac for users signed in to Microsoft Office with a personal Microsoft account. We are in contact with them. In the meantime, we recommend using the web versions of Excel, Word, and PowerPoint at office.com, where Claude remains available for many users. We will provide another update as soon as possible."
+          },
           {
             "stage": "investigating",
             "timestamp": "2026-11-24T01:31:04.494Z",
@@ -1072,6 +1087,31 @@
             "stage": "investigating",
             "timestamp": "2026-11-24T00:10:40.111Z",
             "message": "We are investigating an issue causing the Claude add-in to disappear from Excel, Word, and PowerPoint on Mac for users signed in to Microsoft Office with a personal Microsoft account. Work and school accounts do not appear affected, and Claude's other apps are unaffected. We will provide an update as soon as possible."
+          }
+        ]
+      },
+      {
+        "id": "cloudflare-ef6928vi0mic",
+        "title": "Elevated R2 Latency",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "monitoring",
+        "createdAt": "2026-11-25T20:08:42.535Z",
+        "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-11-25T21:00:59.561Z",
+            "message": "A fix has been implemented and we are monitoring the results."
+          },
+          {
+            "stage": "identified",
+            "timestamp": "2026-11-25T20:45:48.869Z",
+            "message": "The issue has been identified and a fix is being implemented."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-11-25T20:08:42.535Z",
+            "message": "We are currently investigating reports of high latency for R2, Stream, and Pipelines. Users may experience elevated latency while using these services."
           }
         ]
       },

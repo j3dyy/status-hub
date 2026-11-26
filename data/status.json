@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-26T05:23:03Z",
+    "lastUpdated": "2026-11-26T15:35:22Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -27,7 +27,7 @@
       "name": "OpenAI",
       "url": "https://status.openai.com",
       "icon": "cpu",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "claude",
@@ -212,7 +212,7 @@
           "providerId": "openai",
           "name": "OpenAI API Platform",
           "description": "GPT-4o, o1 Reasoning, Embeddings, Audio & Structured Outputs",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.95,
           "currentLatencyMs": 154,
           "components": [
@@ -1026,26 +1026,6 @@
   "incidents": {
     "active": [
       {
-        "id": "openai-01M89RGC3STKK2MT53TXHFMY4H",
-        "title": "Elevated errors with Codex GitHub reviews and pull request merges",
-        "providerId": "openai",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-11-25T16:27:02Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-11-25T16:58:51Z",
-            "message": "GitHub reports that the service disruption affecting pull requests and webhooks has been mitigated. We are monitoring Codex automated pull request reviews and merge operations to confirm recovery and stability."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-11-25T16:27:02Z",
-            "message": "Some Codex users may not receive automated reviews on GitHub pull requests or may encounter errors when merging pull requests from Codex. We have identified these failures as related to a GitHub service disruption. We will provide further updates as more information becomes available."
-          }
-        ]
-      },
-      {
         "id": "claude-3vbyqgnswwxq",
         "title": "Claude for Microsoft 365 add-in missing for some users",
         "providerId": "claude",
@@ -1067,6 +1047,21 @@
             "stage": "investigating",
             "timestamp": "2026-11-24T00:10:40.111Z",
             "message": "We are investigating an issue causing the Claude add-in to disappear from Excel, Word, and PowerPoint on Mac for users signed in to Microsoft Office with a personal Microsoft account. Work and school accounts do not appear affected, and Claude's other apps are unaffected. We will provide an update as soon as possible."
+          }
+        ]
+      },
+      {
+        "id": "cloudflare-filussqshtfq",
+        "title": "AI Gateway \u2013 Elevated errors for Gemini 4 models using Unified Billing",
+        "providerId": "cloudflare",
+        "severity": "minor",
+        "status": "investigating",
+        "createdAt": "2026-11-26T14:19:51.141Z",
+        "updates": [
+          {
+            "stage": "investigating",
+            "timestamp": "2026-11-26T14:19:51.141Z",
+            "message": "Cloudflare is investigating elevated errors affecting AI Gateway requests to Gemini 4 models (gemini-4-argon, gemini-4-carbon, gemini-4-hydrogen, gemini-4-neon) routed through Google Vertex AI with Unified Billing. We are working to understand the full impact and mitigate this problem. More updates to follow shortly."
           }
         ]
       },

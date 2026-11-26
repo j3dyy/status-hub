@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-25T23:29:27Z",
+    "lastUpdated": "2026-11-26T05:23:03Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 6,
+      "activeIncidentsCount": 4,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -69,7 +69,7 @@
       "name": "GitHub",
       "url": "https://www.githubstatus.com",
       "icon": "github",
-      "status": "degraded"
+      "status": "operational"
     },
     {
       "id": "gitlab",
@@ -484,7 +484,7 @@
           "providerId": "github",
           "name": "GitHub Core Services",
           "description": "Git repository operations, Pull Requests, Webhooks and REST/GraphQL APIs",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.99,
           "currentLatencyMs": 85,
           "components": [
@@ -515,7 +515,7 @@
           "providerId": "github",
           "name": "GitHub Compute & Automation",
           "description": "GitHub Actions runners, Codespaces, and GitHub Copilot completions",
-          "status": "degraded",
+          "status": "operational",
           "uptime90d": 99.92,
           "currentLatencyMs": 112,
           "components": [
@@ -1046,26 +1046,6 @@
         ]
       },
       {
-        "id": "github-m0wvf9pt3l0l",
-        "title": "LFS degradation for some customers",
-        "providerId": "github",
-        "severity": "minor",
-        "status": "investigating",
-        "createdAt": "2026-11-25T23:06:54.830Z",
-        "updates": [
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-25T23:10:38.986Z",
-            "message": "We have identified an issue that impacts Large File Storage (LFS) for a small number of customers. We are working on mitigation."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-25T23:06:54.890Z",
-            "message": "We are investigating reports of impacted performance for some GitHub services."
-          }
-        ]
-      },
-      {
         "id": "claude-3vbyqgnswwxq",
         "title": "Claude for Microsoft 365 add-in missing for some users",
         "providerId": "claude",
@@ -1087,31 +1067,6 @@
             "stage": "investigating",
             "timestamp": "2026-11-24T00:10:40.111Z",
             "message": "We are investigating an issue causing the Claude add-in to disappear from Excel, Word, and PowerPoint on Mac for users signed in to Microsoft Office with a personal Microsoft account. Work and school accounts do not appear affected, and Claude's other apps are unaffected. We will provide an update as soon as possible."
-          }
-        ]
-      },
-      {
-        "id": "cloudflare-ef6928vi0mic",
-        "title": "Elevated R2 Latency",
-        "providerId": "cloudflare",
-        "severity": "minor",
-        "status": "monitoring",
-        "createdAt": "2026-11-25T20:08:42.535Z",
-        "updates": [
-          {
-            "stage": "monitoring",
-            "timestamp": "2026-11-25T21:00:59.561Z",
-            "message": "A fix has been implemented and we are monitoring the results."
-          },
-          {
-            "stage": "identified",
-            "timestamp": "2026-11-25T20:45:48.869Z",
-            "message": "The issue has been identified and a fix is being implemented."
-          },
-          {
-            "stage": "investigating",
-            "timestamp": "2026-11-25T20:08:42.535Z",
-            "message": "We are currently investigating reports of high latency for R2, Stream, and Pipelines. Users may experience elevated latency while using these services."
           }
         ]
       },

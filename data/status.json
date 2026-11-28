@@ -7,7 +7,7 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-27T18:12:31Z",
+    "lastUpdated": "2026-11-28T01:29:01Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
@@ -1030,9 +1030,14 @@
         "title": "Claude for Microsoft 365 add-in missing for some users",
         "providerId": "claude",
         "severity": "major",
-        "status": "identified",
+        "status": "monitoring",
         "createdAt": "2026-11-24T00:10:40.018Z",
         "updates": [
+          {
+            "stage": "monitoring",
+            "timestamp": "2026-11-27T19:48:22.149Z",
+            "message": "Our upstream provider has applied a mitigation for the issue that caused the Claude add-in to disappear from Excel, Word, and PowerPoint on Mac for users signed in to Microsoft Office with a personal Microsoft account, and we are monitoring for recovery. If Claude is still missing, try adding it again from Microsoft Marketplace, or use the web versions of Excel, Word, and PowerPoint at office.com, where Claude remains available for many users. We will provide another update as soon as possible."
+          },
           {
             "stage": "identified",
             "timestamp": "2026-11-25T20:21:12.137Z",

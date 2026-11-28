@@ -7,12 +7,12 @@
     "supportUrl": "https://help.example.com",
     "status": "major_outage",
     "statusMessage": "Major Outage Detected Across External Services",
-    "lastUpdated": "2026-11-28T01:29:01Z",
+    "lastUpdated": "2026-11-28T09:22:45Z",
     "refreshIntervalSeconds": 30,
     "currentMetrics": {
       "overallUptime30d": "99.98%",
       "averageLatencyMs": 142,
-      "activeIncidentsCount": 3,
+      "activeIncidentsCount": 4,
       "upcomingMaintenanceCount": 1
     }
   },
@@ -139,7 +139,7 @@
       "name": "Cloudflare",
       "url": "https://www.cloudflarestatus.com",
       "icon": "cloudflare",
-      "status": "degraded"
+      "status": "partial_outage"
     },
     {
       "id": "hetzner",
@@ -863,7 +863,7 @@
           "providerId": "cloudflare",
           "name": "Cloudflare Global Network & Edge",
           "description": "Global Edge Network, Cloudflare DNS, Workers & Pages, WAF, and Zero Trust",
-          "status": "degraded",
+          "status": "major_outage",
           "uptime90d": 99.99,
           "currentLatencyMs": 24,
           "components": [
@@ -1052,6 +1052,31 @@
             "stage": "investigating",
             "timestamp": "2026-11-24T00:10:40.111Z",
             "message": "We are investigating an issue causing the Claude add-in to disappear from Excel, Word, and PowerPoint on Mac for users signed in to Microsoft Office with a personal Microsoft account. Work and school accounts do not appear affected, and Claude's other apps are unaffected. We will provide an update as soon as possible."
+          }
+        ]
+      },
+      {
+        "id": "cloudflare-27xnfvjy0n6j",
+        "title": "Email Delivery Delays",
+        "providerId": "cloudflare",
+        "severity": "critical",
+        "status": "identified",
+        "createdAt": "2026-11-28T07:21:21.338Z",
+        "updates": [
+          {
+            "stage": "identified",
+            "timestamp": "2026-11-28T09:13:48.044Z",
+            "message": "The issue has been identified and a fix is being implemented."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-11-28T08:33:41.761Z",
+            "message": "We are continuing to investigate the issue."
+          },
+          {
+            "stage": "investigating",
+            "timestamp": "2026-11-28T07:21:21.338Z",
+            "message": "Cloudflare is investigating a delay in our ability to send emails. This includes password reset, mFA token emails. We are working to resolve the issue. More updates to follow shortly."
           }
         ]
       },
